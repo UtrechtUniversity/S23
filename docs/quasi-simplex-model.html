@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.1 Quasi-simplex model | S23 Summer School</title>
+  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.1 Quasi-simplex model | S23 Summer School" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.1 Quasi-simplex model | S23 Summer School" />
+  
+  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  
+
+<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="day-4-cross-lagged-relations.html"/>
+<link rel="next" href="clpm-ri-clpm.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Home</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
+<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
+<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
+<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
+<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
+<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
+<li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
+<li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
+<li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html"><i class="fa fa-check"></i><b>4.1</b> Quasi-simplex model</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-a"><i class="fa fa-check"></i><b>4.1.1</b> Exercise A</a></li>
+<li class="chapter" data-level="4.1.2" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-b"><i class="fa fa-check"></i><b>4.1.2</b> Exercise B</a></li>
+<li class="chapter" data-level="4.1.3" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-c"><i class="fa fa-check"></i><b>4.1.3</b> Exercise C</a></li>
+<li class="chapter" data-level="4.1.4" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-d"><i class="fa fa-check"></i><b>4.1.4</b> Exercise D</a></li>
+<li class="chapter" data-level="4.1.5" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-e"><i class="fa fa-check"></i><b>4.1.5</b> Exercise E</a></li>
+<li class="chapter" data-level="4.1.6" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-f"><i class="fa fa-check"></i><b>4.1.6</b> Exercise F</a></li>
+<li class="chapter" data-level="4.1.7" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-g"><i class="fa fa-check"></i><b>4.1.7</b> Exercise G</a></li>
+<li class="chapter" data-level="4.1.8" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-h"><i class="fa fa-check"></i><b>4.1.8</b> Exercise H</a></li>
+<li class="chapter" data-level="4.1.9" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-i"><i class="fa fa-check"></i><b>4.1.9</b> Exercise I</a></li>
+<li class="chapter" data-level="4.1.10" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-j"><i class="fa fa-check"></i><b>4.1.10</b> Exercise J</a></li>
+<li class="chapter" data-level="4.1.11" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-k"><i class="fa fa-check"></i><b>4.1.11</b> Exercise K</a></li>
+<li class="chapter" data-level="4.1.12" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-l"><i class="fa fa-check"></i><b>4.1.12</b> Exercise L</a></li>
+<li class="chapter" data-level="4.1.13" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-m"><i class="fa fa-check"></i><b>4.1.13</b> Exercise M</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html"><i class="fa fa-check"></i><b>4.2</b> CLPM &amp; RI-CLPM</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-a-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise A</a></li>
+<li class="chapter" data-level="4.2.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-b-1"><i class="fa fa-check"></i><b>4.2.2</b> Exercise B</a></li>
+<li class="chapter" data-level="4.2.3" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-c-1"><i class="fa fa-check"></i><b>4.2.3</b> Exercise C</a></li>
+<li class="chapter" data-level="4.2.4" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-d-1"><i class="fa fa-check"></i><b>4.2.4</b> Exercise D</a></li>
+<li class="chapter" data-level="4.2.5" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-e-1"><i class="fa fa-check"></i><b>4.2.5</b> Exercise E</a></li>
+<li class="chapter" data-level="4.2.6" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-f-1"><i class="fa fa-check"></i><b>4.2.6</b> Exercise F</a></li>
+<li class="chapter" data-level="4.2.7" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-g-1"><i class="fa fa-check"></i><b>4.2.7</b> Exercise G</a></li>
+<li class="chapter" data-level="4.2.8" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-h-1"><i class="fa fa-check"></i><b>4.2.8</b> Exercise H</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quasi-simplex-model" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Quasi-simplex model</h2>
+<div id="exercise-a" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Exercise A</h3>
+<p>Provide the names of the variances (i.e., indicate in which model matrix, and which position in this matrix they have) in the quasi-simplex graph on slide 19. What is the difference between the <span class="math inline">\(e\)</span>’s and the <span class="math inline">\(\zeta\)</span>’s?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p><span class="math inline">\(e\)</span>’s are residuals at the measurement level and can be found in the <span class="math inline">\(\theta\)</span>-matrix. They only influence the observation at a single occasion in time.</p>
+<p><span class="math inline">\(\zeta\)</span>’s are residuals of the simplex process and can be found in the <span class="math inline">\(\psi\)</span>-matrix. Their effect is carried forward to future observation through the autoregressive relationships.</p>
+</div>
+<div id="exercise-b" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Exercise B</h3>
+<p>How would you specify the model in Mplus?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Exercise B.inp</code>.</p>
+</div>
+<div id="exercise-c" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Exercise C</h3>
+<p>Determine the number of degrees of freedom for this model (indicate how you obtained this number). Is it possible to estimate this model?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are <span class="math inline">\(\frac{4 \times 5}{2} = 10\)</span> unique elements in <span class="math inline">\(S\)</span>.</p>
+<p>Free parameters:</p>
+<ul>
+<li>4 residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>3 residual factor variances</li>
+<li>3 regression parameters</li>
+<li>11 parameters in total.</li>
+</ul>
+<p>Therefore, we have <span class="math inline">\(10 - 11 = -1\)</span> <em>df</em>. It is not possible to estimate this model because we are trying to estimate more parameters than we have information in the data.
+</p>
+</div>
+<div id="exercise-d" class="section level3" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Exercise D</h3>
+<p>To make sure a quasi-simplex model is identified, often the variances of the measurement errors are constrained to be equal over time. How can you do this in Mplus? How many <em>df</em> does this model have?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Exercise E.inp</code> for how to constrain the measurement error variances over time. With constrained measurment error variances, we estimate 3 parameters less. So, we estimate <span class="math inline">\(11 - 3 = 8\)</span> and therefore have <span class="math inline">\(10 - 8 = 2\)</span> <em>df</em>.</p>
+</div>
+<div id="exercise-e" class="section level3" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Exercise E</h3>
+<p>Run the model and report on the model fit.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>We find the below fit indices:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2}\)</span> = 13.29 with <em>df</em> = 2, <span class="math inline">\(p = .0013\)</span>,</li>
+<li>RMSEA = .057,</li>
+<li>CFI = .994, and</li>
+<li>TLI = .981.</li>
+</ul>
+<p>Except for <span class="math inline">\(\chi^{2}\)</span> test of model fit, the model seems to fit the data well. Note, however, that the sample size is very large and therefore the <span class="math inline">\(\chi^{2}\)</span> is likely to be significant, even for minor problems with model fit.</p>
+</div>
+<div id="exercise-f" class="section level3" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Exercise F</h3>
+<p>The quasi-simplex model you just ran, led to the following warning:</p>
+<div>
+<pre><code>WARNING: THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE
+DEFINITE. THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A
+LATENT VARIABLE, A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO LATENT
+VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE THAN TWO LATENT VARIABLES.
+CHECK THE TECH4 OUTPUT FOR MORE INFORMATION.
+PROBLEM INVOLVING VARIABLE ETA4.</code></pre>
+</div>
+<p>What is the problem?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>In your output, look at the reported (estimated) residual variances. We find that the residual variance of <code>ETA4</code> is estimated to be negative. This is a Heywood case and it is causing the warning to appear. Note however, that it is significant, so ``just" fixing it to 0 as a solution is probably not warrented here.</p>
+</div>
+<div id="exercise-g" class="section level3" number="4.1.7">
+<h3><span class="header-section-number">4.1.7</span> Exercise G</h3>
+<p>As indicated in the description of the data, the third and fourth measurement were obtained at the same measurement wave (with only 40 minutes in between). Hence, the researchers proposed the following model instead of the regular quasi-simplex model. Explain why this model makes more sense for these data than the regular quasi-simplex model. Tip: check the description of the study at the beginning of this exercise.</p>
+<div class="figure">
+<img src="Simplex-adjusted.png" width="400" alt="" />
+<p class="caption">Adjusted quasi-simplex model.</p>
+</div>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>At each occasion there is a latent variable which represents Life Satisfaction. At the first two occasions there was only a single indicator of this latent variable, but at the third occasion there were two indicators.
+</p>
+</div>
+<div id="exercise-h" class="section level3" number="4.1.8">
+<h3><span class="header-section-number">4.1.8</span> Exercise H</h3>
+<p>How many <em>df</em> does this model have? Note that we keep the constraint on the variances of the measurement errors.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are <span class="math inline">\(\frac{4*5}{2} = 10\)</span> unique elements in S. We freely estimate:</p>
+<ul>
+<li>1 constrained residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>2 residual factor variances</li>
+<li>2 regression parameters</li>
+<li>1 factor loading</li>
+<li>7 parameters in total.</li>
+</ul>
+<p>Therefore, we have <span class="math inline">\(10 - 7 = 3\)</span> <em>df</em>.
+</p>
+</div>
+<div id="exercise-i" class="section level3" number="4.1.9">
+<h3><span class="header-section-number">4.1.9</span> Exercise I</h3>
+<p>Are these two models nested? If so, how? If not, why not, and how could we compare them?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Yes, they are nested: this model is a special case of the previous model, as it is based on having <code>ETA3</code> and <code>ETA4</code> from the previous model now being a single latent variable. That is, we can constrain the residual variance of <code>ETA4</code> to zero to get the alternative model. This gives us 1 <em>df</em> for the difference.
+</p>
+</div>
+<div id="exercise-j" class="section level3" number="4.1.10">
+<h3><span class="header-section-number">4.1.10</span> Exercise J</h3>
+<p>Specify this model in Mplus and run it. Report on the model fit.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Excercise J.inp</code> for the model specification in Mplus. Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model fit, the model fits well:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (3) = 27.37\)</span>, with <span class="math inline">\(p &lt; .001\)</span>,</li>
+<li>RMSEA = 0.069,</li>
+<li>CFI = 0.987,</li>
+<li>TLI = 0.973, and</li>
+<li>SRMR = 0.039.</li>
+</ul>
+</div>
+<div id="exercise-k" class="section level3" number="4.1.11">
+<h3><span class="header-section-number">4.1.11</span> Exercise K</h3>
+<p>Compare the two models to each other. What can you conclude?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Comparing both models using the <span class="math inline">\(\Delta \chi^{2}\)</span>-test gives us <span class="math inline">\(27.37 – 13.29 = 14.0\)</span> with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>. This implies that imposing the restriction is not tenable. You can calculate the <em>p</em>-value of the <span class="math inline">\(\Delta \chi^{2}\)</span> using the <code>pchisq()</code>-function in R (with the <code>lower.tail</code> argument set to <code>FALSE</code>), or <a href="http://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html">an online tool</a></p>
+<p>Comparing the models using information criteria gives us AIC = 29593 and BIC = 29637 for the first model, and AIC = 29605 and BIC = 29643 for the second. In conclusion, all measures indicate the first model is better. However, the current model makes more theoretical sense, and the negative variance estimate in the first model is a problem. For these 2 reasons, we should prefer the current model.
+</p>
+</div>
+<div id="exercise-l" class="section level3" number="4.1.12">
+<h3><span class="header-section-number">4.1.12</span> Exercise L</h3>
+<p>Can you improve the second model in any way? Indicate which parameter you would add to your model, and what this parameter represents in substantive terms.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested BY statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the ON statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The WITH statement suggests adding a covariance between the residuals of <code>y3</code> and <code>y4</code>. If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.
+</p>
+</div>
+<div id="exercise-m" class="section level3" number="4.1.13">
+<h3><span class="header-section-number">4.1.13</span> Exercise M</h3>
+<p>Run a model in which you include the <code>Y3 WITH Y4</code> parameter. Where will this relationship end up in the model? Does it lead to a significant improvement? How would you interpret this additional parameter?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (2) = 7.077\)</span>, <span class="math inline">\(p = .0291\)</span>,</li>
+<li>RMSEA = 0.038,</li>
+<li>CFI = 0.997,</li>
+<li>TLI = 0.992, and</li>
+<li>SRMR = 0.011.</li>
+</ul>
+<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>. Note that in the standardized results, the WITH statement can be interpreted as a correlation, and it is quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="day-4-cross-lagged-relations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clpm-ri-clpm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["S23.pdf"],
+"toc": {
+"collapse": "section"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

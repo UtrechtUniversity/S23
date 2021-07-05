@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Preparing for the course | S23 Summer School</title>
+  <title>II CLPM &amp; RI-CLPM | S23 Summer School</title>
   <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta property="og:title" content="II CLPM &amp; RI-CLPM | S23 Summer School" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta name="twitter:title" content="II CLPM &amp; RI-CLPM | S23 Summer School" />
   
   <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="installing-software.html"/>
+<link rel="prev" href="i-quasi-simplex-model.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -226,19 +226,147 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preparing-for-the-course" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Preparing for the course</h1>
-<p>This Chapter helps you prepare for the course. It shows how to install R and RStudio on your computer. We’ll also provide some general information on R, and how you can get help if you get error messages.</p>
-<p>If you’re already using R, all of this might be nothing new for you. You may <strong>skip</strong> this chapter then.</p>
-<p>If you have <strong>never used R before, this Chapter is essential</strong>, as it gives you some input on how R works, and how we can use it for our data analyses.</p>
+<div id="ii-clpm-ri-clpm" class="section level2 unnumbered">
+<h2>II CLPM &amp; RI-CLPM</h2>
+<p>For the cross-lagged panel model (CLPM) and the random intercept cross-lagged panel model (RI-CLPM) we are going to analyze data that were reported in <a href="10.1017/S0954579416000237">Davies, Martin, Coe and Cummings (2016)</a>. The summary data (means, standard deviations and correlation matrix) are included in Davies.dat, and contains the means, standard deviations, and the correlation matrix. The number of observations is 232. There are 5 waves of data, taken when the child was 7, 8, 13, 14, and 15 years old. The order of the variables is:</p>
+<ul>
+<li>Child gender</li>
+<li>Parental education</li>
+<li>Interparental hostility (waves 1-5): composite score based on observational data and questionnaires, reflecting the degree of hostility between the parents</li>
+<li>Interparental dysphoria (waves 1-5): based on composite score based on observational data and questionnaires, reflecting the degree of dysphoria</li>
+<li>Child/adolescent insecurity in the relationship with the parents (waves 1-5)</li>
+<li>Psychological problems (waves 1-5): based on the subscales anxious/depressed, withdrawal, aggressive behaviors, and delinquency scales of the Child Behavior Checklist (CBCL), filled out by both parents.</li>
+</ul>
+<p>Here we will focus on <em>Interparental dysphoria</em> and <em>Psychological problems</em> of the child. The DATA and VARIABLE commands should be:</p>
+<div>
+<pre><code>DATA: 
+  TYPE = MEANS STDEVIATIONS CORRELATION;
+  FILE = Davies.dat;
+  NOBSERVATIONS = 232;
+
+VARIABLE: 
+  NAMES = ChildGen ParentEd
+  Hos1 Hos2 Hos3 Hos4 Hos5 Dys1 Dys2 Dys3 Dys4 Dys5
+  Ins1 Ins2 Ins3 Ins4 Ins5 PsPr1 PsPr2 PsPr3 PsPr4 PsPr5;
+  USEVARIABLES = Dys1-Dys5 PsPr1-PsPr5;</code></pre>
 </div>
+<div id="exercise-a-1" class="section level4 unnumbered">
+<h4>Exercise A</h4>
+<p>How many sample statistics are there for this data set (focusing on the 5 measures of dysphoria and the 5 measures of psychological problems?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are 10 observed variables such that there are <span class="math inline">\(\frac{10*11}{2} = 55\)</span> unique elements in the observed covariance matrix S, and 10 observed means in M. Therefore, there are 55 sample statistics in total.</p>
+</div>
+<div id="exercise-b-1" class="section level4 unnumbered">
+<h4>Exercise B</h4>
+<p>We begin with an RI-CLPM (see slide 53). For now, do not impose any constraints on the parameters across time. Draw the model, and indicate which parameters will be estimated freely. How many parameters will be estimated in total? So how many <em>df</em> are there?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>In the RI-CLPM we estimate:</p>
+<ul>
+<li>2 variances for the random intercepts,</li>
+<li>1 covariance between the random intercepts,</li>
+<li>2 variances for the within-person centered variables at wave 1,</li>
+<li>1 covariance between the within-person centered variables at wave 1,</li>
+<li>8 residual variances (for the dynamic errors of both variables at wave 2-5),</li>
+<li>4 covariances between the residuals (for the dynamics errors at waves 2-5),</li>
+<li>16 lagged parameters (4 for each interval), and</li>
+<li>10 means.</li>
+</ul>
+<p>In total, we estimate 44 parameters such that we have <span class="math inline">\(65 - 44 = 21\)</span> <em>df</em>.
+</p>
+</div>
+<div id="exercise-c-1" class="section level4 unnumbered">
+<h4>Exercise C</h4>
+<p>Run the model. Check whether the number of <em>df</em> is correct. Also look at the TECH1 output, to see if you understand where the free parameters are. What is the model fit?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>The input for this model is in <code>RICLPM.inp</code>. The model means are estimated in the <span class="math inline">\(\nu\)</span>-matrix, no parameters are estimated in the <span class="math inline">\(\theta\)</span>-matrix (measurement error variances), <span class="math inline">\(\lambda\)</span>-matrix (factor loadings), or <span class="math inline">\(\alpha\)</span>-matrix (means/intercepts of the latent variables). The variances and covariance of the random intercepts, the within-person centered variables at wave 1, and the dynamic errors at subsequent waves are all estimated in the <span class="math inline">\(\psi\)</span>-matrix. The lagged regression coefficients are estimated in <span class="math inline">\(\beta\)</span>.</p>
+<p>Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model, all fit indices indicate at least acceptable fit.</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (21) = 41.451\)</span>, <span class="math inline">\(p = .005\)</span>,</li>
+<li>RMSEA = 0.065,</li>
+<li>CFI = 0.979,</li>
+<li>TLI = 0.956, and</li>
+<li>SRMR = 0.029.</li>
+</ul>
+</div>
+<div id="exercise-d-1" class="section level4 unnumbered">
+<h4>Exercise D</h4>
+<p>Include the significant standardized parameter estimates for the covariances (i.e., the WITH statements) and the lagged regression parameters (i.e., the ON statements) in the figure below. Indicate which part of the model is considered the between-person part, and which part is the within-person part.</p>
+<div class="figure">
+<img src="RICLPM-5waves.png" width="500" alt="" />
+<p class="caption">The bivariate random-intercept cross-lagged panel model with 5 repeated measures (waves).</p>
+</div>
+</div>
+<div id="exercise-e-1" class="section level4 unnumbered">
+<h4>Exercise E</h4>
+<p>Omit the random intercepts. How many parameters and <em>df</em> does this model have? What is the model fit?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>The input for this model is <code>CLPMasRICLPM.inp</code>. The model has three parameters less (and thus 3 <em>df</em> more) than the previous model: 2 variances and the covariance for the random intercepts.</p>
+<p>The model fit indices show that this model does not fit well:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (24) = 73.374\)</span>, <span class="math inline">\(p &lt; .001\)</span>,</li>
+<li>RMSEA = 0.094,</li>
+<li>CFI = 0.950,</li>
+<li>TLI = 0.907, and</li>
+<li>SRMR = 0.061.</li>
+</ul>
+</div>
+<div id="exercise-f-1" class="section level4 unnumbered">
+<h4>Exercise F</h4>
+<p>Specify the CLPM and run this model. Compare it to the previous two models. How are these models related?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>The input for this model is in <code>CLPM.inp</code>. This model is statistically identical to the previous model; these are different parameterizations of the same model. The model fit is therefore also exactly the same. Hence, this model is a special case of the RI-CLPM.</p>
+<p>Comparing the two models using a chi-square difference test gives: <span class="math inline">\(\Delta \chi^{2} = 73.37 - 41.45 = 31.92\)</span> with <span class="math inline">\(24 – 21 = 3\)</span> <em>df</em>, <span class="math inline">\(p &lt; .001\)</span>. Hence, the random intercepts should not be omitted; put differently, there are stable, trait-like difference between families in the two variables (parental dysphoria and psychological problems).</p>
+<p>However, when constraints are placed on the bound of the parameter space (which is the case here, fixing a variance to 0 is its absolute minimum value), we should actually use the chi-bar-square test (<span class="math inline">\(\bar{\chi}^{2}\)</span>-test; Stoel et al. 2006). The traditional <span class="math inline">\(\Delta \chi^{2}\)</span>-test does not take into account that variances can only be positive and is therefore conservative. This means that if it is significant, we are certain that the correct test (i.e., the <span class="math inline">\(\bar{\chi}^{2}\)</span> test) would also be significant. On the other hand, when the usual chi‐square test is not significant, we do not know anything about the result of the correct test (it can be significant or not significant).</p>
+<p>If you are working in R with the lavaan-package, you can find more information about the <span class="math inline">\(\bar{\chi}^{2}\)</span>-test at <a href="https://jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar%7Bchi%7D%5E%7B2%7D)-test">jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test</a>. For Mplus users, there is a <a href="https://www.uu.nl/staff/RMKuiper/Websites%20%2F%20Shiny%20apps">Shiny app by Rebecca Kuiper</a> available as well.</p>
+</div>
+<div id="exercise-g-1" class="section level4 unnumbered">
+<h4>Exercise G</h4>
+<p>Include the significant standardized parameter estimates for the covariances and the lagged regression parameters in the figure below.</p>
+<div class="figure">
+<img src="CLPM-5waves.png" width="500" alt="" />
+<p class="caption">The bivariate cross-lagged panel model with 5 repeated measures (waves).</p>
+</div>
+</div>
+<div id="exercise-h-1" class="section level4 unnumbered">
+<h4>Exercise H</h4>
+<p>Discuss how the model results differ.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p><strong>Cross-lagged relationships</strong>
+In the RI-CLPM none of the cross-lagged parameters are significant. In contrast, in the CLPM there is a positive relationship from PsPr1 to Dys2. This implies that higher levels of children’s psychological problems at age 7 are followed by higher levels of interparental dysphoria at age 8. Moreover, from age 14 to 15 both cross-lagged parameters are significant and positive, indicating that psychological problems are followed by increases in interparental dysphoria, but also that increased interparental dysphoria is followed by an increase in psychological problems for the adolescent.</p>
+<p><strong>Autoregressive parameters</strong>
+The autoregressive parameters in the RI-CLPM are lower, and have larger SE’s, such that fewer reach significance. This is expected as within-person stability is now captures in the random intercepts, rather than in the autoregressive effects in the CLPM.</p>
+<p><strong>Correlations</strong>
+In the CLPM only the residual correlation at wave 2 is significant; it is negative, indicating that external effects tend to have an opposite effect on these two processes; increases in Dysphoria are accompanied by decreases in psychological problems and vice versa. In the RI-CLPM, the within-person correlation at wave 1 is not significantly different from zero; however, at waves 2, 3 and 4 the correlations between the residuals is significant and negative. At wave 5 the residual variance is not significant.</p>
+<p>In the RI-CLPM there is also the correlation between the random intercepts (i.e., the trait-like difference between families). This turns out to be a very substantial correlation of .63: Hence, in contrast to the results from the CLPM and the within-level results from the RI-CLPM, there is a strong positive relationship between trait-like levels of interparental dysphoria and trait-like levels of psychological problems.</p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="installing-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="i-quasi-simplex-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

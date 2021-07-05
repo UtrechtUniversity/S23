@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Preparing for the course | S23 Summer School</title>
+  <title>I Quasi-simplex model | S23 Summer School</title>
   <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta property="og:title" content="I Quasi-simplex model | S23 Summer School" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta name="twitter:title" content="I Quasi-simplex model | S23 Summer School" />
   
   <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="installing-software.html"/>
+<link rel="prev" href="s23-day-4.html"/>
+<link rel="next" href="ii-clpm-ri-clpm.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -226,19 +226,195 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preparing-for-the-course" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Preparing for the course</h1>
-<p>This Chapter helps you prepare for the course. It shows how to install R and RStudio on your computer. We’ll also provide some general information on R, and how you can get help if you get error messages.</p>
-<p>If you’re already using R, all of this might be nothing new for you. You may <strong>skip</strong> this chapter then.</p>
-<p>If you have <strong>never used R before, this Chapter is essential</strong>, as it gives you some input on how R works, and how we can use it for our data analyses.</p>
+<div id="i-quasi-simplex-model" class="section level2 unnumbered">
+<h2>I Quasi-simplex model</h2>
+<div id="exercise-a" class="section level4 unnumbered">
+<h4>Exercise A</h4>
+<p>Provide the names of the variances (i.e., indicate in which model matrix, and which position in this matrix they have) in the quasi-simplex graph on slide 19. What is the difference between the <span class="math inline">\(e\)</span>’s and the <span class="math inline">\(\zeta\)</span>’s?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p><span class="math inline">\(e\)</span>’s are residuals at the measurement level and can be found in the <span class="math inline">\(\theta\)</span>-matrix. They only influence the observation at a single occasion in time.</p>
+<p><span class="math inline">\(\zeta\)</span>’s are residuals of the simplex process and can be found in the <span class="math inline">\(\psi\)</span>-matrix. Their effect is carried forward to future observation through the autoregressive relationships.</p>
+</div>
+<div id="exercise-b" class="section level4 unnumbered">
+<h4>Exercise B</h4>
+<p>How would you specify the model in Mplus?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Exercise B.inp</code>.</p>
+</div>
+<div id="exercise-c" class="section level4 unnumbered">
+<h4>Exercise C</h4>
+<p>Determine the number of degrees of freedom for this model (indicate how you obtained this number). Is it possible to estimate this model?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are <span class="math inline">\(\frac{4 \times 5}{2} = 10\)</span> unique elements in <span class="math inline">\(S\)</span>.</p>
+<p>Free parameters:</p>
+<ul>
+<li>4 residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>3 residual factor variances</li>
+<li>3 regression parameters</li>
+<li>11 parameters in total.</li>
+</ul>
+<p>Therefore, we have <span class="math inline">\(10 - 11 = -1\)</span> <em>df</em>. It is not possible to estimate this model because we are trying to estimate more parameters than we have information in the data.
+</p>
+</div>
+<div id="exercise-d" class="section level4 unnumbered">
+<h4>Exercise D</h4>
+<p>To make sure a quasi-simplex model is identified, often the variances of the measurement errors are constrained to be equal over time. How can you do this in Mplus? How many <em>df</em> does this model have?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Exercise E.inp</code> for how to constrain the measurement error variances over time. With constrained measurment error variances, we estimate 3 parameters less. So, we estimate <span class="math inline">\(11 - 3 = 8\)</span> and therefore have <span class="math inline">\(10 - 8 = 2\)</span> <em>df</em>.</p>
+</div>
+<div id="exercise-e" class="section level4 unnumbered">
+<h4>Exercise E</h4>
+<p>Run the model and report on the model fit.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>We find the below fit indices:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2}\)</span> = 13.29 with <em>df</em> = 2, <span class="math inline">\(p = .0013\)</span>,</li>
+<li>RMSEA = .057,</li>
+<li>CFI = .994, and</li>
+<li>TLI = .981.</li>
+</ul>
+<p>Except for <span class="math inline">\(\chi^{2}\)</span> test of model fit, the model seems to fit the data well. Note, however, that the sample size is very large and therefore the <span class="math inline">\(\chi^{2}\)</span> is likely to be significant, even for minor problems with model fit.</p>
+</div>
+<div id="exercise-f" class="section level4 unnumbered">
+<h4>Exercise F</h4>
+<p>The quasi-simplex model you just ran, led to the following warning:</p>
+<div>
+<pre><code>WARNING: THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE
+DEFINITE. THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A
+LATENT VARIABLE, A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO LATENT
+VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE THAN TWO LATENT VARIABLES.
+CHECK THE TECH4 OUTPUT FOR MORE INFORMATION.
+PROBLEM INVOLVING VARIABLE ETA4.</code></pre>
+</div>
+<p>What is the problem?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>In your output, look at the reported (estimated) residual variances. We find that the residual variance of <code>ETA4</code> is estimated to be negative. This is a Heywood case and it is causing the warning to appear. Note however, that it is significant, so ``just" fixing it to 0 as a solution is probably not warrented here.</p>
+</div>
+<div id="exercise-g" class="section level4 unnumbered">
+<h4>Exercise G</h4>
+<p>As indicated in the description of the data, the third and fourth measurement were obtained at the same measurement wave (with only 40 minutes in between). Hence, the researchers proposed the following model instead of the regular quasi-simplex model. Explain why this model makes more sense for these data than the regular quasi-simplex model. Tip: check the description of the study at the beginning of this exercise.</p>
+<div class="figure">
+<img src="Simplex-adjusted.png" width="400" alt="" />
+<p class="caption">Adjusted quasi-simplex model.</p>
+</div>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>At each occasion there is a latent variable which represents Life Satisfaction. At the first two occasions there was only a single indicator of this latent variable, but at the third occasion there were two indicators.
+</p>
+</div>
+<div id="exercise-h" class="section level4 unnumbered">
+<h4>Exercise H</h4>
+<p>How many <em>df</em> does this model have? Note that we keep the constraint on the variances of the measurement errors.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are <span class="math inline">\(\frac{4*5}{2} = 10\)</span> unique elements in S. We freely estimate:</p>
+<ul>
+<li>1 constrained residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>2 residual factor variances</li>
+<li>2 regression parameters</li>
+<li>1 factor loading</li>
+<li>7 parameters in total.</li>
+</ul>
+<p>Therefore, we have <span class="math inline">\(10 - 7 = 3\)</span> <em>df</em>.
+</p>
+</div>
+<div id="exercise-i" class="section level4 unnumbered">
+<h4>Exercise I</h4>
+<p>Are these two models nested? If so, how? If not, why not, and how could we compare them?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Yes, they are nested: this model is a special case of the previous model, as it is based on having <code>ETA3</code> and <code>ETA4</code> from the previous model now being a single latent variable. That is, we can constrain the residual variance of <code>ETA4</code> to zero to get the alternative model. This gives us 1 <em>df</em> for the difference.
+</p>
+</div>
+<div id="exercise-j" class="section level4 unnumbered">
+<h4>Exercise J</h4>
+<p>Specify this model in Mplus and run it. Report on the model fit.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See the Mplus input file <code>Excercise J.inp</code> for the model specification in Mplus. Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model fit, the model fits well:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (3) = 27.37\)</span>, with <span class="math inline">\(p &lt; .001\)</span>,</li>
+<li>RMSEA = 0.069,</li>
+<li>CFI = 0.987,</li>
+<li>TLI = 0.973, and</li>
+<li>SRMR = 0.039.</li>
+</ul>
+</div>
+<div id="exercise-k" class="section level4 unnumbered">
+<h4>Exercise K</h4>
+<p>Compare the two models to each other. What can you conclude?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Comparing both models using the <span class="math inline">\(\Delta \chi^{2}\)</span>-test gives us <span class="math inline">\(27.37 – 13.29 = 14.0\)</span> with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>. This implies that imposing the restriction is not tenable. You can calculate the <em>p</em>-value of the <span class="math inline">\(\Delta \chi^{2}\)</span> using the <code>pchisq()</code>-function in R (with the <code>lower.tail</code> argument set to <code>FALSE</code>), or <a href="http://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html">an online tool</a></p>
+<p>Comparing the models using information criteria gives us AIC = 29593 and BIC = 29637 for the first model, and AIC = 29605 and BIC = 29643 for the second. In conclusion, all measures indicate the first model is better. However, the current model makes more theoretical sense, and the negative variance estimate in the first model is a problem. For these 2 reasons, we should prefer the current model.
+</p>
+</div>
+<div id="exercise-l" class="section level4 unnumbered">
+<h4>Exercise L</h4>
+<p>Can you improve the second model in any way? Indicate which parameter you would add to your model, and what this parameter represents in substantive terms.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested BY statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the ON statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The WITH statement suggests adding a covariance between the residuals of <code>y3</code> and <code>y4</code>. If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.
+</p>
+</div>
+<div id="exercise-m" class="section level4 unnumbered">
+<h4>Exercise M</h4>
+<p>Run a model in which you include the <code>Y3 WITH Y4</code> parameter. Where will this relationship end up in the model? Does it lead to a significant improvement? How would you interpret this additional parameter?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (2) = 7.077\)</span>, <span class="math inline">\(p = .0291\)</span>,</li>
+<li>RMSEA = 0.038,</li>
+<li>CFI = 0.997,</li>
+<li>TLI = 0.992, and</li>
+<li>SRMR = 0.011.</li>
+</ul>
+<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>. Note that in the standardized results, the WITH statement can be interpreted as a correlation, and it is quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.
+</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="installing-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="s23-day-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ii-clpm-ri-clpm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
