@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Preparing for the course | S23 Summer School</title>
+  <title>S23 - Day 4 | S23 Summer School</title>
   <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta property="og:title" content="S23 - Day 4 | S23 Summer School" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Preparing for the course | S23 Summer School" />
+  <meta name="twitter:title" content="S23 - Day 4 | S23 Summer School" />
   
   <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="installing-software.html"/>
+<link rel="prev" href="exercise-2-latent-transition-analysis-lta.html"/>
+<link rel="next" href="i-quasi-simplex-model.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -226,19 +226,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preparing-for-the-course" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Preparing for the course</h1>
-<p>This Chapter helps you prepare for the course. It shows how to install R and RStudio on your computer. We’ll also provide some general information on R, and how you can get help if you get error messages.</p>
-<p>If you’re already using R, all of this might be nothing new for you. You may <strong>skip</strong> this chapter then.</p>
-<p>If you have <strong>never used R before, this Chapter is essential</strong>, as it gives you some input on how R works, and how we can use it for our data analyses.</p>
+<div id="s23---day-4" class="section level1 unnumbered">
+<h1>S23 - Day 4</h1>
+<p>These exercises belong to day 4 of S23, ``Cross-lagged relations". The exercises consist roughly of 2 parts: first we will focus on the quasi-simplex model, and second we will focus on the random intercept cross-lagged panel model.</p>
+<p>For the quasi-simplex model we are going to study the concept of life satisfaction. The covariance matrix is in the file <code>Coenders.dat</code> and comes from 1724 children and adolescents that participated in the <em>National Survey of Child and Adolescent Well-Being</em> (NSCAW) in Russia. They indicated how satisfied they were with their lives as a whole on a 10-point scale (1 = not at all satisfied, 10 = very satisfied). There were three waves (1993, 1994 and 1995). At the third wave, the question was asked twice (with 40 minutes in between). Hence, in total there are four measurements obtained at three waves. The data and variables commands for these data should read:</p>
+<div>
+<pre><code>DATA: 
+  TYPE = COVARIANCE;
+  FILE = Coenders.dat;
+  NOBSERVATIONS = 1724;
+
+VARIABLE: 
+  NAMES = Y1 Y2 Y3 Y4;</code></pre>
+</div>
+<p>The researchers are interested in fitting a quasi-simplex model to these data, that is, a simplex model at the latent level, thus accounting for measurement error in the observations. This model is graphically represented in slide 19. Use the menu on the left to navigate to the exercises. The Mplus input files can found in the Summer School Dropbox-folder (<code>./Dropbox/Lab material - Day 4/S23 - Day 4 - 4MplusInputFiles</code>).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="installing-software.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise-2-latent-transition-analysis-lta.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="i-quasi-simplex-model.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

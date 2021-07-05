@@ -44,9 +44,7 @@ kable(m)
 To install these packages, we use the `install.packages()` function in R. One package after another, our code should look like this:
 
 ```{r, eval=FALSE}
-# Please use the development version of MplusAutomation:
-install.packages("remotes")
-remotes::install_github("cjvanlissa/MplusAutomation")
+install.packages("MplusAutomation")
 install.packages("ggplot2")
 install.packages("tidySEM")
 install.packages("semTools")
