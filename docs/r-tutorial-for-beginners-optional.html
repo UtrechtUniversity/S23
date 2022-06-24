@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 R tutorial for beginners (optional) | S23 Summer School</title>
-  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>4.3 R tutorial for beginners (optional) | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the compute labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 R tutorial for beginners (optional) | S23 Summer School" />
+  <meta property="og:title" content="4.3 R tutorial for beginners (optional) | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta property="og:description" content="Exercises for the compute labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 R tutorial for beginners (optional) | S23 Summer School" />
+  <meta name="twitter:title" content="4.3 R tutorial for beginners (optional) | Utrecht Summer School S23" />
   
-  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="twitter:description" content="Exercises for the compute labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
-<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
 
 
 
@@ -31,9 +30,9 @@
   
   
 <link rel="prev" href="getting-the-course-data.html"/>
-<link rel="next" href="day-2-latent-growth-models.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,13 +48,11 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -142,96 +139,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
-<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<li class="chapter" data-level="1" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>1</b> Day 2: Latent growth curve modeling (LGCM)</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<li class="chapter" data-level="1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>1.1</b> Exercise 1: Burn survivors</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
-<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
-<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+<li class="chapter" data-level="1.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>1.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="1.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>1.1.2</b> Exercise 1b: Adding covariates</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
-<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<li class="chapter" data-level="1.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>1.2</b> Exercise 2: Alcohol use</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>1.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="1.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>1.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="1.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>1.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>1.3</b> Exercise 3: Level and shape parameterization</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>1.3.1</b> Exercise 3a</a></li>
+<li class="chapter" data-level="1.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>1.3.2</b> Exercise 3b</a></li>
+<li class="chapter" data-level="1.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>1.3.3</b> Exercise 3c</a></li>
+<li class="chapter" data-level="1.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>1.3.4</b> Exercise 3d</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<li class="chapter" data-level="1.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>1.4</b> Exercise 4: Latent growth curve model on GPA data</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
-<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
-<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
-<li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
-<li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
-<li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
-<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+<li class="chapter" data-level="1.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>1.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="1.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>1.4.2</b> Exercise 4b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="2" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>2</b> Day 3: Longitudinal mixture modeling</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="2.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Latent growth (mixture) modeling</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
-<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
-<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
-<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
-<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="2.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>2.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="2.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>2.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="2.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>2.1.5</b> Exercise 1e</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<li class="chapter" data-level="2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Latent transition analysis (LTA)</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
-<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
-<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
-<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="2.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>2.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="2.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>2.2.5</b> Exercise 2e</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
+<li class="chapter" data-level="3" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>3</b> Day 4: Cross-lagged relations</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html"><i class="fa fa-check"></i><b>4.1</b> Quasi-simplex model</a>
+<li class="chapter" data-level="3.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html"><i class="fa fa-check"></i><b>3.1</b> Quasi-simplex model</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-a"><i class="fa fa-check"></i><b>4.1.1</b> Exercise A</a></li>
-<li class="chapter" data-level="4.1.2" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-b"><i class="fa fa-check"></i><b>4.1.2</b> Exercise B</a></li>
-<li class="chapter" data-level="4.1.3" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-c"><i class="fa fa-check"></i><b>4.1.3</b> Exercise C</a></li>
-<li class="chapter" data-level="4.1.4" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-d"><i class="fa fa-check"></i><b>4.1.4</b> Exercise D</a></li>
-<li class="chapter" data-level="4.1.5" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-e"><i class="fa fa-check"></i><b>4.1.5</b> Exercise E</a></li>
-<li class="chapter" data-level="4.1.6" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-f"><i class="fa fa-check"></i><b>4.1.6</b> Exercise F</a></li>
-<li class="chapter" data-level="4.1.7" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-g"><i class="fa fa-check"></i><b>4.1.7</b> Exercise G</a></li>
-<li class="chapter" data-level="4.1.8" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-h"><i class="fa fa-check"></i><b>4.1.8</b> Exercise H</a></li>
-<li class="chapter" data-level="4.1.9" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-i"><i class="fa fa-check"></i><b>4.1.9</b> Exercise I</a></li>
-<li class="chapter" data-level="4.1.10" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-j"><i class="fa fa-check"></i><b>4.1.10</b> Exercise J</a></li>
-<li class="chapter" data-level="4.1.11" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-k"><i class="fa fa-check"></i><b>4.1.11</b> Exercise K</a></li>
-<li class="chapter" data-level="4.1.12" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-l"><i class="fa fa-check"></i><b>4.1.12</b> Exercise L</a></li>
-<li class="chapter" data-level="4.1.13" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-m"><i class="fa fa-check"></i><b>4.1.13</b> Exercise M</a></li>
+<li class="chapter" data-level="3.1.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-a"><i class="fa fa-check"></i><b>3.1.1</b> Exercise A</a></li>
+<li class="chapter" data-level="3.1.2" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise B</a></li>
+<li class="chapter" data-level="3.1.3" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-c"><i class="fa fa-check"></i><b>3.1.3</b> Exercise C</a></li>
+<li class="chapter" data-level="3.1.4" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-d"><i class="fa fa-check"></i><b>3.1.4</b> Exercise D</a></li>
+<li class="chapter" data-level="3.1.5" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise E</a></li>
+<li class="chapter" data-level="3.1.6" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-f"><i class="fa fa-check"></i><b>3.1.6</b> Exercise F</a></li>
+<li class="chapter" data-level="3.1.7" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-g"><i class="fa fa-check"></i><b>3.1.7</b> Exercise G</a></li>
+<li class="chapter" data-level="3.1.8" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-h"><i class="fa fa-check"></i><b>3.1.8</b> Exercise H</a></li>
+<li class="chapter" data-level="3.1.9" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-i"><i class="fa fa-check"></i><b>3.1.9</b> Exercise I</a></li>
+<li class="chapter" data-level="3.1.10" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-j"><i class="fa fa-check"></i><b>3.1.10</b> Exercise J</a></li>
+<li class="chapter" data-level="3.1.11" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-k"><i class="fa fa-check"></i><b>3.1.11</b> Exercise K</a></li>
+<li class="chapter" data-level="3.1.12" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-l"><i class="fa fa-check"></i><b>3.1.12</b> Exercise L</a></li>
+<li class="chapter" data-level="3.1.13" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-m"><i class="fa fa-check"></i><b>3.1.13</b> Exercise M</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html"><i class="fa fa-check"></i><b>4.2</b> CLPM &amp; RI-CLPM</a>
+<li class="chapter" data-level="3.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html"><i class="fa fa-check"></i><b>3.2</b> CLPM &amp; RI-CLPM</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-a-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise A</a></li>
-<li class="chapter" data-level="4.2.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-b-1"><i class="fa fa-check"></i><b>4.2.2</b> Exercise B</a></li>
-<li class="chapter" data-level="4.2.3" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-c-1"><i class="fa fa-check"></i><b>4.2.3</b> Exercise C</a></li>
-<li class="chapter" data-level="4.2.4" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-d-1"><i class="fa fa-check"></i><b>4.2.4</b> Exercise D</a></li>
-<li class="chapter" data-level="4.2.5" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-e-1"><i class="fa fa-check"></i><b>4.2.5</b> Exercise E</a></li>
-<li class="chapter" data-level="4.2.6" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-f-1"><i class="fa fa-check"></i><b>4.2.6</b> Exercise F</a></li>
-<li class="chapter" data-level="4.2.7" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-g-1"><i class="fa fa-check"></i><b>4.2.7</b> Exercise G</a></li>
-<li class="chapter" data-level="4.2.8" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-h-1"><i class="fa fa-check"></i><b>4.2.8</b> Exercise H</a></li>
+<li class="chapter" data-level="3.2.1" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-a-1"><i class="fa fa-check"></i><b>3.2.1</b> Exercise A</a></li>
+<li class="chapter" data-level="3.2.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-b-1"><i class="fa fa-check"></i><b>3.2.2</b> Exercise B</a></li>
+<li class="chapter" data-level="3.2.3" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-c-1"><i class="fa fa-check"></i><b>3.2.3</b> Exercise C</a></li>
+<li class="chapter" data-level="3.2.4" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-d-1"><i class="fa fa-check"></i><b>3.2.4</b> Exercise D</a></li>
+<li class="chapter" data-level="3.2.5" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-e-1"><i class="fa fa-check"></i><b>3.2.5</b> Exercise E</a></li>
+<li class="chapter" data-level="3.2.6" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-f-1"><i class="fa fa-check"></i><b>3.2.6</b> Exercise F</a></li>
+<li class="chapter" data-level="3.2.7" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-g-1"><i class="fa fa-check"></i><b>3.2.7</b> Exercise G</a></li>
+<li class="chapter" data-level="3.2.8" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-h-1"><i class="fa fa-check"></i><b>3.2.8</b> Exercise H</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Preparing for the course</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>4.1</b> Installing software</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>4.1.1</b> Installing packages</a></li>
+<li class="chapter" data-level="4.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>4.1.2</b> Get started</a></li>
+<li class="chapter" data-level="4.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>4.1.3</b> Starting a new project in Rstudio</a></li>
+<li class="chapter" data-level="4.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>4.1.4</b> Code conventions</a></li>
+<li class="chapter" data-level="4.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>4.1.5</b> Getting Help</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>4.2</b> Getting the course data</a></li>
+<li class="chapter" data-level="4.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>4.3</b> R tutorial for beginners (optional)</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>4.3.1</b> Who R you?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>4.3.2</b> RStudio</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -243,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
           </h1>
         </div>
 
@@ -251,11 +248,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-tutorial-for-beginners-optional" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> R tutorial for beginners (optional)</h2>
+<div id="r-tutorial-for-beginners-optional" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> R tutorial for beginners (optional)<a href="r-tutorial-for-beginners-optional.html#r-tutorial-for-beginners-optional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Welcome to the world of R! This tutorial is based on the tutorial “R: How to get started” by <a href="https://www.linkedin.com/in/ihnwhi-heo/">Ihnwhi Heo</a>, <a href="https://www.ducoveen.com/">Duco Veen</a>, and <a href="https://www.rensvandeschoot.com/">Rens van de Schoot</a>, and adapted for TCSM.</p>
-<div id="who-r-you" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Who R you?</h3>
+<div id="who-r-you" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Who R you?<a href="r-tutorial-for-beginners-optional.html#who-r-you" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R is…</p>
 <ul>
 <li>Free programming software for statistical computation and graphics</li>
@@ -265,39 +262,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R itself looks a bit old-fashioned and tedious:</p>
 <p><img src="tut_R.jpg" /></p>
 </div>
-<div id="rstudio" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> RStudio</h3>
+<div id="rstudio" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> RStudio<a href="r-tutorial-for-beginners-optional.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Thankfully, we have a great user interface for R, called RStudio!</p>
 <ul>
 <li>RStudio helps users to use and learn R easier</li>
 <li>If you are using RStudio, this means you are using R.</li>
 <li>From now on, all tutorials will go with RStudio.</li>
 </ul>
-<div id="no-pane-no-gain" class="section level4" number="1.3.2.1">
-<h4><span class="header-section-number">1.3.2.1</span> No ‘pane,’ no gain!</h4>
+<div id="no-pane-no-gain" class="section level4 hasAnchor" number="4.3.2.1">
+<h4><span class="header-section-number">4.3.2.1</span> No ‘pane’, no gain!<a href="r-tutorial-for-beginners-optional.html#no-pane-no-gain" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When you open RStudio, the screen may look like this. You may notice that the screen is divided into A ‘panes’ (a pane is a division of a window):</p>
 <p><img src="tut_panes.jpg" /></p>
 <p>Before we explain these three panes - I want you to add the fourth one, which you will see if you open an R script. An R script is like a “new document” in Microsoft Word. When you open an R script, the fourth pane appears.</p>
 </div>
-<div id="create-a-new-r-script" class="section level4" number="1.3.2.2">
-<h4><span class="header-section-number">1.3.2.2</span> Create a new R script</h4>
+<div id="create-a-new-r-script" class="section level4 hasAnchor" number="4.3.2.2">
+<h4><span class="header-section-number">4.3.2.2</span> Create a new R script<a href="r-tutorial-for-beginners-optional.html#create-a-new-r-script" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Click the icon with a plus sign on the paper. Click the icon highlighted by the red square:</p>
 <p><img src="tut_new_file.png" /></p>
 <p>When you click the icon, a new script appears in a fourth pane on the upper left side of the screen</p>
 <p><img src="tut_panes2.jpg" /></p>
-<p>The four panes really help become organized. In RStudio, you can do everything all together on one screen. Thus, four panes make the work efficient (indeed, no ‘pain!’).</p>
+<p>The four panes really help become organized. In RStudio, you can do everything all together on one screen. Thus, four panes make the work efficient (indeed, no ‘pain’!).</p>
 </div>
-<div id="what-do-the-four-panes-do" class="section level4" number="1.3.2.3">
-<h4><span class="header-section-number">1.3.2.3</span> What do the four panes do?</h4>
+<div id="what-do-the-four-panes-do" class="section level4 hasAnchor" number="4.3.2.3">
+<h4><span class="header-section-number">4.3.2.3</span> What do the four panes do?<a href="r-tutorial-for-beginners-optional.html#what-do-the-four-panes-do" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Out of four panes, the two on the left side are the panes you will use a lot.
 <ul>
-<li>Source pane: located at the top left side of the screen. It is also called the “editor,” because this is where we edit scripts. We will usually type our code in the source pane.</li>
+<li>Source pane: located at the top left side of the screen. It is also called the “editor”, because this is where we edit scripts. We will usually type our code in the source pane.</li>
 <li>Console pane: located at the bottom left side of the screen. This panel is for direct communication with R. We can type commands here that are <em>immediately</em> evaluated (whereas a script is only evaluated when we run it). Furthermore, all output of our commands is printed in this console pane.</li>
 </ul></li>
 <li>The panels on the right side of the screen contain various tabs. Among those tabs, it is worth looking at the Environment tab at the upper pane and the Plots tab at the lower pane.
 <ul>
-<li>The Environment tab contains all the ‘objects’ currently loaded in your R session. In SPSS, you can have only one data file open. In R, you can have as many data ‘objects’ as you like. They will be listed here. You can always check what objects are loaded under the environment tab. The environment is also called the ‘workspace.’</li>
+<li>The Environment tab contains all the ‘objects’ currently loaded in your R session. In SPSS, you can have only one data file open. In R, you can have as many data ‘objects’ as you like. They will be listed here. You can always check what objects are loaded under the environment tab. The environment is also called the ‘workspace’.</li>
 <li>The Plots tab shows various graphs and figures we draw. If you click Zoom with the magnifying glass, you can see plots in a bigger size.</li>
 </ul></li>
 </ul>
@@ -311,12 +308,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="getting-the-course-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="day-2-latent-growth-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="getting-the-course-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -356,10 +352,13 @@ gitbook.start({
 "text": null
 },
 "download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
-},
-"search": true
+}
 });
 });
 </script>

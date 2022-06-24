@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 Exercise 2: Alcohol use | S23 Summer School</title>
-  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>2.2 Exercise 2: Alcohol use | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Exercise 2: Alcohol use | S23 Summer School" />
+  <meta property="og:title" content="2.2 Exercise 2: Alcohol use | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Exercise 2: Alcohol use | S23 Summer School" />
+  <meta name="twitter:title" content="2.2 Exercise 2: Alcohol use | Utrecht Summer School S23" />
   
-  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
-<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
 
 
 
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="exercise-1-burn-survivors.html"/>
 <link rel="next" href="exercise-3-level-and-shape-parameterization.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,79 +48,13 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,66 +75,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
-<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<li class="chapter" data-level="1" data-path="day-1-mplus-and-the-lisrel-model.html"><a href="day-1-mplus-and-the-lisrel-model.html"><i class="fa fa-check"></i><b>1</b> Day 1: Mplus and the LISREL model</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html"><i class="fa fa-check"></i>Measurement invariance</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
-<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
-<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-1-configural-invariance"><i class="fa fa-check"></i>Step 1: Configural invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-2-weak-factorial-invariance"><i class="fa fa-check"></i>Step 2: Weak factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-3-strong-factorial-invariance"><i class="fa fa-check"></i>Step 3: Strong factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#alternative-way-of-scaling"><i class="fa fa-check"></i>Alternative way of scaling</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#full-model"><i class="fa fa-check"></i>Full model</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
-<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html"><i class="fa fa-check"></i>Path analysis</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent growth curve modeling (LGCM)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Burn survivors</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Adding covariates</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
-<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
-<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and shape parameterization</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
 <li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
 <li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
 <li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: Latent growth curve model on GPA data</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
-<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Longitudinal mixture modeling</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent growth (mixture) modeling</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
-<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
-<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
-<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
-<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>3.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>3.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>3.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise 1e</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent transition analysis (LTA)</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
-<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
-<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
-<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>3.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>3.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>3.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>3.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>3.2.5</b> Exercise 2e</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
@@ -243,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
           </h1>
         </div>
 
@@ -251,558 +184,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-2-alcohol-use" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Exercise 2: Alcohol use</h2>
-<p>The figure below depicts the basic Latent Growth model for the alcohol use data from Duncan, Duncan &amp; Strycker example 8_1.</p>
+<div id="exercise-2-alcohol-use" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Exercise 2: Alcohol use<a href="exercise-2-alcohol-use.html#exercise-2-alcohol-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The figure below depicts the basic LGCM for the alcohol use data from Duncan, Duncan, and Strycker (2006), example 8_1.</p>
 <div class="figure">
-<img src="Materials/Figure1_lgm_alcohol.png" width="400" alt="" />
-<p class="caption">Latent Growth model for alcohol</p>
+<img src="figures/Duncan-LGCM.png" width="400" alt="" />
+<p class="caption">Latent growth curve model for alcohol use.</p>
 </div>
-<p>The data are in the file <code>DDS8_1.dat</code>, with variables ALC1YR1 ALC1YR2 ALC1YR3 ALCPROB5 AGE1 and
-GENDER1. Missing values are coded as -99. The variable ALCPROB5 is categorical, it indicates alcohol problems in
-year 5 of the study (0=no, 1=yes).</p>
-<p>First, load the file <code>DDS8_1.dat</code> into the R environment. For convenience’s sake, rename the columns of the data object to something a human would understand:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exercise-2-alcohol-use.html#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;DDS8_1.dat&quot;</span>, <span class="at">na.strings =</span> <span class="sc">-</span><span class="dv">99</span>)</span>
-<span id="cb12-2"><a href="exercise-2-alcohol-use.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ALC1YR1&quot;</span>, <span class="st">&quot;ALC1YR2&quot;</span>, <span class="st">&quot;ALC1YR3&quot;</span>,</span>
-<span id="cb12-3"><a href="exercise-2-alcohol-use.html#cb12-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;ALCPROB5&quot;</span>, <span class="st">&quot;AGE1&quot;</span>, <span class="st">&quot;GENDER1&quot;</span>)</span></code></pre></div>
-<p>Now, examine the patterns of missing data. For this, you could use Mplus,
-or in R, you can use the <code>mice</code> package:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exercise-2-alcohol-use.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;mice&quot;</span>)</span>
-<span id="cb13-2"><a href="exercise-2-alcohol-use.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
-<span id="cb13-3"><a href="exercise-2-alcohol-use.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(data)</span></code></pre></div>
-<p><img src="S23_files/figure-html/unnamed-chunk-18-1.png" width="672" /> ALC1YR1 ALCPROB5 AGE1 GENDER1 ALC1YR3 ALC1YR2<br />
-428 1 1 1 1 1 1 0
-13 1 1 1 1 1 0 1
-12 1 1 1 1 0 1 1
-13 1 1 1 1 0 0 2
-0 0 0 0 25 26 51</p>
-<p>The missing data pattern shows that the majority of the cases is complete, there is a small amount of attrition over time (panel dropout).</p>
-<div id="exercise-2a" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Exercise 2a</h3>
-<p>Set up the growth curve model as depicted in the Figure in Mplus.
-As a starting point, use the <code>MplusAutomation</code> code below.</p>
-<ul>
-<li>Add the necessary syntax statements to finalize the syntax.</li>
-<li>Request sample statistics and standardized (STDYX) output.</li>
-<li>Inspect the output carefully with special attention for
-<ol style="list-style-type: decimal">
-<li>how well the model fits</li>
-<li>interpretation of the output; how well does the model predict alcohol use over the
-years?</li>
-</ol></li>
-</ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="exercise-2-alcohol-use.html#cb14-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">mplusObject</span>(</span>
-<span id="cb14-2"><a href="exercise-2-alcohol-use.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TITLE =</span> <span class="st">&quot;LGA MODEL&quot;</span>,</span>
-<span id="cb14-3"><a href="exercise-2-alcohol-use.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">MODEL =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb14-4"><a href="exercise-2-alcohol-use.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">OUTPUT =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb14-5"><a href="exercise-2-alcohol-use.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">rdata =</span> data,</span>
-<span id="cb14-6"><a href="exercise-2-alcohol-use.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">usevariables =</span> <span class="fu">c</span>(<span class="st">&quot;ALC1YR1&quot;</span>, <span class="st">&quot;ALC1YR2&quot;</span>, <span class="st">&quot;ALC1YR3&quot;</span>))</span></code></pre></div>
+<p>The data are in the file <code>DDS8_1.dat</code>, with variables <code>ALC1YR1</code> <code>ALC1YR2</code> <code>ALC1YR3</code> <code>ALCPROB5</code> <code>AGE1</code> and <code>GENDER1</code> (in that order). Missing values are coded as <code>-99</code>. The variable <code>ALCPROB5</code> is categorical, it indicates alcohol problems in year 5 of the study (0 = no, 1 = yes).</p>
+<div id="exercise-2a-specify-a-lgcm" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Exercise 2a: Specify a LGCM<a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Set up the LGCM as depicted in the figure above in Mplus using the <code>|</code> notation (rather than specifying a CFA by using the <code>BY</code> statement). Inspect the output carefully with special attention for a) the pattern of missing values, b) the model fit, and c) the interpretation of the parameter estimates. How well does the model predict alcohol use of the years?</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>Here is an example of how to approach the problem:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="exercise-2-alcohol-use.html#cb15-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">mplusObject</span>(</span>
-<span id="cb15-2"><a href="exercise-2-alcohol-use.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TITLE =</span> <span class="st">&quot;LGA MODEL&quot;</span>,</span>
-<span id="cb15-3"><a href="exercise-2-alcohol-use.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">MODEL =</span> <span class="st">&quot;i s | ALC1YR1@0 ALC1YR2@1 ALC1YR3@2;&quot;</span>,</span>
-<span id="cb15-4"><a href="exercise-2-alcohol-use.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">OUTPUT =</span> <span class="st">&quot;SAMPSTAT standardized;&quot;</span>,</span>
-<span id="cb15-5"><a href="exercise-2-alcohol-use.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">PLOT =</span> <span class="st">&quot;SERIES = ALC1YR1 ALC1YR2 ALC1YR3 (s);</span></span>
-<span id="cb15-6"><a href="exercise-2-alcohol-use.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">            TYPE = PLOT3;&quot;</span>,</span>
-<span id="cb15-7"><a href="exercise-2-alcohol-use.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">rdata =</span> data,</span>
-<span id="cb15-8"><a href="exercise-2-alcohol-use.html#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">usevariables =</span> <span class="fu">c</span>(<span class="st">&quot;ALC1YR1&quot;</span>, <span class="st">&quot;ALC1YR2&quot;</span>, <span class="st">&quot;ALC1YR3&quot;</span>), </span>
-<span id="cb15-9"><a href="exercise-2-alcohol-use.html#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">modelout =</span> <span class="st">&quot;m0.inp&quot;</span>,</span>
-<span id="cb15-10"><a href="exercise-2-alcohol-use.html#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">run =</span> 1L)</span>
-<span id="cb15-11"><a href="exercise-2-alcohol-use.html#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="exercise-2-alcohol-use.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing data patterns:</span></span>
-<span id="cb15-13"><a href="exercise-2-alcohol-use.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">get_data_summary</span>(m0)</span>
-<span id="cb15-14"><a href="exercise-2-alcohol-use.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit</span></span>
-<span id="cb15-15"><a href="exercise-2-alcohol-use.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">SummaryTable</span>(m0, <span class="at">keepCols =</span> <span class="fu">c</span>(<span class="st">&quot;Filename&quot;</span>, <span class="st">&quot;Parameters&quot;</span>, <span class="st">&quot;ChiSqM_Value&quot;</span>, <span class="st">&quot;ChiSqM_DF&quot;</span>, </span>
-<span id="cb15-16"><a href="exercise-2-alcohol-use.html#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ChiSqM_PValue&quot;</span>, <span class="st">&quot;LL&quot;</span>, <span class="st">&quot;CFI&quot;</span>, <span class="st">&quot;TLI&quot;</span>, <span class="st">&quot;RMSEA_Estimate&quot;</span>, <span class="st">&quot;SRMR&quot;</span>))</span>
-<span id="cb15-17"><a href="exercise-2-alcohol-use.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
-<span id="cb15-18"><a href="exercise-2-alcohol-use.html#cb15-18" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tidySEM<span class="sc">::</span><span class="fu">table_results</span>(m0, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb15-19"><a href="exercise-2-alcohol-use.html#cb15-19" aria-hidden="true" tabindex="-1"></a>tab[tab<span class="sc">$</span>paramheader <span class="sc">==</span> <span class="st">&quot;Means&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;label&quot;</span>, <span class="st">&quot;est_sig&quot;</span>, <span class="st">&quot;pval&quot;</span>)]</span></code></pre></div>
-<p>The model fit should be very good, with non-significant chi-square, and good fit according to CFL/TLI. The intercept and slope means indicate
-a relatively high starting point (3.68) and a growth of 0.92 per year. The Intercept and Slope
-show considerable variance, indicating that the starting points and rates of growth differ
-considerably across individuals.</p>
+<p>The input and output file (<code>exercise2A.inp</code> and <code>exercise2A.out</code>) can be found on SURFdrive. The table under <code>PROPORTION OF DATA PRESENT</code> in the output file shows that the majority of the cases is complete, but that there is a small amount of attrition (panel dropout). You can also inspect the coverage matrix to inspect how much information you have for different parts of the model. Regarding model fit, the model fits well overall with the chi-square test of model fit <span class="math inline">\(\chi^{2}(1) = 2.781\)</span>, <span class="math inline">\(p = 0.095\)</span>, and the CFI and TLI above their recommended cutoff points. However, the RMSEA implies some some degree of misfit at <span class="math inline">\(0.062\)</span>. The intercept and slope means indicate a relatively high starting point (3.68, <span class="math inline">\(SE = .081\)</span>) and a growth of 0.92 (<span class="math inline">\(SE = .053\)</span>) per year. The intercept and slope factors show considerable variance, indicating that the starting points and rates of growth differ considerably across individuals. Interestingly, the explained variance <span class="math inline">\(R^{2}\)</span> is high for years 1 and 3, but lower for year 2.</p>
 </div>
-<div id="exercise-2b" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Exercise 2b</h3>
-<p>We will now <em>explore</em> how different predictor variables affect the model fit.
-Include gender and age in the model as predictors of the intercept and slope. Interpret the fit of the model
-and the output.
-Feel free to estimate several models, including or excluding certain covariates.
-Either make a model fit table by hand in a spreadsheet, or use <code>SummaryTable()</code> to request the fit indices you deem to be appropriate.
-Which model do you consider to be best?</p>
-<div id="exploratory-vs-confirmatory-research" class="section level4" number="2.2.2.1">
-<h4><span class="header-section-number">2.2.2.1</span> Exploratory vs confirmatory research</h4>
-<p>Note that when you conduct <em>confirmatory</em> research, and are testing theoretical hypotheses, you should not add and omit paths based on exploratory analyses and model fit.</p>
-<p>It is fine to add and remove paths in <em>exploratory</em> research. Model fit indices, like AIC and BIC, are suitable for selecting well-fitting models in exploratory research. P-values are not designed for variable selection, and using them for that purpose may lead to suboptimal models.</p>
-<p>It is good scientific practice to clearly separate confirmatory and exploratory research. When you conduct exploratory research, you should not perform inference on the resulting parameters based on p-values (because inference generalizes your findings to the population, and exploratory findings tend to be tailored toward this specific sample).
-You should also not present exploratory results as if they were testing a post-hoc theory (“Hypothesizing After the Results are Known,” or HARKing, is a questionable research practice and can lead to false-positive (spurious) findings.</p>
+<div id="exercise-2b-predicting-growth" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Exercise 2b: Predicting growth<a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will now <em>explore</em> how different predictor variables affect the model fit. Include gender and age in the model as predictors of the intercept and slope. Interpret the fit of the model and the output. Feel free to estimate several models, including or excluding certain covariates. Make a model fit table by hand in a spreadsheet, reporting on the fit indices you deem to be appropriate. Which model do you consider to be best?</p>
+<div id="exploratory-vs-confirmatory-research" class="section level4 hasAnchor" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> Exploratory vs confirmatory research<a href="exercise-2-alcohol-use.html#exploratory-vs-confirmatory-research" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Note that when you conduct <em>confirmatory</em> research, and are testing theoretical hypotheses, you should not add and omit paths based on exploratory analyses and model fit. It is fine to add and remove paths in <em>exploratory</em> research. Model fit indices, like AIC and BIC, are suitable for selecting well-fitting models in exploratory research. p-values are not designed for variable selection, and using them for that purpose may lead to sub-optimal models.</p>
+<p>It is good scientific practice to clearly separate confirmatory and exploratory research. When you conduct exploratory research, you should not perform inference on the resulting parameters based on p-values (because inference generalizes your findings to the population, and exploratory findings tend to be tailored toward this specific sample). You should also not present exploratory results as if they were testing a post-hoc theory (also referred to as “Hypothesizing After the Results are Known”, or <em>HARKing</em>). This is a questionable research practice and can lead to false-positive (spurious) findings.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>The answers to Exercise 1a demonstrate how to approach this.
-Estimate multiple slightly different models, put them in a list, and run <code>SummaryTable()</code>.
-Then use the AIC and BIC to identify the best-fitting model,
-and assess how different the model fits are.
-Also consider using RMSEA, CFI, TLI, and SRMR to make sure that your best-fitting
-model has acceptable objective fit.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="exercise-2-alcohol-use.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector with three &quot;additional syntaxes&quot;</span></span>
-<span id="cb16-2"><a href="exercise-2-alcohol-use.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for my three different models</span></span>
-<span id="cb16-3"><a href="exercise-2-alcohol-use.html#cb16-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;i s ON GENDER1;&quot;</span>,</span>
-<span id="cb16-4"><a href="exercise-2-alcohol-use.html#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i s ON AGE1;&quot;</span>,</span>
-<span id="cb16-5"><a href="exercise-2-alcohol-use.html#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i s ON AGE1 GENDER1;&quot;</span>,</span>
-<span id="cb16-6"><a href="exercise-2-alcohol-use.html#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i ON GENDER1;&quot;</span>,</span>
-<span id="cb16-7"><a href="exercise-2-alcohol-use.html#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i ON AGE1;&quot;</span>,</span>
-<span id="cb16-8"><a href="exercise-2-alcohol-use.html#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i ON AGE1 GENDER1;&quot;</span>,</span>
-<span id="cb16-9"><a href="exercise-2-alcohol-use.html#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;s ON GENDER1;&quot;</span>,</span>
-<span id="cb16-10"><a href="exercise-2-alcohol-use.html#cb16-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;s ON AGE1;&quot;</span>,</span>
-<span id="cb16-11"><a href="exercise-2-alcohol-use.html#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;s ON AGE1 GENDER1;&quot;</span>,</span>
-<span id="cb16-12"><a href="exercise-2-alcohol-use.html#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;i WITH s@0;&quot;</span>,</span>
-<span id="cb16-13"><a href="exercise-2-alcohol-use.html#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;!baseline&quot;</span>)</span>
-<span id="cb16-14"><a href="exercise-2-alcohol-use.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list with the additional usevariables</span></span>
-<span id="cb16-15"><a href="exercise-2-alcohol-use.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># used in the three models above</span></span>
-<span id="cb16-16"><a href="exercise-2-alcohol-use.html#cb16-16" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">=</span> <span class="fu">list</span>(<span class="st">&quot;GENDER1&quot;</span>,</span>
-<span id="cb16-17"><a href="exercise-2-alcohol-use.html#cb16-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;AGE1&quot;</span>,</span>
-<span id="cb16-18"><a href="exercise-2-alcohol-use.html#cb16-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">c</span>(<span class="st">&quot;GENDER1&quot;</span>, <span class="st">&quot;AGE1&quot;</span>),</span>
-<span id="cb16-19"><a href="exercise-2-alcohol-use.html#cb16-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;GENDER1&quot;</span>,</span>
-<span id="cb16-20"><a href="exercise-2-alcohol-use.html#cb16-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;AGE1&quot;</span>,</span>
-<span id="cb16-21"><a href="exercise-2-alcohol-use.html#cb16-21" aria-hidden="true" tabindex="-1"></a>            <span class="fu">c</span>(<span class="st">&quot;GENDER1&quot;</span>, <span class="st">&quot;AGE1&quot;</span>),</span>
-<span id="cb16-22"><a href="exercise-2-alcohol-use.html#cb16-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;GENDER1&quot;</span>,</span>
-<span id="cb16-23"><a href="exercise-2-alcohol-use.html#cb16-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;AGE1&quot;</span>,</span>
-<span id="cb16-24"><a href="exercise-2-alcohol-use.html#cb16-24" aria-hidden="true" tabindex="-1"></a>            <span class="fu">c</span>(<span class="st">&quot;GENDER1&quot;</span>, <span class="st">&quot;AGE1&quot;</span>),</span>
-<span id="cb16-25"><a href="exercise-2-alcohol-use.html#cb16-25" aria-hidden="true" tabindex="-1"></a>            <span class="cn">NULL</span>,</span>
-<span id="cb16-26"><a href="exercise-2-alcohol-use.html#cb16-26" aria-hidden="true" tabindex="-1"></a>            <span class="cn">NULL</span>)</span>
-<span id="cb16-27"><a href="exercise-2-alcohol-use.html#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a list of exploratory models by modifying m0</span></span>
-<span id="cb16-28"><a href="exercise-2-alcohol-use.html#cb16-28" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(mod), <span class="cf">function</span>(i){</span>
-<span id="cb16-29"><a href="exercise-2-alcohol-use.html#cb16-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># append element i of mod</span></span>
-<span id="cb16-30"><a href="exercise-2-alcohol-use.html#cb16-30" aria-hidden="true" tabindex="-1"></a>  m0<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(m0<span class="sc">$</span>MODEL, mod[i]) </span>
-<span id="cb16-31"><a href="exercise-2-alcohol-use.html#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># append element i of vars</span></span>
-<span id="cb16-32"><a href="exercise-2-alcohol-use.html#cb16-32" aria-hidden="true" tabindex="-1"></a>  m0<span class="sc">$</span>usevariables <span class="ot">&lt;-</span> <span class="fu">c</span>(m0<span class="sc">$</span>usevariables, vars[[i]])</span>
-<span id="cb16-33"><a href="exercise-2-alcohol-use.html#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add unique filename</span></span>
-<span id="cb16-34"><a href="exercise-2-alcohol-use.html#cb16-34" aria-hidden="true" tabindex="-1"></a>  m0<span class="sc">$</span>modelout <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;Model&quot;</span>, i, <span class="st">&quot;.inp&quot;</span>) </span>
-<span id="cb16-35"><a href="exercise-2-alcohol-use.html#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return the modified model</span></span>
-<span id="cb16-36"><a href="exercise-2-alcohol-use.html#cb16-36" aria-hidden="true" tabindex="-1"></a>  m0 </span>
-<span id="cb16-37"><a href="exercise-2-alcohol-use.html#cb16-37" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb16-38"><a href="exercise-2-alcohol-use.html#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all models and store results in a list called results</span></span>
-<span id="cb16-39"><a href="exercise-2-alcohol-use.html#cb16-39" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(models, mplusModeler, <span class="at">run =</span> 1L)</span>
-<span id="cb16-40"><a href="exercise-2-alcohol-use.html#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Get summary table and store it in &#39;tab&#39;</span></span>
-<span id="cb16-41"><a href="exercise-2-alcohol-use.html#cb16-41" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">SummaryTable</span>(results, </span>
-<span id="cb16-42"><a href="exercise-2-alcohol-use.html#cb16-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">keepCols =</span> <span class="fu">c</span>(<span class="st">&quot;Parameters&quot;</span>, <span class="st">&quot;AIC&quot;</span>, <span class="st">&quot;BIC&quot;</span>,</span>
-<span id="cb16-43"><a href="exercise-2-alcohol-use.html#cb16-43" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;RMSEA_Estimate&quot;</span>, <span class="st">&quot;CFI&quot;</span>,</span>
-<span id="cb16-44"><a href="exercise-2-alcohol-use.html#cb16-44" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&quot;TLI&quot;</span>, <span class="st">&quot;SRMR&quot;</span>),</span>
-<span id="cb16-45"><a href="exercise-2-alcohol-use.html#cb16-45" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sortBy =</span> <span class="cn">NULL</span>)</span>
-<span id="cb16-46"><a href="exercise-2-alcohol-use.html#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Order by BIC</span></span>
-<span id="cb16-47"><a href="exercise-2-alcohol-use.html#cb16-47" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tab[<span class="fu">order</span>(tab<span class="sc">$</span>BIC), ]</span>
-<span id="cb16-48"><a href="exercise-2-alcohol-use.html#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Add model syntax to the table</span></span>
-<span id="cb16-49"><a href="exercise-2-alcohol-use.html#cb16-49" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">Model =</span> mod, tab)</span>
-<span id="cb16-50"><a href="exercise-2-alcohol-use.html#cb16-50" aria-hidden="true" tabindex="-1"></a>tab</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Model
-</th>
-<th style="text-align:right;">
-Parameters
-</th>
-<th style="text-align:right;">
-AIC
-</th>
-<th style="text-align:right;">
-BIC
-</th>
-<th style="text-align:right;">
-RMSEA_Estimate
-</th>
-<th style="text-align:right;">
-CFI
-</th>
-<th style="text-align:right;">
-TLI
-</th>
-<th style="text-align:right;">
-SRMR
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-i s ON GENDER1;
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-5129
-</td>
-<td style="text-align:right;">
-5178
-</td>
-<td style="text-align:right;">
-0.03
-</td>
-<td style="text-align:right;">
-0.99
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i s ON AGE1;
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-5140
-</td>
-<td style="text-align:right;">
-5181
-</td>
-<td style="text-align:right;">
-0.03
-</td>
-<td style="text-align:right;">
-1.00
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i s ON AGE1 GENDER1;
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-5166
-</td>
-<td style="text-align:right;">
-5204
-</td>
-<td style="text-align:right;">
-0.12
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-0.71
-</td>
-<td style="text-align:right;">
-0.07
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i ON GENDER1;
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5176
-</td>
-<td style="text-align:right;">
-5209
-</td>
-<td style="text-align:right;">
-0.06
-</td>
-<td style="text-align:right;">
-0.99
-</td>
-<td style="text-align:right;">
-0.97
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i ON AGE1;
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-5168
-</td>
-<td style="text-align:right;">
-5209
-</td>
-<td style="text-align:right;">
-0.05
-</td>
-<td style="text-align:right;">
-0.99
-</td>
-<td style="text-align:right;">
-0.96
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i ON AGE1 GENDER1;
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5179
-</td>
-<td style="text-align:right;">
-5212
-</td>
-<td style="text-align:right;">
-0.15
-</td>
-<td style="text-align:right;">
-0.80
-</td>
-<td style="text-align:right;">
-0.69
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-s ON GENDER1;
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-5199
-</td>
-<td style="text-align:right;">
-5237
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.66
-</td>
-<td style="text-align:right;">
-0.48
-</td>
-<td style="text-align:right;">
-0.10
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-s ON AGE1;
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5207
-</td>
-<td style="text-align:right;">
-5240
-</td>
-<td style="text-align:right;">
-0.15
-</td>
-<td style="text-align:right;">
-0.76
-</td>
-<td style="text-align:right;">
-0.63
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-s ON AGE1 GENDER1;
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5208
-</td>
-<td style="text-align:right;">
-5241
-</td>
-<td style="text-align:right;">
-0.20
-</td>
-<td style="text-align:right;">
-0.66
-</td>
-<td style="text-align:right;">
-0.48
-</td>
-<td style="text-align:right;">
-0.11
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-i WITH <a href="mailto:s@0" class="email">s@0</a>;
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5211
-</td>
-<td style="text-align:right;">
-5244
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.74
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-!baseline
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-5217
-</td>
-<td style="text-align:right;">
-5246
-</td>
-<td style="text-align:right;">
-0.22
-</td>
-<td style="text-align:right;">
-0.74
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-0.09
-</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="exercise-2-alcohol-use.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the BICs and annotate with the syntax to see which is best</span></span>
-<span id="cb17-2"><a href="exercise-2-alcohol-use.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-3"><a href="exercise-2-alcohol-use.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="at">y =</span> tab<span class="sc">$</span>BIC) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="exercise-2-alcohol-use.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb17-5"><a href="exercise-2-alcohol-use.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">label =</span> tab<span class="sc">$</span>Model, <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="S23_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-<p>It looks like, paradoxically, predicting I and S from either age or gender
-has the best fit. However, note that there is only a small difference between
-the smallest and the largest BIC: 67.36.
-I would either go for the simplest model (i WITH <a href="mailto:s@0" class="email">s@0</a>), or go for the
-best-fitting model (i s ON GENDER1).</p>
-<p>Note that the covariance
-between intercept and slope disappears from the model when you add predictors, as
-this turns it into a covariance
-between a latent variable and a residual. Mplus automatically constrains these to zero.
-If we add the statement I WITH S to the model, we obtain a good fit with significant effects of both gender and age on the intercept.
-NOTE: This illustrates the importance of checking the output carefully to find out if Mplus is
-actually doing what you think it does!</p>
+<p>The files <code>exercise2B_M1.inp</code>, <code>exercise2B_M2.inp</code>, and <code>exercise2B_M3.inp</code>, on SURFdrive contain various models in which we predict the growth components using <code>AGE1</code> and <code>GENDER1</code>. The model fit remains excellent. After removing non-significant paths from <code>exercise2B_M1.inp</code> (order based on magnitude of standardized effect size), gender and age only predict the starting point but not the slope. However, after having removed the effect of gender and age on the slope, the model suddenly fits very badly (<code>exercise2B_M2.inp</code>). Careful inspection of the output shows that the covariance between intercept and slope has disappeared from the model (it is now the covariance between a latent variable and a residual, Mplus automatically puts these at zero). Mplus automatically constrains these to zero. If we add the statement <code>I WITH S</code> to the model, we obtain a good fit with significant effects of both gender and age on the intercept (<code>exercise2B_M3.inp</code>). This illustrates the importance of checking the output carefully to find out if Mplus is actually doing what you think it does!</p>
 </div>
 </div>
-<div id="exercise-2c" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Exercise 2c</h3>
-<p>Include alcohol problems in year 5 in the model: let the intercept and slope factors predict alcohol problems year 5. Declare the variable as categorical in the variable section (CATEGORICAL = ALCPROB5).
-Inspect if the effect of age and gender on alcohol problems year 5 is completely mediated by the growth
-factors, or if there are additional direct paths from age and gender on the alcohol problems.</p>
+<div id="exercise-2c-categorical-distal-outcome" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Exercise 2c: Categorical distal outcome<a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Include alcohol problems in year 5 in the model. Let the intercept and slope factors predict alcohol problems in year 5. Declare the variable as categorical in the variable section (<code>CATEGORICAL = ALCPROB5</code>). Inspect if the effect of age and gender on alcohol problems year 5 is completely mediated by the growth factors, or if there are additional direct paths from age and gender on the alcohol problems.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>The model fit is still good. Note that after adding a categorical dependent variable to the
-model, Mplus switches to a robust estimator (MLR). Both intercept and slope predict alcohol problems. Age also predicts alcohol problems directly. Since age
-predicts alcohol problems both directly and via the intercept, a mediation analysis is in
-order. This shows that the indirect effect of age via the intercept on alcohol problems is still
-significant when the direct effect is added to the model.</p>
-<p>To test whether there is full mediation or not, we may want to test whether the direct
-effects are equal to zero or not.</p>
-<p>If the analysis had not included a categorical dependent variable,
-then we would have been able to compute the difference test using the <code>tidySEM</code>
-function <code>chisq_sb(SummaryTable(keepCols = NULL))</code>.</p>
-<p>However, in the presence of a categorical dependent variable, we must use Mplus’
-option <code>difftest</code>.</p>
-<p>Again, we can start from m0:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="exercise-2-alcohol-use.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify model with only indirect effects</span></span>
-<span id="cb18-2"><a href="exercise-2-alcohol-use.html#cb18-2" aria-hidden="true" tabindex="-1"></a>m2c_indirect <span class="ot">&lt;-</span> m0</span>
-<span id="cb18-3"><a href="exercise-2-alcohol-use.html#cb18-3" aria-hidden="true" tabindex="-1"></a>m2c_indirect<span class="sc">$</span>usevariables <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb18-4"><a href="exercise-2-alcohol-use.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  m2c_indirect<span class="sc">$</span>usevariables,</span>
-<span id="cb18-5"><a href="exercise-2-alcohol-use.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;AGE1&quot;</span>, <span class="st">&quot;GENDER1&quot;</span>, <span class="st">&quot;ALCPROB5&quot;</span>)</span>
-<span id="cb18-6"><a href="exercise-2-alcohol-use.html#cb18-6" aria-hidden="true" tabindex="-1"></a>m2c_indirect<span class="sc">$</span>VARIABLE <span class="ot">&lt;-</span> <span class="st">&quot;CATEGORICAL = ALCPROB5;&quot;</span></span>
-<span id="cb18-7"><a href="exercise-2-alcohol-use.html#cb18-7" aria-hidden="true" tabindex="-1"></a>m2c_indirect<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
-<span id="cb18-8"><a href="exercise-2-alcohol-use.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  m0<span class="sc">$</span>MODEL,</span>
-<span id="cb18-9"><a href="exercise-2-alcohol-use.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;i on AGE1 GENDER1;</span></span>
-<span id="cb18-10"><a href="exercise-2-alcohol-use.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="st">  i WITH s;</span></span>
-<span id="cb18-11"><a href="exercise-2-alcohol-use.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="st">  ALCPROB5 on i s;</span></span>
-<span id="cb18-12"><a href="exercise-2-alcohol-use.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="st">  ALCPROB5 on AGE1 GENDER1;&quot;</span>)</span>
-<span id="cb18-13"><a href="exercise-2-alcohol-use.html#cb18-13" aria-hidden="true" tabindex="-1"></a>m2c_indirect<span class="sc">$</span>SAVEDATA <span class="ot">&lt;-</span> <span class="st">&quot;difftest is mediation.dat;&quot;</span></span>
-<span id="cb18-14"><a href="exercise-2-alcohol-use.html#cb18-14" aria-hidden="true" tabindex="-1"></a>m2c_indirect<span class="sc">$</span>modelout <span class="ot">&lt;-</span> <span class="st">&quot;m2c_indirect.inp&quot;</span></span>
-<span id="cb18-15"><a href="exercise-2-alcohol-use.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all models and store results in a list called results</span></span>
-<span id="cb18-16"><a href="exercise-2-alcohol-use.html#cb18-16" aria-hidden="true" tabindex="-1"></a>result_ind <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m2c_indirect, <span class="at">run =</span> 1L)</span>
-<span id="cb18-17"><a href="exercise-2-alcohol-use.html#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="exercise-2-alcohol-use.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify model with direct effects too</span></span>
-<span id="cb18-19"><a href="exercise-2-alcohol-use.html#cb18-19" aria-hidden="true" tabindex="-1"></a>m2c_direct <span class="ot">&lt;-</span> m2c_indirect</span>
-<span id="cb18-20"><a href="exercise-2-alcohol-use.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Constrain direct effects to 0 using gsub (replace)</span></span>
-<span id="cb18-21"><a href="exercise-2-alcohol-use.html#cb18-21" aria-hidden="true" tabindex="-1"></a>m2c_direct<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;ALCPROB5 on AGE1 GENDER1;&quot;</span>,</span>
-<span id="cb18-22"><a href="exercise-2-alcohol-use.html#cb18-22" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;ALCPROB5 on AGE1 GENDER1@0;&quot;</span>,</span>
-<span id="cb18-23"><a href="exercise-2-alcohol-use.html#cb18-23" aria-hidden="true" tabindex="-1"></a>                         m2c_direct<span class="sc">$</span>MODEL,</span>
-<span id="cb18-24"><a href="exercise-2-alcohol-use.html#cb18-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-25"><a href="exercise-2-alcohol-use.html#cb18-25" aria-hidden="true" tabindex="-1"></a>m2c_direct<span class="sc">$</span>ANALYSIS <span class="ot">&lt;-</span> <span class="st">&quot;difftest = mediation.dat;&quot;</span> </span>
-<span id="cb18-26"><a href="exercise-2-alcohol-use.html#cb18-26" aria-hidden="true" tabindex="-1"></a>m2c_direct<span class="sc">$</span>modelout <span class="ot">&lt;-</span> <span class="st">&quot;m2c_direct.inp&quot;</span></span>
-<span id="cb18-27"><a href="exercise-2-alcohol-use.html#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the direct model, which includes the difference test</span></span>
-<span id="cb18-28"><a href="exercise-2-alcohol-use.html#cb18-28" aria-hidden="true" tabindex="-1"></a>result_dir <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m2c_direct, <span class="at">run =</span> 1L)</span>
-<span id="cb18-29"><a href="exercise-2-alcohol-use.html#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the model summaries</span></span>
-<span id="cb18-30"><a href="exercise-2-alcohol-use.html#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summaries</span>(result_dir)</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Mplus.version"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["AnalysisType"],"name":[3],"type":["chr"],"align":["left"]},{"label":["DataType"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Estimator"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Observations"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["NGroups"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["NDependentVars"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["NIndependentVars"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["NContinuousLatentVars"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Parameters"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_Value"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_DF"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_PValue"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_Value"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_DF"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_PValue"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["ChiSqDiffTest_Value"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["ChiSqDiffTest_DF"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["ChiSqDiffTest_PValue"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["CFI"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["TLI"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["RMSEA_Estimate"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["RMSEA_90CI_LB"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["RMSEA_90CI_UB"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["RMSEA_pLT05"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["SRMR"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Filename"],"name":[28],"type":["chr"],"align":["left"]}],"data":[{"1":"8.6","2":"LGA MODEL","3":"GENERAL","4":"INDIVIDUAL","5":"WLSMV","6":"466","7":"1","8":"4","9":"2","10":"2","11":"14","12":"5.1","13":"7","14":"0.64","15":"215","16":"14","17":"0","18":"0.21","19":"1","20":"0.64","21":"1","22":"1","23":"0","24":"0","25":"0.047","26":"0.96","27":"0.057","28":"m2c_direct.out"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>Note that the ChiSqDiffTest_PValue is non-significant, which means we can
-prefer the simpler (no direct effects) model. There is full mediation.</p>
-<p>Let’s use a graph to examine the unconstrained model too:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="exercise-2-alcohol-use.html#cb19-1" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">get_layout</span>(<span class="st">&quot;AGE1&quot;</span>,    <span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>,</span>
-<span id="cb19-2"><a href="exercise-2-alcohol-use.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;&quot;</span>,        <span class="st">&quot;I&quot;</span>,  <span class="st">&quot;ALCPROB5&quot;</span>,</span>
-<span id="cb19-3"><a href="exercise-2-alcohol-use.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;GENDER1&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="at">rows =</span> <span class="dv">3</span>)</span>
-<span id="cb19-4"><a href="exercise-2-alcohol-use.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">graph_sem</span>(result_ind, <span class="at">layout =</span> lo)</span></code></pre></div>
-<p><img src="S23_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>The model fit is still good. Note that after adding a categorical dependent variable to the model, Mplus switches to a robust estimator (MLR, and the exact type of regression the Mplus uses now is a logit regression). Both intercept and slope predict alcohol problems (see <code>exercise2c_M1.inp</code> on SURFdrive). Age also predicts alcohol problems directly (see <code>exercise2c_M2.inp</code> on SURFdrive). Since age predicts alcohol problems both directly and via the intercept, a mediation analysis is in order. This shows that the indirect effect of age via the intercept on alcohol problems is still significant when the direct effect is added to the model.</p>
 </div>
 </div>
             </section>
@@ -815,7 +235,6 @@ prefer the simpler (no direct effects) model. There is full mediation.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -855,10 +274,13 @@ gitbook.start({
 "text": null
 },
 "download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
-},
-"search": true
+}
 });
 });
 </script>

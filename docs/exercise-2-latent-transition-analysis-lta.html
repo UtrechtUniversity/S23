@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Exercise 2: Latent Transition Analysis (LTA) | S23 Summer School</title>
-  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>3.2 Exercise 2: Latent transition analysis (LTA) | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Exercise 2: Latent Transition Analysis (LTA) | S23 Summer School" />
+  <meta property="og:title" content="3.2 Exercise 2: Latent transition analysis (LTA) | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Exercise 2: Latent Transition Analysis (LTA) | S23 Summer School" />
+  <meta name="twitter:title" content="3.2 Exercise 2: Latent transition analysis (LTA) | Utrecht Summer School S23" />
   
-  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
-<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
 
 
 
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="exercise-1-latent-growth-mixture-modeling.html"/>
 <link rel="next" href="day-4-cross-lagged-relations.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,79 +48,13 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,66 +75,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
-<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<li class="chapter" data-level="1" data-path="day-1-mplus-and-the-lisrel-model.html"><a href="day-1-mplus-and-the-lisrel-model.html"><i class="fa fa-check"></i><b>1</b> Day 1: Mplus and the LISREL model</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html"><i class="fa fa-check"></i>Measurement invariance</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
-<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
-<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-1-configural-invariance"><i class="fa fa-check"></i>Step 1: Configural invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-2-weak-factorial-invariance"><i class="fa fa-check"></i>Step 2: Weak factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-3-strong-factorial-invariance"><i class="fa fa-check"></i>Step 3: Strong factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#alternative-way-of-scaling"><i class="fa fa-check"></i>Alternative way of scaling</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#full-model"><i class="fa fa-check"></i>Full model</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
-<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html"><i class="fa fa-check"></i>Path analysis</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent growth curve modeling (LGCM)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Burn survivors</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Adding covariates</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
-<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
-<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and shape parameterization</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
 <li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
 <li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
 <li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: Latent growth curve model on GPA data</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
-<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Longitudinal mixture modeling</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent growth (mixture) modeling</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
-<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
-<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
-<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
-<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>3.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>3.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>3.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise 1e</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent transition analysis (LTA)</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
-<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
-<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
-<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>3.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>3.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>3.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>3.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>3.2.5</b> Exercise 2e</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
@@ -243,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
           </h1>
         </div>
 
@@ -251,559 +184,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-2-latent-transition-analysis-lta" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Exercise 2: Latent Transition Analysis (LTA)</h2>
-<div id="a.-latent-transition-analysis-with-probability-parameterization" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> 2a. Latent transition analysis with probability parameterization</h3>
-<p>The file DatingSex.dat holds data on five indicators measured at two occasions (see MPlus example on LTA in user guide), as well as the variable gender. Read the file into memory, and name the variables:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb38-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;DatingSex.dat&quot;</span>, <span class="at">na.strings =</span> <span class="sc">-</span><span class="dv">99</span>)</span>
-<span id="cb38-2"><a href="exercise-2-latent-transition-analysis-lta.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;u11&quot;</span>, <span class="st">&quot;u12&quot;</span>, <span class="st">&quot;u13&quot;</span>, <span class="st">&quot;u14&quot;</span>, <span class="st">&quot;u15&quot;</span>, </span>
-<span id="cb38-3"><a href="exercise-2-latent-transition-analysis-lta.html#cb38-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;u21&quot;</span>, <span class="st">&quot;u22&quot;</span>, <span class="st">&quot;u23&quot;</span>, <span class="st">&quot;u24&quot;</span>, <span class="st">&quot;u25&quot;</span>, </span>
-<span id="cb38-4"><a href="exercise-2-latent-transition-analysis-lta.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;gender&quot;</span>)</span></code></pre></div>
-<p>The u-variables represent five yes/no items (second digit represents the item) measured at two time points (first digit represents time point). Set up a model with two latent class variables for the two time points. Exclude the variable gender for now. Assume there are 2 latent classes.</p>
-<p>Set up and run a model that restricts the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each Latent Class (2), in both Model C1: and Model C2. To be sure Mplus does what you want, include equality constraints on the five thresholds of c1#1 and c2#1, and similarly for c1#2 and c2#2. Use the lecture slides for help in specifying the model. Check the Mplus input files manually.</p>
-<p>Using MplusAutomation, the model can be specified as follows:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-1" aria-hidden="true" tabindex="-1"></a>results_2a <span class="ot">&lt;-</span></span>
-<span id="cb39-2"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">createMixtures</span>(</span>
-<span id="cb39-3"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create only one model, with two classes</span></span>
-<span id="cb39-4"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="at">classes =</span> <span class="dv">2</span>,</span>
-<span id="cb39-5"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Name the generated files &quot;2a&quot;</span></span>
-<span id="cb39-6"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="at">filename_stem =</span> <span class="st">&quot;2a&quot;</span>,</span>
-<span id="cb39-7"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the autoregressive effect</span></span>
-<span id="cb39-8"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="at">model_overall =</span> <span class="st">&quot;c2 ON c1;&quot;</span>,</span>
-<span id="cb39-9"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify two class-specific models;</span></span>
-<span id="cb39-10"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># one for each categorical latent variable</span></span>
-<span id="cb39-11"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="at">model_class_specific =</span> <span class="fu">c</span>(</span>
-<span id="cb39-12"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;[u11$1] (a{C});  [u12$1] (b{C});  [u13$1] (c{C});</span></span>
-<span id="cb39-13"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="st"> [u14$1] (d{C});  [u15$1] (e{C});&quot;</span>,</span>
-<span id="cb39-14"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;[u21$1] (a{C});  [u22$1] (b{C});  [u23$1] (c{C});</span></span>
-<span id="cb39-15"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="st"> [u24$1] (d{C});  [u25$1] (e{C});&quot;</span></span>
-<span id="cb39-16"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-16" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb39-17"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="at">rdata =</span> data,</span>
-<span id="cb39-18"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-18" aria-hidden="true" tabindex="-1"></a><span class="at">usevariables =</span> <span class="fu">names</span>(data)[<span class="sc">-</span><span class="dv">11</span>],</span>
-<span id="cb39-19"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Speed up analysis by using 2 processors; increase random starts</span></span>
-<span id="cb39-20"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Use probability parametrerization</span></span>
-<span id="cb39-21"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="at">ANALYSIS =</span> <span class="st">&quot;PROCESSORS IS 2;  LRTSTARTS (0 0 40 20);</span></span>
-<span id="cb39-22"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-22" aria-hidden="true" tabindex="-1"></a><span class="st">            PARAMETERIZATION = PROBABILITY;&quot;</span>,</span>
-<span id="cb39-23"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify that the items are categorical (binary)</span></span>
-<span id="cb39-24"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-24" aria-hidden="true" tabindex="-1"></a><span class="at">VARIABLE =</span> <span class="st">&quot;CATEGORICAL = u11-u15 u21-u25;&quot;</span>,</span>
-<span id="cb39-25"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-25" aria-hidden="true" tabindex="-1"></a><span class="at">run =</span> 1L</span>
-<span id="cb39-26"><a href="exercise-2-latent-transition-analysis-lta.html#cb39-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div id="exercise-2-latent-transition-analysis-lta" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Exercise 2: Latent transition analysis (LTA)<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2-latent-transition-analysis-lta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this exercise we will explore the development of dating status over time using a latent transition analysis. Use the data in <code>DatingSex.dat</code>, which holds data on five dating indicators measured at two occasions (<code>u11</code>, …, <code>u15</code>, <code>u21</code>, …, <code>u25</code>), as well as the variable <code>gender</code>. The u-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).</p>
+<div id="exercise-2a" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Exercise 2a<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Set up a model with two latent class variables for the two time points. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class (2), in both model <code>c1</code> and model <code>c2</code>. To be sure Mplus does what you want, include equality constraints on the five thresholds of <code>%c1#1%</code> and <code>%c2#1%</code>, and similarly for <code>%c1#2%</code> and <code>%c2#2%</code>. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don’t test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.</p>
 <p>After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output).</p>
 <details>
 <summary>
 <b>Click to show answers</b>
 </summary>
-<p>You can easily extract the parameters in probability scale from the output, using the $ sign. They will be printed to the console as a table.</p>
-<p>Here, we examine just the first few rows of the table:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb40-1" aria-hidden="true" tabindex="-1"></a>results_2a<span class="sc">$</span>results<span class="sc">$</span>parameters<span class="sc">$</span>probability.scale</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-param
-</th>
-<th style="text-align:left;">
-category
-</th>
-<th style="text-align:right;">
-est
-</th>
-<th style="text-align:right;">
-se
-</th>
-<th style="text-align:right;">
-est_se
-</th>
-<th style="text-align:right;">
-pval
-</th>
-<th style="text-align:left;">
-LatentClass
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-U11
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-0.43
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-U11
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-U12
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-0.43
-</td>
-<td style="text-align:right;">
-0.03
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-U12
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-0.03
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-U13
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-U13
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-0.75
-</td>
-<td style="text-align:right;">
-0.02
-</td>
-<td style="text-align:right;">
-35
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-C1#1
-</td>
-</tr>
-</tbody>
-</table>
+<p>The Mplus syntax should is given in <code>exercise2A.inp</code>. The parameters in probability scale can be found in under the heading <code>RESULTS IN PROBABILITY SCALE</code> in the output file. For example, we find that the probability of falling into category 1 (i.e., answering yes/no) is 0.434 (<span class="math inline">\(SE = .024\)</span>) if you are in class 1 at the first time point, and 0.566 (<span class="math inline">\(SE = .024\)</span>) for falling into category 2 (i.e., answering yes/no). Because of the imposed constraints, the probabilities also apply to time point 2, see <code>Latent Class C2#1</code>.</p>
 </div>
-<div id="b.-class-proportions-and-transition-probabilities" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> 2b. Class proportions and transition probabilities</h3>
-<p>Examine the proportions of participants in class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?</p>
+<div id="exercise-2b" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Exercise 2b<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?</p>
 <details>
 <summary>
 <b>Click to show answers</b>
 </summary>
-<p>Again, you can extract this information from the output, using the $ sign. They will be printed to the console as a table.</p>
-<p>Your results should look like this:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb41-1" aria-hidden="true" tabindex="-1"></a>results_2a<span class="sc">$</span>results<span class="sc">$</span>class_counts<span class="sc">$</span>modelEstimated</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-variable
-</th>
-<th style="text-align:right;">
-class
-</th>
-<th style="text-align:right;">
-count
-</th>
-<th style="text-align:right;">
-proportion
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-C1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-554
-</td>
-<td style="text-align:right;">
-0.55
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-446
-</td>
-<td style="text-align:right;">
-0.45
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-667
-</td>
-<td style="text-align:right;">
-0.67
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-333
-</td>
-<td style="text-align:right;">
-0.33
-</td>
-</tr>
-</tbody>
-</table>
-<p>These probabilites represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb42-1" aria-hidden="true" tabindex="-1"></a>results_2a<span class="sc">$</span>results<span class="sc">$</span>class_counts<span class="sc">$</span>transitionProbs</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-from
-</th>
-<th style="text-align:left;">
-to
-</th>
-<th style="text-align:right;">
-probability
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-C1.1
-</td>
-<td style="text-align:left;">
-C2.1
-</td>
-<td style="text-align:right;">
-0.76
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1.2
-</td>
-<td style="text-align:left;">
-C2.1
-</td>
-<td style="text-align:right;">
-0.56
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1.1
-</td>
-<td style="text-align:left;">
-C2.2
-</td>
-<td style="text-align:right;">
-0.24
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1.2
-</td>
-<td style="text-align:left;">
-C2.2
-</td>
-<td style="text-align:right;">
-0.44
-</td>
-</tr>
-</tbody>
-</table>
-<p>These probabilites represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).</p>
-<p>These probabilities can be visualized as a nodes-and-edges plot, using <code>plotLTA()</code>. How are the numeric results from the output reflected in the graph generated by this function?</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>The probabilities are mapped to the line width of the circles and lines in the plot. We see that the nodes with biggest proportion of the sample (classes C1.1 and C2.1) have thicker circles, and the edges connecting C1.1 and C2.1, and C1.2 to C2.1, are thickest, because they are the most common transitions.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotLTA</span>(results_2a)</span></code></pre></div>
-<p><img src="S23_files/figure-html/plotlta_2-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>You can find proportions of participants in each class under the heading <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES</code>. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.</p>
+<p>You can find the latent transition probabilities based on the estimated model under the heading <code>TECHNICAL 15 OUTPUT</code>. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).</p>
 </div>
-<div id="c.-adding-control-variables-optional" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> 2c. Adding control variables (optional)</h3>
-<p>If there is time, you can conduct additional analyses, including gender as a control variable.</p>
+<div id="exercise-2c" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Exercise 2c<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.</p>
 <details>
 <summary>
 <b>Click to show answers</b>
 </summary>
-<p>You could include gender as a control variable on the observed variables, by adding it to the <code>usevariables</code>, and including the following lines:</p>
+<p>You could include gender as a control variable on the observed variables, by adding it to the <code>USEVARIABLES</code>, and including the following lines:</p>
 <p><code>u11-u15 ON gender;</code>
 <code>u21-u25 ON gender;</code></p>
-<p>Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you’re NOT using probability parametrization. So, you would have to remove this line:</p>
+<p>See <code>exercise2C.inp</code>. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you’re NOT using probability parametrization. So, you would have to remove this line:</p>
 <p><code>PARAMETERIZATION = PROBABILITY;</code></p>
 <p>And add this line:</p>
 <p><code>c1 c2 ON gender;</code></p>
 </div>
-<div id="d.-extend-the-model-to-a-mover-stayer-model-optional" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> 2d. Extend the model to a mover-stayer model (optional)</h3>
-<p><a href="https://www.statmodel.com/download/LTA%20with%20Movers-Stayers.pdf">This Mplus FAQ</a> explains how to extend the model to a mover-stayer model. At this point, we have to forget about the function <code>createMixtures</code>: It is not suited to estimate the mover-stayer model; it can only estimate simple latent class (growth) models for a varying number of classes. However, we can use this as an opportunity to look at another function in the <code>MplusAutomation</code> package: <code>mplusModeler</code>. This function creates and runs the Mplus syntax in one step:</p>
-<p>First, specify the Mplus model. Every argument of the function <code>mplusObject</code> corresponds to a section of an Mplus input file:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-1" aria-hidden="true" tabindex="-1"></a>mover_stayer_model <span class="ot">&lt;-</span> <span class="fu">mplusObject</span>(</span>
-<span id="cb44-2"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VARIABLE =</span> <span class="st">&quot;CATEGORICAL = u11-u15 u21-u25;</span></span>
-<span id="cb44-3"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="st">              CLASSES = move(2) c1(2) c2(2);&quot;</span>,</span>
-<span id="cb44-4"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ANALYSIS =</span> <span class="st">&quot;TYPE = mixture;</span></span>
-<span id="cb44-5"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="st">              PROCESSORS IS 2;</span></span>
-<span id="cb44-6"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="st">              LRTSTARTS (0 0 40 20);</span></span>
-<span id="cb44-7"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="st">              PARAMETERIZATION = PROBABILITY;&quot;</span>,</span>
-<span id="cb44-8"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">MODEL =</span> <span class="st">&quot;%OVERALL%</span></span>
-<span id="cb44-9"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="st">           c1 ON move;</span></span>
-<span id="cb44-10"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="st">           MODEL move:</span></span>
-<span id="cb44-11"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="st">           %move#1% ! Movers</span></span>
-<span id="cb44-12"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="st">           c2 on c1;</span></span>
-<span id="cb44-13"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="st">           %move#2% ! Stayers</span></span>
-<span id="cb44-14"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="st">           c2#1 ON c1#1@1;</span></span>
-<span id="cb44-15"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="st">           c2#1 ON c1#2@0; </span></span>
-<span id="cb44-16"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="st">           MODEL c1:</span></span>
-<span id="cb44-17"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="st">           %c1#1%</span></span>
-<span id="cb44-18"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="st">           [u11$1] (a1);</span></span>
-<span id="cb44-19"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="st">           [u12$1] (b1);</span></span>
-<span id="cb44-20"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="st">           [u13$1] (c1);</span></span>
-<span id="cb44-21"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="st">           [u14$1] (d1);</span></span>
-<span id="cb44-22"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="st">           [u15$1] (e1);</span></span>
-<span id="cb44-23"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="st">           %c1#2%</span></span>
-<span id="cb44-24"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-24" aria-hidden="true" tabindex="-1"></a><span class="st">           [u11$1] (a2);</span></span>
-<span id="cb44-25"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="st">           [u12$1] (b2);</span></span>
-<span id="cb44-26"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-26" aria-hidden="true" tabindex="-1"></a><span class="st">           [u13$1] (c2);</span></span>
-<span id="cb44-27"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-27" aria-hidden="true" tabindex="-1"></a><span class="st">           [u14$1] (d2);</span></span>
-<span id="cb44-28"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-28" aria-hidden="true" tabindex="-1"></a><span class="st">           [u15$1] (e2);</span></span>
-<span id="cb44-29"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-29" aria-hidden="true" tabindex="-1"></a><span class="st">           MODEL c2:</span></span>
-<span id="cb44-30"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-30" aria-hidden="true" tabindex="-1"></a><span class="st">           %c2#1%</span></span>
-<span id="cb44-31"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="st">           [u21$1] (a1);</span></span>
-<span id="cb44-32"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-32" aria-hidden="true" tabindex="-1"></a><span class="st">           [u22$1] (b1);</span></span>
-<span id="cb44-33"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-33" aria-hidden="true" tabindex="-1"></a><span class="st">           [u23$1] (c1);</span></span>
-<span id="cb44-34"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-34" aria-hidden="true" tabindex="-1"></a><span class="st">           [u24$1] (d1);</span></span>
-<span id="cb44-35"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-35" aria-hidden="true" tabindex="-1"></a><span class="st">           [u25$1] (e1);</span></span>
-<span id="cb44-36"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-36" aria-hidden="true" tabindex="-1"></a><span class="st">           %c2#2%</span></span>
-<span id="cb44-37"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-37" aria-hidden="true" tabindex="-1"></a><span class="st">           [u21$1] (a2);</span></span>
-<span id="cb44-38"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-38" aria-hidden="true" tabindex="-1"></a><span class="st">           [u22$1] (b2);</span></span>
-<span id="cb44-39"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-39" aria-hidden="true" tabindex="-1"></a><span class="st">           [u23$1] (c2);</span></span>
-<span id="cb44-40"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-40" aria-hidden="true" tabindex="-1"></a><span class="st">           [u24$1] (d2);</span></span>
-<span id="cb44-41"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-41" aria-hidden="true" tabindex="-1"></a><span class="st">           [u25$1] (e2);&quot;</span>,</span>
-<span id="cb44-42"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">OUTPUT =</span> <span class="st">&quot;tech15;&quot;</span>,</span>
-<span id="cb44-43"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">rdata =</span> data,</span>
-<span id="cb44-44"><a href="exercise-2-latent-transition-analysis-lta.html#cb44-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">usevariables =</span> <span class="fu">names</span>(data)[<span class="sc">-</span><span class="dv">11</span>])</span></code></pre></div>
-<p>Next, run the model we created above. You specify an input file, which will be created, and the argument <code>run = 1L</code> means you want to run the model. Set it to <code>run = 0L</code> (the default) to create syntax without running it.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb45-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(<span class="at">object =</span> mover_stayer_model,</span>
-<span id="cb45-2"><a href="exercise-2-latent-transition-analysis-lta.html#cb45-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">modelout =</span> <span class="st">&quot;mover_stayer.inp&quot;</span>,</span>
-<span id="cb45-3"><a href="exercise-2-latent-transition-analysis-lta.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">run =</span> 1L)</span></code></pre></div>
-<p>Look in the output for the information about the response probabilities for the various latent classes. Also, look for the transition table. Which classes are the movers and which are the stayers?</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="exercise-2-latent-transition-analysis-lta.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_class_counts</span>(result)</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-variable
-</th>
-<th style="text-align:right;">
-class
-</th>
-<th style="text-align:right;">
-count
-</th>
-<th style="text-align:right;">
-proportion
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-MOVE
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-588
-</td>
-<td style="text-align:right;">
-0.59
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MOVE
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-412
-</td>
-<td style="text-align:right;">
-0.41
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-554
-</td>
-<td style="text-align:right;">
-0.55
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-446
-</td>
-<td style="text-align:right;">
-0.45
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-667
-</td>
-<td style="text-align:right;">
-0.67
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-333
-</td>
-<td style="text-align:right;">
-0.33
-</td>
-</tr>
-</tbody>
-</table>
+<div id="exercise-2d" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Exercise 2d<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We are going to extend the LTA to a Mover-Stayer LTA. This model assumes that there is a subpopulation of “stayers” that stay in the same class, and a subpopulation of “movers” that is free to transition to a different class over time. Answer the below questions:</p>
+<ul>
+<li>Continuing with the 2 classes at both time points. Then, for movers, there is no restriction on the 2 by 2 transition matrix. However, what does the transition matrix for the stayers look like <em>in terms of probabilities</em>? Furthermore, what does the transition matrix for stayers look like <em>in terms of thresholds</em>?</li>
+<li>Add a Movers-Stayers class (i.e., an additional latent categorical factor with 2 classes, namely a movers class and a stayers class) to the LTA specified in the previous exercise. Make sure that for the movers class the transition matrix has no restrictions, and that the stayers class has the restrictions as discussed above.</li>
+<li>Run the Movers-Stayers class and look in the output. Which proportion of people is categorized as movers/stayers?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>By definition, for stayers who are in category 1 at time point 1, there is a probability of 1 for being in category 1 at time point 2 as well, and a probability of 0 for transitioning to category 2. For stayers who are in category 2 at time point 1, there is a probability of 0 for being in category 1 at time point 2, but a probability of 1 for being in category 2. Translating this to thresholds, a large negative threshold represents a very high probability of being into that category, whereas a large positive threshold represents a low probability. So stayers who are in category 1 at time point 1 should have a large negative threshold for category 1 at time point 2, and a large positive threshold for category 2, etc.</p>
+<p>Mplus model syntax for the mover-stayer model can be found in <code>exercise2D.inp</code>. Looking at <code>TECHNICAL 15 OUTPUT</code>, we can clearly see that we have specified a movers and a stayers class:</p>
+<pre><code>P(C2=1|CM=1,C1=1)=0.271
+P(C2=2|CM=1,C1=1)=0.729
+
+P(C2=1|CM=1,C1=2)=0.542
+P(C2=2|CM=1,C1=2)=0.458
+
+P(C2=1|CM=2,C1=1)=1.000
+P(C2=2|CM=2,C1=1)=0.000
+
+P(C2=1|CM=2,C1=2)=0.000
+P(C2=2|CM=2,C1=2)=1.000</code></pre>
+<p>Looking at the information under <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN</code>, we see that 66.8% is classified as a mover, and 33.2% as a stayer.</p>
 </div>
-<div id="e.-selecting-the-number-of-classes-optional" class="section level3" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> 2e. Selecting the number of classes (optional)</h3>
-<p>We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each timepoint you would choose.</p>
+<div id="exercise-2e" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Exercise 2e<a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each time point you would choose.</p>
 <p>Think about:</p>
 <ul>
-<li>Whether you think there should be an equal number of classes at both timepoints (this is mostly a theoretical decision).</li>
+<li>Whether you think there should be an equal number of classes at both time points (this is mostly a theoretical decision).</li>
 <li>How to build the model. Should you start by comparing unconstrained or constrained models?</li>
 <li>How to decide what solution you prefer.</li>
 </ul>
@@ -821,7 +272,6 @@ C2
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -861,10 +311,13 @@ gitbook.start({
 "text": null
 },
 "download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
-},
-"search": true
+}
 });
 });
 </script>

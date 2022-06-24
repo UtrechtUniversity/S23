@@ -1,12 +1,12 @@
 book_filename: "S23"
 rmd_files: ["index.Rmd",
-"01-rstudio_and_basics.Rmd",
-"03-Day2.Rmd",
-"04-Day3.Rmd",
-"05-Day4.Rmd"]
+"day1.Rmd",
+"day2.Rmd",
+"day3.Rmd",
+"day4.Rmd"]
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
 delete_merged_file: true
 output_dir: "docs"
 always_allow_html: yes

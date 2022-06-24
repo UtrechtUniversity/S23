@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.1 Exercise 1: burn survivors | S23 Summer School</title>
-  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>2.1 Exercise 1: Burn survivors | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.1 Exercise 1: burn survivors | S23 Summer School" />
+  <meta property="og:title" content="2.1 Exercise 1: Burn survivors | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.1 Exercise 1: burn survivors | S23 Summer School" />
+  <meta name="twitter:title" content="2.1 Exercise 1: Burn survivors | Utrecht Summer School S23" />
   
-  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
-<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
 
 
 
@@ -30,10 +29,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="day-2-latent-growth-models.html"/>
+<link rel="prev" href="day-2-latent-growth-curve-modeling-lgcm.html"/>
 <link rel="next" href="exercise-2-alcohol-use.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,79 +48,13 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,66 +75,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
-<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<li class="chapter" data-level="1" data-path="day-1-mplus-and-the-lisrel-model.html"><a href="day-1-mplus-and-the-lisrel-model.html"><i class="fa fa-check"></i><b>1</b> Day 1: Mplus and the LISREL model</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html"><i class="fa fa-check"></i>Measurement invariance</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
-<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
-<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-1-configural-invariance"><i class="fa fa-check"></i>Step 1: Configural invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-2-weak-factorial-invariance"><i class="fa fa-check"></i>Step 2: Weak factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-3-strong-factorial-invariance"><i class="fa fa-check"></i>Step 3: Strong factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#alternative-way-of-scaling"><i class="fa fa-check"></i>Alternative way of scaling</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#full-model"><i class="fa fa-check"></i>Full model</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
-<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html"><i class="fa fa-check"></i>Path analysis</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent growth curve modeling (LGCM)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Burn survivors</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Adding covariates</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
-<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
-<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and shape parameterization</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
 <li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
 <li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
 <li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: Latent growth curve model on GPA data</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
-<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Longitudinal mixture modeling</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent growth (mixture) modeling</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
-<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
-<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
-<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
-<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>3.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>3.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>3.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise 1e</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent transition analysis (LTA)</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
-<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
-<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
-<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>3.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>3.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>3.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>3.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>3.2.5</b> Exercise 2e</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
@@ -243,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
           </h1>
         </div>
 
@@ -251,572 +184,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-1-burn-survivors" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Exercise 1: burn survivors</h2>
-<p>The file <code>“PTSD.dat”</code> contains data on burn survivors.
-An incomplete, basic Mplus syntax can be found in the file
-<code>“PTSD - M0.inp”</code>.</p>
-<p>Specifying that same syntax could be done in R, using <code>MplusAutomation</code>, as well.
-First, load the file <code>PTSD.dat</code> into the R environment.
-For convenience’s sake, rename the columns of the data object to something a human would understand:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="exercise-1-burn-survivors.html#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;PTSD.dat&quot;</span>, <span class="at">na.strings =</span> <span class="sc">-</span><span class="dv">999</span>)</span>
-<span id="cb2-2"><a href="exercise-1-burn-survivors.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;tvlo&quot;</span>,</span>
-<span id="cb2-3"><a href="exercise-1-burn-survivors.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;W1&quot;</span>, <span class="st">&quot;W2&quot;</span>, <span class="st">&quot;W3&quot;</span>, <span class="st">&quot;W4&quot;</span>, <span class="st">&quot;W5&quot;</span>, <span class="st">&quot;W6&quot;</span>, <span class="st">&quot;W7&quot;</span>, <span class="st">&quot;W8&quot;</span>,</span>
-<span id="cb2-4"><a href="exercise-1-burn-survivors.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;pain&quot;</span>)</span></code></pre></div>
-<p>To specify a basic, <em>incomplete</em> syntax, use:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="exercise-1-burn-survivors.html#cb3-1" aria-hidden="true" tabindex="-1"></a>basic <span class="ot">&lt;-</span> <span class="fu">mplusObject</span>(</span>
-<span id="cb3-2"><a href="exercise-1-burn-survivors.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TITLE =</span> <span class="st">&quot;exercise 1&quot;</span>,</span>
-<span id="cb3-3"><a href="exercise-1-burn-survivors.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">MODEL =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb3-4"><a href="exercise-1-burn-survivors.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">OUTPUT =</span> <span class="st">&quot;standardized;&quot;</span>,</span>
-<span id="cb3-5"><a href="exercise-1-burn-survivors.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">PLOT =</span> <span class="st">&quot;SERIES = w1-w8 (s);</span></span>
-<span id="cb3-6"><a href="exercise-1-burn-survivors.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">          TYPE = PLOT3;&quot;</span>,</span>
-<span id="cb3-7"><a href="exercise-1-burn-survivors.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">rdata =</span> data,</span>
-<span id="cb3-8"><a href="exercise-1-burn-survivors.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">usevariables =</span></span>
-<span id="cb3-9"><a href="exercise-1-burn-survivors.html#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;W1&quot;</span>, <span class="st">&quot;W2&quot;</span>, <span class="st">&quot;W3&quot;</span>, <span class="st">&quot;W4&quot;</span>, <span class="st">&quot;W5&quot;</span>, <span class="st">&quot;W6&quot;</span>, <span class="st">&quot;W7&quot;</span>, <span class="st">&quot;W8&quot;</span>)</span>
-<span id="cb3-10"><a href="exercise-1-burn-survivors.html#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>To evaluate this model, you can use:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="exercise-1-burn-survivors.html#cb4-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(basic, <span class="at">modelout =</span> <span class="st">&quot;basic.inp&quot;</span>, <span class="at">run =</span> 1L)</span></code></pre></div>
-<p>The argument <code>run = 1L</code> creates the Mplus input file and data, evaluates the input file, thus creating an output file, and reads the results into R.</p>
-<p>To summarize the results, you can use:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="exercise-1-burn-survivors.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For one model</span></span>
-<span id="cb5-2"><a href="exercise-1-burn-survivors.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SummaryTable</span>(result)</span>
-<span id="cb5-3"><a href="exercise-1-burn-survivors.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For more models</span></span>
-<span id="cb5-4"><a href="exercise-1-burn-survivors.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">SummaryTable</span>(<span class="fu">list</span>(result1, result2))</span></code></pre></div>
-<div id="exercise-1a" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Exercise 1a</h3>
-<p>Specify a latent growth model. Consider different specifications discussed in the lecture, and try to find the best specification.</p>
-<p>Use only the time measurements, not including additional
-predictor variables.<br />
-Think about:</p>
+<div id="exercise-1-burn-survivors" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Exercise 1: Burn survivors<a href="exercise-1-burn-survivors.html#exercise-1-burn-survivors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The file <code>PTSD.dat</code> contains data on burn survivors, specifically:</p>
 <ul>
-<li>which metric of time to use (see the SPSS file for more information about the variables);</li>
-<li>the shape of the function (linear or quadratic);
-and base your decision of the best model on:<br />
-</li>
-<li>model fit indices;</li>
-<li>model comparison tools;</li>
-<li>plots;</li>
-<li>interpretation of the model parameters.</li>
+<li>gender (<code>gender</code>),</li>
+<li>percentage total body surface burned (<code>tvlo</code>),</li>
+<li>SVL at wave 1 (2 weeks after burn injury; <code>W1</code>),</li>
+<li>SVL at wave 2 (4 weeks after burn injury; <code>W2</code>),</li>
+<li>SVL at wave 3 (2 months after burn injury; <code>W3</code>),</li>
+<li>SVL at wave 4 (4 months after burn injury; <code>W4</code>),</li>
+<li>SVL at wave 5 (6 months after burn injury; <code>W5</code>),</li>
+<li>SVL at wave 6 (9 months after burn injury; <code>W6</code>),</li>
+<li>SVL at wave 7 (12 months after burn injury; <code>W7</code>),</li>
+<li>SVL at wave 8 (18 months after burn injury; <code>W8</code>), and</li>
+<li>BPAS at wave 9 (24 months after burn injury; <code>pain</code>),</li>
 </ul>
+<p>in this order.</p>
+<div id="exercise-1a-specifying-a-lgcm" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Exercise 1a: Specifying a LGCM<a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Specify a latent growth curve model. Consider different specifications discussed in the lecture, and try to find the best specification. Use only the time measurements, not including additional predictor variables. Think about which metric of time to use and the shape of the function (linear or quadratic). Base your decision of the best model on plots (!), model fit indices, model comparison tools, and interpretation of the model parameters.</p>
+<p>If you have reason to believe that another type of LGCM fits the data better, feel free to specific and estimate that model.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p><strong>Deciding on the metric of time </strong></p>
-<p>From the SPSS file variable descriptions:</p>
-<ul>
-<li>SVL wave 1 (2 weeks after burn injury)</li>
-<li>SVL wave 2 (4 weeks)</li>
-<li>SVL wave 3 (2 months)</li>
-<li>SVL wave 4 (4 months)</li>
-<li>SVL wave 5 (6 months)</li>
-<li>SVL wave 6 (9 months)</li>
-<li>SVL wave 7 (12 months)</li>
-<li>SVL wave 8 (18 months)</li>
-</ul>
+<p><strong>Deciding on the metric of time</strong></p>
 <p>Based on these descriptions, I’ve chosen for the following specification of time in the LGM:</p>
-<p><code>"i s | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;"</code></p>
-<p>In this specification I set the first time point to 0.5 months after burn injury (approximation
-of 2 weeks after burn injury), the second time point to 1 month after burn injury
-(approximation of 4 weeks after burn injury), etc.</p>
-<p><strong>Deciding on Linear v.s. Linear + Quadratic slope</strong></p>
-<p>Some example syntaxes for running models with different trajectory shapes are shown below, along with a table of the resulting fit statistics.</p>
-<p>For the model with a quadratic slope, it was necessary to fix the variance of Q at 0 to ensure convergence (you can do this by
-adding <a href="mailto:q@0" class="email">q@0</a>; to the syntax). For both models, only CFI and TLI indicate adequate fit.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="exercise-1-burn-survivors.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, create a linear model from the basic one</span></span>
-<span id="cb6-2"><a href="exercise-1-burn-survivors.html#cb6-2" aria-hidden="true" tabindex="-1"></a>linear <span class="ot">&lt;-</span> basic</span>
-<span id="cb6-3"><a href="exercise-1-burn-survivors.html#cb6-3" aria-hidden="true" tabindex="-1"></a>linear<span class="sc">$</span>MODEL <span class="ot">&lt;-</span></span>
-<span id="cb6-4"><a href="exercise-1-burn-survivors.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;i s | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;&quot;</span></span>
-<span id="cb6-5"><a href="exercise-1-burn-survivors.html#cb6-5" aria-hidden="true" tabindex="-1"></a>result_linear <span class="ot">&lt;-</span> </span>
-<span id="cb6-6"><a href="exercise-1-burn-survivors.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mplusModeler</span>(linear, <span class="at">modelout =</span> <span class="st">&quot;linear.inp&quot;</span>, <span class="at">run =</span> 1L)</span>
-<span id="cb6-7"><a href="exercise-1-burn-survivors.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Then, a quadratic one</span></span>
-<span id="cb6-8"><a href="exercise-1-burn-survivors.html#cb6-8" aria-hidden="true" tabindex="-1"></a>quad <span class="ot">&lt;-</span> basic</span>
-<span id="cb6-9"><a href="exercise-1-burn-survivors.html#cb6-9" aria-hidden="true" tabindex="-1"></a>quad<span class="sc">$</span>MODEL <span class="ot">&lt;-</span></span>
-<span id="cb6-10"><a href="exercise-1-burn-survivors.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;i s q | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;&quot;</span></span>
-<span id="cb6-11"><a href="exercise-1-burn-survivors.html#cb6-11" aria-hidden="true" tabindex="-1"></a>result_quad <span class="ot">&lt;-</span></span>
-<span id="cb6-12"><a href="exercise-1-burn-survivors.html#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mplusModeler</span>(quad, <span class="at">modelout =</span> <span class="st">&quot;quad.inp&quot;</span>, <span class="at">run =</span> 1L)</span>
-<span id="cb6-13"><a href="exercise-1-burn-survivors.html#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Then, a quadratic one with fixed variance</span></span>
-<span id="cb6-14"><a href="exercise-1-burn-survivors.html#cb6-14" aria-hidden="true" tabindex="-1"></a>quad0 <span class="ot">&lt;-</span> basic</span>
-<span id="cb6-15"><a href="exercise-1-burn-survivors.html#cb6-15" aria-hidden="true" tabindex="-1"></a>quad0<span class="sc">$</span>MODEL <span class="ot">&lt;-</span></span>
-<span id="cb6-16"><a href="exercise-1-burn-survivors.html#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;i s q | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;</span></span>
-<span id="cb6-17"><a href="exercise-1-burn-survivors.html#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="st">   q@0;&quot;</span></span>
-<span id="cb6-18"><a href="exercise-1-burn-survivors.html#cb6-18" aria-hidden="true" tabindex="-1"></a>result_quad0 <span class="ot">&lt;-</span></span>
-<span id="cb6-19"><a href="exercise-1-burn-survivors.html#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mplusModeler</span>(quad0, <span class="at">modelout =</span> <span class="st">&quot;quad0.inp&quot;</span>, <span class="at">run =</span> 1L)</span>
-<span id="cb6-20"><a href="exercise-1-burn-survivors.html#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine them both in a list:</span></span>
-<span id="cb6-21"><a href="exercise-1-burn-survivors.html#cb6-21" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">list</span>(result_linear, result_quad, result_quad0)</span>
-<span id="cb6-22"><a href="exercise-1-burn-survivors.html#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the fit:</span></span>
-<span id="cb6-23"><a href="exercise-1-burn-survivors.html#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">SummaryTable</span>(results,</span>
-<span id="cb6-24"><a href="exercise-1-burn-survivors.html#cb6-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">keepCols =</span> <span class="fu">c</span>(<span class="st">&quot;Filename&quot;</span>, <span class="st">&quot;Parameters&quot;</span>,</span>
-<span id="cb6-25"><a href="exercise-1-burn-survivors.html#cb6-25" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;AIC&quot;</span>, <span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;RMSEA_Estimate&quot;</span>,</span>
-<span id="cb6-26"><a href="exercise-1-burn-survivors.html#cb6-26" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;CFI&quot;</span>, <span class="st">&quot;TLI&quot;</span>, <span class="st">&quot;SRMR&quot;</span>))</span></code></pre></div>
+<p><code>i s | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;</code></p>
+<p>In this specification I set the first time point to 0.5 months after burn injury (approximation of 2 weeks after burn injury), the second time point to 1 month after burn injury (approximation of 4 weeks after burn injury), etc.</p>
+<p><strong>Plots</strong>
+You can enable the plot functionality of Mplus by specifying</p>
+<pre><code>PLOT:
+  TYPE = PLOT3;
+  SERIES = W1 W2 W3 W4 W5 W6 W7 W8 (s);</code></pre>
+<p>The <code>TYPE = PLOT3;</code> function ensures that all kinds of different types of plots are available in Mplus (see the Mplus User Guide for an overview of the different types of plots). The <code>SERIES = ...;</code> function tells Mplus to draw a line through the named variables in that order, for each individual.</p>
+<p>EXPLAIN HOW TO GET NATIVE PLOTS OF MPLUS AND SHOW THEM HERE.</p>
+<p><strong>Deciding on linear vs. linear and quadratic slope</strong></p>
+<p>Some example syntaxes for running models with different trajectory shapes are available in SURFdrive. These include:</p>
+<ol style="list-style-type: decimal">
+<li>A LGCM with only a linear slope.</li>
+<li>A LGCM with an added quadratic slope.</li>
+<li>A LGCM with an added quadratic slope but no quadratic slope factor variance.</li>
+</ol>
+<p>For the model with a quadratic slope, it was necessary to fix the variance of Q at 0 to ensure convergence. For both models, only CFI and TLI indicate adequate fit.</p>
 <table>
+<colgroup>
+<col width="19%" />
+<col width="19%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="8%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Filename
-</th>
-<th style="text-align:right;">
-Parameters
-</th>
-<th style="text-align:right;">
-AIC
-</th>
-<th style="text-align:right;">
-BIC
-</th>
-<th style="text-align:right;">
-RMSEA_Estimate
-</th>
-<th style="text-align:right;">
-CFI
-</th>
-<th style="text-align:right;">
-TLI
-</th>
-<th style="text-align:right;">
-SRMR
-</th>
+<tr class="header">
+<th align="left">Model</th>
+<th align="center">Parameters</th>
+<th align="center">AIC</th>
+<th align="center">BIC</th>
+<th align="center">RMSEA</th>
+<th align="center">CFI</th>
+<th align="center">TLI</th>
+<th align="center">SRMR</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-linear.out
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-14051
-</td>
-<td style="text-align:right;">
-14096
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-0.93
-</td>
-<td style="text-align:right;">
-0.94
-</td>
-<td style="text-align:right;">
-0.08
-</td>
+<tr class="odd">
+<td align="left">exercise1a.out</td>
+<td align="center">13</td>
+<td align="center">14051</td>
+<td align="center">14096</td>
+<td align="center">.14</td>
+<td align="center">.93</td>
+<td align="center">.94</td>
+<td align="center">.08</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-quad.out
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
+<tr class="even">
+<td align="left">exercise1a_Q.out</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-quad0.out
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-14037
-</td>
-<td style="text-align:right;">
-14085
-</td>
-<td style="text-align:right;">
-0.13
-</td>
-<td style="text-align:right;">
-0.94
-</td>
-<td style="text-align:right;">
-0.94
-</td>
-<td style="text-align:right;">
-0.08
-</td>
+<tr class="odd">
+<td align="left">exercise1a_Q0.out</td>
+<td align="center">14</td>
+<td align="center">14037</td>
+<td align="center">14085</td>
+<td align="center">.13</td>
+<td align="center">.94</td>
+<td align="center">.94</td>
+<td align="center">.08</td>
 </tr>
 </tbody>
 </table>
-<p>Model comparison tools: To see which model fit the data better, we can do a Chi-square
-difference test, using the function <code>chisq_sb()</code> from the <code>tidySEM</code> package. It works directly on MplusAutomation’s <code>SummaryTable</code>s:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exercise-1-burn-survivors.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidySEM)</span>
-<span id="cb7-2"><a href="exercise-1-burn-survivors.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq_sb</span>(<span class="fu">SummaryTable</span>(<span class="fu">list</span>(result_linear, result_quad0), <span class="at">keepCols =</span> <span class="fu">c</span>(<span class="st">&quot;Filename&quot;</span>, <span class="st">&quot;ChiSqM_Value&quot;</span>, <span class="st">&quot;ChiSqM_DF&quot;</span>)))</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Filename
-</th>
-<th style="text-align:right;">
-ChiSqM_Value
-</th>
-<th style="text-align:right;">
-ChiSqM_DF
-</th>
-<th style="text-align:right;">
-Dchisq
-</th>
-<th style="text-align:right;">
-Dchisq_df
-</th>
-<th style="text-align:right;">
-Dchisq_p
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-linear.out
-</td>
-<td style="text-align:right;">
-173
-</td>
-<td style="text-align:right;">
-31
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-quad0.out
-</td>
-<td style="text-align:right;">
-157
-</td>
-<td style="text-align:right;">
-30
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-</tbody>
-</table>
-<p>Note that the
-Furthermore, both AIC and BIC are lower in the
-model with a quadratic slope. Thus, model misfit is significantly lower when the quadratic
-slope is added.</p>
-<p><strong>Plots</strong></p>
-<p>To examine the plots, you must open Mplus and examine its native plots.</p>
+<p><strong>Model comparison tools</strong></p>
+<p>To see which model fit the data better, we can do a <span class="math inline">\(\Delta \chi^{2}\)</span> (i.e., Chi-square difference) test (e.g., using the function <code>chisq_sb()</code> from the <code>tidySEM</code> package in R, or using on online <span class="math inline">\(\chi^{2} calculator\)</span>): <span class="math inline">\(\Delta \chi^{2} = 16.14\)</span>, <span class="math inline">\(\Delta df = 1\)</span>, <span class="math inline">\(p &lt; .001\)</span>. Furthermore, both AIC and BIC are lower in the model with a quadratic slope. Thus, model misfit is significantly lower when the quadratic slope is added although the fit indices still do not indicate adequate fit. We can use the plots, <code>RES</code> option in Mplus, or modification indices to see what the source of the misfit is.</p>
 <p><strong>Model parameters</strong></p>
-<p>The added quadratic slope is significant (Q = 0.02, p &lt; .001), indicating that,
-on average, the growth curve does follow a quadratic curve.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="exercise-1-burn-survivors.html#cb8-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table_results</span>(result_quad0, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb8-2"><a href="exercise-1-burn-survivors.html#cb8-2" aria-hidden="true" tabindex="-1"></a>tab[tab<span class="sc">$</span>paramheader <span class="sc">==</span> <span class="st">&quot;Means&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;param&quot;</span>, <span class="st">&quot;est_sig&quot;</span>, <span class="st">&quot;pval&quot;</span>)]</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-param
-</th>
-<th style="text-align:left;">
-est_sig
-</th>
-<th style="text-align:left;">
-pval
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-I
-</td>
-<td style="text-align:left;">
-18.73***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Q
-</td>
-<td style="text-align:left;">
-0.02***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S
-</td>
-<td style="text-align:left;">
--0.65***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-</tr>
-</tbody>
-</table>
+<p>The mean of the quadratic slope factor is significant (<code>q = 0.02</code>, <span class="math inline">\(p &lt; .001\)</span>), indicating that, on average, the growth curve does follow a quadratic curve (see <code>exercise1a_Q0.out</code>).</p>
 </div>
-<div id="exercise-1b-add-covariates" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Exercise 1b: Add covariates</h3>
-<p>Using the best fitting LGM model found above, regress the growth parameters on TVLO and regress Pain on the growth parameters (see examples from slides 195 and 199).
-Are there gender differences in the regression of the
-growth parameters on TVLO and in the regression of Pain on the growth parameters?</p>
+<div id="exercise-1b-adding-covariates" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Exercise 1b: Adding covariates<a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the best fitting LGM model found above, regress the growth parameters on <code>TVLO</code> and regress <code>pain</code> on the growth components. Then investigate if there are gender differences in the regression of the growth parameters on <code>TVLO</code> and in the regression of <code>pain</code> on the growth parameters?</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>To answer this question, we use multi-group analysis.
-To do this with MplusAutomation, we add the
-following syntax to the VARIABLE argument:</p>
-<p><code>VARIABLE = "GROUPING IS gender (1 = male 2 = female);"</code></p>
-<p>Since we needed to fix the quadratic slope variance to 0, we cannot estimate any
-regressions on the quadratic slope or use the quadratic slope as a predictor of some
-outcome. We therefore focus on the intercept and linear slope.</p>
-<p>Here is how we can specify the full syntax (starting with the quad0 model as base):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exercise-1-burn-survivors.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming quad0 was the best, start with that</span></span>
-<span id="cb9-2"><a href="exercise-1-burn-survivors.html#cb9-2" aria-hidden="true" tabindex="-1"></a>covs <span class="ot">&lt;-</span> quad0</span>
-<span id="cb9-3"><a href="exercise-1-burn-survivors.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to the existing model</span></span>
-<span id="cb9-4"><a href="exercise-1-burn-survivors.html#cb9-4" aria-hidden="true" tabindex="-1"></a>covs<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="fu">c</span>(covs<span class="sc">$</span>MODEL,</span>
-<span id="cb9-5"><a href="exercise-1-burn-survivors.html#cb9-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;</span></span>
-<span id="cb9-6"><a href="exercise-1-burn-survivors.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">                i s on TVLO;</span></span>
-<span id="cb9-7"><a href="exercise-1-burn-survivors.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">                pain on i s; </span></span>
-<span id="cb9-8"><a href="exercise-1-burn-survivors.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">                MODEL male:</span></span>
-<span id="cb9-9"><a href="exercise-1-burn-survivors.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">                i on TVLO (m1);</span></span>
-<span id="cb9-10"><a href="exercise-1-burn-survivors.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">                s on TVLO (m2);</span></span>
-<span id="cb9-11"><a href="exercise-1-burn-survivors.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">                pain on i (m3);</span></span>
-<span id="cb9-12"><a href="exercise-1-burn-survivors.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="st">                pain on s (m4);</span></span>
-<span id="cb9-13"><a href="exercise-1-burn-survivors.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="st">                MODEL female:</span></span>
-<span id="cb9-14"><a href="exercise-1-burn-survivors.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="st">                i on TVLO (f1);</span></span>
-<span id="cb9-15"><a href="exercise-1-burn-survivors.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="st">                s on TVLO (f2);</span></span>
-<span id="cb9-16"><a href="exercise-1-burn-survivors.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="st">                pain on i (f3);</span></span>
-<span id="cb9-17"><a href="exercise-1-burn-survivors.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="st">                pain on s (f4);&quot;</span>)</span>
-<span id="cb9-18"><a href="exercise-1-burn-survivors.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add new usevariables:</span></span>
-<span id="cb9-19"><a href="exercise-1-burn-survivors.html#cb9-19" aria-hidden="true" tabindex="-1"></a>covs<span class="sc">$</span>usevariables <span class="ot">&lt;-</span> <span class="fu">c</span>(covs<span class="sc">$</span>usevariables,</span>
-<span id="cb9-20"><a href="exercise-1-burn-survivors.html#cb9-20" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&quot;tvlo&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;pain&quot;</span>)</span>
-<span id="cb9-21"><a href="exercise-1-burn-survivors.html#cb9-21" aria-hidden="true" tabindex="-1"></a>covs<span class="sc">$</span>rdata</span>
-<span id="cb9-22"><a href="exercise-1-burn-survivors.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Add grouping variable:</span></span>
-<span id="cb9-23"><a href="exercise-1-burn-survivors.html#cb9-23" aria-hidden="true" tabindex="-1"></a>covs<span class="sc">$</span>VARIABLE <span class="ot">&lt;-</span> <span class="st">&quot;GROUPING IS gender (1 = male 2 = female);&quot;</span></span>
-<span id="cb9-24"><a href="exercise-1-burn-survivors.html#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Add parameter tests</span></span>
-<span id="cb9-25"><a href="exercise-1-burn-survivors.html#cb9-25" aria-hidden="true" tabindex="-1"></a>covs<span class="sc">$</span>MODELTEST <span class="ot">&lt;-</span> <span class="st">&quot;m3 = f3; m4 = f4;&quot;</span></span>
-<span id="cb9-26"><a href="exercise-1-burn-survivors.html#cb9-26" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb9-27"><a href="exercise-1-burn-survivors.html#cb9-27" aria-hidden="true" tabindex="-1"></a>result_covs <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(covs,</span>
-<span id="cb9-28"><a href="exercise-1-burn-survivors.html#cb9-28" aria-hidden="true" tabindex="-1"></a>                            <span class="at">modelout =</span> <span class="st">&quot;covs.inp&quot;</span>,</span>
-<span id="cb9-29"><a href="exercise-1-burn-survivors.html#cb9-29" aria-hidden="true" tabindex="-1"></a>                            <span class="at">run =</span> 1L)</span>
-<span id="cb9-30"><a href="exercise-1-burn-survivors.html#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain the model summaries; you need the Wald test for</span></span>
-<span id="cb9-31"><a href="exercise-1-burn-survivors.html#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># the parameter difference tests.</span></span>
-<span id="cb9-32"><a href="exercise-1-burn-survivors.html#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summaries</span>(result_covs)</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Mplus.version"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Title"],"name":[2],"type":["chr"],"align":["left"]},{"label":["AnalysisType"],"name":[3],"type":["chr"],"align":["left"]},{"label":["DataType"],"name":[4],"type":["chr"],"align":["left"]},{"label":["Estimator"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Observations"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["NGroups"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["NDependentVars"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["NIndependentVars"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["NContinuousLatentVars"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Parameters"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_Value"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_DF"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["ChiSqM_PValue"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_Value"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_DF"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["ChiSqBaseline_PValue"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["LL"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["UnrestrictedLL"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["CFI"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["TLI"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["aBIC"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["RMSEA_Estimate"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["RMSEA_90CI_LB"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["RMSEA_90CI_UB"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["RMSEA_pLT05"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["WaldChiSq_Value"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["WaldChiSq_DF"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["WaldChiSq_PValue"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["SRMR"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["AICC"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["Filename"],"name":[34],"type":["chr"],"align":["left"]}],"data":[{"1":"8.6","2":"exercise 1","3":"GENERAL","4":"INDIVIDUAL","5":"ML","6":"240","7":"2","8":"9","9":"1","10":"3","11":"38","12":"285","13":"88","14":"0","15":"2316","16":"90","17":"0","18":"-7959","19":"-7817","20":"0.91","21":"0.91","22":"15994","23":"16127","24":"16006","25":"0.14","26":"0.12","27":"0.15","28":"0","29":"0.5","30":"2","31":"0.78","32":"0.089","33":"16009","34":"covs.out"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>This is only an illustrative example for how to approach this analysis; your specific execution may differ.</p>
-<p>Note that in this example, the Wald <span class="math inline">\(\chi^2\)</span> p-value is not significant.
-That means that there are no significant sex differences in the effect of the growth trajectory on pain.</p>
-<p>Note that the Wald test is an overall test of <strong>all</strong>
-comparisons that we specify in <code>MODELTEST</code>.</p>
-<p>Thus, if you want a separate test for the regression of TVLO on the growth parameters,
-you need to re-run the analysis but with a different <code>MODELTEST</code> argument.</p>
-<p>What is your conclusion about the other research question (regarding TVLO)?</p>
-<p>Note that there are also other ways to test these hypotheses, aside from a Wald test.
-Model comparisons would also be a feasible way; either using AIC/BIC, or using a Chi square / Likelihood ratio test to compare models with parameters free vs constrained.
-For this, you could use the function <code>chisq_sb()</code> as before.
-</p>
-<div id="visualization" class="section level4" number="2.1.2.1">
-<h4><span class="header-section-number">2.1.2.1</span> Visualization</h4>
-<p>If you want to plot the model for these two groups,
-you can use the SEM graphing package <code>tidySEM</code>.
-This flexible package produces fully customizable plots based on the R graphing package <code>ggplot2</code> for Mplus (and <code>lavaan</code>) models.
-If you want to make publication quality graphs, <a href="https://cjvanlissa.github.io/tidySEM/articles/Plotting_graphs.html">here is an online tutorial for graph customization</a>.
-The script below demonstrates how to plot a model using <code>tidySEM</code>. Assuming that we only want to visualize the regression part of the model, you could specify:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exercise-1-burn-survivors.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidySEM)</span>
-<span id="cb10-2"><a href="exercise-1-burn-survivors.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-3"><a href="exercise-1-burn-survivors.html#cb10-3" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">get_layout</span>(<span class="st">&quot;&quot;</span>,     <span class="st">&quot;I&quot;</span>,   <span class="st">&quot;&quot;</span>,</span>
-<span id="cb10-4"><a href="exercise-1-burn-survivors.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;TVLO&quot;</span>, <span class="st">&quot;&quot;</span>,   <span class="st">&quot;PAIN&quot;</span>,</span>
-<span id="cb10-5"><a href="exercise-1-burn-survivors.html#cb10-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;&quot;</span>,     <span class="st">&quot;S&quot;</span>,   <span class="st">&quot;&quot;</span>, <span class="at">rows =</span> <span class="dv">3</span>)</span>
-<span id="cb10-6"><a href="exercise-1-burn-survivors.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">graph_sem</span>(result_covs, <span class="at">layout =</span> lo)</span></code></pre></div>
-<p><img src="S23_files/figure-html/demotidysem1-1.png" width="672" /></p>
-<!-- lo <- get_layout("PAIN",   "",   "",   "",   "",   "",   "",   "TVLO", -->
-<!--                  "I",      "",   "",   "S",  "",   "",   "",   "Q", -->
-<!--                  "W1",     "W2", "W3", "W4", "W5", "W6", "W7", "W8", rows = 3) -->
-<!-- prepare_graph(result_covs, layout = lo) %>% -->
-<!--   hide_var() %>% -->
-<!--   plot() -->
-</div>
-<div id="tabulating-results" class="section level4" number="2.1.2.2">
-<h4><span class="header-section-number">2.1.2.2</span> Tabulating results</h4>
-<p>In addition to graphing, it is also possible to tabulate the results using <code>tidySEM</code>.
-Here is a brief example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exercise-1-burn-survivors.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all columns of results</span></span>
-<span id="cb11-2"><a href="exercise-1-burn-survivors.html#cb11-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table_results</span>(result_covs, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb11-3"><a href="exercise-1-burn-survivors.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain regression parameters</span></span>
-<span id="cb11-4"><a href="exercise-1-burn-survivors.html#cb11-4" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tab[tab<span class="sc">$</span>op <span class="sc">==</span> <span class="st">&quot;~&quot;</span>, ]</span>
-<span id="cb11-5"><a href="exercise-1-burn-survivors.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove group name from the label</span></span>
-<span id="cb11-6"><a href="exercise-1-burn-survivors.html#cb11-6" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.(FE)?MALE&quot;</span>, <span class="st">&quot;&quot;</span>, tab<span class="sc">$</span>label)</span>
-<span id="cb11-7"><a href="exercise-1-burn-survivors.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a wide table with both groups next to each other</span></span>
-<span id="cb11-8"><a href="exercise-1-burn-survivors.html#cb11-8" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">reshape</span>(tab,</span>
-<span id="cb11-9"><a href="exercise-1-burn-survivors.html#cb11-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">timevar =</span> <span class="st">&quot;group&quot;</span>,</span>
-<span id="cb11-10"><a href="exercise-1-burn-survivors.html#cb11-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">idvar =</span> <span class="st">&quot;label&quot;</span>,</span>
-<span id="cb11-11"><a href="exercise-1-burn-survivors.html#cb11-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">direction =</span> <span class="st">&quot;wide&quot;</span>)</span>
-<span id="cb11-12"><a href="exercise-1-burn-survivors.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only the standardized estimate, pvalue, and 95% CI</span></span>
-<span id="cb11-13"><a href="exercise-1-burn-survivors.html#cb11-13" aria-hidden="true" tabindex="-1"></a>tab[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">grep</span>(<span class="st">&quot;(est_sig|pval|confint)_std&quot;</span>, <span class="fu">names</span>(tab)))]</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-label
-</th>
-<th style="text-align:left;">
-pval_std.FEMALE
-</th>
-<th style="text-align:left;">
-est_sig_std.FEMALE
-</th>
-<th style="text-align:left;">
-confint_std.FEMALE
-</th>
-<th style="text-align:left;">
-pval_std.MALE
-</th>
-<th style="text-align:left;">
-est_sig_std.MALE
-</th>
-<th style="text-align:left;">
-confint_std.MALE
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-I.ON.TVLO
-</td>
-<td style="text-align:left;">
-0.01
-</td>
-<td style="text-align:left;">
-0.31*
-</td>
-<td style="text-align:left;">
-[ 0.06, 0.56]
-</td>
-<td style="text-align:left;">
-0.20
-</td>
-<td style="text-align:left;">
-0.10
-</td>
-<td style="text-align:left;">
-[-0.05, 0.25]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PAIN.ON.I
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-0.61***
-</td>
-<td style="text-align:left;">
-[ 0.43, 0.79]
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-0.48***
-</td>
-<td style="text-align:left;">
-[ 0.36, 0.60]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-PAIN.ON.S
-</td>
-<td style="text-align:left;">
-0.63
-</td>
-<td style="text-align:left;">
--0.06
-</td>
-<td style="text-align:left;">
-[-0.31, 0.19]
-</td>
-<td style="text-align:left;">
-0.35
-</td>
-<td style="text-align:left;">
--0.07
-</td>
-<td style="text-align:left;">
-[-0.22, 0.08]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.ON.TVLO
-</td>
-<td style="text-align:left;">
-0.14
-</td>
-<td style="text-align:left;">
-0.22
-</td>
-<td style="text-align:left;">
-[-0.07, 0.50]
-</td>
-<td style="text-align:left;">
-0.47
-</td>
-<td style="text-align:left;">
-0.06
-</td>
-<td style="text-align:left;">
-[-0.11, 0.24]
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>Rephrasing the question, we are asked to investigate if gender moderates the predictive relationship of <code>TVLO</code> on the growth components, as well as the relationship between the growth components and <code>Pain</code>. As such, we can do a multigroup analysis by gender, resulting in the addition of the following syntax to the <code>VARIABLE:</code> command:</p>
+<p><code>GROUPING = gender (1 = male 2 = female);</code></p>
+<p>Since we needed to fix the quadratic slope variance to 0, we cannot estimate any regressions on the quadratic slope or use the quadratic slope as a predictor of some outcome. We therefore focus on the intercept and linear slope.</p>
+<p>The file <code>exercise1B.inp</code> on SURFdrive contains the Mplus syntax on how to specify this model, including the <code>MODEL TEST</code> command to test between-group (i.e., between-gender) differences in the effect of <code>TVLO</code> on the growth components, and the growth components on <code>pain</code>. This is only an illustrative example for how to approach this analysis; your specific execution may differ (e.g., you could specify 2 models, and with across group constraints and one without, and then use the <span class="math inline">\(\Delta \chi^{2}\)</span> test to see if the improvement of model fit is significant). Note that in this example, the Wald <span class="math inline">\(\chi^2\)</span> p-value is not significant. That means that there are no significant gender differences in the effect of the growth trajectory on pain.</p>
+<p>Note that the Wald test is an overall test of <strong>all</strong> comparisons that we specify in <code>MODEL TEST</code>. Thus, if you want a separate test for the regression of TVLO on the growth parameters, you need to re-run the analysis but with a different <code>MODEL TEST</code> argument.</p>
+<p>Conclusion: There are no gender differences in the regression of growth parameters on TVLO and in the regression of Pain on the growth parameters.</p>
 </div>
 </div>
             </section>
@@ -824,12 +309,11 @@ S.ON.TVLO
           </div>
         </div>
       </div>
-<a href="day-2-latent-growth-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="day-2-latent-growth-curve-modeling-lgcm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="exercise-2-alcohol-use.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -869,10 +353,13 @@ gitbook.start({
 "text": null
 },
 "download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
-},
-"search": true
+}
 });
 });
 </script>

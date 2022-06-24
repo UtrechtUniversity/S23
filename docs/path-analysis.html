@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Path analysis | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Path analysis | Utrecht Summer School S23" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Path analysis | Utrecht Summer School S23" />
+  
+  <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  
+
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="measurement-invariance.html"/>
+<link rel="next" href="day-2-latent-growth-curve-modeling-lgcm.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Home</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
+<li class="chapter" data-level="1" data-path="day-1-mplus-and-the-lisrel-model.html"><a href="day-1-mplus-and-the-lisrel-model.html"><i class="fa fa-check"></i><b>1</b> Day 1: Mplus and the LISREL model</a>
+<ul>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html"><i class="fa fa-check"></i>Measurement invariance</a>
+<ul>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-1-configural-invariance"><i class="fa fa-check"></i>Step 1: Configural invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-2-weak-factorial-invariance"><i class="fa fa-check"></i>Step 2: Weak factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-3-strong-factorial-invariance"><i class="fa fa-check"></i>Step 3: Strong factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#alternative-way-of-scaling"><i class="fa fa-check"></i>Alternative way of scaling</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#full-model"><i class="fa fa-check"></i>Full model</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html"><i class="fa fa-check"></i>Path analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent growth curve modeling (LGCM)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Burn survivors</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Adding covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and shape parameterization</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
+<li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
+<li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
+<li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: Latent growth curve model on GPA data</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Longitudinal mixture modeling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent growth (mixture) modeling</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>3.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>3.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>3.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise 1e</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent transition analysis (LTA)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>3.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>3.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>3.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>3.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>3.2.5</b> Exercise 2e</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html"><i class="fa fa-check"></i><b>4.1</b> Quasi-simplex model</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-a"><i class="fa fa-check"></i><b>4.1.1</b> Exercise A</a></li>
+<li class="chapter" data-level="4.1.2" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-b"><i class="fa fa-check"></i><b>4.1.2</b> Exercise B</a></li>
+<li class="chapter" data-level="4.1.3" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-c"><i class="fa fa-check"></i><b>4.1.3</b> Exercise C</a></li>
+<li class="chapter" data-level="4.1.4" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-d"><i class="fa fa-check"></i><b>4.1.4</b> Exercise D</a></li>
+<li class="chapter" data-level="4.1.5" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-e"><i class="fa fa-check"></i><b>4.1.5</b> Exercise E</a></li>
+<li class="chapter" data-level="4.1.6" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-f"><i class="fa fa-check"></i><b>4.1.6</b> Exercise F</a></li>
+<li class="chapter" data-level="4.1.7" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-g"><i class="fa fa-check"></i><b>4.1.7</b> Exercise G</a></li>
+<li class="chapter" data-level="4.1.8" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-h"><i class="fa fa-check"></i><b>4.1.8</b> Exercise H</a></li>
+<li class="chapter" data-level="4.1.9" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-i"><i class="fa fa-check"></i><b>4.1.9</b> Exercise I</a></li>
+<li class="chapter" data-level="4.1.10" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-j"><i class="fa fa-check"></i><b>4.1.10</b> Exercise J</a></li>
+<li class="chapter" data-level="4.1.11" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-k"><i class="fa fa-check"></i><b>4.1.11</b> Exercise K</a></li>
+<li class="chapter" data-level="4.1.12" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-l"><i class="fa fa-check"></i><b>4.1.12</b> Exercise L</a></li>
+<li class="chapter" data-level="4.1.13" data-path="quasi-simplex-model.html"><a href="quasi-simplex-model.html#exercise-m"><i class="fa fa-check"></i><b>4.1.13</b> Exercise M</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html"><i class="fa fa-check"></i><b>4.2</b> CLPM &amp; RI-CLPM</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-a-1"><i class="fa fa-check"></i><b>4.2.1</b> Exercise A</a></li>
+<li class="chapter" data-level="4.2.2" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-b-1"><i class="fa fa-check"></i><b>4.2.2</b> Exercise B</a></li>
+<li class="chapter" data-level="4.2.3" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-c-1"><i class="fa fa-check"></i><b>4.2.3</b> Exercise C</a></li>
+<li class="chapter" data-level="4.2.4" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-d-1"><i class="fa fa-check"></i><b>4.2.4</b> Exercise D</a></li>
+<li class="chapter" data-level="4.2.5" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-e-1"><i class="fa fa-check"></i><b>4.2.5</b> Exercise E</a></li>
+<li class="chapter" data-level="4.2.6" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-f-1"><i class="fa fa-check"></i><b>4.2.6</b> Exercise F</a></li>
+<li class="chapter" data-level="4.2.7" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-g-1"><i class="fa fa-check"></i><b>4.2.7</b> Exercise G</a></li>
+<li class="chapter" data-level="4.2.8" data-path="clpm-ri-clpm.html"><a href="clpm-ri-clpm.html#exercise-h-1"><i class="fa fa-check"></i><b>4.2.8</b> Exercise H</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="path-analysis" class="section level2 unnumbered hasAnchor">
+<h2>Path analysis<a href="path-analysis.html#path-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this exercise, we consider a path model in which observed variables are regressed on each other.</p>
+<p>The data come from the paper:</p>
+<p>Hale, W. W., Van der Valk, I., Engels, R., and Meeus, W. (2005). Does perceived parental rejection make adolescents sad and mad? The association of perceived parental rejection with adolescent depression and aggression. –Journal of Adolescent Health, 36_, 466-474. <a href="https://doi.org/10.1016/j.jadohealth.2004.04.007" class="uri">https://doi.org/10.1016/j.jadohealth.2004.04.007</a></p>
+<p>We collected the means, standard deviations, and correlation matrix from that paper for the group of older boys (n=275) in the file BoysDep.dat. We have the following four variables (in this order):</p>
+<ul>
+<li><p>perceived parental rejection (PPR)</p></li>
+<li><p>adolescent depression (AD)</p></li>
+<li><p>adolescent aggression (AA)</p></li>
+<li><p>adolescent withdrawal (AW)</p></li>
+</ul>
+<p>The model that the researchers proposed, is presented below: Their question is whether perceived parental rejection (meaning the adolescent feels rejected by the parents), leads adolescents to feel sad (as operationalized with adolescent withdrawal), or mad (as operationalized with adolescent aggression), and to what extent these effects are mediated through adolescent depression.</p>
+<div class="figure">
+<img src="figures/HaleModel.png" width="500" alt="" />
+<p class="caption">The path model proposed by Hale et al. (2005)</p>
+</div>
+<div id="question-1-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 1<a href="path-analysis.html#question-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Determine: a) how many sample statistics there are; b) how many free parameters there are: and c) how many degrees of freedom this model has.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>There are four observed variables, so 4*5/2 = 10 unique elements in the covariance matrix S, and 4 observed means; that makes 14 sample statistics in total.</p>
+<p>The number of free parameters in this model are: 1 variance of the exogenous variable (PPR), 3 residual variance of the endogenous variables (AD, AA and AW), 5 structural parameters (i.e., regression coefficients), 1 mean for the exogenous variable (PPR), and 3 intercepts for the endogenous variables (AD, AA, and AW). That makes 13 free parameters in total.</p>
+<p>The number of degrees of freedom should therefor equal 14-13=1.</p>
+</div>
+<div id="question-2-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 2<a href="path-analysis.html#question-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To specify the above model, make use of this code for the <code>DATA</code> command:</p>
+<pre><code>    DATA:       TYPE IS MEANS STDEVIATIONS CORRELATION;
+                FILE = BoysDep.dat;  
+                NOBSERVATIONS = 275;</code></pre>
+<p>Note that when we have summary data, we have to tell Mplus how many observations there are, because it is not possible to know this in any other way.</p>
+<p>Also, make use of this code for the <code>MODEL</code> command:</p>
+<pre><code>    MODEL:      AD ON PPR;
+                AA ON AD PPR;
+                AW ON AD PPR;               </code></pre>
+<p>Finish the code and run the model. Consider the model fit results: Do they make sense to you?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Below are the two most notable parts of the model fit output.</p>
+<pre><code>    MODEL FIT INFORMATION
+
+    Number of Free Parameters                       12
+
+    ...
+
+    Chi-Square Test of Model Fit
+
+              Value                              0.000
+              Degrees of Freedom                     0
+              P-Value                           0.0000</code></pre>
+<p>It indicates that there are 12, rather than 13, free parameters, and that there are 0, rather than 1, degree of freedom. At first sight, this makes no sense: 12+0=12, but this should equal the number of sample statistics, which we determined is 14.</p>
+</div>
+<div id="question-3-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 3<a href="path-analysis.html#question-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are actually two things going on at once here. Check the <code>TECH1</code> output to see whether you can figure out what the two issues are.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Considering the first three matrices in `TECH1:</p>
+<pre><code>    TECHNICAL 1 OUTPUT
+
+         PARAMETER SPECIFICATION
+
+               NU
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+                      0             0             0             0
+
+               LAMBDA
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+     AD                 0             0             0             0
+     AA                 0             0             0             0
+     AW                 0             0             0             0
+     PPR                0             0             0             0
+
+
+               THETA
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+     AD                 0
+     AA                 0             0
+     AW                 0             0             0
+     PPR                0             0             0             0</code></pre>
+<p>These three matrices are associated with the measurement equation and contain no free parameters for a path model.</p>
+<p>Consider the second set of three model matrices:</p>
+<pre><code>               ALPHA
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+                      1             2             3             0
+
+
+               BETA
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+     AD                 0             0             0             4
+     AA                 5             0             0             6
+     AW                 7             0             0             8
+     PPR                0             0             0             0
+
+
+               PSI
+                  AD            AA            AW            PPR
+                  ________      ________      ________      ________
+     AD                 9
+     AA                 0            10
+     AW                 0            11            12
+     PPR                0             0             0             0</code></pre>
+<p>Here we see where the free parameters are (adding up to 12, which was the number indicated in the Mplus output). There are three things to notice here:</p>
+<ul>
+<li><p>the order of the variables has been changed by Mplus, and the exogenous variable PPR is placed at the end in these matrices; this may be somewhat inconvenient when looking at these matrices, but is not a problem</p></li>
+<li><p>the mean and the variance for this exogenous variable are not counted as free parameters; this is because they are exactly the same as the observed mean and variance, which in turn are not counted as sample statistics (hence, the free parameters + df add up to 12 rather than 14); while this does not affect model fit here, we can decide to overrule this, asking for the means and/or variance of PPR, which changes its status to endogenous</p></li>
+<li><p>there is a covariance between the <em>residuals</em> of AW and AA (the off-diagonal element, parameter 11 in the Psi matrix); apparently, this is a default that Mplus imposes for path models, that the variables at the end (i.e., the endogenous variables that are only dependent variables, and do not predict anything themselves) have correlated residuals; if we don’t want that, we have to actively set this covariance to zero</p></li>
+</ul>
+<p>Regarding the latter point, we may also look at the parameter estimate for this covariance:</p>
+<pre><code>     AW       WITH
+        AA                 1.173      1.358      0.864      0.388</code></pre>
+<p>This covariance is not significantly different from zero; hence, we can decide that it can be omitted from the model (which is the same as fixing it to zero).</p>
+</div>
+<div id="question-4-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 4<a href="path-analysis.html#question-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Specify a model that overrules the defaults we ran into in the previous question. Discuss the model fit. Check the <code>TECH1</code> output and notice the differences with what you saw before.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>We use the following <code>MODEL</code> command:</p>
+<pre><code>    MODEL:      AD ON PPR;
+                AA ON AD PPR;
+                AW ON AD PPR;
+                AA WITH AW@0;
+                PPR; </code></pre>
+<p>The fit information we get with this code is:</p>
+<pre><code>    MODEL FIT INFORMATION
+
+    Number of Free Parameters                       13
+
+    ...
+
+    Chi-Square Test of Model Fit
+
+              Value                              0.750
+              Degrees of Freedom                     1
+              P-Value                           0.3865</code></pre>
+<p>So now we see there are 13 free parameters in this model and there is 1 df; this is what we determined in the beginning (and 13+1=14, so it nicely adds up to the total number of sample statistics that we counted to begin with).</p>
+<p>When checking the <code>TECH1</code> output, what we notice is:</p>
+<ul>
+<li><p>the free parameters are counting up to 13</p></li>
+<li><p>the mean and variance of the exogenous variable PPR are now both counted as free parameters</p></li>
+<li><p>the covariance between the residuals of AA and AW is no longer estimated (not a free parameter)</p></li>
+</ul>
+</div>
+<div id="question-5-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 5<a href="path-analysis.html#question-5-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We are actually interested not so much in overall model fit here (the model has only 1 df, so it is very unlikely that will not fit well), but rather in its parameter estimates, and even more so, in the mediated and direct effects.</p>
+<p>To get information about the indirect (i.e., mediated) effects, we have to add these lines to the code:</p>
+<pre><code>    MODEL INDIRECT:
+                AA IND PPR;
+                AW IND PPR;          </code></pre>
+<p>Run the model with this code added, and report on the indirect effects.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>Note that the model itself has not changed (you can also tell by the fact that the model fit and parameter estimates are the same as before); we just have additional output.</p>
+<p>The nonstandardized additional output starts with:</p>
+<pre><code>    TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS
+
+                                                        Two-Tailed
+                        Estimate       S.E.  Est./S.E.    P-Value
+
+    Effects from PPR to AA
+
+      Total                0.538      0.247      2.174      0.030
+      Total indirect       0.221      0.085      2.608      0.009
+
+      Specific indirect 1
+        AA
+        AD
+        PPR                0.221      0.085      2.608      0.009
+
+      Direct
+        AA
+        PPR                0.317      0.240      1.320      0.187</code></pre>
+<p>It reports all there is to know about the effect of PPR on AA:</p>
+<ul>
+<li><p>the direct effect is not significant (p=0.187)</p></li>
+<li><p>the indirect effect through AD is significant and positive (p=0.009), meaning that higher perceived parental rejection leads to higher aggression</p></li>
+<li><p>the total indirect effect is the same, as there is only one indirect effect (there can be multiple indirect through different series of mediators in more complicated models)</p></li>
+<li><p>the total effect is the total indirect effect (i.e., all indirect effects) plus the direct effect</p></li>
+</ul>
+<p>Because the indirect effect is not significant, we could decide to take this out of the model (which is the same as setting it to zero).</p>
+<p>For the second outcome variable we get:</p>
+<pre><code>    Effects from PPR to AW
+
+      Total                0.035      0.070      0.498      0.619
+      Total indirect       0.042      0.019      2.249      0.025
+
+      Specific indirect 1
+        AW
+        AD
+        PPR                0.042      0.019      2.249      0.025
+
+      Direct
+        AW
+        PPR               -0.007      0.070     -0.103      0.918</code></pre>
+<p>Pretty much the same picture: The direct effect is non-significant and could thus be fixed to zero. The indirect effect is significantly different from zero, and positive, meaning more perceived parental rejection is followed by more adolescent withdrawal.</p>
+<p>We can also look at the standardized effects, but let’s first fix the non-significant direct effects to zero.</p>
+</div>
+<div id="question-6-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 6<a href="path-analysis.html#question-6-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Fix the non-significant direct effects to zero, and run the model again. Consider the standardized indirect effects in this model: What can you conclude with regard to the researchers’ question: Does perceived rejection make adolescents sad or mad?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>The standardized indirect effect of PPR on AA is:</p>
+<pre><code>      Specific indirect 1
+        AA
+        AD
+        PPR                0.056      0.021      2.680      0.007</code></pre>
+<p>The standardized indirect effect of PPR on AW is:</p>
+<pre><code>      Specific indirect 1
+        AW
+        AD
+        PPR                0.036      0.016      2.281      0.023</code></pre>
+<p>We see the effect of PPR on AA (aggression) is larger than that on AW (withdrawal). Hence, we could say that perceived parental rejection makes adolescents more mad than sad, although it also makes them sad. Note however that these effects are both quite small.</p>
+</div>
+<div id="question-7-1" class="section level4 unnumbered hasAnchor">
+<h4>Question 7<a href="path-analysis.html#question-7-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Consider the parameter estimates from the non-standardized solution and write down the regression equations for the three dependent variables in the model; fill in the actual parameter estimates for the intercepts and slopes (i.e., regression coefficients).</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p>For adolescent depression we have:</p>
+<p><span class="math display">\[AD_i = 22.096 + 0.609*PPR_i + \zeta_{ADi}\]</span></p>
+<p>For adolescent aggression we have:</p>
+<p><span class="math display">\[AA_i = 16.739 + 0.379*AD_i + \zeta_{AAi}\]</span>
+<span class="math display">\[     = 16.739 + 0.379*(22.096 + 0.609*PPR_i + \zeta_{ADi})+ \zeta_{AAi}\]</span></p>
+<p>For adolescent withdrawal we have:</p>
+<p><span class="math display">\[AW_i = 6.842 + 0.0.069*AD_i + \zeta_{AWi}\]</span>
+<span class="math display">\[= 6.842 + 0.069*(22.096 + 0.609*PPR_i + \zeta_{ADi})+ \zeta_{AWi}\]</span></p>
+</div>
+<div id="conclusion-1" class="section level3 unnumbered hasAnchor">
+<h3>Conclusion<a href="path-analysis.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When doing a path analysis with only observed variables, there are several defaults that are operating. It can be helpful to check the <code>TECH1</code> output to see what and where they are (rather than trying to memorize all of them).</p>
+<p>Some aspects regarding <em>observed exogenous variables</em> to keep in mind:</p>
+<ul>
+<li><p>observed exogenous variables are observed variables that do not have any one-headed arrows pointing towards them; this means that they are not predicted by anything</p></li>
+<li><p>Mplus treats such variables differently than other variables; specifically: a) their observed variances, covariances and means are not counted as sample statistics; and b) their estimated variances, covariances and means are not counted as free parameters; note these two cancel each other out (in terms of sample statistics - free parameters = degrees of freedom)</p></li>
+<li><p>When there are no missing data, the observed means, variances and covariances for observed exogenous variables are identical to their estimated means, variances and covariances</p></li>
+<li><p>When there are missing data, Mplus will use case-wise deletion for cases that have missings on the observed exogenous variables; this may be undesirable, and can be avoided by changing the status of these variables in Mplus to endogenous by asking for their means and/or variances (then Mplus will keep all cases and use ML to deal with the missing observations)</p></li>
+<li><p>Another scenario in which we need to be concerned about observed exogenous variables being treated differently, is when we want to compare such a model to a model in which one or more of these variables are <em>not</em> exogenous; the AIC and BIC of these two models will not be comparable; you can tell by looking at the loglikelihood value for H1 (i.e., for the saturated model), just above the <code>Information Criteria</code> in the output; if these are not the same, the AIC and BIC are not comparable!</p></li>
+</ul>
+<p>Some issues regarding <em>additional defaults</em> to keep in mind:</p>
+<ul>
+<li><p>In a path model with observed variables only, you have exogenous variables and endogenous variables; the latter can be further distinguished into mediators (i.e., they are dependent variables, but also predictors of other variables), and outcome variables (i.e., they have only arrows pointing towards them, not out of them)</p></li>
+<li><p>The exogenous variables in such models are by default allowed to covary (i.e., there is a two-headed arrow between them); typically, that is fine as we do not have a specific theory about how the predictors are related to each other; however, if you do not want them to be correlated, you can set their covariance to zero with the <code>WITH</code> statement (note this will also change their status from exogenous to endogenous)</p></li>
+<li><p>The residuals of mediators in such models are uncorrelated, unless you specify they should covary (using the <code>WITH</code> statement)</p></li>
+<li><p>The residuals of outcome variables in such models are by default allowed to be correlated (or: to covary); in terms of a path diagram this implies Mplus automatically adds a two-headed arrow between these residuals</p></li>
+<li><p>You can use the <code>TECH1</code> output to trace these defaults</p></li>
+</ul>
+<p>Some issues regarding <em>indirect effects</em> to keep in mind:</p>
+<ul>
+<li><p>In this exercise we let Mplus compute the indirect (i.e., mediated) effects by simply multiplying the parameter estimates; the p-value that is reported for this, is known as the Sobel test; however, it is also known that this test is not correct</p></li>
+<li><p>A better approach to determine whether the indirect effect differs from zero or not, is through using bootstrapping and checking the 95% confidence interval for the indirect effect; this can be easily done in Mplus, but requires you to have the raw data (here we only have the summary data, which makes it impossible); in that case you may add to your code:</p></li>
+</ul>
+<pre><code>            ANALYSIS: BOOTSTRAP IS 1000;
+            OUTPUT:   CINTERVAL;</code></pre>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="measurement-invariance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="day-2-latent-growth-curve-modeling-lgcm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

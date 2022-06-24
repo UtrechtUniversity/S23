@@ -1,8 +1,8 @@
 --- 
-title: "S23 Summer School"
-subtitle: "Advanced Course on using Mplus"
-author: "Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)"
-date: "¹Utrecht University, Methodology & Statistics"
+title: "Utrecht Summer School S23"
+subtitle: "Advanced course on using Mplus"
+author: "Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa"
+date: "July 11th - 15th, 2022"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
@@ -18,7 +18,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a guide for the Advanced Course on using Mplus."
+description: "Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus''."
 ---
 
 # Course {-}
@@ -27,5 +27,5 @@ description: "This is a guide for the Advanced Course on using Mplus."
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ```
 
-This course material is part of the [Advanced Course on using Mplus](https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus),
+This course material is part of the [Advanced course on using Mplus](https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus),
 a five-day summer school course hosted by Utrecht University's department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.

@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Exercise 3: Level and Shape Parameterization | S23 Summer School</title>
-  <meta name="description" content="This is a guide for the Advanced Course on using Mplus." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <title>2.3 Exercise 3: Level and shape parameterization | Utrecht Summer School S23</title>
+  <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Exercise 3: Level and Shape Parameterization | S23 Summer School" />
+  <meta property="og:title" content="2.3 Exercise 3: Level and shape parameterization | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Exercise 3: Level and Shape Parameterization | S23 Summer School" />
+  <meta name="twitter:title" content="2.3 Exercise 3: Level and shape parameterization | Utrecht Summer School S23" />
   
-  <meta name="twitter:description" content="This is a guide for the Advanced Course on using Mplus." />
+  <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
-<meta name="author" content="Caspar J. van Lissa¹ (only this GitBook; rest of the course by colleagues)" />
+<meta name="author" content="Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa" />
 
 
 
@@ -31,9 +30,9 @@
   
   
 <link rel="prev" href="exercise-2-alcohol-use.html"/>
-<link rel="next" href="exercise-4-latent-growth-model-on-gpa-data.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="exercise-4-latent-growth-curve-model-on-gpa-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,79 +48,13 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,66 +75,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course</a></li>
-<li class="chapter" data-level="1" data-path="preparing-for-the-course.html"><a href="preparing-for-the-course.html"><i class="fa fa-check"></i><b>1</b> Preparing for the course</a>
+<li class="chapter" data-level="1" data-path="day-1-mplus-and-the-lisrel-model.html"><a href="day-1-mplus-and-the-lisrel-model.html"><i class="fa fa-check"></i><b>1</b> Day 1: Mplus and the LISREL model</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="installing-software.html"><a href="installing-software.html"><i class="fa fa-check"></i><b>1.1</b> Installing software</a>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html"><i class="fa fa-check"></i>Measurement invariance</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="installing-software.html"><a href="installing-software.html#installpackages"><i class="fa fa-check"></i><b>1.1.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.1.2" data-path="installing-software.html"><a href="installing-software.html#get-started"><i class="fa fa-check"></i><b>1.1.2</b> Get started</a></li>
-<li class="chapter" data-level="1.1.3" data-path="installing-software.html"><a href="installing-software.html#starting-a-new-project-in-rstudio"><i class="fa fa-check"></i><b>1.1.3</b> Starting a new project in Rstudio</a></li>
-<li class="chapter" data-level="1.1.4" data-path="installing-software.html"><a href="installing-software.html#code-conventions"><i class="fa fa-check"></i><b>1.1.4</b> Code conventions</a></li>
-<li class="chapter" data-level="1.1.5" data-path="installing-software.html"><a href="installing-software.html#getting-help"><i class="fa fa-check"></i><b>1.1.5</b> Getting Help</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#getting-started"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-1-configural-invariance"><i class="fa fa-check"></i>Step 1: Configural invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-2-weak-factorial-invariance"><i class="fa fa-check"></i>Step 2: Weak factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#step-3-strong-factorial-invariance"><i class="fa fa-check"></i>Step 3: Strong factorial invariance</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#alternative-way-of-scaling"><i class="fa fa-check"></i>Alternative way of scaling</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#full-model"><i class="fa fa-check"></i>Full model</a></li>
+<li class="chapter" data-level="" data-path="measurement-invariance.html"><a href="measurement-invariance.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-the-course-data.html"><a href="getting-the-course-data.html"><i class="fa fa-check"></i><b>1.2</b> Getting the course data</a></li>
-<li class="chapter" data-level="1.3" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html"><i class="fa fa-check"></i><b>1.3</b> R tutorial for beginners (optional)</a>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html"><i class="fa fa-check"></i>Path analysis</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#who-r-you"><i class="fa fa-check"></i><b>1.3.1</b> Who R you?</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r-tutorial-for-beginners-optional.html"><a href="r-tutorial-for-beginners-optional.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> RStudio</a></li>
+<li class="chapter" data-level="" data-path="path-analysis.html"><a href="path-analysis.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="day-2-latent-growth-models.html"><a href="day-2-latent-growth-models.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent Growth Models</a>
+<li class="chapter" data-level="2" data-path="day-2-latent-growth-curve-modeling-lgcm.html"><a href="day-2-latent-growth-curve-modeling-lgcm.html"><i class="fa fa-check"></i><b>2</b> Day 2: Latent growth curve modeling (LGCM)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: burn survivors</a>
+<li class="chapter" data-level="2.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html"><i class="fa fa-check"></i><b>2.1</b> Exercise 1: Burn survivors</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-add-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Add covariates</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1a-specifying-a-lgcm"><i class="fa fa-check"></i><b>2.1.1</b> Exercise 1a: Specifying a LGCM</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exercise-1-burn-survivors.html"><a href="exercise-1-burn-survivors.html#exercise-1b-adding-covariates"><i class="fa fa-check"></i><b>2.1.2</b> Exercise 1b: Adding covariates</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html"><i class="fa fa-check"></i><b>2.2</b> Exercise 2: Alcohol use</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a</a></li>
-<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b</a></li>
-<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="2.2.1" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2a-specify-a-lgcm"><i class="fa fa-check"></i><b>2.2.1</b> Exercise 2a: Specify a LGCM</a></li>
+<li class="chapter" data-level="2.2.2" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2b-predicting-growth"><i class="fa fa-check"></i><b>2.2.2</b> Exercise 2b: Predicting growth</a></li>
+<li class="chapter" data-level="2.2.3" data-path="exercise-2-alcohol-use.html"><a href="exercise-2-alcohol-use.html#exercise-2c-categorical-distal-outcome"><i class="fa fa-check"></i><b>2.2.3</b> Exercise 2c: Categorical distal outcome</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and Shape Parameterization</a>
+<li class="chapter" data-level="2.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html"><i class="fa fa-check"></i><b>2.3</b> Exercise 3: Level and shape parameterization</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3a"><i class="fa fa-check"></i><b>2.3.1</b> Exercise 3a</a></li>
 <li class="chapter" data-level="2.3.2" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3b"><i class="fa fa-check"></i><b>2.3.2</b> Exercise 3b</a></li>
 <li class="chapter" data-level="2.3.3" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3c"><i class="fa fa-check"></i><b>2.3.3</b> Exercise 3c</a></li>
 <li class="chapter" data-level="2.3.4" data-path="exercise-3-level-and-shape-parameterization.html"><a href="exercise-3-level-and-shape-parameterization.html#exercise-3d"><i class="fa fa-check"></i><b>2.3.4</b> Exercise 3d</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: latent growth model on GPA data</a>
+<li class="chapter" data-level="2.4" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html"><i class="fa fa-check"></i><b>2.4</b> Exercise 4: Latent growth curve model on GPA data</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
-<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-model-on-gpa-data.html"><a href="exercise-4-latent-growth-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
+<li class="chapter" data-level="2.4.1" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4a"><i class="fa fa-check"></i><b>2.4.1</b> Exercise 4a</a></li>
+<li class="chapter" data-level="2.4.2" data-path="exercise-4-latent-growth-curve-model-on-gpa-data.html"><a href="exercise-4-latent-growth-curve-model-on-gpa-data.html#exercise-4b"><i class="fa fa-check"></i><b>2.4.2</b> Exercise 4b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="day-3-latent-growth-mixture-modeling.html"><a href="day-3-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3" data-path="day-3-longitudinal-mixture-modeling.html"><a href="day-3-longitudinal-mixture-modeling.html"><i class="fa fa-check"></i><b>3</b> Day 3: Longitudinal mixture modeling</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent Growth (Mixture) Modeling</a>
+<li class="chapter" data-level="3.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html"><i class="fa fa-check"></i><b>3.1</b> Exercise 1: Latent growth (mixture) modeling</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#a.-latent-class-growth-models."><i class="fa fa-check"></i><b>3.1.1</b> 1a. Latent Class Growth Models.</a></li>
-<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#b.-increasing-random-starts"><i class="fa fa-check"></i><b>3.1.2</b> 1b. Increasing random starts</a></li>
-<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#c.-latent-growth-mixture-models."><i class="fa fa-check"></i><b>3.1.3</b> 1c. Latent Growth Mixture Models.</a></li>
-<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#d.-visualizing-growth-models."><i class="fa fa-check"></i><b>3.1.4</b> 1d. Visualizing growth models.</a></li>
-<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#e.-the-3-step-model."><i class="fa fa-check"></i><b>3.1.5</b> 1e. The 3-step model.</a></li>
+<li class="chapter" data-level="3.1.1" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga"><i class="fa fa-check"></i><b>3.1.1</b> Exercise 1a: Exploratory LCGA</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b"><i class="fa fa-check"></i><b>3.1.2</b> Exercise 1b</a></li>
+<li class="chapter" data-level="3.1.3" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models"><i class="fa fa-check"></i><b>3.1.3</b> Exercise 1c: Growth mixture models</a></li>
+<li class="chapter" data-level="3.1.4" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots"><i class="fa fa-check"></i><b>3.1.4</b> Exercise 1d: Model-predicted trajectory plots</a></li>
+<li class="chapter" data-level="3.1.5" data-path="exercise-1-latent-growth-mixture-modeling.html"><a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e"><i class="fa fa-check"></i><b>3.1.5</b> Exercise 1e</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent Transition Analysis (LTA)</a>
+<li class="chapter" data-level="3.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html"><i class="fa fa-check"></i><b>3.2</b> Exercise 2: Latent transition analysis (LTA)</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#a.-latent-transition-analysis-with-probability-parameterization"><i class="fa fa-check"></i><b>3.2.1</b> 2a. Latent transition analysis with probability parameterization</a></li>
-<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#b.-class-proportions-and-transition-probabilities"><i class="fa fa-check"></i><b>3.2.2</b> 2b. Class proportions and transition probabilities</a></li>
-<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#c.-adding-control-variables-optional"><i class="fa fa-check"></i><b>3.2.3</b> 2c. Adding control variables (optional)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#d.-extend-the-model-to-a-mover-stayer-model-optional"><i class="fa fa-check"></i><b>3.2.4</b> 2d. Extend the model to a mover-stayer model (optional)</a></li>
-<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#e.-selecting-the-number-of-classes-optional"><i class="fa fa-check"></i><b>3.2.5</b> 2e. Selecting the number of classes (optional)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2a"><i class="fa fa-check"></i><b>3.2.1</b> Exercise 2a</a></li>
+<li class="chapter" data-level="3.2.2" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2b"><i class="fa fa-check"></i><b>3.2.2</b> Exercise 2b</a></li>
+<li class="chapter" data-level="3.2.3" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2c"><i class="fa fa-check"></i><b>3.2.3</b> Exercise 2c</a></li>
+<li class="chapter" data-level="3.2.4" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2d"><i class="fa fa-check"></i><b>3.2.4</b> Exercise 2d</a></li>
+<li class="chapter" data-level="3.2.5" data-path="exercise-2-latent-transition-analysis-lta.html"><a href="exercise-2-latent-transition-analysis-lta.html#exercise-2e"><i class="fa fa-check"></i><b>3.2.5</b> Exercise 2e</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="day-4-cross-lagged-relations.html"><a href="day-4-cross-lagged-relations.html"><i class="fa fa-check"></i><b>4</b> Day 4: Cross-lagged relations</a>
@@ -243,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">S23 Summer School</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Utrecht Summer School S23</a>
           </h1>
         </div>
 
@@ -251,395 +184,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-3-level-and-shape-parameterization" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Exercise 3: Level and Shape Parameterization</h2>
-<p>The file GPA.dat holds the GPA data (GPA = grade point average) with GPA scores of 200 students in 6 consecutive
-semesters. There are also time-invariant covariates: high school GPA and gender; and the outcome variable:
-admitted to university of choice (missing if not applied for university). Use the GPA data to set up a level and shape
-model.</p>
-<p>First, load the data and name the variables:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="exercise-3-level-and-shape-parameterization.html#cb20-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;GPA.dat&quot;</span>)</span>
-<span id="cb20-2"><a href="exercise-3-level-and-shape-parameterization.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;STUDENT&quot;</span>, <span class="st">&quot;SEX&quot;</span>, <span class="st">&quot;HIGHGPA&quot;</span>,</span>
-<span id="cb20-3"><a href="exercise-3-level-and-shape-parameterization.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;GPA1&quot;</span>, <span class="st">&quot;GPA2&quot;</span>, <span class="st">&quot;GPA3&quot;</span>, <span class="st">&quot;GPA4&quot;</span>, <span class="st">&quot;GPA5&quot;</span>, <span class="st">&quot;GPA6&quot;</span>)</span></code></pre></div>
-<div id="exercise-3a" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Exercise 3a</h3>
-<p>Use a parameterization with <a href="mailto:GPA1@0" class="email">GPA1@0</a> and <a href="mailto:GPA6@1" class="email">GPA6@1</a>. The loadings for the other timepoints should be freely estimated. This can
-be done with, for example, the syntax GPA2* as shown in the handout.<br />
-Interpret the factor loadings and estimate for S.</p>
+<div id="exercise-3-level-and-shape-parameterization" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Exercise 3: Level and shape parameterization<a href="exercise-3-level-and-shape-parameterization.html#exercise-3-level-and-shape-parameterization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The file <code>GPA.dat</code> holds the following variables (in that order):</p>
+<ul>
+<li>grade point average (GPA) data with GPA scores of 200 students in 6 consecutive semesters (<code>gpa1</code>, …, <code>gpa6</code>)</li>
+<li>high school GPA <code>highpa</code></li>
+<li>gender <code>sex</code></li>
+<li>admitted to university of choice (missing if not applied for university, <code>student</code>)</li>
+</ul>
+<p>In this exercise you will use the GPA data to set up a level and shape model (i.e., a LGCM with estimated time scores).</p>
+<div id="exercise-3a" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Exercise 3a<a href="exercise-3-level-and-shape-parameterization.html#exercise-3a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use a parameterization with <code>GPA1@0</code> and <code>GPA6@1</code>. The loadings for the other time points should be freely estimated. This can be done with, for example, the syntax <code>GPA2*</code> as shown in the handout. Interpret the factor loadings and estimate for <code>S</code>.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>This can be done as follows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="exercise-3-level-and-shape-parameterization.html#cb21-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">mplusObject</span>(</span>
-<span id="cb21-2"><a href="exercise-3-level-and-shape-parameterization.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">MODEL =</span> <span class="st">&quot;i s | gpa1@0 gpa2* gpa3* gpa4* gpa5* gpa6@1;&quot;</span>,</span>
-<span id="cb21-3"><a href="exercise-3-level-and-shape-parameterization.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">rdata =</span> data,</span>
-<span id="cb21-4"><a href="exercise-3-level-and-shape-parameterization.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">usevariables =</span> <span class="fu">c</span>(<span class="st">&quot;GPA1&quot;</span>, <span class="st">&quot;GPA2&quot;</span>, <span class="st">&quot;GPA3&quot;</span>, <span class="st">&quot;GPA4&quot;</span>, <span class="st">&quot;GPA5&quot;</span>, <span class="st">&quot;GPA6&quot;</span>),</span>
-<span id="cb21-5"><a href="exercise-3-level-and-shape-parameterization.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">modelout =</span> <span class="st">&quot;m3.inp&quot;</span></span>
-<span id="cb21-6"><a href="exercise-3-level-and-shape-parameterization.html#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-7"><a href="exercise-3-level-and-shape-parameterization.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="exercise-3-level-and-shape-parameterization.html#cb21-8" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m3, <span class="at">run =</span> 1L)</span>
-<span id="cb21-9"><a href="exercise-3-level-and-shape-parameterization.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="exercise-3-level-and-shape-parameterization.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all columns of results</span></span>
-<span id="cb21-11"><a href="exercise-3-level-and-shape-parameterization.html#cb21-11" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table_results</span>(res, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb21-12"><a href="exercise-3-level-and-shape-parameterization.html#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain factor loadings and intercepts using op %in% c(&quot;=~&quot;, &quot;~1&quot;) </span></span>
-<span id="cb21-13"><a href="exercise-3-level-and-shape-parameterization.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># for all parameters involving S (lhs == &quot;S&quot;)</span></span>
-<span id="cb21-14"><a href="exercise-3-level-and-shape-parameterization.html#cb21-14" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tab[tab<span class="sc">$</span>lhs <span class="sc">==</span> <span class="st">&quot;S&quot;</span> <span class="sc">&amp;</span> tab<span class="sc">$</span>op <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;=~&quot;</span>, <span class="st">&quot;~1&quot;</span>), ]</span>
-<span id="cb21-15"><a href="exercise-3-level-and-shape-parameterization.html#cb21-15" aria-hidden="true" tabindex="-1"></a>tab[, <span class="fu">c</span>(<span class="st">&quot;label&quot;</span>, <span class="st">&quot;est_sig&quot;</span>, <span class="st">&quot;pval&quot;</span>, <span class="st">&quot;confint&quot;</span>)]</span></code></pre></div>
-<p>The factor loading indicates the proportion of change from the starting time point to the
-current one. Thus, 24% of the total change occurs between GPA1 and GPA2. Mean S = 0.55. This indicates the total change between GPA1 and GPA6. The intercept at GPA1 = 2.575. So the
-estimated score at GPA2 = 2.575 + 0.239<em>0.549 = 2.706, the estimated score at GPA3 =
-2.575 + 0.450</em>0.549 = 2.822, etcetera.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-label
-</th>
-<th style="text-align:left;">
-est_sig
-</th>
-<th style="text-align:left;">
-pval
-</th>
-<th style="text-align:left;">
-confint
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-S.|.GPA1
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA2
-</td>
-<td style="text-align:left;">
-0.24***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.16, 0.32]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA3
-</td>
-<td style="text-align:left;">
-0.45***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.38, 0.52]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA4
-</td>
-<td style="text-align:left;">
-0.65***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.60, 0.70]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA5
-</td>
-<td style="text-align:left;">
-0.81***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.77, 0.86]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA6
-</td>
-<td style="text-align:left;">
-1.00
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Means.S
-</td>
-<td style="text-align:left;">
-0.55***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.49, 0.61]
-</td>
-</tr>
-</tbody>
-</table>
+<p>The Mplus model syntax for this LGCM can be found in <code>exercise3A.inp</code> on SURFdrive. The factor loadings indicate the proportion of change for a 1 unit change in time (here, a 1 unit change of time is specified as the change between the first and the last time points). The predicted change in the outcome for a 1 unit change in time is the mean of the slope, <span class="math inline">\(\alpha_{S} = 0.55\)</span>. Therefore, when looking at the factor loadings, 24% of the total change occurs between <code>GPA1</code> and <code>GPA2.</code>. The intercept at <code>GPA1</code> = 2.575. So the estimated score at <code>GPA2</code> is <span class="math inline">\(GPA1 = 2.575 + 0.239*0.549 = 2.706\)</span>. The estimated score at <code>GPA3</code> is <span class="math inline">\(GPA3 = 2.575 + 0.450*0.549 = 2.822\)</span>, etc.</p>
 </div>
-<div id="exercise-3b" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Exercise 3b</h3>
-<p>Now use a parameterization with <a href="mailto:GPA1@0" class="email">GPA1@0</a> and <a href="mailto:GPA2@1" class="email">GPA2@1</a>. The other GPA’s should be freely estimated.
-Interpret the factor loadings and estimate for S.</p>
+<div id="exercise-3b" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Exercise 3b<a href="exercise-3-level-and-shape-parameterization.html#exercise-3b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now use a parameterization with <code>GPA1@0</code> and <code>GPA2@1</code>. The other GPA’s should be freely estimated. Interpret the factor loadings and estimate for S.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>This can be done as follows:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exercise-3-level-and-shape-parameterization.html#cb22-1" aria-hidden="true" tabindex="-1"></a>m3b <span class="ot">&lt;-</span> m3 </span>
-<span id="cb22-2"><a href="exercise-3-level-and-shape-parameterization.html#cb22-2" aria-hidden="true" tabindex="-1"></a>m3b<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="st">&quot;i s | gpa1@0 gpa2@1 gpa3* gpa4* gpa5* gpa6*;&quot;</span></span>
-<span id="cb22-3"><a href="exercise-3-level-and-shape-parameterization.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="exercise-3-level-and-shape-parameterization.html#cb22-4" aria-hidden="true" tabindex="-1"></a>res_3b <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m3b, <span class="at">run =</span> 1L)</span>
-<span id="cb22-5"><a href="exercise-3-level-and-shape-parameterization.html#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="exercise-3-level-and-shape-parameterization.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all columns of results</span></span>
-<span id="cb22-7"><a href="exercise-3-level-and-shape-parameterization.html#cb22-7" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table_results</span>(res_3b, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb22-8"><a href="exercise-3-level-and-shape-parameterization.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain factor loadings and intercepts using op %in% c(&quot;=~&quot;, &quot;~1&quot;) </span></span>
-<span id="cb22-9"><a href="exercise-3-level-and-shape-parameterization.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># for all parameters involving S (lhs == &quot;S&quot;)</span></span>
-<span id="cb22-10"><a href="exercise-3-level-and-shape-parameterization.html#cb22-10" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tab[tab<span class="sc">$</span>lhs <span class="sc">==</span> <span class="st">&quot;S&quot;</span> <span class="sc">&amp;</span> tab<span class="sc">$</span>op <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;=~&quot;</span>, <span class="st">&quot;~1&quot;</span>), ]</span>
-<span id="cb22-11"><a href="exercise-3-level-and-shape-parameterization.html#cb22-11" aria-hidden="true" tabindex="-1"></a>tab[, <span class="fu">c</span>(<span class="st">&quot;label&quot;</span>, <span class="st">&quot;est_sig&quot;</span>, <span class="st">&quot;pval&quot;</span>, <span class="st">&quot;confint&quot;</span>)]</span></code></pre></div>
-<p>Mean S now indicates the difference between GPA1 and GPA2. The estimated factor loadings
-indicate the distance in units from the starting point, where 1 unit is S. You could also say
-that every distance compares to the increase between GPA1 and GPA2.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-label
-</th>
-<th style="text-align:left;">
-est_sig
-</th>
-<th style="text-align:left;">
-pval
-</th>
-<th style="text-align:left;">
-confint
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-S.|.GPA1
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA2
-</td>
-<td style="text-align:left;">
-1.00
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA3
-</td>
-<td style="text-align:left;">
-1.88***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 1.31, 2.46]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA4
-</td>
-<td style="text-align:left;">
-2.73***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 1.89, 3.58]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA5
-</td>
-<td style="text-align:left;">
-3.41***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 2.33, 4.49]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.|.GPA6
-</td>
-<td style="text-align:left;">
-4.18***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 2.82, 5.55]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Means.S
-</td>
-<td style="text-align:left;">
-0.13***
-</td>
-<td style="text-align:left;">
-0.00
-</td>
-<td style="text-align:left;">
-[ 0.08, 0.18]
-</td>
-</tr>
-</tbody>
-</table>
+<p>The Mplus model syntax for this parametrization of the LGCM with freely estimated time scores can be found in <code>exercise3B.inp</code>. The mean of the slope factor <span class="math inline">\(\alpha_{S}\)</span> now indicates the difference between <code>GPA1</code> and <code>GPA2</code>. The estimated factor loadings indicate the distance in units from the starting point, where 1 unit is S. In other words, every distance compares to the increase between GPA1 and GPA2.</p>
 <p>Which parameterization do you like best?</p>
 </div>
-<div id="exercise-3c" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Exercise 3c</h3>
-<p>Draw the development of GPA over time based on your own calculations (by hand).
-Compare this to the estimated means plot that you can get with the plot command:
-PLOT: SERIES = GPA1-GPA6 (s);
-TYPE = PLOT3;<br />
-However, don’t forget that you need to ‘rescale’ that plot, since S is linear while the location of the
-estimated points is based on the factor loadings.</p>
+<div id="exercise-3c" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Exercise 3c<a href="exercise-3-level-and-shape-parameterization.html#exercise-3c" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Draw the development of GPA over time, using the parametrization of your choice) based on your own calculations (by hand). Compare this to the estimated means plot that you can get with the plot command:</p>
+<pre><code>PLOT: 
+  SERIES = GPA1-GPA6 (s); 
+  TYPE = PLOT3;</code></pre>
+<p>Don’t forget that you need to rescale that plot, since <code>S</code> is linear while the location of the estimated points is based on the factor loadings.</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>This can be done as follows. Note that you will have to load the plot in Mplus:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="exercise-3-level-and-shape-parameterization.html#cb23-1" aria-hidden="true" tabindex="-1"></a>m3b<span class="sc">$</span>PLOT <span class="ot">&lt;-</span> <span class="st">&quot;SERIES = GPA1-GPA6 (s);</span></span>
-<span id="cb23-2"><a href="exercise-3-level-and-shape-parameterization.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="st">             TYPE = PLOT3;&quot;</span></span>
-<span id="cb23-3"><a href="exercise-3-level-and-shape-parameterization.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="exercise-3-level-and-shape-parameterization.html#cb23-4" aria-hidden="true" tabindex="-1"></a>res_3b <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m3b, <span class="at">run =</span> 1L)</span></code></pre></div>
+<p>The estimated means plot for the parametrization (0 1 * * * *) is shown below, and can be generated by clicking the plots button, and selecting “Estimated means”.</p>
+<div class="figure">
+<img src="figures/exercise3c-estimatedMeans.jpg" width="400" alt="" />
+<p class="caption">Estimated means</p>
 </div>
-<div id="exercise-3d" class="section level3" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Exercise 3d</h3>
+</div>
+<div id="exercise-3d" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Exercise 3d<a href="exercise-3-level-and-shape-parameterization.html#exercise-3d" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use sex as a predictor of the intercept and slope and interpret the result (with 0 = boys, 1 = girls).</p>
 <details>
 <summary>
-<b>Click to show answers</b>
+<p><b>Click to show answers</b></p>
 </summary>
-<p>This can be done as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="exercise-3-level-and-shape-parameterization.html#cb24-1" aria-hidden="true" tabindex="-1"></a>m3_sex <span class="ot">&lt;-</span> m3</span>
-<span id="cb24-2"><a href="exercise-3-level-and-shape-parameterization.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make 0 = boys and 1 = girls</span></span>
-<span id="cb24-3"><a href="exercise-3-level-and-shape-parameterization.html#cb24-3" aria-hidden="true" tabindex="-1"></a>m3_sex<span class="sc">$</span>rdata<span class="sc">$</span>SEX <span class="ot">&lt;-</span> m3_sex<span class="sc">$</span>rdata<span class="sc">$</span>SEX <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb24-4"><a href="exercise-3-level-and-shape-parameterization.html#cb24-4" aria-hidden="true" tabindex="-1"></a>m3_sex<span class="sc">$</span>usevariables <span class="ot">&lt;-</span> <span class="fu">c</span>(m3_sex<span class="sc">$</span>usevariables, <span class="st">&quot;SEX&quot;</span>)</span>
-<span id="cb24-5"><a href="exercise-3-level-and-shape-parameterization.html#cb24-5" aria-hidden="true" tabindex="-1"></a>m3_sex<span class="sc">$</span>MODEL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(m3_sex<span class="sc">$</span>MODEL, <span class="st">&quot;i s on sex;&quot;</span>)</span>
-<span id="cb24-6"><a href="exercise-3-level-and-shape-parameterization.html#cb24-6" aria-hidden="true" tabindex="-1"></a>res_3sex <span class="ot">&lt;-</span> <span class="fu">mplusModeler</span>(m3_sex, <span class="at">run =</span> 1L)</span>
-<span id="cb24-7"><a href="exercise-3-level-and-shape-parameterization.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all columns of results</span></span>
-<span id="cb24-8"><a href="exercise-3-level-and-shape-parameterization.html#cb24-8" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table_results</span>(res_3sex, <span class="at">columns =</span> <span class="cn">NULL</span>)</span>
-<span id="cb24-9"><a href="exercise-3-level-and-shape-parameterization.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only regressions on I and S</span></span>
-<span id="cb24-10"><a href="exercise-3-level-and-shape-parameterization.html#cb24-10" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tab[tab<span class="sc">$</span>lhs <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;S&quot;</span>) <span class="sc">&amp;</span> tab<span class="sc">$</span>op <span class="sc">==</span> <span class="st">&quot;~&quot;</span>, ]</span>
-<span id="cb24-11"><a href="exercise-3-level-and-shape-parameterization.html#cb24-11" aria-hidden="true" tabindex="-1"></a>tab[, <span class="fu">c</span>(<span class="st">&quot;label&quot;</span>, <span class="st">&quot;est_sig&quot;</span>, <span class="st">&quot;pval&quot;</span>, <span class="st">&quot;confint&quot;</span>)]</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-label
-</th>
-<th style="text-align:left;">
-est_sig
-</th>
-<th style="text-align:left;">
-pval
-</th>
-<th style="text-align:left;">
-confint
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-I.ON.SEX
-</td>
-<td style="text-align:left;">
-0.08*
-</td>
-<td style="text-align:left;">
-0.03
-</td>
-<td style="text-align:left;">
-[ 0.01, 0.15]
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-S.ON.SEX
-</td>
-<td style="text-align:left;">
-0.14*
-</td>
-<td style="text-align:left;">
-0.01
-</td>
-<td style="text-align:left;">
-[ 0.03, 0.24]
-</td>
-</tr>
-</tbody>
-</table>
-<p>Sex is a significant predictor of the intercept and a significant
-predictor of development, with girls having a higher initial level, and a greater
-development over time.</p>
+<p>The Mplus model syntax for the LGCM with time scores (0 * * * * 1) and gender predicting the growth components can be found in <code>exercise3D.inp</code>. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level (<span class="math inline">\(b = .079\)</span>, <span class="math inline">\(SE = .037\)</span>), and a greater development over time (<span class="math inline">\(b = .136\)</span>, <span class="math inline">\(SE = .054\)</span>). Who run the world?</p>
 </div>
 </div>
             </section>
@@ -648,11 +246,10 @@ development over time.</p>
         </div>
       </div>
 <a href="exercise-2-alcohol-use.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise-4-latent-growth-model-on-gpa-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise-4-latent-growth-curve-model-on-gpa-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -692,10 +289,13 @@ gitbook.start({
 "text": null
 },
 "download": ["S23.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
-},
-"search": true
+}
 });
 });
 </script>

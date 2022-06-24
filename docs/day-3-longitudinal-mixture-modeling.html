@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Exercise 1: Latent growth (mixture) modeling | Utrecht Summer School S23</title>
+  <title>3 Day 3: Longitudinal mixture modeling | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Exercise 1: Latent growth (mixture) modeling | Utrecht Summer School S23" />
+  <meta property="og:title" content="3 Day 3: Longitudinal mixture modeling | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Exercise 1: Latent growth (mixture) modeling | Utrecht Summer School S23" />
+  <meta name="twitter:title" content="3 Day 3: Longitudinal mixture modeling | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="day-3-longitudinal-mixture-modeling.html"/>
-<link rel="next" href="exercise-2-latent-transition-analysis-lta.html"/>
+<link rel="prev" href="exercise-4-latent-growth-curve-model-on-gpa-data.html"/>
+<link rel="next" href="exercise-1-latent-growth-mixture-modeling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -184,106 +184,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-1-latent-growth-mixture-modeling" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Exercise 1: Latent growth (mixture) modeling<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1-latent-growth-mixture-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goal of this exercise is to subpopulations with different alcohol use trajectories. To this end, we start with an exploratory latent class growth analysis, and work towards a growth mixture model.</p>
-<div id="exercise-1a-exploratory-lcga" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Exercise 1a: Exploratory LCGA<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1a-exploratory-lcga" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option. Set up LCGA models models for 1, 2, 3, and 4 classes for the data in <code>DDS8_1.dat</code>. Specify the model using the <code>|</code> notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request <code>TECH11</code>, and <code>TECH14</code> to help evaluate model fit.</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in <code>exercise1A_1C.inp</code>, <code>exercise1A_2C.inp</code>, <code>exercise1A_3C.inp</code>, <code>exercise1A_4C.inp</code>, respectively.</p>
-</div>
-<div id="exercise-1b" class="section level3 hasAnchor" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Exercise 1b<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>These models use random starting values. Several independent random starts are made, to ensure that the model converges on the proper solution. The default is 20 random sets of starting values, of which 4 are run to completion. Inspect the output, and look carefully if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you.</p>
-<p>The <code>STARTS</code> option is used to specify the number of initial random starting values and final stage optimizations. Now, increase the number of starts to ensure proper convergence. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>You can inspect the convergence of the model by checking that the best final state loglikelihood value has been replicated using different starting values. See the output section <code>RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES</code>. Increasing the number of random starts can be done by specifying <code>STARTS = 50 10;</code> in the <code>ANALYSIS</code> command, where the first number specifies the initial number of random starts, and the second number specifies the number of initial starts that will be converged to the final stage.</p>
-<p>Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.</p>
-</div>
-<div id="exercise-1c-growth-mixture-models" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Exercise 1c: Growth mixture models<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1c-growth-mixture-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add <code>PROCESSORS = 4</code> to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (<code>TECH11</code>), and the bootstrapped LRT value (<code>TECH14</code>).</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>Mplus model syntax for the GMM models for 1, 2, 3, and 4 classes are in <code>exercise1C_1C.inp</code>, <code>exercise1C_2C.inp</code>, <code>exercise1C_3C.inp</code>, <code>exercise1C_4C.inp</code>, respectively. The BLRT for the GMM with 3 classes warns that <code>OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.</code> You can increase the number of random starts for the BLRT using <code>LRTSTARTS = 0 0 40 10;</code> in the <code>ANALYSIS</code> command. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a “simple” LGCM, we focus on the GMM with 2 and 3 classes in the next exercises.</p>
-</div>
-<div id="exercise-1d-model-predicted-trajectory-plots" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Exercise 1d: Model-predicted trajectory plots<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1d-model-predicted-trajectory-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:</p>
-<pre><code>PLOT:
-    TYPE = PLOT3;
-    SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);</code></pre>
-<p>when running the model. Then press the “plot” button and select “Estimated mean and observed individual values” and “Estimated means and estimated individual values”. Below you can find these plots for the GMM with 2 classes.</p>
-<div class="figure">
-<img src="figures/exercise1d-estimatedMeansIndividualValues.jpg" width="400" alt="" />
-<p class="caption">Estimated means and individual values.</p>
-</div>
-<div class="figure">
-<img src="figures/exercise1d-estimatedMeansAndValues.jpg" width="400" alt="" />
-<p class="caption">Estimated means and estimated invidivual trajectories</p>
-</div>
-<p>Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a seperate window as well. However, <code>MplusAutomation</code> has some useful plotting functions that I recommend you to explore, for example <code>plotGrowthMixtures()</code>, in which you can color the lines according to their class membership.</p>
-</div>
-<div id="exercise-1e" class="section level3 hasAnchor" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> Exercise 1e<a href="exercise-1-latent-growth-mixture-modeling.html#exercise-1e" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Covariates are often added to mixture models, to predict 1) class membership 2) to explain variation in the growth parameters within the classes, or 3) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:</p>
-<ol style="list-style-type: decimal">
-<li>Fit an unconditional LCA (without covariates).</li>
-<li>A “most likely class variable” is created using the posterior distribution of step 1.</li>
-<li>This most likely class variable is then regressed on (a) covariate.</li>
-</ol>
-<p>There are a few options for how to do 3-step analysis. They all rely on adding to the <code>VARIABLE</code> command. For more info, see <a href="https://www.statmodel.com/download/webnotes/webnote15.pdf" class="uri">https://www.statmodel.com/download/webnotes/webnote15.pdf</a>.</p>
-<div id="commands-for-conducting-a-3-step-model" class="section level4 hasAnchor" number="3.1.5.1">
-<h4><span class="header-section-number">3.1.5.1</span> Commands for conducting a 3-step model<a href="exercise-1-latent-growth-mixture-modeling.html#commands-for-conducting-a-3-step-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You can add the following options to the <code>VARIABLE</code> command:</p>
-<ol style="list-style-type: decimal">
-<li><code>AUXILIARY = x(R)</code><br />
-This is actually a 1-step method for predicting latent class memberships using Pseudo-Class draws.</li>
-<li><code>AUXILIARY = x(R3step);</code><br />
-A 3-step procedure, where covariates predict the latent class.</li>
-<li><code>AUXILIARY = y(e)</code><br />
-A 1-step method, where the latent class predicts a continuous distal outcome.</li>
-<li><code>AUXILIARY = y(de3step);</code><br />
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and equal variances.</li>
-<li><code>AUXILIARY = y(du3step);</code><br />
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and variances.</li>
-<li><code>AUXILIARY = Y(dcon);</code><br />
-Procedure for continuous distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = Y(dcon);</code><br />
-Procedure for categorical distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = y(BCH);</code><br />
-Improved and currently best 3-step procedure with continuous covariates as distal outcomes.</li>
-</ol>
-<p>Pick your final model from 1c, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender?</p>
-<details>
-<summary>
-<b>Click to show answers</b>
-</summary>
-<p>I’m providing an example using the 3-step procedure in <code>exercise1E.inp</code>. The results of adding these covariate to the model as predictors of the latent class can be found under the heading <code>TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE</code>. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.</p>
-</div>
-</div>
+<div id="day-3-longitudinal-mixture-modeling" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Day 3: Longitudinal mixture modeling<a href="day-3-longitudinal-mixture-modeling.html#day-3-longitudinal-mixture-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The exercises in this lab session are designed, in the first place, for use of Mplus exclusively. However, for those interested, we have the option to run the latent growth mixture models in batch, using the R-package <code>MplusAutomation</code>. This package allows you to automate part of your workflow (like making plots and tables), and provides functions for plots that are, and now I’m politically correct, more aesthetically pleasing, as well as more insightful. The exercises using <code>MplusAutomation</code> can be found with the course materials on SURFdrive.</p>
+<p>All of the input files using Mplus that I refer to in these exercises are provided with the course material on SURFdrive.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="day-3-longitudinal-mixture-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise-2-latent-transition-analysis-lta.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise-4-latent-growth-curve-model-on-gpa-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-1-latent-growth-mixture-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
