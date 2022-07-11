@@ -187,7 +187,7 @@ _Free parameter_. In each group we estimate:
 
 That makes 16 parameters per group; hence, 32 free parameters in total.
 
-_Degrees of freedom_. The degrees of freedom are therefore: df = 40-32=6.
+_Degrees of freedom_. The degrees of freedom are therefore: df = 40-32=8.
 
 `r if(knitr::is_html_output()){"\\details"}`
 
