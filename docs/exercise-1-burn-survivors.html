@@ -213,13 +213,11 @@
 <p>Based on these descriptions, I’ve chosen for the following specification of time in the LGM:</p>
 <p><code>i s | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;</code></p>
 <p>In this specification I set the first time point to 0.5 months after burn injury (approximation of 2 weeks after burn injury), the second time point to 1 month after burn injury (approximation of 4 weeks after burn injury), etc.</p>
-<p><strong>Plots</strong>
-You can enable the plot functionality of Mplus by specifying</p>
+<p><strong>Plots</strong> You can enable the plot functionality of Mplus by specifying</p>
 <pre><code>PLOT:
   TYPE = PLOT3;
   SERIES = W1 W2 W3 W4 W5 W6 W7 W8 (s);</code></pre>
 <p>The <code>TYPE = PLOT3;</code> function ensures that all kinds of different types of plots are available in Mplus (see the Mplus User Guide for an overview of the different types of plots). The <code>SERIES = ...;</code> function tells Mplus to draw a line through the named variables in that order, for each individual.</p>
-<p>EXPLAIN HOW TO GET NATIVE PLOTS OF MPLUS AND SHOW THEM HERE.</p>
 <p><strong>Deciding on linear vs. linear and quadratic slope</strong></p>
 <p>Some example syntaxes for running models with different trajectory shapes are available in SURFdrive. These include:</p>
 <ol style="list-style-type: decimal">
@@ -228,16 +226,16 @@ You can enable the plot functionality of Mplus by specifying</p>
 <li>A LGCM with an added quadratic slope but no quadratic slope factor variance.</li>
 </ol>
 <p>For the model with a quadratic slope, it was necessary to fix the variance of Q at 0 to ensure convergence. For both models, only CFI and TLI indicate adequate fit.</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col width="19%" />
-<col width="19%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col width="27%" />
+<col width="17%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="7%" />
+<col width="7%" />
 <col width="8%" />
-<col width="8%" />
-<col width="9%" />
 </colgroup>
 <thead>
 <tr class="header">

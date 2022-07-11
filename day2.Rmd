@@ -4,19 +4,19 @@ In this computer lab session you can practice with specifying latent growth mode
 
 ## Exercise 1: Burn survivors
 
-The file `PTSD.dat` contains data on burn survivors, specifically: 
+The file `PTSD.dat` contains data on burn survivors, specifically:
 
-- gender (`gender`), 
-- percentage total body surface burned (`tvlo`), 
-- SVL at wave 1 (2 weeks after burn injury; `W1`),
-- SVL at wave 2 (4 weeks after burn injury; `W2`),
-- SVL at wave 3 (2 months after burn injury; `W3`),
-- SVL at wave 4 (4 months after burn injury; `W4`),
-- SVL at wave 5 (6 months after burn injury; `W5`),
-- SVL at wave 6 (9 months after burn injury; `W6`),
-- SVL at wave 7 (12 months after burn injury; `W7`),
-- SVL at wave 8 (18 months after burn injury; `W8`), and
-- BPAS at wave 9 (24 months after burn injury; `pain`), 
+-   gender (`gender`),
+-   percentage total body surface burned (`tvlo`),
+-   SVL at wave 1 (2 weeks after burn injury; `W1`),
+-   SVL at wave 2 (4 weeks after burn injury; `W2`),
+-   SVL at wave 3 (2 months after burn injury; `W3`),
+-   SVL at wave 4 (4 months after burn injury; `W4`),
+-   SVL at wave 5 (6 months after burn injury; `W5`),
+-   SVL at wave 6 (9 months after burn injury; `W6`),
+-   SVL at wave 7 (12 months after burn injury; `W7`),
+-   SVL at wave 8 (18 months after burn injury; `W8`), and
+-   BPAS at wave 9 (24 months after burn injury; `pain`),
 
 in this order.
 
@@ -42,40 +42,35 @@ Based on these descriptions, I've chosen for the following specification of time
 
 In this specification I set the first time point to 0.5 months after burn injury (approximation of 2 weeks after burn injury), the second time point to 1 month after burn injury (approximation of 4 weeks after burn injury), etc.
 
-**Plots** 
-You can enable the plot functionality of Mplus by specifying 
+**Plots** You can enable the plot functionality of Mplus by specifying
 
-```
-PLOT:
-  TYPE = PLOT3;
-  SERIES = W1 W2 W3 W4 W5 W6 W7 W8 (s);
-```
+    PLOT:
+      TYPE = PLOT3;
+      SERIES = W1 W2 W3 W4 W5 W6 W7 W8 (s);
 
 The `TYPE = PLOT3;` function ensures that all kinds of different types of plots are available in Mplus (see the Mplus User Guide for an overview of the different types of plots). The `SERIES = ...;` function tells Mplus to draw a line through the named variables in that order, for each individual.
 
-EXPLAIN HOW TO GET NATIVE PLOTS OF MPLUS AND SHOW THEM HERE.
-
-**Deciding on linear vs. linear and quadratic slope** 
+**Deciding on linear vs. linear and quadratic slope**
 
 Some example syntaxes for running models with different trajectory shapes are available in SURFdrive. These include:
 
-1. A LGCM with only a linear slope.
-2. A LGCM with an added quadratic slope.
-3. A LGCM with an added quadratic slope but no quadratic slope factor variance.
+1.  A LGCM with only a linear slope.
+2.  A LGCM with an added quadratic slope.
+3.  A LGCM with an added quadratic slope but no quadratic slope factor variance.
 
 For the model with a quadratic slope, it was necessary to fix the variance of Q at 0 to ensure convergence. For both models, only CFI and TLI indicate adequate fit.
 
-| Model      | Parameters |  AIC  |  BIC  | RMSEA | CFI | TLI | SRMR |
-|:-----------|:----------:|:-----:|:-----:|:-----:|:---:|:---:|:----:|
-| exercise1a.out |     13     | 14051 | 14096 |  .14  | .93 | .94 | .08  |
-| exercise1a_Q.out   |     \-     |  \-   |  \-   |  \-   | \-  | \-  |  \-  |
-| exercise1a_Q0.out  |     14     | 14037 | 14085 |  .13  | .94 | .94 | .08  |
+| Model             | Parameters |  AIC  |  BIC  | RMSEA | CFI | TLI | SRMR |
+|:------------------|:----------:|:-----:|:-----:|:-----:|:---:|:---:|:----:|
+| exercise1a.out    |     13     | 14051 | 14096 |  .14  | .93 | .94 | .08  |
+| exercise1a_Q.out  |     \-     |  \-   |  \-   |  \-   | \-  | \-  |  \-  |
+| exercise1a_Q0.out |     14     | 14037 | 14085 |  .13  | .94 | .94 | .08  |
 
-**Model comparison tools** 
+**Model comparison tools**
 
 To see which model fit the data better, we can do a $\Delta \chi^{2}$ (i.e., Chi-square difference) test (e.g., using the function `chisq_sb()` from the `tidySEM` package in R, or using on online $\chi^{2} calculator$): $\Delta \chi^{2} = 16.14$, $\Delta df = 1$, $p < .001$. Furthermore, both AIC and BIC are lower in the model with a quadratic slope. Thus, model misfit is significantly lower when the quadratic slope is added although the fit indices still do not indicate adequate fit. We can use the plots, `RES` option in Mplus, or modification indices to see what the source of the misfit is.
 
-**Model parameters** 
+**Model parameters**
 
 The mean of the quadratic slope factor is significant (`q = 0.02`, $p < .001$), indicating that, on average, the growth curve does follow a quadratic curve (see `exercise1a_Q0.out`).
 
@@ -109,7 +104,7 @@ Conclusion: There are no gender differences in the regression of growth paramete
 
 ## Exercise 2: Alcohol use
 
-The figure below depicts the basic LGCM for the alcohol use data from Duncan, Duncan, and Strycker (2006), example 8_1. 
+The figure below depicts the basic LGCM for the alcohol use data from Duncan, Duncan, and Strycker (2006), example 8_1.
 
 ![Latent growth curve model for alcohol use.](./figures/Duncan-LGCM.png){width="400px"}
 
@@ -117,7 +112,7 @@ The data are in the file `DDS8_1.dat`, with variables `ALC1YR1` `ALC1YR2` `ALC1Y
 
 ### Exercise 2a: Specify a LGCM
 
-Set up the LGCM as depicted in the figure above in Mplus using the `|` notation (rather than specifying a CFA by using the `BY` statement). Inspect the output carefully with special attention for a) the pattern of missing values, b) the model fit, and c) the interpretation of the parameter estimates. How well does the model predict alcohol use of the years? 
+Set up the LGCM as depicted in the figure above in Mplus using the `|` notation (rather than specifying a CFA by using the `BY` statement). Inspect the output carefully with special attention for a) the pattern of missing values, b) the model fit, and c) the interpretation of the parameter estimates. How well does the model predict alcohol use of the years?
 
 <details>
 
@@ -127,11 +122,11 @@ Set up the LGCM as depicted in the figure above in Mplus using the `|` notation 
 
 </summary>
 
-The input and output file (`exercise2A.inp` and `exercise2A.out`) can be found on SURFdrive. The table under `PROPORTION OF DATA PRESENT` in the output file shows that the majority of the cases is complete, but that there is a small amount of attrition (panel dropout). You can also inspect the coverage matrix to inspect how much information you have for different parts of the model. Regarding model fit, the model fits well overall with the chi-square test of model fit $\chi^{2}(1) = 2.781$, $p = 0.095$, and the CFI and TLI above their recommended cutoff points. However, the RMSEA implies some some degree of misfit at $0.062$. The intercept and slope means indicate a relatively high starting point (3.68, $SE = .081$) and a growth of 0.92 ($SE = .053$) per year. The intercept and slope factors show considerable variance, indicating that the starting points and rates of growth differ considerably across individuals. Interestingly, the explained variance $R^{2}$ is high for years 1 and 3, but lower for year 2. 
+The input and output file (`exercise2A.inp` and `exercise2A.out`) can be found on SURFdrive. The table under `PROPORTION OF DATA PRESENT` in the output file shows that the majority of the cases is complete, but that there is a small amount of attrition (panel dropout). You can also inspect the coverage matrix to inspect how much information you have for different parts of the model. Regarding model fit, the model fits well overall with the chi-square test of model fit $\chi^{2}(1) = 2.781$, $p = 0.095$, and the CFI and TLI above their recommended cutoff points. However, the RMSEA implies some some degree of misfit at $0.062$. The intercept and slope means indicate a relatively high starting point (3.68, $SE = .081$) and a growth of 0.92 ($SE = .053$) per year. The intercept and slope factors show considerable variance, indicating that the starting points and rates of growth differ considerably across individuals. Interestingly, the explained variance $R^{2}$ is high for years 1 and 3, but lower for year 2.
 
 `r if(knitr::is_html_output()){"\\details"}`
 
-### Exercise 2b: Predicting growth 
+### Exercise 2b: Predicting growth
 
 We will now *explore* how different predictor variables affect the model fit. Include gender and age in the model as predictors of the intercept and slope. Interpret the fit of the model and the output. Feel free to estimate several models, including or excluding certain covariates. Make a model fit table by hand in a spreadsheet, reporting on the fit indices you deem to be appropriate. Which model do you consider to be best?
 
@@ -165,7 +160,7 @@ Include alcohol problems in year 5 in the model. Let the intercept and slope fac
 
 </summary>
 
-The model fit is still good. Note that after adding a categorical dependent variable to the model, Mplus switches to a robust estimator (MLR, and the exact type of regression the Mplus uses now is a logit regression). Both intercept and slope predict alcohol problems (see `exercise2c_M1.inp` on SURFdrive). Age also predicts alcohol problems directly (see `exercise2c_M2.inp` on SURFdrive). Since age predicts alcohol problems both directly and via the intercept, a mediation analysis is in order. This shows that the indirect effect of age via the intercept on alcohol problems is still significant when the direct effect is added to the model. 
+The model fit is still good. Note that after adding a categorical dependent variable to the model, Mplus switches to a robust estimator (MLR, and the exact type of regression the Mplus uses now is a logit regression). Both intercept and slope predict alcohol problems (see `exercise2c_M1.inp` on SURFdrive). Age also predicts alcohol problems directly (see `exercise2c_M2.inp` on SURFdrive). Since age predicts alcohol problems both directly and via the intercept, a mediation analysis is in order. This shows that the indirect effect of age via the intercept on alcohol problems is still significant when the direct effect is added to the model.
 
 `r if(knitr::is_html_output()){"\\details"}`
 
@@ -173,10 +168,10 @@ The model fit is still good. Note that after adding a categorical dependent vari
 
 The file `GPA.dat` holds the following variables (in that order):
 
-- grade point average (GPA) data with GPA scores of 200 students in 6 consecutive semesters (`gpa1`, ..., `gpa6`)
-- high school GPA `highpa`
-- gender `sex`
-- admitted to university of choice (missing if not applied for university, `student`)
+-   grade point average (GPA) data with GPA scores of 200 students in 6 consecutive semesters (`gpa1`, ..., `gpa6`)
+-   high school GPA `highpa`
+-   gender `sex`
+-   admitted to university of choice (missing if not applied for university, `student`)
 
 In this exercise you will use the GPA data to set up a level and shape model (i.e., a LGCM with estimated time scores).
 
@@ -216,13 +211,11 @@ Which parameterization do you like best?
 
 ### Exercise 3c
 
-Draw the development of GPA over time, using the parametrization of your choice) based on your own calculations (by hand). Compare this to the estimated means plot that you can get with the plot command: 
+Draw the development of GPA over time, using the parametrization of your choice) based on your own calculations (by hand). Compare this to the estimated means plot that you can get with the plot command:
 
-```
-PLOT: 
-  SERIES = GPA1-GPA6 (s); 
-  TYPE = PLOT3;
-```
+    PLOT: 
+      SERIES = GPA1-GPA6 (s); 
+      TYPE = PLOT3;
 
 Don't forget that you need to rescale that plot, since `S` is linear while the location of the estimated points is based on the factor loadings.
 
@@ -234,7 +227,7 @@ Don't forget that you need to rescale that plot, since `S` is linear while the l
 
 </summary>
 
-The estimated means plot for the parametrization (0 1 * * * *) is shown below, and can be generated by clicking the plots button, and selecting "Estimated means". 
+The estimated means plot for the parametrization (0 1 \* \* \* \*) is shown below, and can be generated by clicking the plots button, and selecting "Estimated means".
 
 ![Estimated means](./figures/exercise3C-estimatedMeans.jpg){width="400px"}
 
@@ -252,7 +245,7 @@ Use sex as a predictor of the intercept and slope and interpret the result (with
 
 </summary>
 
-The Mplus model syntax for the LGCM with time scores (0 * * * * 1) and gender predicting the growth components can be found in `exercise3D.inp`. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level ($b = .079$, $SE = .037$), and a greater development over time ($b = .136$, $SE = .054$). Who run the world?
+The Mplus model syntax for the LGCM with time scores (0 \* \* \* \* 1) and gender predicting the growth components can be found in `exercise3D.inp`. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level ($b = .079$, $SE = .037$), and a greater development over time ($b = .136$, $SE = .054$). Who run the world?
 
 `r if(knitr::is_html_output()){"\\details"}`
 
@@ -274,7 +267,7 @@ Continuing with the data used for the previous exercise, set up a latent growth 
 
 </summary>
 
-The Mplus model syntax for this can be found in `exercise4A.inp`. 
+The Mplus model syntax for this can be found in `exercise4A.inp`.
 
 `r if(knitr::is_html_output()){"\\details"}`
 
@@ -286,12 +279,10 @@ The factor loadings for GPA2, GPA4 and GPA6 ought to be constrained to be equal 
 
 If you get the error message below, can you find out what the problem is?
 
-```
-WARNING:  THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE DEFINITE. THIS 
-COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A LATENT VARIABLE, A CORRELATION 
-GREATER OR EQUAL TO ONE BETWEEN TWO LATENT VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE 
-THAN TWO LATENT VARIABLES. CHECK THE TECH4 OUTPUT FOR MORE INFORMATION. 
-```
+    WARNING:  THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE DEFINITE. THIS 
+    COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A LATENT VARIABLE, A CORRELATION 
+    GREATER OR EQUAL TO ONE BETWEEN TWO LATENT VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE 
+    THAN TWO LATENT VARIABLES. CHECK THE TECH4 OUTPUT FOR MORE INFORMATION. 
 
 A rough way to deal with this problem may be to fix the problematic parameter to a particular value (e.g., .001), try this and rerun the model. Now examine the same parameters as for exercise 4a, and compare the two. Are there major differences?
 

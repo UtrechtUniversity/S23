@@ -32,7 +32,7 @@ We start with drawing the model as a path diagram. The data come from:
 
 Sabatelli, R. M., and Bartle-Haring (2003). Family-of-origin and adjustment in married couples. _Journal of Marriage and Family, 65_, 159-169. https://doi.org/10.1111/j.1741-3737.2003.00159.x
 
-They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these date using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the hubsand and other variables are measured in the wives).
+They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these data using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the hubsand and other variables are measured in the wives).
 
 The variables included are:
 
@@ -40,7 +40,7 @@ The variables included are:
 
 * Intimacy (I): higher scores imply more self-disclosures, experiences of empathy and affection, and feelings of emotional closeness toward the marital partner
 
-* Father (F)): higher scores imply a better relationship between the participant and his/her father
+* Father (F): higher scores imply a better relationship between the participant and his/her father
 
 * Mother (M): higher scores imply a better relationship between the participant and his/her mother
 
@@ -212,7 +212,7 @@ where the first `MODEL:` command is the general model specification, and the sec
 
 * freeing the factor loadings (so they are not identical to the factor loadings in g1), and using `@1` to ensure the factors are scaled
 
-* freeing the latent means in the second group (so they are not identical to the intercepts in g1)
+* freeing the intercepts in the second group (so they are not identical to the intercepts in g1)
 
 * fixing the latent means to zero (to ensure identification)
 
@@ -465,7 +465,7 @@ In this case, the step from configural to weak factorial invariance now consists
 
 However, it is less obvious that the model for strong factorial invariance is nested under the model for weak factorial invariance, because it includes constraining parameters (i.e., the intercepts have to be equal across groups), but also requires freeing parameters (i.e., the latent means in the second group are freed). 
 
-To ensure that these models are nested, we use an alternative way of specifying these models, based on a different way of scaling. The __key issue__ here is that these alternative model specification are simply reparameterizations of the the same models; they are equivalent models, as we can see because they leas to the _exact same model fit_. 
+To ensure that these models are nested, we use an alternative way of specifying these models, based on a different way of scaling. The __key issue__ here is that these alternative model specification are simply reparameterizations of the the same models; they are equivalent models, as we can see because they lead to the _exact same model fit_. 
 
 #### Question 13{-} 
 Instead of scaling with the latent means fixed to zero and the intercepts all estimated freely, scale the latent variable in the model for configural invariance through setting the intercept for the first indicator to zero, while allowing the latent mean to be estimated freely. Compare the model fit to the one obtained above for the configural invariance model. 
@@ -772,7 +772,7 @@ The model fit is:
 
 showing it has 1 df more than the model we had before (because we estimate 1 parameter less). Doing a chi-square difference test we get:
 
-$\Delta \chi^2 = 16.315 - 15.647 = 0.688$ with $df-1$, which gives a p-value of 0.4137, which means the test is not significant. Hence, H0 does not have to be rejected, and we can therefor assume that the regression coefficient is identical across the two groups. 
+$\Delta \chi^2 = 16.315 - 15.647 = 0.688$ with $df-1$, which gives a p-value of 0.4137, which means the test is not significant. Hence, H0 does not have to be rejected, and we can therefore assume that the regression coefficient is identical across the two groups. 
 
 `r if(knitr::is_html_output()){"\\details"}`
 
@@ -1060,7 +1060,7 @@ It reports all there is to know about the effect of PPR on AA:
 
 * the total effect is the total indirect effect (i.e., all indirect effects) plus the direct effect
 
-Because the indirect effect is not significant, we could decide to take this out of the model (which is the same as setting it to zero).
+Because the direct effect is not significant, we could decide to take this out of the model (which is the same as setting it to zero).
 
 For the second outcome variable we get:
 
