@@ -18,7 +18,7 @@ We will use data from Bringmann et al. (2013), stored in file `Bringmann1.dat`. 
 
 <span style="font-size:.8em;"> Bringmann, L. F., Vissers, N., Wichers, M., Geschwind, N., Kuppens, P., Peeters, F., ... & Tuerlinckx, F. (2013). A network approach to psychopathology: new insights into clinical longitudinal data. PloS one, 8(4), e60188.</span>
 
-## 5.1 Exercise 1: Random Intercept Model with Implicit Lagged Effects (not DSEM)
+## Random Intercept Model with Implicit Lagged Effects (not DSEM)
 
 In Model 1 we first decompose each variable at each time point (occasion) in two parts: 
 
@@ -39,7 +39,7 @@ This model can be represented as depicted below, with on the left this decomposi
 ![](figures/Model1.png){width="400px"}
 
 
-### 5.1.a Specify the Mplus Model
+### Specify the Mplus Model
 
 To run this model, use the input file `model1.inp`. In the ANALYSIS command you will find a number of commands that set up the Bayesian multilevel estimation procedure:
 
@@ -73,7 +73,7 @@ Via ‘Somber ON Event’ at the between level, it is specified that the person-
 `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.1.b Model Equations & Parameters
+### Model Equations & Parameters
 
 While the model is running, write down the model in equations. 
 
@@ -123,7 +123,7 @@ Parameters estimated at this level:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.1.c Convergence
+### Convergence
 
 When the model is finished running, we first need to check the trace plots of the Bayesian estimation procedure to see if there are signs for non-convergence. Go to the icon with the two graphs, and click on this. Then, choose the option “Bayesian posterior parameter trace plots” and click “View”.
 
@@ -157,7 +157,7 @@ Convergence looks fine for the parameters.
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.1.d Interpret the Results
+### Interpret the Results
 
 Go to the output, and consider the parameter estimates. Interpret the findings for the within-person and the between-person slopes (e.g., do they differ from zero, are they positive or negative, what about their size?). 
 
@@ -188,7 +188,7 @@ The between-person slope is more than 4 times steeper: Note however that the bet
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.1.e Standardized Results
+### Standardized Results
 
 Check the standardized results to compare the size of the slopes within and between. 
 
@@ -213,7 +213,7 @@ In terms of $R^{2}$:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-## 5.2 Exercise 2: Random Intercept and Slopes Model with Implicit Lagged Effects (not DSEM)
+## Random Intercept and Slopes Model with Implicit Lagged Effects (not DSEM)
 
 In Model 2, we extend Model 1 to allow for individual differences in the within-person slope. This implies that people may respond differently to a temporary increase in the variable Event; this can be interpreted as individual differences in reactivity. This random slope `b1` becomes another latent variable at the between-person level, where we can use it as a predictor of the person-specific means of the variable Somber. We will also allow this slope variable to correlate with the means of Event.
 
@@ -221,7 +221,7 @@ Model 2 can be represented as depicted below, with on the left the within-betwee
 
 ![](figures/Model2.png){width="400px"}
 
-### 5.2.a Specify the Mplus Model
+### Specify the Mplus Model
 
 Write down the model command for this model. When your are done, check whether you specified it correctly by looking at the provided answers, and/or the input file `model2.inp`. Note that under command ‘ANALYSIS’ in the input file, we now need to specify `type = TWOLEVEL RANDOM`.
 
@@ -241,7 +241,7 @@ MODEL:  %WITHIN%
 </details>
 
 
-### 5.2.b Model Equations
+### Model Equations
 
 While the model is running, write down the model equations. The decomposition into within and between will be the same as for Model 1. 
 
@@ -284,7 +284,7 @@ $$\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.2.c Convergence
+### Convergence
 
 Check the trace plots of the posteriors for the parameters of the model. Can you link them to the free parameters you identified above? Are there signs of non-convergence?
 
@@ -296,7 +296,7 @@ All looks good.
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.2.d Interpret the Results
+### Interpret the Results
 
 * Which parameter is the one we should focus on when interested in the average of the person-specific within-person slopes b1? 
 
@@ -399,13 +399,13 @@ Now, you can go through the plots of different individuals by clicking the perso
 </details>
 
 
-## 5.3 Exercise 3: Dynamic SEM - including random autoregressive effects.
+## Dynamic SEM - including random autoregressive effects.
 
 Next, we include a dynamic relationship in our model. First, create a lagged version of Somber, by using the `LAGGED = ` in the `VARIABLE` command). In the next step, we'll include the lagged variable as a predictor at the within level, allowing for a random slope - this produces a random autoregressive effect (each individual will get their own autoregressive effect). This model can be represented as:
 
 ![](figures/Model3.png){width="400px"}
 
-### 5.3.a Specify the Mplus Model 
+### Specify the Mplus Model 
 
 Write out the model command for this model. Check with the input file `model3.inp` if you specified it correctly.
 
@@ -428,7 +428,7 @@ MODEL:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.3.b Model Equations
+### Model Equations
 
 While the model is running, write down the model equations.
 
@@ -475,7 +475,7 @@ $$\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.3.c Convergence & Interpret the Results
+### Convergence & Interpret the Results
 
 * Again, check the trace plots. If they look okay, consider the parameter estimates. What can you say about the autoregressive effects?
 
@@ -550,7 +550,7 @@ While the effect of b1 was significant in a previous model, it no longer is in t
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
   
-## 5.4 Exercise 4: Dynamic SEM - including random autoregressive and cross-lagged effects.
+## Dynamic SEM - including random autoregressive and cross-lagged effects.
 
 Until now, we have treated Event as a predictor only. However, it is also possible that the experience of negative and positive Events is affected by a person's momentary somberness. Moreover, there may be an autoregressive effect for Events. Hence, we are interested in the following model:
 
@@ -558,7 +558,7 @@ Until now, we have treated Event as a predictor only. However, it is also possib
 
 Thus, we have added two random slopes to the model: `b3` and `b4`, the autoregressive and cross-lagged effect respectively. At the between level, we allow the now 6 random effects to be correlated, rather than that we predict one from the other as we did before. Note that while the figure does not include a relationship between S and E at t-1, these predictors are related in the model (as the model that is specified at time point t, equally applies to all other time points - so we could have added the same b1 arrow there); the current representation simply represents which model statements are needed.  
 
-### 5.4.a Specify the Mplus Model 
+### Specify the Mplus Model 
 
 How do you specify this model? Check your specification with the `model4.inp` input file.
 
@@ -582,7 +582,7 @@ MODEL:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.4.b Model Equations
+### Model Equations
 
 * While running the model, write down the regression equation for the within level.
 
@@ -629,7 +629,7 @@ Between:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.4.c Convergence & Interpret the Results
+### Convergence & Interpret the Results
 
 When the model is finished, check the trace plots for signs of non-convergence. 
 
@@ -754,14 +754,14 @@ People with relatively high person-specific means for somber tend to have relati
 </details>
 
 
-## 5.5 Bonus Exercise 5: Dynamic SEM - adding an implicit lag 2 effect.
+## Bonus: Dynamic SEM - adding an implicit lag 2 effect.
 
 As mentioned before, due to the time interval that the variable Event is referring to, you can think of this as a variable that is situated in time between two consecutive measurements of somber. Hence the lag 0 regression (b1) is in a way already a lagged relationship, and we have therefore not included the regression of Somber at occasion t on Event at occasion t-1, but only a "concurrent" relationship of Somber t on Event t (and hence no residual correlation between the residuals of somber t and event t). However, we could add the lagged effects to the model, which would than imply an implicit 'lag 2' effect. We then get the following model:
 
 
 ![](figures/Model5.png){width="400px"}
 
-### 5.5.a Additional parameters
+### Additional parameters
 
 How many additional parameters does this model have in comparison to the previous one?
 
@@ -774,7 +774,7 @@ The mean (fixed effect) of B5 and its variance (random effect) and the covarianc
 </details>
 
 
-### 5.5.b Run the Mplus Model & Interpret the Results
+### Run the Mplus Model & Interpret the Results
 
 Run this model, and interpret the results for the fixed effects of the lagged parameters. 
 
@@ -803,7 +803,7 @@ The new lagged effect (b5: delayed effect of Event on somber) is also negative; 
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-## 5.6 Bonus Exercise 6: Dynamic SEM - adding a between level factor structure.
+## Bonus: Dynamic SEM - adding a between level factor structure.
 
 Instead of simply correlating the random effects at the between level, we may also consider modeling these variables more explicitly. For instance, we can specify a factor model to try to capture what these level 2 variables have in common. This can be represented like this:
 
@@ -826,7 +826,7 @@ Between:
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.6.a Specify the Mplus Model 
+### Specify the Mplus Model 
 
 To specify the factor model at the between level, use:
 
@@ -847,7 +847,7 @@ It is a latent variable which explains the shared variance among the random effe
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.6.b Convergence & Interpret the Results
+### Convergence & Interpret the Results
 
 If the model converged, check the parameter estimates. Which factor loadings are significant, and what do they mean?
 
@@ -883,13 +883,13 @@ Perhaps the latent variable could be called something like 'negative outlook' or
 </details>
 
 
-## 5.7 Bonus Exercise 7: Dynamic SEM - making the residual variance person-specific.
+## Bonus: Dynamic SEM - making the residual variance person-specific.
 
 In this model, we allow the residual variances to be random. This is often not an option in multilevel software, but within the Bayesian approach of DSEM this is fairly doable. We do still assume normal distributions for the random effects, which is not 100% appropriate for variances as they should not be able to become negative. To avoid issues with this, we model logtransformed random variances instead. The model is depicted below - note that we have also kept the factor structure at the between level from exercise 6:
 
 ![](figures/Model7.png){width="400px"}
 
-### 5.7.a Specify the Mplus Model 
+### Specify the Mplus Model 
 
 Specify this model (or sneak a peak at our input file) and run it. While it is running, determine the number of parameters that are estimated in this model.  
 
@@ -910,7 +910,7 @@ Between level:
 </details>
 
 
-### 5.7.b Convergence
+### Convergence
 
 Check the trace plots for signs of nonconvergence. Are there signs that indicate convergence may be slow?  
 
@@ -929,7 +929,7 @@ One could decide to increase the number of iterations. This can be done by simpl
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-### 5.7.c Interpret the Results
+### Interpret the Results
 
 * Consider the factor loading estimates: What do you conclude? 
 
@@ -982,13 +982,13 @@ The other R-squares are closer to zero.
   `r if(knitr::is_html_output()){"\\details"}`
 </details>
 
-## 5.8 Bonus Exercise 8: Dynamic SEM - Adding a level 2 (between level) predictor.
+## Bonus: Dynamic SEM - Adding a level 2 (between level) predictor.
 
 Finally, we consider a between level observed predictor for the nine random effects. For instance, we may consider a personality trait like Neuroticism as a useful predictor of individual differences in person-specific average somberness, and person-specific average experienced unpleasantness-pleasantness of events. Furthermore, we can investigate whether it predicts individual differences in inertia (autoregression), reactivity (cross-lagged regressions), and residual variances.    
 
 ![](figures/Model8.png){width="400px"}
 
-### 5.8.a Specify the Mplus Model 
+### Specify the Mplus Model 
 
 * Specify the model and run it. While it is running indicate how many parameters this model has.
 
@@ -1023,7 +1023,7 @@ The additional parameter that is estimates is the covariance between the residua
 </details>
 
 
-### 5.8.b Interpret the Results
+### Interpret the Results
 
 Interpret the resulting parameter estimates - focus on the regression coefficients of the model that was estimated.
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Utrecht Summer School S23</title>
+  <title>5.3 Dynamic SEM - including random autoregressive effects. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Utrecht Summer School S23" />
+  <meta property="og:title" content="5.3 Dynamic SEM - including random autoregressive effects. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.3 Dynamic SEM - including random autoregressive effects. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="day-1-mplus-and-the-lisrel-model.html"/>
+<link rel="prev" href="random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem.html"/>
+<link rel="next" href="dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,24 +235,148 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Utrecht Summer School S23</h1>
-<h2 class="subtitle"><em>Advanced course on using Mplus</em></h2>
-<p class="author"><em>Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa</em></p>
-<p class="date"><em>July 11th - 15th, 2022</em></p>
+<div id="dynamic-sem---including-random-autoregressive-effects." class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Dynamic SEM - including random autoregressive effects.<a href="dynamic-sem---including-random-autoregressive-effects..html#dynamic-sem---including-random-autoregressive-effects." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, we include a dynamic relationship in our model. First, create a lagged version of Somber, by using the <code>LAGGED =</code> in the <code>VARIABLE</code> command). In the next step, we’ll include the lagged variable as a predictor at the within level, allowing for a random slope - this produces a random autoregressive effect (each individual will get their own autoregressive effect). This model can be represented as:</p>
+<p><img src="figures/Model3.png" width="400" /></p>
+<div id="specify-the-mplus-model-2" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Specify the Mplus Model<a href="dynamic-sem---including-random-autoregressive-effects..html#specify-the-mplus-model-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Write out the model command for this model. Check with the input file <code>model3.inp</code> if you specified it correctly.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>MODEL:
+            %WITHIN%
+            s1 | Somber ON Event; ! random regression
+            s2 | Somber ON somber&amp;1; ! random autoregression 
+            
+            %BETWEEN%
+            Somber ON Event s1 s2;</code></pre>
+<p>The command <code>&amp;1</code> attached to a variable indicates this should be a lag 1 variable. The parameter label followed by <code>|</code> produces a random effect like before.</p>
 </div>
-<div id="course" class="section level1 unnumbered hasAnchor">
-<h1>Course<a href="index.html#course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.</p>
+</details>
+</div>
+<div id="model-equations-1" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Model Equations<a href="dynamic-sem---including-random-autoregressive-effects..html#model-equations-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While the model is running, write down the model equations.</p>
+<ul>
+<li>Write down the within level model. What parameters are estimated at this level?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+<p>Parameters estimated at this level:</p>
+<ul>
+<li>Residual within-person variance of <span class="math inline">\(\zeta_{Sit}\)</span></li>
+<li>Within-person variance of the predictor <span class="math inline">\(E^{(w)}_{it}\)</span></li>
+</ul>
+</div>
+</details>
+<ul>
+<li>Write down the between level model. Which parameters are estimated at this level?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1i} + \gamma_{03} \times b_{2i} + \zeta_{Si}\]</span></p>
+<p>Parameters estimated at this level:</p>
+<ul>
+<li>Grand intercept <span class="math inline">\(\gamma_{00}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{01}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{02}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{03}\)</span></li>
+<li>Between-person residual variance of <span class="math inline">\(\zeta_{Si}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Variance of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(b_{1i}\)</span> (i.e., within-person slope)</li>
+<li>Variance of the between-person predictor <span class="math inline">\(b_{1i}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(b_{2}\)</span> (i.e., autoregressive slope)</li>
+<li>Variance of the between-person predictor <span class="math inline">\(b_{2i}\)</span></li>
+<li>Covariances between <span class="math inline">\(b_{1i}\)</span>, <span class="math inline">\(b_{2i}\)</span>, and <span class="math inline">\(\mu_{Ei}\)</span></li>
+</ul>
+</div>
+</details>
+</div>
+<div id="convergence-interpret-the-results" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Convergence &amp; Interpret the Results<a href="dynamic-sem---including-random-autoregressive-effects..html#convergence-interpret-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Again, check the trace plots. If they look okay, consider the parameter estimates. What can you say about the autoregressive effects?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Means
+    B2                 0.340       0.022      0.000       0.300       0.383      *
 
+Variances
+    B2                 0.031       0.007      0.000       0.020       0.047      *</code></pre>
+<p>The average autoregressive effect is 0.34, with SD=0.18 (=<code>sqrt(0.031)</code>). On average, about .34 of the previous Somber score carries over to the next Somber score. The actual autoregressive effects will however differ from person to person.</p>
+<p>Hence, on average across persons, about 12% (<code>0.34^2</code>=.12) of the within-person variability in somberness is predicted by the autoregressive effect. The exact numbers will however differ from person to person.</p>
+</div>
+</details>
+<ul>
+<li><p>To obtain some idea of the individual differences in the autoregressive parameter, we will consider diverse plots. One plot that might be of interest is the histogram of the individual parameter values.</p>
+<details>
+<summary>
+<p><b>Click for instructions</b></p>
+</summary>
+<div class="answer">
+<p>Again, go to the plotting options, and now select the option: Between-level histogram (etc.)</p></li>
+</ul>
+<p><img src="figures/Betweenhist1.png" width="400" /></p>
+<p>Click View. In the next window, select the random autoregressive parameter (B2):</p>
+<p><img src="figures/Betweenhist2.png" width="400" /></p>
+Click “OK”. This shows you the sample distribution of the autoregressive parameter. Note that the individual scores are based on the mean of an individual’s posterior distribution for this parameter.
+</div>
+</details>
+<ul>
+<li>What is the highest and the lowest person-specific autoregressive effect?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><img src="figures/Betweenhist3.png" width="400" /></p>
+<p>The lowest is about 0.08 (so close to zero), the largest is about 0.7, so strong and positive. Most effects are around .2 to .45.</p>
+</div>
+</details>
+<ul>
+<li>Consider the level 2 effects where the within-person means of Somber are predicted by the within-person mean on Event, the random slope b1, and by the random slope b2. How would you interpret these results?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Between Level
+ SOMBER     ON
+    B1                -2.342       1.403      0.037      -5.405       0.153
+    B2                 0.181       0.626      0.377      -1.013       1.473
+ SOMBER     ON
+    EVENT             -0.831       0.183      0.000      -1.194      -0.476      *</code></pre>
+<p>Hence, only the person mean on Event is a significant predictor. The effect is negative, so people with relatively high person-specific means for ‘pleasant Event’ (report higher pleasant Event scores on average compared to others), tend to have relatively low person-specific means for Somber.</p>
+<p>While the effect of b1 was significant in a previous model, it no longer is in this model.</p>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="day-1-mplus-and-the-lisrel-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

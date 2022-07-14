@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Utrecht Summer School S23</title>
+  <title>5.8 Bonus: Dynamic SEM - Adding a level 2 (between level) predictor. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Utrecht Summer School S23" />
+  <meta property="og:title" content="5.8 Bonus: Dynamic SEM - Adding a level 2 (between level) predictor. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.8 Bonus: Dynamic SEM - Adding a level 2 (between level) predictor. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html"/>
 
-<link rel="next" href="day-1-mplus-and-the-lisrel-model.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,24 +235,87 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Utrecht Summer School S23</h1>
-<h2 class="subtitle"><em>Advanced course on using Mplus</em></h2>
-<p class="author"><em>Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa</em></p>
-<p class="date"><em>July 11th - 15th, 2022</em></p>
+<div id="bonus-dynamic-sem---adding-a-level-2-between-level-predictor." class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Bonus: Dynamic SEM - Adding a level 2 (between level) predictor.<a href="bonus-dynamic-sem---adding-a-level-2-between-level-predictor..html#bonus-dynamic-sem---adding-a-level-2-between-level-predictor." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, we consider a between level observed predictor for the nine random effects. For instance, we may consider a personality trait like Neuroticism as a useful predictor of individual differences in person-specific average somberness, and person-specific average experienced unpleasantness-pleasantness of events. Furthermore, we can investigate whether it predicts individual differences in inertia (autoregression), reactivity (cross-lagged regressions), and residual variances.</p>
+<p><img src="figures/Model8.png" width="400" /></p>
+<div id="specify-the-mplus-model-6" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Specify the Mplus Model<a href="bonus-dynamic-sem---adding-a-level-2-between-level-predictor..html#specify-the-mplus-model-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Specify the model and run it. While it is running indicate how many parameters this model has.</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Within level: 0 parameters</p>
+<p>Between level:</p>
+<ul>
+<li>9 fixed effects</li>
+<li>9 variances</li>
+<li>9 regression coefficients</li>
+<li>1 mean for the between level predictor N</li>
+<li>1 variance for the between level predictor N</li>
+</ul>
+<p>29 parameters in total (….but see the next exercise)</p>
 </div>
-<div id="course" class="section level1 unnumbered hasAnchor">
-<h1>Course<a href="index.html#course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.</p>
+</details>
+<ul>
+<li>Check the number of free parameters in the output (under model fit). Is this correct? If it is not correct, which parameter is added/deleted by default by Mplus?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>It is 30 rather than 29.</p>
+<p>The additional parameter that is estimates is the covariance between the residuals of the mean Somber and mean Events at the between level.</p>
+</div>
+</details>
+</div>
+<div id="interpret-the-results-3" class="section level3 hasAnchor" number="5.8.2">
+<h3><span class="header-section-number">5.8.2</span> Interpret the Results<a href="bonus-dynamic-sem---adding-a-level-2-between-level-predictor..html#interpret-the-results-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Interpret the resulting parameter estimates - focus on the regression coefficients of the model that was estimated.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Between Level
+
+ B1         ON
+    NEUROTIC          -0.004       0.002      0.004      -0.008      -0.001      *
+
+LOGVS      ON
+    NEUROTIC           0.051       0.016      0.001       0.019       0.082      *
+
+ SOMBER     ON
+    NEUROTIC           0.056       0.011      0.000       0.035       0.077      *
+
+ EVENT      ON
+    NEUROTIC          -0.018       0.007      0.005      -0.032      -0.004      *</code></pre>
+<p>People that score relatively high on Neuroticism tend to have relatively:</p>
+<ul>
+<li>high person-specific means for Somber</li>
+<li>low person-specific means for Event (on average less pleasant momentary events)</li>
+<li>stronger reactivity to Event (i.e., a more negative b1)</li>
+<li>larger residual variance for the variable Somber (more unexplained momentary fluctuations for Somberness)</li>
+</ul>
+</div>
+</details>
+<p>End of the exercises for Day 5.</p>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
+<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="day-1-mplus-and-the-lisrel-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

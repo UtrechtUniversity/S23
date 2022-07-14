@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Utrecht Summer School S23</title>
+  <title>5.5 Bonus: Dynamic SEM - adding an implicit lag 2 effect. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Utrecht Summer School S23" />
+  <meta property="og:title" content="5.5 Bonus: Dynamic SEM - adding an implicit lag 2 effect. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.5 Bonus: Dynamic SEM - adding an implicit lag 2 effect. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="day-1-mplus-and-the-lisrel-model.html"/>
+<link rel="prev" href="dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html"/>
+<link rel="next" href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,24 +235,51 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Utrecht Summer School S23</h1>
-<h2 class="subtitle"><em>Advanced course on using Mplus</em></h2>
-<p class="author"><em>Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa</em></p>
-<p class="date"><em>July 11th - 15th, 2022</em></p>
+<div id="bonus-dynamic-sem---adding-an-implicit-lag-2-effect." class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Bonus: Dynamic SEM - adding an implicit lag 2 effect.<a href="bonus-dynamic-sem---adding-an-implicit-lag-2-effect..html#bonus-dynamic-sem---adding-an-implicit-lag-2-effect." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As mentioned before, due to the time interval that the variable Event is referring to, you can think of this as a variable that is situated in time between two consecutive measurements of somber. Hence the lag 0 regression (b1) is in a way already a lagged relationship, and we have therefore not included the regression of Somber at occasion t on Event at occasion t-1, but only a “concurrent” relationship of Somber t on Event t (and hence no residual correlation between the residuals of somber t and event t). However, we could add the lagged effects to the model, which would than imply an implicit ‘lag 2’ effect. We then get the following model:</p>
+<p><img src="figures/Model5.png" width="400" /></p>
+<div id="additional-parameters" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Additional parameters<a href="bonus-dynamic-sem---adding-an-implicit-lag-2-effect..html#additional-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How many additional parameters does this model have in comparison to the previous one?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>The mean (fixed effect) of B5 and its variance (random effect) and the covariance between this random effect and the other 6 random effects; so 8 additional parameters.</p>
 </div>
-<div id="course" class="section level1 unnumbered hasAnchor">
-<h1>Course<a href="index.html#course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.</p>
-
+</details>
+</div>
+<div id="run-the-mplus-model-interpret-the-results" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Run the Mplus Model &amp; Interpret the Results<a href="bonus-dynamic-sem---adding-an-implicit-lag-2-effect..html#run-the-mplus-model-interpret-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Run this model, and interpret the results for the fixed effects of the lagged parameters.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Means
+    B1                -0.162       0.014      0.000      -0.190      -0.135      *
+    B2                 0.324       0.022      0.000       0.279       0.367      *
+    B3                 0.116       0.021      0.000       0.076       0.156      *
+    B4                -0.131       0.025      0.000      -0.182      -0.083      *
+    B5                -0.056       0.013      0.000      -0.080      -0.029      *</code></pre>
+<p>They all differ significantly from zero.</p>
+<p>The autoregressive parameters (b2 and b3) are positive.</p>
+<p>The cross-lagged relationships are all negative.</p>
+<p>The new lagged effect (b5: delayed effect of Event on somber) is also negative; however, it is less strong than the other effect of Event on Somber (b1).</p>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="day-1-mplus-and-the-lisrel-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

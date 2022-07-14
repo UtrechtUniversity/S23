@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Utrecht Summer School S23</title>
+  <title>5.7 Bonus: Dynamic SEM - making the residual variance person-specific. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Utrecht Summer School S23" />
+  <meta property="og:title" content="5.7 Bonus: Dynamic SEM - making the residual variance person-specific. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.7 Bonus: Dynamic SEM - making the residual variance person-specific. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="day-1-mplus-and-the-lisrel-model.html"/>
+<link rel="prev" href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html"/>
+<link rel="next" href="bonus-dynamic-sem---adding-a-level-2-between-level-predictor..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,24 +235,101 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Utrecht Summer School S23</h1>
-<h2 class="subtitle"><em>Advanced course on using Mplus</em></h2>
-<p class="author"><em>Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa</em></p>
-<p class="date"><em>July 11th - 15th, 2022</em></p>
+<div id="bonus-dynamic-sem---making-the-residual-variance-person-specific." class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Bonus: Dynamic SEM - making the residual variance person-specific.<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html#bonus-dynamic-sem---making-the-residual-variance-person-specific." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this model, we allow the residual variances to be random. This is often not an option in multilevel software, but within the Bayesian approach of DSEM this is fairly doable. We do still assume normal distributions for the random effects, which is not 100% appropriate for variances as they should not be able to become negative. To avoid issues with this, we model logtransformed random variances instead. The model is depicted below - note that we have also kept the factor structure at the between level from exercise 6:</p>
+<p><img src="figures/Model7.png" width="400" /></p>
+<div id="specify-the-mplus-model-5" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Specify the Mplus Model<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html#specify-the-mplus-model-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Specify this model (or sneak a peak at our input file) and run it. While it is running, determine the number of parameters that are estimated in this model.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Within level: 0 parameters</p>
+<p>Between level:
+- 9 fixed effects
+- 9 variances
+- 8 factor loadings
+- 1 factor variance</p>
+<p>27 parameters in total</p>
 </div>
-<div id="course" class="section level1 unnumbered hasAnchor">
-<h1>Course<a href="index.html#course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.</p>
+</details>
+</div>
+<div id="convergence-2" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Convergence<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html#convergence-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check the trace plots for signs of nonconvergence. Are there signs that indicate convergence may be slow?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Some of the trace plots show there is a lot of autocorrelation in the Bayesian samples (iterations) over time. This means the chains ‘mix’ slowly - the two chains are not covering each other all the time, and only move slowly along the y-axis.</p>
+<p>However, the chains do vary around the same constant (which would be the posterior mean estimate).</p>
+<p>Essentially, there is no evidence that the procedure is not converging, but that it is going relatively slowly. As a result, we’ll need more iterations than if we have lower autocorrelations.</p>
+<p>One could decide to increase the number of iterations. This can be done by simply increasing the iteration number, or by use the thin option here. When using <code>THIN=10</code>; Mplus saves only every tenth sample of the MCMC chain, and it also means that 10 times as many iterations are used. Thinning reduces (visible) autocorrelation in the chains, and as a result you can more easily see if the chains are mixing well.</p>
+</div>
+</details>
+</div>
+<div id="interpret-the-results-2" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Interpret the Results<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html#interpret-the-results-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Consider the factor loading estimates: What do you conclude?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Between Level
 
+ ETA      BY
+    SOMBER             1.000       0.000      0.000       1.000       1.000
+    EVENT             -0.371       0.103      0.000      -0.595      -0.187      *
+
+ ETA      BY
+    B1                -0.088       0.024      0.000      -0.143      -0.047      *
+    B2                 0.046       0.048      0.153      -0.039       0.147
+    B3                 0.060       0.040      0.051      -0.012       0.144
+    B4                -0.002       0.056      0.489      -0.115       0.105
+    B5                -0.028       0.013      0.014      -0.055      -0.004      *
+    LOGVS              1.412       0.403      0.000       0.856       2.448      *
+    LOGVE              0.057       0.107      0.282      -0.132       0.289</code></pre>
+<p>B3 no longer loads significantly on <span class="math inline">\(\eta\)</span>.</p>
+<p>People with relatively high scores on <span class="math inline">\(\eta\)</span>, tend to have:</p>
+<ul>
+<li>relatively high person-specific means for somberness</li>
+<li>relatively low person-specific means for event</li>
+<li>more negative effects of <span class="math inline">\(Event_{t}\)</span> on <span class="math inline">\(Somber_{t}\)</span> (b1)</li>
+<li>more negative delayed effects of <span class="math inline">\(Event_{t-1}\)</span> on <span class="math inline">\(Somber_{t}\)</span> (b5)</li>
+<li>Have a larger (log) residual variance for somberness</li>
+</ul>
+</div>
+</details>
+<ul>
+<li>Consider the R-square in the standardized results: What do you conclude?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Within: On average across persons, 24% of the within-person variance of momentary somberness and 5% of momentary Events is explained</p>
+<p>Between: the factor eta accounts for a substantial proportion of between-person variability in average somberness (54%), direct reactivity (b1; 43%), and residual within-person variance in somberness (RVS; 45%).</p>
+<p>It accounts for a smaller proportion of variance in the average pleasantness of Events (22%) and delayed reactivity (b5; 20%).</p>
+<p>The other R-squares are closer to zero.</p>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="day-1-mplus-and-the-lisrel-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bonus-dynamic-sem---adding-a-level-2-between-level-predictor..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

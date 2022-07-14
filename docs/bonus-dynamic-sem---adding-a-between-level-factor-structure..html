@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Utrecht Summer School S23</title>
+  <title>5.6 Bonus: Dynamic SEM - adding a between level factor structure. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Utrecht Summer School S23" />
+  <meta property="og:title" content="5.6 Bonus: Dynamic SEM - adding a between level factor structure. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.6 Bonus: Dynamic SEM - adding a between level factor structure. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="day-1-mplus-and-the-lisrel-model.html"/>
+<link rel="prev" href="bonus-dynamic-sem---adding-an-implicit-lag-2-effect..html"/>
+<link rel="next" href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,24 +235,83 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Utrecht Summer School S23</h1>
-<h2 class="subtitle"><em>Advanced course on using Mplus</em></h2>
-<p class="author"><em>Jeroen D. Mulder, Ellen L. Hamaker, Noémi Schuurman, and Caspar J. van Lissa</em></p>
-<p class="date"><em>July 11th - 15th, 2022</em></p>
+<div id="bonus-dynamic-sem---adding-a-between-level-factor-structure." class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Bonus: Dynamic SEM - adding a between level factor structure.<a href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html#bonus-dynamic-sem---adding-a-between-level-factor-structure." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Instead of simply correlating the random effects at the between level, we may also consider modeling these variables more explicitly. For instance, we can specify a factor model to try to capture what these level 2 variables have in common. This can be represented like this:</p>
+<p><img src="figures/Model6.png" width="400" /></p>
+<p>How many parameters does this model have at each level?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Within: 2 residual variances</p>
+<p>Between:</p>
+<ul>
+<li>7 residual variances for the indicators</li>
+<li>6 factor loadings (one is fixed to 1 for scaling the latent variable)</li>
+<li>1 latent variance for eta (mean of zero)</li>
+<li>7 intercepts (means) for the indicators</li>
+</ul>
 </div>
-<div id="course" class="section level1 unnumbered hasAnchor">
-<h1>Course<a href="index.html#course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of Mplus and advanced longitudinal models.</p>
+</details>
+<div id="specify-the-mplus-model-4" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Specify the Mplus Model<a href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html#specify-the-mplus-model-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To specify the factor model at the between level, use:</p>
+<pre><code>              %BETWEEN%
+              eta BY somber@1 Event b1*1 b2 b3 b4 b5;</code></pre>
+<p>(The <code>b1*1</code> is required in the Mplus v8.1; it is probably not necessary any more in a future version.)</p>
+<ul>
+<li>While running the model, indicate how you would interpret the factor <span class="math inline">\(\eta\)</span>.</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>It is a latent variable which explains the shared variance among the random effects. Without further theory about what kind of latent variable would cause variation in all these random effects it is hard to give it a more meaningful label! Looking at the factor loadings may help interpret the factor here (akin to an EFA).</p>
+</div>
+</details>
+</div>
+<div id="convergence-interpret-the-results-2" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Convergence &amp; Interpret the Results<a href="bonus-dynamic-sem---adding-a-between-level-factor-structure..html#convergence-interpret-the-results-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the model converged, check the parameter estimates. Which factor loadings are significant, and what do they mean?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Between Level
 
+ ETA      BY
+    SOMBER             1.000       0.000      0.000       1.000       1.000
+    EVENT             -0.529       0.257      0.000      -1.365      -0.271      *
+
+ ETA      BY
+    B1                -0.062       0.038      0.014      -0.158      -0.006      *
+    B2                -0.016       0.055      0.353      -0.140       0.084
+    B3                 0.095       0.058      0.020       0.005       0.249      *
+    B4                 0.078       0.063      0.069      -0.025       0.240
+    B5                -0.032       0.034      0.159      -0.111       0.031</code></pre>
+<p>People with higher eta tend to have:</p>
+<ul>
+<li>Higher mean levels of somberness</li>
+<li>Lower mean levels of unpleasant-pleasant Event</li>
+<li>More negative effects of Event t on Somber t (b1) (more reactive to events)</li>
+<li>Higher carry-over in Event (b3) (more intertia in event)</li>
+</ul>
+<p>Perhaps the latent variable could be called something like ‘negative outlook’ or ‘neuroticism’. But it would be better to apply a model like this when one has a specific theory in mind!</p>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="day-1-mplus-and-the-lisrel-model.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bonus-dynamic-sem---adding-an-implicit-lag-2-effect..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bonus-dynamic-sem---making-the-residual-variance-person-specific..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
