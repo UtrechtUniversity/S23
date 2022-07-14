@@ -296,7 +296,7 @@ If you are working in R with the lavaan-package, you can find more information a
 ### Exercise G
 Include the significant standardized parameter estimates for the covariances and the lagged regression parameters in the figure below.
 
-![The bivariate cross-lagged panel model with 5 repeated measures (waves).](CLPM-5waves.png){width=500px}
+![The bivariate cross-lagged panel model with 5 repeated measures (waves).](figures/CLPM-5waves.png){width=500px}
 
 ### Exercise H
 

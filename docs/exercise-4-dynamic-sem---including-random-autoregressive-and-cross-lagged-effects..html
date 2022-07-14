@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23</title>
+  <title>5.4 5.4 Exercise 4: Dynamic SEM - including random autoregressive and cross-lagged effects. | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23" />
+  <meta property="og:title" content="5.4 5.4 Exercise 4: Dynamic SEM - including random autoregressive and cross-lagged effects. | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.4 5.4 Exercise 4: Dynamic SEM - including random autoregressive and cross-lagged effects. | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="measurement-invariance.html"/>
+<link rel="prev" href="exercise-3-dynamic-sem---including-random-autoregressive-effects..html"/>
+<link rel="next" href="bonus-exercise-5-dynamic-sem---adding-an-implicit-lag-2-effect..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,19 +235,185 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="day-1-mplus-and-the-lisrel-model" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Day 1: Mplus and the LISREL model<a href="day-1-mplus-and-the-lisrel-model.html#day-1-mplus-and-the-lisrel-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>These exercises are for day 1 of S23. In the first exercise we investigate <em>measurement invariance</em>, while in the second exercise the focus is on <em>path analysis</em>. You can choose which of these you want to focus on, and start with that.</p>
-<p>In both exercises we will focus on: a) determining the number of degrees of freedom (df) by counting the number of sample statistics (i.e., unique pieces of information in our data) and the number of free parameters; and b) checking the TECH1 output to see where the free parameters are in the diverse underlying model matrices.</p>
-<p>You can navigate through these excises by using the left-hand menu or the arrows on left- and right-hand side of this screen. Answers are included below each exercise in a drop down option. The data and Mplus input files can found in the SURFdrive folder.</p>
+<div id="exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects." class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> 5.4 Exercise 4: Dynamic SEM - including random autoregressive and cross-lagged effects.<a href="exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html#exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Until now, we have treated Event as a predictor only. However, it is also possible that the experience of negative and positive Events is affected by a person’s momentary somberness. Moreover, there may be an autoregressive effect for Events. Hence, we are interested in the following model:</p>
+<p><img src="figures/Model4.png" width="400" /></p>
+<p>Thus, we have added two random slopes to the model: <code>b3</code> and <code>b4</code>, the autoregressive and cross-lagged effect respectively. At the between level, we allow the now 6 random effects to be correlated, rather than that we predict one from the other as we did before. Note that while the figure does not include a relationship between S and E at t-1, these predictors are related in the model (as the model that is specified at time point t, equally applies to all other time points - so we could have added the same b1 arrow there); the current representation simply represents which model statements are needed.</p>
+<div id="a-specify-the-mplus-model-3" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> 5.4.a Specify the Mplus Model<a href="exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html#a-specify-the-mplus-model-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How do you specify this model? Check your specification with the <code>model4.inp</code> input file.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>MODEL:
+            %WITHIN%
+            s1 | Somber ON Event; ! lagged random regression
+            s2 | Somber ON somber&amp;1; ! random autoregression for somber
+            s3 | Event ON Event&amp;1; ! random autoregression for Event 
+            s4 | Event ON somber&amp;1; ! lagged regression from Somber to Event
+            
+            %BETWEEN%
+            Somber Event s1 s2 s3 s4 WITH Event s1-s4;</code></pre>
+</div>
+</details>
+</div>
+<div id="b-model-equations-2" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> 5.4.b Model Equations<a href="exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html#b-model-equations-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>While running the model, write down the regression equation for the within level.</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+<p><span class="math display">\[E^{(w)}_{it}=b_{3i}\times E^{(w)}_{it-1} + b_{4i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+</div>
+</details>
+<ul>
+<li>In contrast to typical cross-lagged models that we covered in the lecture, we are not including a covariance between the residuals here. Why not?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>The concurrent (lag 0) relationship is already accounted for by the (random) regression of <span class="math inline">\(S_{it}\)</span> on <span class="math inline">\(E_{it}\)</span>. The residual of <span class="math inline">\(S_{it}\)</span> is the part that cannot be predicted from <span class="math inline">\(E_{it}\)</span> (and <span class="math inline">\(S_{it-1}\)</span>); hence it would not make sense to correlate this residual with the residual of <span class="math inline">\(E_{it}\)</span>.</p>
+</div>
+</details>
+<ul>
+<li>How many parameters are estimated at each level?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Within: 2 residual variances</p>
+<p>Note that because Event is now not only a predictor, but also an outcome, we no longer estimate its variance, but instead its <i>residual</i> variance; the variance of Event is now a function of the residual variance, the regression coefficients, and the variances of the predictors.</p>
+<p>Between:</p>
+<ul>
+<li>4 fixed slopes (mean slopes)</li>
+<li>2 fixed intercepts (grand means)</li>
+<li>6 variances of the 4 slopes and 2 intercepts (random effects)</li>
+<li>15 covariances between these random effects</li>
+</ul>
+<p>29 parameters in total.</p>
+</div>
+</details>
+</div>
+<div id="c-convergence-interpret-the-results-1" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> 5.4.c Convergence &amp; Interpret the Results<a href="exercise-4-dynamic-sem---including-random-autoregressive-and-cross-lagged-effects..html#c-convergence-interpret-the-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the model is finished, check the trace plots for signs of non-convergence.</p>
+<ul>
+<li>Look at the estimated effects. What can you conclude about the autoregressive and cross-lagged coefficients?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Means
+    B1               -0.169       0.014      0.000      -0.195      -0.142      *
+    B2                 0.342       0.022      0.000       0.298       0.382      *
+    B3                 0.118       0.020      0.000       0.078       0.159      *
+    B4               -0.126       0.024      0.000      -0.176      -0.081      *</code></pre>
+<p>All of the average coefficients differ from zero.</p>
+<p>The average autoregressive coefficients, b2 and b3, are positive. So for on average, there is carryover from one moment to the next both for feelings of somberness and the experienced pleasantness of events.</p>
+<p>The average Cross-lagged coefficients b1 and b4 are negative, implying: More positive Events tend to be followed by less somberness an occassion later, while increased somberness tends to by followed by less positively experienced events.</p>
+</div>
+</details>
+<ul>
+<li>To compare the strengths of the cross-lagged effects, we need to consider the standardized parameters. Check the standardized output, and interpret the regression coefficients there.</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>B1 | SOMBER ON
+    EVENT             -0.211       0.013      0.000      -0.237      -0.187      *
+
+ B2 | SOMBER ON
+    SOMBER&amp;1           0.341       0.014      0.000       0.312       0.370      *
+
+ B3 | EVENT ON
+    EVENT&amp;1            0.119       0.015      0.000       0.091       0.149      *
+
+ B4 | EVENT ON
+    SOMBER&amp;1          -0.105       0.015      0.000      -0.137      -0.077      *</code></pre>
+<p>The standardized autoregressive parameters should be (approximately) the same as the unstandardized ones. The reason for this is that the variances for <span class="math inline">\(y_{t}\)</span> and <span class="math inline">\(y_{t-1}\)</span> in a stationary model are the same by definition. Slight differences in the point estimates might occur due to the calculation procedure of the standardized effects.</p>
+<p>Note however that the standard errors are smaller for the standardized fixed effects. This is because the standardized fixed effect is a <i>sample mean</i> of the person-specific effects, and disregards sampling variability. Significance of fixed effects should hence be based on the <i>unstandardized</i> fixed effects. This also applies to the fixed cross-lagged effects. This is not an issue for the person-specific standardized effects.</p>
+<p>The standardized average (fixed) effect from Event to Somber (-.211) is twice the size of the one from Somber to Event (-.105); so on average, the effect from Events on mood is stronger than the other way around. This however may be different from person to person.</p>
+</div>
+</details>
+<ul>
+<li>Consider the R-square output as well. How can you interpret this?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Within-Level R-Square Averaged Across Clusters
+                                Posterior  One-Tailed         95% C.I.
+    Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
+    SOMBER          0.227       0.012      0.000       0.204       0.250
+    EVENT           0.057       0.008      0.000       0.043       0.073</code></pre>
+<p>On average, 23% of within-person variability in Somber can be accounted for by the lagged relationships; for Event this is 6%. These numbers may however differ from person to person.</p>
+</div>
+</details>
+<ul>
+<li>Consider the covariances and correlations between the random effects. For which of these correlations is there evidence that they deviate from zero?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>There are a few significant correlations:</p>
+<pre><code>SOMBER   WITH
+    B1                -0.346       0.132      0.007      -0.585      -0.071      *
+    B3                 0.342       0.151      0.017       0.027       0.623      *
+
+B3       WITH
+    B4                 0.571       0.198      0.011       0.102       0.865      *
+
+ SOMBER   WITH
+    EVENT             -0.523       0.083      0.000      -0.663      -0.346      *</code></pre>
+<p>People with relatively high person-specific means for somber tend to have relatively low values for the effect of event on somber; and relatively high autoregressive effects for Event.</p>
+<p>People with relatively higher autoregressive effects for Event tend to have relatively high values for the cross-lagged effect of somber on event.</p>
+<p>People with relatively high person-specific means for somber tend to have relatively low person-specific means for event.</p>
+<p>To interpret these effects further, we’ll look at some plots in the following exercise.</p>
+</div>
+</details>
+<ul>
+<li>For each of these correlations, get a scatter plot and interpret the result (use the “Between-level scatterplots” option).</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Somber with b1: A higher mean level for Somber is related to lower b1 (effect of Event on Somber), which is negative on average; hence people with a lower level on somber, tend to have a b1 closer to zero, while individuals with a higher level on Somber tend to have a b1 that is more negative.</p>
+<p>Somber with b3: Individuals with relatively high person-specific means of Somber tend to have relatively high positive autoregressive effects in their Events.</p>
+<p>b3 with b4: People with relatively higher autoregressive effects for Event (b3) tend to have a relatively high b4 - Since the average b4 is negative, it means: higher autoregression for Event is a b4 closer to zero, while a lower autoregression for Event is associated with a stronger negative effect of Somber on Event.</p>
+<p>People with relatively high person-specific means for somber tend to have relatively low person-specific means for event.</p>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measurement-invariance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise-3-dynamic-sem---including-random-autoregressive-effects..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bonus-exercise-5-dynamic-sem---adding-an-implicit-lag-2-effect..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

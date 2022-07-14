@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23</title>
+  <title>5.1 5.1 Exercise 1: Random Intercept Model with Implicit Lagged Effects (not DSEM) | Utrecht Summer School S23</title>
   <meta name="description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23" />
+  <meta property="og:title" content="5.1 5.1 Exercise 1: Random Intercept Model with Implicit Lagged Effects (not DSEM) | Utrecht Summer School S23" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Day 1: Mplus and the LISREL model | Utrecht Summer School S23" />
+  <meta name="twitter:title" content="5.1 5.1 Exercise 1: Random Intercept Model with Implicit Lagged Effects (not DSEM) | Utrecht Summer School S23" />
   
   <meta name="twitter:description" content="Exercises for the computer labs of the Utrecht Summer School course ``Advanced course on using Mplus’’." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="measurement-invariance.html"/>
+<link rel="prev" href="day-5-dynamic-sem-dsem.html"/>
+<link rel="next" href="exercise-2-random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,19 +235,183 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="day-1-mplus-and-the-lisrel-model" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Day 1: Mplus and the LISREL model<a href="day-1-mplus-and-the-lisrel-model.html#day-1-mplus-and-the-lisrel-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>These exercises are for day 1 of S23. In the first exercise we investigate <em>measurement invariance</em>, while in the second exercise the focus is on <em>path analysis</em>. You can choose which of these you want to focus on, and start with that.</p>
-<p>In both exercises we will focus on: a) determining the number of degrees of freedom (df) by counting the number of sample statistics (i.e., unique pieces of information in our data) and the number of free parameters; and b) checking the TECH1 output to see where the free parameters are in the diverse underlying model matrices.</p>
-<p>You can navigate through these excises by using the left-hand menu or the arrows on left- and right-hand side of this screen. Answers are included below each exercise in a drop down option. The data and Mplus input files can found in the SURFdrive folder.</p>
+<div id="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> 5.1 Exercise 1: Random Intercept Model with Implicit Lagged Effects (not DSEM)<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Model 1 we first decompose each variable at each time point (occasion) in two parts:</p>
+<ul>
+<li>a person-specific mean, which has the same value at each occasion but differs from person to person</li>
+<li>a deviation from that mean for each person and occasion.</li>
+</ul>
+<p>Hence, we decompose the variables into two latent variables: One with person-specific means, at the <i>between level</i>. One with deviations from these means unique to each occasion and person, at the <i>within level</i>. These deviations can be seen as simply the within-person centered scores for a person at each occasion.</p>
+<p>Next, we add two regression relationships:</p>
+<ul>
+<li>Between level: the person means of Somber are regressed on the person means of Event</li>
+<li>Within level: the person-mean centered variable Somber is regressed on the person-mean centered variable Event.</li>
+</ul>
+<p>Note that this is not a dynamic SEM model yet in terms of the Mplus specification, because there are <i>no explicit lagged relationships</i> in the model. But note that there is an <i>implicit lagged relationship</i>: Although the two variables are measured at the same occasion (as indicated by the subscript t), the variable Event refers to the interval between t-1 and t, while the variable Somber is referring to the specific time point t. Hence, the reported on events take place <i>before</i> the somber feelings.</p>
+<p>This model can be represented as depicted below, with on the left this decomposition, and on the right the regression models specified at each level.</p>
+<p><img src="figures/Model1.png" width="400" /></p>
+<div id="a-specify-the-mplus-model" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> 5.1.a Specify the Mplus Model<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#a-specify-the-mplus-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To run this model, use the input file <code>model1.inp</code>. In the ANALYSIS command you will find a number of commands that set up the Bayesian multilevel estimation procedure:</p>
+<pre><code>ANALYSIS:   TYPE = TWOLEVEL;
+            ESTIMATOR = BAYES; 
+            PROC = 2;
+            BITER= (2000);
+            BSEED = 9556;</code></pre>
+<p>Make sure the following commands for OUTPUT and PLOT are included:</p>
+<pre><code>OUTPUT:     TECH1 STDYX;
+PLOT:       TYPE = PLOT3;
+            FACTORS = ALL;</code></pre>
+<p>Check out the model specification (i.e., the MODEL command). What do the commands on the within person level and on the between person level do?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p>Via ‘Somber ON Event’ at the within level, for each person in the model their somber within-person centered scores are regressed on their within-person centered event scores on the same measurement occasion. The regression coefficients and other model parameters – except for the means of somber and event - are the same for all persons.</p>
+<p>Via ‘Event’ we tell Mplus to make Event endogenous like Somber, such that means and variances are estimated for this variable as well - and Event is decomposed in a between person level and within-person level as well. That is, for both Somber and Event we now estimate the mean score over time for each individual inside the model. On the within level the deviations from these means (within-person centered scores) at each time point are modeled. At the between level the relationships among these means, that vary from individual to individual, are modeled.</p>
+<p>Via ‘Somber ON Event’ at the between level, it is specified that the person-specific means for Somber are regressed on the person-specific means for Event.</p>
+</div>
+</details>
+</div>
+<div id="b-model-equations-parameters" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> 5.1.b Model Equations &amp; Parameters<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#b-model-equations-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While the model is running, write down the model in equations.</p>
+<ul>
+<li>Start with the decomposition, i.e., <span class="math inline">\(E_{it}=\)</span> …</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[S_{it} = \mu_{S i} + S_{it}^{(w)}\]</span>
+<span class="math display">\[E_{it} = \mu_{E i} + E_{it}^{(w)}\]</span></p>
+
+</div>
+</details>
+<ul>
+<li>Write down the within level model. Which parameters are estimated at this level?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[S_{it}^{(w)} = b \times E_{it}^{(w)} + \zeta_{S it}\]</span>
+Parameters estimated at this level:</p>
+<ul>
+<li>Fixed within-person slope b (same for each person)</li>
+<li>Residual within-person variance for S, the variance of <span class="math inline">\(\zeta_Sit\)</span></li>
+<li>Within-person variance of the (made endogenous) predictor <span class="math inline">\(E^{(w)}_{it}\)</span></li>
+</ul>
+</div>
+</details>
+<ul>
+<li>Write down the between level model. Which parameters are estimated at this level?</li>
+</ul>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<p><span class="math display">\[\mu_{S i} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \zeta_{Si} \]</span>
+Parameters estimated at this level:</p>
+<ul>
+<li>Grand intercept <span class="math inline">\(\gamma_{00}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{01}\)</span></li>
+<li>Between-person residual variance of <span class="math inline">\(\zeta_{Si}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Variance of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+</ul>
+</div>
+</details>
+</div>
+<div id="c-convergence" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> 5.1.c Convergence<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#c-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the model is finished running, we first need to check the trace plots of the Bayesian estimation procedure to see if there are signs for non-convergence. Go to the icon with the two graphs, and click on this. Then, choose the option “Bayesian posterior parameter trace plots” and click “View”.</p>
+<p><img src="figures/Trace.png" width="400" /></p>
+<p>By clicking “OK” in the next window, the trace plot of parameter 1 appears. You can use the icons with the histograms and the left and right headed arrows to move backward and forward through the parameters (their names are in the headings of the plots).</p>
+<p><img src="figures/Traceplot1e.png" width="400" /></p>
+<p>Write down how these parameters relate to the ones you identified above (in questions c. and d.),</p>
+<p>Are there any problems with convergence based on these plots? Can you tell what parameter from question b each plot is about?</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<ul>
+<li>Parameter 1, %WITHIN%: SOMBER ON EVENT → within-person regression coefficient b</li>
+<li>Parameter 2, %WITHIN%: SOMBER → within-person residual variance for somber</li>
+<li>Parameter 3, %WITHIN%: EVENT → within-person variance on Event</li>
+<li>Parameter 4, %BETWEEN%: [SOMBER] → between-person intercept on Somber (<span class="math inline">\(\gamma_{00}\)</span>)</li>
+<li>Parameter 5, %BETWEEN%: [EVENT] → between-person mean on Event</li>
+<li>Parameter 6, %BETWEEN%: SOMBER ON EVENT → between-person regression coefficient (<span class="math inline">\(\gamma_{01}\)</span>)</li>
+<li>Parameter 7, %BETWEEN%: SOMBER → between-person residual variance of somber</li>
+<li>Parameter 8, %BETWEEN%: EVENT → between-person variance on Event</li>
+</ul>
+<p>Convergence looks fine for the parameters.</p>
+</div>
+</details>
+</div>
+<div id="d-interpret-the-results" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> 5.1.d Interpret the Results<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#d-interpret-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Go to the output, and consider the parameter estimates. Interpret the findings for the within-person and the between-person slopes (e.g., do they differ from zero, are they positive or negative, what about their size?).</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>Within Level
+
+ SOMBER     ON
+    EVENT             -0.203       0.010      0.000      -0.223      -0.184      *
+
+
+Between Level
+
+ SOMBER     ON
+    EVENT             -0.953       0.159      0.000      -1.266      -0.651      *</code></pre>
+<p>Both slopes are negative, implying that:</p>
+<ul>
+<li>Within person: People’s increased (relative to their mean level) Event scoretends to be followed by a decreased (relative to their mean level) temporary somberness score. A 1 unit higher event score tends to be followed by a decrease of .20 units in their somber score.</li>
+<li>Between person: People a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness. A 1 unit higher mean would imply about a .95 units lower mean for Somber.</li>
+</ul>
+<p>The between-person slope is more than 4 times steeper: Note however that the between-person variance in Event is about 10 times smaller than the within-person variance in Event (0.278 vs. 2.844). Hence, in the next step we look at the standardized results.</p>
+</div>
+</details>
+</div>
+<div id="e-standardized-results" class="section level3 hasAnchor" number="5.1.5">
+<h3><span class="header-section-number">5.1.5</span> 5.1.e Standardized Results<a href="exercise-1-random-intercept-model-with-implicit-lagged-effects-not-dsem.html#e-standardized-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check the standardized results to compare the size of the slopes within and between.</p>
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<div class="answer">
+<pre><code>SOMBER     ON
+    EVENT             -0.259       0.012      0.000      -0.284      -0.236      *
+
+SOMBER     ON
+    EVENT             -0.529       0.074      0.000      -0.656      -0.374      *</code></pre>
+<p>The standardized between slope is more than twice as steep than the within slope.</p>
+<p>In terms of <span class="math inline">\(R^{2}\)</span>:</p>
+<ul>
+<li>6.7% of the momentary within-person variability in Somber is explained by within-person variability in Events.</li>
+<li>28.0% of the stable between-person variability in Somber is predicted by between-person differences in average Event.</li>
+</ul>
+</div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measurement-invariance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="day-5-dynamic-sem-dsem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-2-random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

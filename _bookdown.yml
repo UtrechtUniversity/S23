@@ -3,7 +3,8 @@ rmd_files: ["index.Rmd",
 "day1.Rmd",
 "day2.Rmd",
 "day3.Rmd",
-"day4.Rmd"]
+"day4.Rmd",
+"day5.Rmd"]
 language:
   ui:
     chapter_name: ""
