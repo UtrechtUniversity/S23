@@ -1,0 +1,10 @@
+---
+title: "Introduction"
+subtitle: "Dynamic SEM (DSEM)"
+editor: source
+bibliography: references.bib
+---
+
+In these exercises we focus on analyzing intensive longitudinal data (ILD) obtained with experience sampling (also referred to as ecological momentary assessments).
+
+We will use data from @bringmann_network_2013, stored in file `Bringmann1.dat`. It contains data from 129 persons, with each between 20 to 60 repeated measurements per variable. Throughout these exercises we will focus on two variables: Somber (to what degree are you feeling somber right now?), and Event (report on the most important event since the previous beep and indicate how unpleasant-pleasant is was). 

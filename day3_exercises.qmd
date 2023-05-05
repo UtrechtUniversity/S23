@@ -1,0 +1,180 @@
+---
+title: "Exercises"
+subtitle: "Day 3: Longitudinal mixture modeling"
+editor: source
+bibliography: references.bib
+---
+
+## Latent growth (mixture) modeling
+
+The goal of this exercise is to find subpopulations with different alcohol use trajectories. To this end, we start with an exploratory latent class growth analysis, and work towards a growth mixture model.
+
+#### Exercise 1A
+
+First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option. Set up LCGA models models for 1, 2, 3, and 4 classes for the data in `DDS8_1.dat`. Specify the model using the `|` notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request `TECH11`, and `TECH14` to help evaluate model fit. 
+
+::: {.callout-caution collapse="true"}
+#### Answer
+Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in `exercise1A_1C.inp`, `exercise1A_2C.inp`, `exercise1A_3C.inp`, `exercise1A_4C.inp`, respectively.
+:::
+
+#### Exercise 1B
+These models use random starting values. Several independent random starts are made, to ensure that the model converges on the proper solution. The default is 20 random sets of starting values, of which 4 are run to completion. Inspect the output, and look carefully if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you.
+
+The `STARTS` option is used to specify the number of initial random starting values and final stage optimizations. Now, increase the number of starts to ensure proper convergence. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?
+
+::: {.callout-caution collapse="true"}
+#### Answer
+You can inspect the convergence of the model by checking that the best final state loglikelihood value has been replicated using different starting values. See the output section `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES`. Increasing the number of random starts can be done by specifying `STARTS = 50 10;` in the `ANALYSIS` command, where the first number specifies the initial number of random starts, and the second number specifies the number of initial starts that will be converged to the final stage. 
+
+Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.
+:::
+
+#### Exercise 1C
+Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add `PROCESSORS = 4` to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (`TECH11`), and the bootstrapped LRT value (`TECH14`).
+
+::: {.callout-caution collapse="true"}
+#### Answer
+
+Mplus model syntax for the GMM models for 1, 2, 3, and 4 classes are in `exercise1C_1C.inp`, `exercise1C_2C.inp`, `exercise1C_3C.inp`, `exercise1C_4C.inp`, respectively. The BLRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 40 10;` in the `ANALYSIS` command. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises. 
+:::
+
+#### Exercise 1D
+Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.
+
+::: {.callout-caution collapse="true"}
+#### Answer
+Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:
+
+```
+PLOT:
+    TYPE = PLOT3;
+    SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);
+```
+when running the model. Then press the "plot" button and select "Estimated mean and observed individual values" and "Estimated means and estimated individual values". Below you can find these plots for the GMM with 2 classes.
+
+![Estimated means and individual values.](./figures/exercise1D-estimatedMeansIndividualValues.jpg){width="400px"}
+
+![Estimated means and estimated invidivual trajectories](./figures/exercise1D-estimatedMeansAndValues.jpg){width="400px"}
+
+Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a seperate window as well. However, `MplusAutomation` has some useful plotting functions that I recommend you to explore, for example `plotGrowthMixtures()`, in which you can color the lines according to their class membership.
+
+#### Exercise 1E
+Covariates are often added to mixture models, to predict 1) class membership 2) to explain variation in the growth parameters within the classes, or 3) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:
+
+1. Fit an unconditional LCA (without covariates).
+2. A "most likely class variable" is created using the posterior distribution of step 1.
+3. This most likely class variable is then regressed on (a) covariate.
+
+There are a few options for how to do 3-step analysis. They all rely on adding to the `VARIABLE` command. For more info, see https://www.statmodel.com/download/webnotes/webnote15.pdf.
+
+#### Commands for conducting a 3-step model
+
+You can add the following options to the `VARIABLE` command:
+
+1. `AUXILIARY = x(R)`  
+    This is actually a 1-step method for predicting latent class memberships using Pseudo-Class draws.
+2. `AUXILIARY = x(R3step);`  
+    A 3-step procedure, where covariates predict the latent class.
+3. `AUXILIARY = y(e)`  
+    A 1-step method, where the latent class predicts a continuous distal outcome.
+4. `AUXILIARY = y(de3step);`  
+    A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and equal variances.
+5. `AUXILIARY = y(du3step);`  
+    A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and variances.
+6. `AUXILIARY = Y(dcon);`  
+    Procedure for continuous distal outcomes as suggested by Lanza et al (2013).
+7. `AUXILIARY = Y(dcon);`  
+    Procedure for categorical distal outcomes as suggested by Lanza et al (2013).
+8. `AUXILIARY = y(BCH);`  
+    Improved and currently best 3-step procedure with continuous covariates as distal outcomes.
+
+Pick your final model from 1c, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender? 
+
+::: {.callout-caution collapse="true"}
+#### Answer
+I'm providing an example using the 3-step procedure in `exercise1E.inp`. The results of adding these covariate to the model as predictors of the latent class can be found under the heading `TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE`. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.
+:::
+
+## Latent transition analysis (LTA)
+
+In this exercise we will explore the development of dating status over time using a latent transition analysis. Use the data in `DatingSex.dat`, which holds data on five dating indicators measured at two occasions (`u11`, ..., `u15`, `u21`, ..., `u25`), as well as the variable `gender`. The u-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item). 
+
+#### Exercise 2A 
+Set up a model with two latent class variables for the two time points. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class (2), in both model `c1` and model `c2`. To be sure Mplus does what you want, include equality constraints on the five thresholds of `%c1#1%` and `%c2#1%`, and similarly for `%c1#2%` and `%c2#2%`. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don't test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.
+
+After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output). 
+
+::: {.callout-caution collapse="true"}
+#### Answer
+The Mplus syntax should is given in `exercise2A.inp`. The parameters in probability scale can be found in under the heading `RESULTS IN PROBABILITY SCALE` in the output file. For example, we find that the probability of falling into category 1 (i.e., answering yes/no) is 0.434 ($SE = .024$) if you are in class 1 at the first time point, and 0.566 ($SE = .024$) for falling into category 2 (i.e., answering yes/no). Because of the imposed constraints, the probabilities also apply to time point 2, see `Latent Class C2#1`. 
+:::
+
+#### Exercise 2B
+Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?
+
+::: {.callout-caution collapse="true"}
+#### Answer
+You can find proportions of participants in each class under the heading `FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES`. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.
+
+You can find the latent transition probabilities based on the estimated model under the heading `TECHNICAL 15 OUTPUT`. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).
+:::
+
+#### Exercise 2C
+If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.
+
+::: {.callout-caution collapse="true"}
+#### Answer
+You could include gender as a control variable on the observed variables, by adding it to the `USEVARIABLES`, and including the following lines:
+
+`u11-u15 ON gender;`
+`u21-u25 ON gender;`
+
+See `exercise2C.inp`. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you're NOT using probability parametrization. So, you would have to remove this line:
+
+`PARAMETERIZATION = PROBABILITY;`
+
+And add this line:
+
+`c1 c2 ON gender;`
+:::
+
+### Exercise 2D
+We are going to extend the LTA to a Mover-Stayer LTA. This model assumes that there is a subpopulation of "stayers" that stay in the same class, and a subpopulation of "movers" that is free to transition to a different class over time. Answer the below questions:
+
+- Continuing with the 2 classes at both time points. Then, for movers, there is no restriction on the 2 by 2 transition matrix. However, what does the transition matrix for the stayers look like *in terms of probabilities*? Furthermore, what does the transition matrix for stayers look like *in terms of thresholds*? 
+- Add a Movers-Stayers class (i.e., an additional latent categorical factor with 2 classes, namely a movers class and a stayers class) to the LTA specified in the previous exercise. Make sure that for the movers class the transition matrix has no restrictions, and that the stayers class has the restrictions as discussed above. 
+- Run the Movers-Stayers class and look in the output. Which proportion of people is categorized as movers/stayers?
+
+::: {.callout-caution collapse="true"}
+#### Answer
+By definition, for stayers who are in category 1 at time point 1, there is a probability of 1 for being in category 1 at time point 2 as well, and a probability of 0 for transitioning to category 2. For stayers who are in category 2 at time point 1, there is a probability of 0 for being in category 1 at time point 2, but a probability of 1 for being in category 2. Translating this to thresholds, a large negative threshold represents a very high probability of being into that category, whereas a large positive threshold represents a low probability. So stayers who are in category 1 at time point 1 should have a large negative threshold for category 1 at time point 2, and a large positive threshold for category 2, etc. 
+
+Mplus model syntax for the mover-stayer model can be found in `exercise2D.inp`. Looking at `TECHNICAL 15 OUTPUT`, we can clearly see that we have specified a movers and a stayers class:
+
+```
+P(C2=1|CM=1,C1=1)=0.271
+P(C2=2|CM=1,C1=1)=0.729
+
+P(C2=1|CM=1,C1=2)=0.542
+P(C2=2|CM=1,C1=2)=0.458
+
+P(C2=1|CM=2,C1=1)=1.000
+P(C2=2|CM=2,C1=1)=0.000
+
+P(C2=1|CM=2,C1=2)=0.000
+P(C2=2|CM=2,C1=2)=1.000
+```
+
+Looking at the information under `FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN`, we see that 66.8% is classified as a mover, and 33.2% as a stayer. 
+:::
+
+#### Exercise 2E
+
+We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each time point you would choose.
+
+Think about:
+
+* Whether you think there should be an equal number of classes at both time points (this is mostly a theoretical decision).
+* How to build the model. Should you start by comparing unconstrained or constrained models?
+* How to decide what solution you prefer.

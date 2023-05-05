@@ -1,0 +1,11 @@
+---
+title: "Introduction"
+subtitle: "Day 1: Mplus and the LISREL model"
+editor: source
+---
+
+These exercises are for day 1 of S23. In the first exercise we investigate *measurement invariance*, while in the second exercise the focus is on *path analysis*. You can choose which of these you want to focus on, and start with that.
+
+In both exercises we will focus on: a) determining the number of degrees of freedom (df) by counting the number of sample statistics (i.e., unique pieces of information in our data) and the number of free parameters; and b) checking the TECH1 output to see where the free parameters are in the diverse underlying model matrices.
+
+You can navigate through these excises by using the left-hand menu. Answers are included below each exercise in a drop down option. The data and Mplus input files can found in the SURFdrive folder.

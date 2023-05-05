@@ -1,0 +1,7 @@
+---
+title: "Introduction"
+subtitle: "Day 3: Longitudinal mixture modeling"
+editor: source
+---
+
+The exercises in this lab session are designed, in the first place, for use of Mplus exclusively. However, for those interested, we have the option to run the latent growth mixture models in batch, using the R-package `MplusAutomation`. This package allows you to automate part of your workflow (like making plots and tables), and provides functions for plots that are more aesthetically pleasing, as well as more insightful. The exercises using `MplusAutomation` can be found with the course materials on SURFdrive.

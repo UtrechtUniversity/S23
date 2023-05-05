@@ -1,0 +1,20 @@
+---
+title: "Introduction"
+subtitle: "Day 4: Cross-lagged relations"
+editor: source
+bibliography: references.bib
+---
+
+This computer lab session consist roughly of 2 parts: First we will focus on the quasi-simplex model, and second we will focus on the random intercept cross-lagged panel model. For the quasi-simplex model we are going to study the concept of life satisfaction. The covariance matrix is in the file `Coenders.dat` and comes from 1724 children and adolescents that participated in the *National Survey of Child and Adolescent Well-Being* (NSCAW) in Russia. They indicated how satisfied they were with their lives as a whole on a 10-point scale (1 = not at all satisfied, 10 = very satisfied). There were three waves (1993, 1994 and 1995). At the third wave, the question was asked twice (with 40 minutes in between). Hence, in total there are four measurements obtained at three waves. The data and variables commands for these data should read:
+
+```
+DATA: 
+  TYPE = COVARIANCE;
+  FILE = Coenders.dat;
+  NOBSERVATIONS = 1724;
+
+VARIABLE: 
+  NAMES = Y1 Y2 Y3 Y4;
+```
+
+All of the input files for the exercises are provided with the course materials on SURFdrive.

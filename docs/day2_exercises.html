@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Utrecht Summer School (S23) - Exercises</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day2_introduction.html">Day 2</a></li><li class="breadcrumb-item"><a href="./day2_exercises.html">Exercises</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Utrecht Summer School (S23)</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Day 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day1_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day1_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Day 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day2_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day2_exercises.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Day 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day3_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day3_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Day 4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day4_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day4_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Day 5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day5_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day5_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#burn-survivors" id="toc-burn-survivors" class="nav-link active" data-scroll-target="#burn-survivors">Burn survivors</a></li>
+  <li><a href="#alcohol-use" id="toc-alcohol-use" class="nav-link" data-scroll-target="#alcohol-use">Alcohol use</a></li>
+  <li><a href="#level-and-shape-parameterization" id="toc-level-and-shape-parameterization" class="nav-link" data-scroll-target="#level-and-shape-parameterization">Level and shape parameterization</a>
+  <ul class="collapse">
+  <li><a href="#exercise-3d" id="toc-exercise-3d" class="nav-link" data-scroll-target="#exercise-3d">Exercise 3D</a></li>
+  </ul></li>
+  <li><a href="#latent-growth-curve-model-on-gpa-data" id="toc-latent-growth-curve-model-on-gpa-data" class="nav-link" data-scroll-target="#latent-growth-curve-model-on-gpa-data">Latent growth curve model on GPA data</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4a" id="toc-exercise-4a" class="nav-link" data-scroll-target="#exercise-4a">Exercise 4A</a></li>
+  <li><a href="#exercise-4b" id="toc-exercise-4b" class="nav-link" data-scroll-target="#exercise-4b">Exercise 4B</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exercises</h1>
+<p class="subtitle lead">Day 2: Latent growth curve modeling</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="burn-survivors" class="level2">
+<h2 class="anchored" data-anchor-id="burn-survivors">Burn survivors</h2>
+<p>The file <code>PTSD.dat</code> contains data on burn survivors, specifically (in this order):</p>
+<ul>
+<li>gender (<code>gender</code>),</li>
+<li>percentage total body surface burned (<code>tvlo</code>),</li>
+<li>SVL at wave 1 (2 weeks after burn injury; <code>W1</code>),</li>
+<li>SVL at wave 2 (4 weeks after burn injury; <code>W2</code>),</li>
+<li>SVL at wave 3 (2 months after burn injury; <code>W3</code>),</li>
+<li>SVL at wave 4 (4 months after burn injury; <code>W4</code>),</li>
+<li>SVL at wave 5 (6 months after burn injury; <code>W5</code>),</li>
+<li>SVL at wave 6 (9 months after burn injury; <code>W6</code>),</li>
+<li>SVL at wave 7 (12 months after burn injury; <code>W7</code>),</li>
+<li>SVL at wave 8 (18 months after burn injury; <code>W8</code>), and</li>
+<li>BPAS at wave 9 (24 months after burn injury; <code>pain</code>).</li>
+</ul>
+<section id="exercise-1a" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-1a">Exercise 1A</h4>
+<p>Specify a latent growth curve model. Consider different specifications discussed in the lecture, and try to find the best specification. Use only the time measurements, not including additional predictor variables. Think about which metric of time to use and the shape of the function (linear or quadratic). Base your decision of the best model on plots (!), model fit indices, model comparison tools, and interpretation of the model parameters.</p>
+<p>If you have reason to believe that another type of LGCM fits the data better, feel free to specific and estimate that model.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Deciding on the metric of time</strong> Based on these descriptions, I’ve chosen for the following specification of time in the LGM:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>i s | W1@0.5 W2@1 W3@2 W4@4 W5@6 W6@9 W7@12 W8@18;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this specification I set the first time point to 0.5 months after burn injury (approximation of 2 weeks after burn injury), the second time point to 1 month after burn injury (approximation of 4 weeks after burn injury), etc.</p>
+<p><strong>Plots</strong> You can enable the plot functionality of Mplus by specifying</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PLOT:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  TYPE = PLOT3;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  SERIES = W1 W2 W3 W4 W5 W6 W7 W8 (s);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>TYPE = PLOT3;</code> function ensures that all kinds of different types of plots are available in Mplus (see the Mplus User Guide for an overview of the different types of plots). The <code>SERIES = ...;</code> function tells Mplus to draw a line through the named variables in that order, for each individual.</p>
+<p><strong>Deciding on linear vs.&nbsp;linear and quadratic slope</strong> Some example syntaxes for running models with different trajectory shapes are available in SURFdrive. These include:</p>
+<ol type="1">
+<li>A LGCM with only a linear slope.</li>
+<li>A LGCM with an added quadratic slope.</li>
+<li>A LGCM with an added quadratic slope but no quadratic slope factor variance.</li>
+</ol>
+<p>For the model with a quadratic slope, it was necessary to fix the variance of Q at 0 to ensure convergence. For both models, only CFI and TLI indicate adequate fit.</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Parameters</th>
+<th style="text-align: center;">AIC</th>
+<th style="text-align: center;">BIC</th>
+<th style="text-align: center;">RMSEA</th>
+<th style="text-align: center;">CFI</th>
+<th style="text-align: center;">TLI</th>
+<th style="text-align: center;">SRMR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">exercise1a.out</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">14051</td>
+<td style="text-align: center;">14096</td>
+<td style="text-align: center;">.14</td>
+<td style="text-align: center;">.93</td>
+<td style="text-align: center;">.94</td>
+<td style="text-align: center;">.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">exercise1a_Q.out</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">exercise1a_Q0.out</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">14037</td>
+<td style="text-align: center;">14085</td>
+<td style="text-align: center;">.13</td>
+<td style="text-align: center;">.94</td>
+<td style="text-align: center;">.94</td>
+<td style="text-align: center;">.08</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Model comparison tools</strong> To see which model fit the data better, we can do a <span class="math inline">\(\Delta \chi^{2}\)</span> (i.e., Chi-square difference) test (e.g., using the function <code>chisq_sb()</code> from the <code>tidySEM</code> package in R, or using on online <span class="math inline">\(\chi^{2} calculator\)</span>): <span class="math inline">\(\Delta \chi^{2} = 16.14\)</span>, <span class="math inline">\(\Delta df = 1\)</span>, <span class="math inline">\(p &lt; .001\)</span>. Furthermore, both AIC and BIC are lower in the model with a quadratic slope. Thus, model misfit is significantly lower when the quadratic slope is added although the fit indices still do not indicate adequate fit. We can use the plots, <code>RES</code> option in Mplus, or modification indices to see what the source of the misfit is.</p>
+<p><strong>Model parameters</strong> The mean of the quadratic slope factor is significant (<code>q = 0.02</code>, <span class="math inline">\(p &lt; .001\)</span>), indicating that, on average, the growth curve does follow a quadratic curve (see <code>exercise1a_Q0.out</code>).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1b" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-1b">Exercise 1B</h4>
+<p>Using the best fitting LGM model found above, regress the growth parameters on <code>TVLO</code> and regress <code>pain</code> on the growth components. Then investigate if there are gender differences in the regression of the growth parameters on <code>TVLO</code> and in the regression of <code>pain</code> on the growth parameters?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Rephrasing the question, we are asked to investigate if gender moderates the predictive relationship of <code>TVLO</code> on the growth components, as well as the relationship between the growth components and <code>Pain</code>. As such, we can do a multigroup analysis by gender, resulting in the addition of the following syntax to the <code>VARIABLE:</code> command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GROUPING = gender (1 = male 2 = female);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since we needed to fix the quadratic slope variance to 0, we cannot estimate any regressions on the quadratic slope or use the quadratic slope as a predictor of some outcome. We therefore focus on the intercept and linear slope.</p>
+<p>The file <code>exercise1B.inp</code> on SURFdrive contains the Mplus syntax on how to specify this model, including the <code>MODEL TEST</code> command to test between-group (i.e., between-gender) differences in the effect of <code>TVLO</code> on the growth components, and the growth components on <code>pain</code>. This is only an illustrative example for how to approach this analysis; your specific execution may differ (e.g., you could specify 2 models, and with across group constraints and one without, and then use the <span class="math inline">\(\Delta \chi^{2}\)</span> test to see if the improvement of model fit is significant). Note that in this example, the Wald <span class="math inline">\(\chi^2\)</span> p-value is not significant. That means that there are no significant gender differences in the effect of the growth trajectory on pain.</p>
+<p>Note that the Wald test is an overall test of <strong>all</strong> comparisons that we specify in <code>MODEL TEST</code>. Thus, if you want a separate test for the regression of TVLO on the growth parameters, you need to re-run the analysis but with a different <code>MODEL TEST</code> argument.</p>
+<p>Conclusion: There are no gender differences in the regression of growth parameters on TVLO and in the regression of Pain on the growth parameters.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="alcohol-use" class="level2">
+<h2 class="anchored" data-anchor-id="alcohol-use">Alcohol use</h2>
+<p>The figure below depicts the basic LGCM for the alcohol use data from <span class="citation" data-cites="duncan_introduction_2006">@duncan_introduction_2006</span>, example 8_1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/Duncan-LGCM.png" class="img-fluid figure-img" width="400"></p>
+<figcaption class="figure-caption">Latent growth curve model for alcohol use.</figcaption>
+</figure>
+</div>
+<p>The data are in the file <code>DDS8_1.dat</code>, with variables <code>ALC1YR1</code> <code>ALC1YR2</code> <code>ALC1YR3</code> <code>ALCPROB5</code> <code>AGE1</code> and <code>GENDER1</code> (in that order). Missing values are coded as <code>-99</code>. The variable <code>ALCPROB5</code> is categorical, it indicates alcohol problems in year 5 of the study (0 = no, 1 = yes).</p>
+<section id="exercise-2a" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-2a">Exercise 2A</h4>
+<p>Set up the LGCM as depicted in the figure above in Mplus using the <code>|</code> notation (rather than specifying a CFA by using the <code>BY</code> statement). Inspect the output carefully with special attention for a) the pattern of missing values, b) the model fit, and c) the interpretation of the parameter estimates. How well does the model predict alcohol use of the years?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The input and output file (<code>exercise2A.inp</code> and <code>exercise2A.out</code>) can be found on SURFdrive. The table under <code>PROPORTION OF DATA PRESENT</code> in the output file shows that the majority of the cases is complete, but that there is a small amount of attrition (panel dropout). You can also inspect the coverage matrix to inspect how much information you have for different parts of the model. Regarding model fit, the model fits well overall with the chi-square test of model fit <span class="math inline">\(\chi^{2}(1) = 2.781\)</span>, <span class="math inline">\(p = 0.095\)</span>, and the CFI and TLI above their recommended cutoff points. However, the RMSEA implies some some degree of misfit at <span class="math inline">\(0.062\)</span>. The intercept and slope means indicate a relatively high starting point (3.68, <span class="math inline">\(SE = .081\)</span>) and a growth of 0.92 (<span class="math inline">\(SE = .053\)</span>) per year. The intercept and slope factors show considerable variance, indicating that the starting points and rates of growth differ considerably across individuals. Interestingly, the explained variance <span class="math inline">\(R^{2}\)</span> is high for years 1 and 3, but lower for year 2.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2b" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-2b">Exercise 2B</h4>
+<p>We will now <em>explore</em> how different predictor variables affect the model fit. Include gender and age in the model as predictors of the intercept and slope. Interpret the fit of the model and the output. Feel free to estimate several models, including or excluding certain covariates. Make a model fit table by hand in a spreadsheet, reporting on the fit indices you deem to be appropriate. Which model do you consider to be best?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Confirmatory versus exploratory research
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you conduct <em>confirmatory</em> research, and are testing theoretical hypotheses, you should not add and omit paths based on exploratory analyses and model fit. It is fine to add and remove paths in <em>exploratory</em> research. Model fit indices, like AIC and BIC, are suitable for selecting well-fitting models in exploratory research. p-values are not designed for variable selection, and using them for that purpose may lead to sub-optimal models.</p>
+<p>It is good scientific practice to clearly separate confirmatory and exploratory research. When you conduct exploratory research, you should not perform inference on the resulting parameters based on p-values (because inference generalizes your findings to the population, and exploratory findings tend to be tailored toward this specific sample). You should also not present exploratory results as if they were testing a post-hoc theory (also referred to as “Hypothesizing After the Results are Known”, or <em>HARKing</em>). This is a questionable research practice and can lead to false-positive (spurious) findings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The files <code>exercise2B_M1.inp</code>, <code>exercise2B_M2.inp</code>, and <code>exercise2B_M3.inp</code>, on SURFdrive contain various models in which we predict the growth components using <code>AGE1</code> and <code>GENDER1</code>. The model fit remains excellent. After removing non-significant paths from <code>exercise2B_M1.inp</code> (order based on magnitude of standardized effect size), gender and age only predict the starting point but not the slope. However, after having removed the effect of gender and age on the slope, the model suddenly fits very badly (<code>exercise2B_M2.inp</code>). Careful inspection of the output shows that the covariance between intercept and slope has disappeared from the model (it is now the covariance between a latent variable and a residual, Mplus automatically puts these at zero). Mplus automatically constrains these to zero. If we add the statement <code>I WITH S</code> to the model, we obtain a good fit with significant effects of both gender and age on the intercept (<code>exercise2B_M3.inp</code>). This illustrates the importance of checking the output carefully to find out if Mplus is actually doing what you think it does!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2c" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-2c">Exercise 2C</h4>
+<p>Include alcohol problems in year 5 in the model. Let the intercept and slope factors predict alcohol problems in year 5. Declare the variable as categorical in the variable section (<code>CATEGORICAL = ALCPROB5</code>). Inspect if the effect of age and gender on alcohol problems year 5 is completely mediated by the growth factors, or if there are additional direct paths from age and gender on the alcohol problems.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The model fit is still good. Note that after adding a categorical dependent variable to the model, Mplus switches to a robust estimator (MLR, and the exact type of regression the Mplus uses now is a logit regression). Both intercept and slope predict alcohol problems (see <code>exercise2c_M1.inp</code> on SURFdrive). Age also predicts alcohol problems directly (see <code>exercise2c_M2.inp</code> on SURFdrive). Since age predicts alcohol problems both directly and via the intercept, a mediation analysis is in order. This shows that the indirect effect of age via the intercept on alcohol problems is still significant when the direct effect is added to the model.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="level-and-shape-parameterization" class="level2">
+<h2 class="anchored" data-anchor-id="level-and-shape-parameterization">Level and shape parameterization</h2>
+<p>The file <code>GPA.dat</code> holds the following variables (in that order):</p>
+<ul>
+<li>grade point average (GPA) data with GPA scores of 200 students in 6 consecutive semesters (<code>gpa1</code>, …, <code>gpa6</code>),</li>
+<li>high school GPA <code>highpa</code>,</li>
+<li>gender <code>sex</code>, and</li>
+<li>admitted to university of choice (missing if not applied for university, <code>student</code>).</li>
+</ul>
+<p>In this exercise you will use the GPA data to set up a level and shape model (i.e., a LGCM with estimated time scores).</p>
+<section id="exercise-3a" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3a">Exercise 3A</h4>
+<p>Use a parameterization with <code>GPA1@0</code> and <code>GPA6@1</code>. The loadings for the other time points should be freely estimated. This can be done with, for example, the syntax <code>GPA2*</code> as shown in the handout. Interpret the factor loadings and estimate for <code>S</code>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Mplus model syntax for this LGCM can be found in <code>exercise3A.inp</code> on SURFdrive. The factor loadings indicate the proportion of change for a 1 unit change in time (here, a 1 unit change of time is specified as the change between the first and the last time points). The predicted change in the outcome for a 1 unit change in time is the mean of the slope, <span class="math inline">\(\alpha_{S} = 0.55\)</span>. Therefore, when looking at the factor loadings, 24% of the total change occurs between <code>GPA1</code> and <code>GPA2.</code>. The intercept at <code>GPA1</code> = 2.575. So the estimated score at <code>GPA2</code> is <span class="math inline">\(GPA1 = 2.575 + 0.239*0.549 = 2.706\)</span>. The estimated score at <code>GPA3</code> is <span class="math inline">\(GPA3 = 2.575 + 0.450*0.549 = 2.822\)</span>, etc.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3b" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3b">Exercise 3B</h4>
+<p>Now use a parameterization with <code>GPA1@0</code> and <code>GPA2@1</code>. The other GPA’s should be freely estimated. Interpret the factor loadings and estimate for S.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Mplus model syntax for this parametrization of the LGCM with freely estimated time scores can be found in <code>exercise3B.inp</code>. The mean of the slope factor <span class="math inline">\(\alpha_{S}\)</span> now indicates the difference between <code>GPA1</code> and <code>GPA2</code>. The estimated factor loadings indicate the distance in units from the starting point, where 1 unit is S. In other words, every distance compares to the increase between GPA1 and GPA2.</p>
+</div>
+</div>
+</div>
+<p>Which parameterization do you like best?</p>
+</section>
+<section id="exercise-3c" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3c">Exercise 3C</h4>
+<p>Draw the development of GPA over time, using the parametrization of your choice) based on your own calculations (by hand). Compare this to the estimated means plot that you can get with the plot command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PLOT: </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  SERIES = GPA1-GPA6 (s); </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  TYPE = PLOT3;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Don’t forget that you need to rescale that plot, since <code>S</code> is linear while the location of the estimated points is based on the factor loadings.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The estimated means plot for the parametrization (0 1 * * * *) is shown below, and can be generated by clicking the plots button, and selecting “Estimated means”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/exercise3C-estimatedMeans.jpg" class="img-fluid figure-img" width="400"></p>
+<figcaption class="figure-caption">Estimated means</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3d" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3d">Exercise 3D</h3>
+<p>Use sex as a predictor of the intercept and slope and interpret the result (with 0 = boys, 1 = girls).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Mplus model syntax for the LGCM with time scores (0 * * * * 1) and gender predicting the growth components can be found in <code>exercise3D.inp</code>. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level (<span class="math inline">\(b = .079\)</span>, <span class="math inline">\(SE = .037\)</span>), and a greater development over time (<span class="math inline">\(b = .136\)</span>, <span class="math inline">\(SE = .054\)</span>). Who run the world?</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="latent-growth-curve-model-on-gpa-data" class="level2">
+<h2 class="anchored" data-anchor-id="latent-growth-curve-model-on-gpa-data">Latent growth curve model on GPA data</h2>
+<section id="exercise-4a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4a">Exercise 4A</h3>
+<p>Continuing with the data used for the previous exercise, set up a latent growth model for GPA for the 6 consecutive occasions and run this model. Obtain the following parameters:</p>
+<ul>
+<li>AIC, BIC, <span class="math inline">\(\chi^{2}\)</span>, RMSEA, CFI, and TLI;</li>
+<li>The mean of the intercept factor <span class="math inline">\(\alpha_{I}\)</span> and slope factor <span class="math inline">\(\alpha_{S}\)</span>;</li>
+<li>The variance of the intercept facor <span class="math inline">\(\psi_{I}\)</span> and slope factor <span class="math inline">\(\psi_{S}\)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Mplus model syntax for this can be found in <code>exercise4A.inp</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-4b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4b">Exercise 4B</h3>
+<p>Then, set up a latent growth curve model for 3 years where each year is a latent variable measured by the GPA of two consecutive semesters.</p>
+<p>The factor loadings for GPA2, GPA4 and GPA6 ought to be constrained to be equal with a label (a) behind the loading in the syntax. As such, the scores relate in the same way to the year score over time. The GPA intercepts are constrained at 0.</p>
+<p>If you get the error message below, can you find out what the problem is?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    WARNING:  THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE DEFINITE. THIS </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A LATENT VARIABLE, A CORRELATION </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    GREATER OR EQUAL TO ONE BETWEEN TWO LATENT VARIABLES, OR A LINEAR DEPENDENCY AMONG MORE </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    THAN TWO LATENT VARIABLES. CHECK THE TECH4 OUTPUT FOR MORE INFORMATION. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A rough way to deal with this problem may be to fix the problematic parameter to a particular value (e.g., .001), try this and rerun the model. Now examine the same parameters as for exercise 4a, and compare the two. Are there major differences?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Mplus model syntax for this can be found in <code>exercise4B_M2.inp</code>. Note that, without <code>year3@.001</code> (see <code>exercise4B_M1.inp</code>), this code gives an error message: The variance of the latent variable year3 is estimated negatively which is problematic since variances should always be positive. A simple way to deal with the problem of the latent variance of year3 is to fix it to a very small value (.001) for instance, as it would also be illogical to fix a variance to 0. To do this, simply add this to your input file under model: <code>year3@.001;</code></p>
+<p>If you inspect the output carefully (and provided you have requested standardized estimates) you will notice that the latent variables <code>year2</code> and <code>year3</code> have a correlation of 1. So the negative variance is the result of a multicolinearity problem. It is apparently better to analyze these data using only the observed variables <code>gpa1-gpa6</code>. Creating latent variables per year does not work well. In line with this interpretation, the fit and results of the simple latent growth model look better than the 2nd order latent growth curve model.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

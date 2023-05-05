@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Utrecht Summer School (S23) - Exercises</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day5_introduction.html">Day 5</a></li><li class="breadcrumb-item"><a href="./day5_exercises.html">Exercises</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Utrecht Summer School (S23)</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Day 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day1_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day1_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Day 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day2_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day2_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Day 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day3_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day3_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Day 4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day4_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day4_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Day 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day5_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day5_exercises.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#random-intercept-model-with-implicit-lagged-effects-not-dsem" id="toc-random-intercept-model-with-implicit-lagged-effects-not-dsem" class="nav-link active" data-scroll-target="#random-intercept-model-with-implicit-lagged-effects-not-dsem">Random Intercept Model with Implicit Lagged Effects (not DSEM)</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model" id="toc-specify-the-mplus-model" class="nav-link" data-scroll-target="#specify-the-mplus-model">Specify the Mplus Model</a></li>
+  <li><a href="#model-equations-parameters" id="toc-model-equations-parameters" class="nav-link" data-scroll-target="#model-equations-parameters">Model Equations &amp; Parameters</a></li>
+  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence">Convergence</a></li>
+  <li><a href="#interpret-the-results" id="toc-interpret-the-results" class="nav-link" data-scroll-target="#interpret-the-results">Interpret the Results</a></li>
+  <li><a href="#standardized-results" id="toc-standardized-results" class="nav-link" data-scroll-target="#standardized-results">Standardized Results</a></li>
+  </ul></li>
+  <li><a href="#random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem" id="toc-random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem" class="nav-link" data-scroll-target="#random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem">Random Intercept and Slopes Model with Implicit Lagged Effects (not DSEM)</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-1" id="toc-specify-the-mplus-model-1" class="nav-link" data-scroll-target="#specify-the-mplus-model-1">Specify the Mplus Model</a></li>
+  <li><a href="#model-equations" id="toc-model-equations" class="nav-link" data-scroll-target="#model-equations">Model Equations</a></li>
+  <li><a href="#convergence-1" id="toc-convergence-1" class="nav-link" data-scroll-target="#convergence-1">Convergence</a></li>
+  <li><a href="#interpret-the-results-1" id="toc-interpret-the-results-1" class="nav-link" data-scroll-target="#interpret-the-results-1">Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dynamic-sem-including-random-autoregressive-effects." id="toc-dynamic-sem-including-random-autoregressive-effects." class="nav-link" data-scroll-target="#dynamic-sem-including-random-autoregressive-effects.">Dynamic SEM: Including random autoregressive effects.</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-2" id="toc-specify-the-mplus-model-2" class="nav-link" data-scroll-target="#specify-the-mplus-model-2">Specify the Mplus Model</a></li>
+  <li><a href="#model-equations-1" id="toc-model-equations-1" class="nav-link" data-scroll-target="#model-equations-1">Model Equations</a></li>
+  <li><a href="#convergence-interpret-the-results" id="toc-convergence-interpret-the-results" class="nav-link" data-scroll-target="#convergence-interpret-the-results">Convergence &amp; Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dynamic-sem-including-random-autoregressive-and-cross-lagged-effects" id="toc-dynamic-sem-including-random-autoregressive-and-cross-lagged-effects" class="nav-link" data-scroll-target="#dynamic-sem-including-random-autoregressive-and-cross-lagged-effects">Dynamic SEM: Including random autoregressive and cross-lagged effects</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-3" id="toc-specify-the-mplus-model-3" class="nav-link" data-scroll-target="#specify-the-mplus-model-3">Specify the Mplus Model</a></li>
+  <li><a href="#model-equations-2" id="toc-model-equations-2" class="nav-link" data-scroll-target="#model-equations-2">Model Equations</a></li>
+  <li><a href="#convergence-interpret-the-results-1" id="toc-convergence-interpret-the-results-1" class="nav-link" data-scroll-target="#convergence-interpret-the-results-1">Convergence &amp; Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dynamic-sem-adding-an-implicit-lag-2-effect-bonus" id="toc-dynamic-sem-adding-an-implicit-lag-2-effect-bonus" class="nav-link" data-scroll-target="#dynamic-sem-adding-an-implicit-lag-2-effect-bonus">Dynamic SEM: Adding an implicit lag 2 effect (bonus)</a>
+  <ul class="collapse">
+  <li><a href="#additional-parameters" id="toc-additional-parameters" class="nav-link" data-scroll-target="#additional-parameters">Additional parameters</a></li>
+  <li><a href="#run-the-mplus-model-interpret-the-results" id="toc-run-the-mplus-model-interpret-the-results" class="nav-link" data-scroll-target="#run-the-mplus-model-interpret-the-results">Run the Mplus Model &amp; Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dynamic-sem-adding-a-between-level-factor-structure-bonus" id="toc-dynamic-sem-adding-a-between-level-factor-structure-bonus" class="nav-link" data-scroll-target="#dynamic-sem-adding-a-between-level-factor-structure-bonus">Dynamic SEM: Adding a between level factor structure (bonus)</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-4" id="toc-specify-the-mplus-model-4" class="nav-link" data-scroll-target="#specify-the-mplus-model-4">Specify the Mplus Model</a></li>
+  <li><a href="#convergence-interpret-the-results-2" id="toc-convergence-interpret-the-results-2" class="nav-link" data-scroll-target="#convergence-interpret-the-results-2">Convergence &amp; Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dynamic-sem-making-the-residual-variance-person-specific-bonus" id="toc-dynamic-sem-making-the-residual-variance-person-specific-bonus" class="nav-link" data-scroll-target="#dynamic-sem-making-the-residual-variance-person-specific-bonus">Dynamic SEM: Making the residual variance person-specific (bonus)</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-5" id="toc-specify-the-mplus-model-5" class="nav-link" data-scroll-target="#specify-the-mplus-model-5">Specify the Mplus Model</a></li>
+  <li><a href="#convergence-2" id="toc-convergence-2" class="nav-link" data-scroll-target="#convergence-2">Convergence</a></li>
+  <li><a href="#interpret-the-results-2" id="toc-interpret-the-results-2" class="nav-link" data-scroll-target="#interpret-the-results-2">Interpret the Results</a></li>
+  </ul></li>
+  <li><a href="#dsem-adding-a-level-2-between-level-predictor-bonus" id="toc-dsem-adding-a-level-2-between-level-predictor-bonus" class="nav-link" data-scroll-target="#dsem-adding-a-level-2-between-level-predictor-bonus">DSEM: Adding a level 2 (between level) predictor (bonus)</a>
+  <ul class="collapse">
+  <li><a href="#specify-the-mplus-model-6" id="toc-specify-the-mplus-model-6" class="nav-link" data-scroll-target="#specify-the-mplus-model-6">Specify the Mplus Model</a></li>
+  <li><a href="#interpret-the-results-3" id="toc-interpret-the-results-3" class="nav-link" data-scroll-target="#interpret-the-results-3">Interpret the results</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exercises</h1>
+<p class="subtitle lead">Dynamic SEM (DSEM)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="random-intercept-model-with-implicit-lagged-effects-not-dsem" class="level2">
+<h2 class="anchored" data-anchor-id="random-intercept-model-with-implicit-lagged-effects-not-dsem">Random Intercept Model with Implicit Lagged Effects (not DSEM)</h2>
+<p>In Model 1 we first decompose each variable at each time point (occasion) in two parts:</p>
+<ul>
+<li>a person-specific mean, which has the same value at each occasion but differs from person to person</li>
+<li>a deviation from that mean for each person and occasion.</li>
+</ul>
+<p>Hence, we decompose the variables into two latent variables: One with person-specific means, at the <i>between level</i>. One with deviations from these means unique to each occasion and person, at the <i>within level</i>. These deviations can be seen as simply the within-person centered scores for a person at each occasion.</p>
+<p>Next, we add two regression relationships:</p>
+<ul>
+<li>Between level: the person means of Somber are regressed on the person means of Event</li>
+<li>Within level: the person-mean centered variable Somber is regressed on the person-mean centered variable Event.</li>
+</ul>
+<p>Note that this is not a dynamic SEM model yet in terms of the Mplus specification, because there are <i>no explicit lagged relationships</i> in the model. But note that there is an <i>implicit lagged relationship</i>: Although the two variables are measured at the same occasion (as indicated by the subscript t), the variable Event refers to the interval between t-1 and t, while the variable Somber is referring to the specific time point t. Hence, the reported on events take place <i>before</i> the somber feelings.</p>
+<p>This model can be represented as depicted below, with on the left this decomposition, and on the right the regression models specified at each level.</p>
+<p><img src="figures/Model1.png" class="img-fluid" width="400"></p>
+<section id="specify-the-mplus-model" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model">Specify the Mplus Model</h3>
+<p>To run this model, use the input file <code>model1.inp</code>. In the ANALYSIS command you will find a number of commands that set up the Bayesian multilevel estimation procedure:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ANALYSIS:   TYPE = TWOLEVEL;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>            ESTIMATOR = BAYES; </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>            PROC = 2;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            BITER= (2000);</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            BSEED = 9556;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Make sure the following commands for OUTPUT and PLOT are included:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>OUTPUT:     TECH1 STDYX;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PLOT:       TYPE = PLOT3;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            FACTORS = ALL;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check out the model specification (i.e., the MODEL command). What do the commands on the within person level and on the between person level do?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Via ‘Somber ON Event’ at the within level, for each person in the model their somber within-person centered scores are regressed on their within-person centered event scores on the same measurement occasion. The regression coefficients and other model parameters – except for the means of somber and event - are the same for all persons.</p>
+<p>Via ‘Event’ we tell Mplus to make Event endogenous like Somber, such that means and variances are estimated for this variable as well - and Event is decomposed in a between person level and within-person level as well. That is, for both Somber and Event we now estimate the mean score over time for each individual inside the model. On the within level the deviations from these means (within-person centered scores) at each time point are modeled. At the between level the relationships among these means, that vary from individual to individual, are modeled.</p>
+<p>Via ‘Somber ON Event’ at the between level, it is specified that the person-specific means for Somber are regressed on the person-specific means for Event.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="model-equations-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="model-equations-parameters">Model Equations &amp; Parameters</h3>
+<p>While the model is running, write down the model in equations.</p>
+<ul>
+<li>Start with the decomposition, i.e., <span class="math inline">\(E_{it}=\)</span> …</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[S_{it} = \mu_{S i} + S_{it}^{(w)}\]</span> <span class="math display">\[E_{it} = \mu_{E i} + E_{it}^{(w)}\]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Write down the within-level model. Which parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[S_{it}^{(w)} = b \times E_{it}^{(w)} + \zeta_{S it}\]</span> Parameters estimated at this level:</p>
+<ul>
+<li>Fixed within-person slope b (same for each person)</li>
+<li>Residual within-person variance for S, the variance of <span class="math inline">\(\zeta_Sit\)</span></li>
+<li>Within-person variance of the (made endogenous) predictor <span class="math inline">\(E^{(w)}_{it}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Write down the between level model. Which parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\mu_{S i} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \zeta_{Si} \]</span> Parameters estimated at this level:</p>
+<ul>
+<li>Grand intercept <span class="math inline">\(\gamma_{00}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{01}\)</span></li>
+<li>Between-person residual variance of <span class="math inline">\(\zeta_{Si}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Variance of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence" class="level3">
+<h3 class="anchored" data-anchor-id="convergence">Convergence</h3>
+<p>When the model is finished running, we first need to check the trace plots of the Bayesian estimation procedure to see if there are signs for non-convergence. Go to the icon with the two graphs, and click on this. Then, choose the option “Bayesian posterior parameter trace plots” and click “View”.</p>
+<p><img src="figures/trace.png" class="img-fluid" width="400"></p>
+<p>By clicking “OK” in the next window, the trace plot of parameter 1 appears. You can use the icons with the histograms and the left and right headed arrows to move backward and forward through the parameters (their names are in the headings of the plots).</p>
+<p><img src="figures/Traceplot1e.png" class="img-fluid" width="400"></p>
+<p>Write down how these parameters relate to the ones you identified above (in questions c.&nbsp;and d.),</p>
+<p>Are there any problems with convergence based on these plots? Can you tell what parameter from question b each plot is about?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Parameter 1, %WITHIN%: SOMBER ON EVENT → within-person regression coefficient b</li>
+<li>Parameter 2, %WITHIN%: SOMBER → within-person residual variance for somber</li>
+<li>Parameter 3, %WITHIN%: EVENT → within-person variance on Event</li>
+<li>Parameter 4, %BETWEEN%: [SOMBER] → between-person intercept on Somber (<span class="math inline">\(\gamma_{00}\)</span>)</li>
+<li>Parameter 5, %BETWEEN%: [EVENT] → between-person mean on Event</li>
+<li>Parameter 6, %BETWEEN%: SOMBER ON EVENT → between-person regression coefficient (<span class="math inline">\(\gamma_{01}\)</span>)</li>
+<li>Parameter 7, %BETWEEN%: SOMBER → between-person residual variance of somber</li>
+<li>Parameter 8, %BETWEEN%: EVENT → between-person variance on Event</li>
+</ul>
+<p>Convergence looks fine for the parameters.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-the-results">Interpret the Results</h3>
+<p>Go to the output, and consider the parameter estimates. Interpret the findings for the within-person and the between-person slopes (e.g., do they differ from zero, are they positive or negative, what about their size?).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Within Level</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> SOMBER     ON</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    EVENT             -0.203       0.010      0.000      -0.223      -0.184      *</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a> SOMBER     ON</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    EVENT             -0.953       0.159      0.000      -1.266      -0.651      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Both slopes are negative, implying that:</p>
+<ul>
+<li>Within person: People’s increased (relative to their mean level) Event scoretends to be followed by a decreased (relative to their mean level) temporary somberness score. A 1 unit higher event score tends to be followed by a decrease of .20 units in their somber score.</li>
+<li>Between person: People a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness. A 1 unit higher mean would imply about a .95 units lower mean for Somber.</li>
+</ul>
+<p>The between-person slope is more than 4 times steeper: Note however that the between-person variance in Event is about 10 times smaller than the within-person variance in Event (0.278 vs.&nbsp;2.844). Hence, in the next step we look at the standardized results.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="standardized-results" class="level3">
+<h3 class="anchored" data-anchor-id="standardized-results">Standardized Results</h3>
+<p>Check the standardized results to compare the size of the slopes within and between.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>SOMBER     ON
+    EVENT             -0.259       0.012      0.000      -0.284      -0.236      *
+
+SOMBER     ON
+    EVENT             -0.529       0.074      0.000      -0.656      -0.374      *</code></pre>
+<p>The standardized between slope is more than twice as steep than the within slope.</p>
+<p>In terms of <span class="math inline">\(R^{2}\)</span>:</p>
+<ul>
+<li>6.7% of the momentary within-person variability in Somber is explained by within-person variability in Events.</li>
+<li>28.0% of the stable between-person variability in Somber is predicted by between-person differences in average Event.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem" class="level2">
+<h2 class="anchored" data-anchor-id="random-intercept-and-slopes-model-with-implicit-lagged-effects-not-dsem">Random Intercept and Slopes Model with Implicit Lagged Effects (not DSEM)</h2>
+<p>In Model 2, we extend Model 1 to allow for individual differences in the within-person slope. This implies that people may respond differently to a temporary increase in the variable Event; this can be interpreted as individual differences in reactivity. This random slope <code>b1</code> becomes another latent variable at the between-person level, where we can use it as a predictor of the person-specific means of the variable Somber. We will also allow this slope variable to correlate with the means of Event.</p>
+<p>Model 2 can be represented as depicted below, with on the left the within-between decomposition, and on the right the regression models specified at each level. Note the black dot on the arrow to indicate a random slope at the within level.</p>
+<p><img src="figures/Model2.png" class="img-fluid" width="400"></p>
+<section id="specify-the-mplus-model-1" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-1">Specify the Mplus Model</h3>
+<p>Write down the model command for this model. When your are done, check whether you specified it correctly by looking at the provided answers, and/or the input file <code>model2.inp</code>. Note that under command ‘ANALYSIS’ in the input file, we now need to specify <code>type = TWOLEVEL RANDOM</code>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>MODEL:  %WITHIN%</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>              b1 | Somber ON Event;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              Event;  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              %BETWEEN%</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>              Somber ON Event b1;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                b1 WITH Event;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-equations" class="level3">
+<h3 class="anchored" data-anchor-id="model-equations">Model Equations</h3>
+<p>While the model is running, write down the model equations. The decomposition into within and between will be the same as for Model 1.</p>
+<ul>
+<li>Write down the within level model. What parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + \zeta_{S it}\]</span> The difference is that now the regression coefficient has a subject index <code>i</code>, because it now differs from person to person. The mean and variance of b1i are estimated at the between person level.</p>
+<p>Parameters estimated at this level: - Residual within-person variance of <span class="math inline">\(\zeta_{Sit}\)</span> - Within-person variance of the predictor <span class="math inline">\(E^{(w)}_{it}\)</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Write down the between level model. Which parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1i} + \zeta_{Si}\]</span></p>
+<p>Parameters estimated at this level:</p>
+<ul>
+<li>Grand intercept <span class="math inline">\(\gamma_{00}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{01}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{02}\)</span></li>
+<li>Between-person residual variance of <span class="math inline">\(\zeta_{Si}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Variance of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(b_{1i}\)</span> (i.e., within-person slope)</li>
+<li>Variance of the between-person predictor <span class="math inline">\(b_{1i}\)</span></li>
+<li>Covariance of <span class="math inline">\(b_{1i}\)</span> and <span class="math inline">\(\mu_{Ei}\)</span> (with statement in mplus code)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-1" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-1">Convergence</h3>
+<p>Check the trace plots of the posteriors for the parameters of the model. Can you link them to the free parameters you identified above? Are there signs of non-convergence?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>All looks good.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-the-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-the-results-1">Interpret the Results</h3>
+<ul>
+<li>Which parameter is the one we should focus on when interested in the average of the person-specific within-person slopes b1?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Means</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    B1                -0.206       0.014      0.000      -0.234      -0.179      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is the mean B1 reported at the between level.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>There are two ON statements at the between level now. Report the results for these regressions, and indicate how to interpret these results.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>Between Level
+
+SOMBER     ON
+    B1                -1.966       1.079      0.020      -4.366      -0.095      *
+
+ SOMBER     ON
+    EVENT             -0.839       0.176      0.000      -1.188      -0.490      *</code></pre>
+<p>As before: People with a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness.</p>
+<p>In addition: People that have a relatively low mean for somber (compared to other people), tend to have a lower within-person slope b1.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Interpreting the effect of b1 on Somber is challenging for most people. What may be helpful is to make a plot of the (bivariate) relationship between b_1i and the within-person mean on somber.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Go to the plotting options and choose “Between-level scatterplots…”</p>
+<p><img src="figures/Betweenscp.png" class="img-fluid" width="400"></p>
+<p>Click View. Then select “B1, mean” (the posterior means of each person’s B1 coefficient) as the X variable and “SOMBER (estimated cluster mean)” (each person’s mean for Somber) as the Y variable:</p>
+<p><img src="figures/Betweenscp2.png" class="img-fluid" width="400"></p>
+<p>Click OK. This produces the scatter plot.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Interpret the relationship you see in the scatterplot.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="figures/Betweenscp3.png" class="img-fluid" width="400"></p>
+<p>The correlation is negative (about -0.503), indicating that a higher b1 (within-person slope) tends to go together with a lower person-mean on somber.</p>
+<p>Note that the individual differences in b1 run from -0.5 to about 0. Hence, the closer b_1i is to zero, the lower the person’s average score on somber.</p>
+<p>Put differently, people who tend to be less reactive to momentary changes in Events (b_1i closer to zero), are also characterized by a lower trait score on somber.</p>
+<p>Note that this plot is just presenting the bivariate relationship between the two random effects; in contrast, the regression coefficient in the output also is based on a regression model with multiple predictors (in this case, also the person mean on Event). Hence the scatter plot may be helpful, but is not a direct reflection of the regression coefficient (this is the same as in normal multiple linear regression analysis).</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Let us look at the person-specific slopes (the random effect b1) that were estimated.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To this end, go to the plot menu again and choose the option “Two-level cluster-specific observed and estimated values plots”. Click “View”, and click “OK” in the next window: Now you have a scatter plot of the data of a single individual, with the variable Event on the x-axis and Somber on the between-axis. The slope of the red line is the individual’s b1 (the individual specific regression coefficient for regressing Somber on Event).</p>
+<p>To fix the axes (which makes it easier to compare the results across individuals, go to the plot menu at the top, choose “Axis properties” and then “Edit settings”:</p>
+<p><img src="figures/psp1.png" class="img-fluid" width="400"></p>
+<p>In the next window, choose the “Axes Range” tab, click the “Fixed scale” option (at the top), and set the scale range for X from -4 to 4 (because Event was measured on a scale running from -3 to 3), and set the scale of Y from 0 to 8 (because it was measured on a scale from 0 to 7). Then click “OK”.</p>
+<p><img src="figures/psp2.png" class="img-fluid" width="400"></p>
+<p>Now, you can go through the plots of different individuals by clicking the person buttons on the top (with the left arrow to go back, and the right arrow to go forward). Because you fixed the axes, you can easily compare the slopes for different people. This illustrates that every person has his/her own slope.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dynamic-sem-including-random-autoregressive-effects." class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-sem-including-random-autoregressive-effects.">Dynamic SEM: Including random autoregressive effects.</h2>
+<p>Next, we include a dynamic relationship in our model. First, create a lagged version of Somber, by using the <code>LAGGED =</code> in the <code>VARIABLE</code> command). In the next step, we’ll include the lagged variable as a predictor at the within level, allowing for a random slope - this produces a random autoregressive effect (each individual will get their own autoregressive effect). This model can be represented as:</p>
+<p><img src="figures/Model3.png" class="img-fluid" width="400"></p>
+<section id="specify-the-mplus-model-2" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-2">Specify the Mplus Model</h3>
+<p>Write out the model command for this model. Check with the input file <code>model3.inp</code> if you specified it correctly.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>MODEL:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            %WITHIN%</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            s1 | Somber ON Event; ! random regression</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            s2 | Somber ON somber&amp;1; ! random autoregression </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            %BETWEEN%</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            Somber ON Event s1 s2;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The command <code>&amp;1</code> attached to a variable indicates this should be a lag 1 variable. The parameter label followed by <code>|</code> produces a random effect like before.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="model-equations-1" class="level3">
+<h3 class="anchored" data-anchor-id="model-equations-1">Model Equations</h3>
+<p>While the model is running, write down the model equations.</p>
+<ul>
+<li>Write down the within level model. What parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+<p>Parameters estimated at this level:</p>
+<ul>
+<li>Residual within-person variance of <span class="math inline">\(\zeta_{Sit}\)</span></li>
+<li>Within-person variance of the predictor <span class="math inline">\(E^{(w)}_{it}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Write down the between level model. Which parameters are estimated at this level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1i} + \gamma_{03} \times b_{2i} + \zeta_{Si}\]</span></p>
+<p>Parameters estimated at this level:</p>
+<ul>
+<li>Grand intercept <span class="math inline">\(\gamma_{00}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{01}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{02}\)</span></li>
+<li>Between-person slope <span class="math inline">\(\gamma_{03}\)</span></li>
+<li>Between-person residual variance of <span class="math inline">\(\zeta_{Si}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Variance of the between-person predictor <span class="math inline">\(\mu_{Ei}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(b_{1i}\)</span> (i.e., within-person slope)</li>
+<li>Variance of the between-person predictor <span class="math inline">\(b_{1i}\)</span></li>
+<li>Mean of the between-person predictor <span class="math inline">\(b_{2}\)</span> (i.e., autoregressive slope)</li>
+<li>Variance of the between-person predictor <span class="math inline">\(b_{2i}\)</span></li>
+<li>Covariances between <span class="math inline">\(b_{1i}\)</span>, <span class="math inline">\(b_{2i}\)</span>, and <span class="math inline">\(\mu_{Ei}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-interpret-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-interpret-the-results">Convergence &amp; Interpret the Results</h3>
+<ul>
+<li>Again, check the trace plots. If they look okay, consider the parameter estimates. What can you say about the autoregressive effects?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Means</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    B2                 0.340       0.022      0.000       0.300       0.383      *</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Variances</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    B2                 0.031       0.007      0.000       0.020       0.047      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The average autoregressive effect is 0.34, with SD=0.18 (=<code>sqrt(0.031)</code>). On average, about .34 of the previous Somber score carries over to the next Somber score. The actual autoregressive effects will however differ from person to person.</p>
+<p>Hence, on average across persons, about 12% (<code>0.34^2</code>=.12) of the within-person variability in somberness is predicted by the autoregressive effect. The exact numbers will however differ from person to person.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>To obtain some idea of the individual differences in the autoregressive parameter, we will consider diverse plots. One plot that might be of interest is the histogram of the individual parameter values.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Again, go to the plotting options, and now select the option: Between-level histogram (etc.)</p>
+<p><img src="figures/Betweenhist1.png" class="img-fluid" width="400"></p>
+<p>Click View. In the next window, select the random autoregressive parameter (B2):</p>
+<p><img src="figures/Betweenhist2.png" class="img-fluid" width="400"></p>
+<p>Click “OK”. This shows you the sample distribution of the autoregressive parameter. Note that the individual scores are based on the mean of an individual’s posterior distribution for this parameter.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>What is the highest and the lowest person-specific autoregressive effect?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="figures/Betweenhist3.png" class="img-fluid" width="400"></p>
+<p>The lowest is about 0.08 (so close to zero), the largest is about 0.7, so strong and positive. Most effects are around .2 to .45.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Consider the level 2 effects where the within-person means of Somber are predicted by the within-person mean on Event, the random slope b1, and by the random slope b2. How would you interpret these results?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> SOMBER     ON</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    B1                -2.342       1.403      0.037      -5.405       0.153</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    B2                 0.181       0.626      0.377      -1.013       1.473</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> SOMBER     ON</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    EVENT             -0.831       0.183      0.000      -1.194      -0.476      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hence, only the person mean on Event is a significant predictor. The effect is negative, so people with relatively high person-specific means for ‘pleasant Event’ (report higher pleasant Event scores on average compared to others), tend to have relatively low person-specific means for Somber.</p>
+<p>While the effect of b1 was significant in a previous model, it no longer is in this model.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dynamic-sem-including-random-autoregressive-and-cross-lagged-effects" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-sem-including-random-autoregressive-and-cross-lagged-effects">Dynamic SEM: Including random autoregressive and cross-lagged effects</h2>
+<p>Until now, we have treated Event as a predictor only. However, it is also possible that the experience of negative and positive Events is affected by a person’s momentary somberness. Moreover, there may be an autoregressive effect for Events. Hence, we are interested in the following model:</p>
+<p><img src="figures/Model4.png" class="img-fluid" width="400"></p>
+<p>Thus, we have added two random slopes to the model: <code>b3</code> and <code>b4</code>, the autoregressive and cross-lagged effect respectively. At the between level, we allow the now 6 random effects to be correlated, rather than that we predict one from the other as we did before. Note that while the figure does not include a relationship between S and E at t-1, these predictors are related in the model (as the model that is specified at time point t, equally applies to all other time points - so we could have added the same b1 arrow there); the current representation simply represents which model statements are needed.</p>
+<section id="specify-the-mplus-model-3" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-3">Specify the Mplus Model</h3>
+<p>How do you specify this model? Check your specification with the <code>model4.inp</code> input file.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>MODEL:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            %WITHIN%</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            s1 | Somber ON Event; ! lagged random regression</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            s2 | Somber ON somber&amp;1; ! random autoregression for somber</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            s3 | Event ON Event&amp;1; ! random autoregression for Event </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            s4 | Event ON somber&amp;1; ! lagged regression from Somber to Event</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            %BETWEEN%</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            Somber Event s1 s2 s3 s4 WITH Event s1-s4;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-equations-2" class="level3">
+<h3 class="anchored" data-anchor-id="model-equations-2">Model Equations</h3>
+<ul>
+<li>While running the model, write down the regression equation for the within level.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+<p><span class="math display">\[E^{(w)}_{it}=b_{3i}\times E^{(w)}_{it-1} + b_{4i}\times S^{(w)}_{it-1} + \zeta_{S it}\]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>In contrast to typical cross-lagged models that we covered in the lecture, we are not including a covariance between the residuals here. Why not?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The concurrent (lag 0) relationship is already accounted for by the (random) regression of <span class="math inline">\(S_{it}\)</span> on <span class="math inline">\(E_{it}\)</span>. The residual of <span class="math inline">\(S_{it}\)</span> is the part that cannot be predicted from <span class="math inline">\(E_{it}\)</span> (and <span class="math inline">\(S_{it-1}\)</span>); hence it would not make sense to correlate this residual with the residual of <span class="math inline">\(E_{it}\)</span>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>How many parameters are estimated at each level?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within: 2 residual variances</p>
+<p>Note that because Event is now not only a predictor, but also an outcome, we no longer estimate its variance, but instead its <i>residual</i> variance; the variance of Event is now a function of the residual variance, the regression coefficients, and the variances of the predictors.</p>
+<p>Between:</p>
+<ul>
+<li>4 fixed slopes (mean slopes)</li>
+<li>2 fixed intercepts (grand means)</li>
+<li>6 variances of the 4 slopes and 2 intercepts (random effects)</li>
+<li>15 covariances between these random effects</li>
+</ul>
+<p>29 parameters in total.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-interpret-the-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-interpret-the-results-1">Convergence &amp; Interpret the Results</h3>
+<p>When the model is finished, check the trace plots for signs of non-convergence.</p>
+<ul>
+<li>Look at the estimated effects. What can you conclude about the autoregressive and cross-lagged coefficients?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>Means
+    B1               -0.169       0.014      0.000      -0.195      -0.142      *
+    B2                 0.342       0.022      0.000       0.298       0.382      *
+    B3                 0.118       0.020      0.000       0.078       0.159      *
+    B4               -0.126       0.024      0.000      -0.176      -0.081      *</code></pre>
+<p>All of the average coefficients differ from zero.</p>
+<p>The average autoregressive coefficients, b2 and b3, are positive. So for on average, there is carryover from one moment to the next both for feelings of somberness and the experienced pleasantness of events.</p>
+<p>The average Cross-lagged coefficients b1 and b4 are negative, implying: More positive Events tend to be followed by less somberness an occassion later, while increased somberness tends to by followed by less positively experienced events.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>To compare the strengths of the cross-lagged effects, we need to consider the standardized parameters. Check the standardized output, and interpret the regression coefficients there.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>B1 | SOMBER ON
+    EVENT             -0.211       0.013      0.000      -0.237      -0.187      *
+
+ B2 | SOMBER ON
+    SOMBER&amp;1           0.341       0.014      0.000       0.312       0.370      *
+
+ B3 | EVENT ON
+    EVENT&amp;1            0.119       0.015      0.000       0.091       0.149      *
+
+ B4 | EVENT ON
+    SOMBER&amp;1          -0.105       0.015      0.000      -0.137      -0.077      *</code></pre>
+<p>The standardized autoregressive parameters should be (approximately) the same as the unstandardized ones. The reason for this is that the variances for <span class="math inline">\(y_{t}\)</span> and <span class="math inline">\(y_{t-1}\)</span> in a stationary model are the same by definition. Slight differences in the point estimates might occur due to the calculation procedure of the standardized effects.</p>
+<p>Note however that the standard errors are smaller for the standardized fixed effects. This is because the standardized fixed effect is a <i>sample mean</i> of the person-specific effects, and disregards sampling variability. Significance of fixed effects should hence be based on the <i>unstandardized</i> fixed effects. This also applies to the fixed cross-lagged effects. This is not an issue for the person-specific standardized effects.</p>
+<p>The standardized average (fixed) effect from Event to Somber (-.211) is twice the size of the one from Somber to Event (-.105); so on average, the effect from Events on mood is stronger than the other way around. This however may be different from person to person.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Consider the R-square output as well. How can you interpret this?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>Within-Level R-Square Averaged Across Clusters
+                                Posterior  One-Tailed         95% C.I.
+    Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
+    SOMBER          0.227       0.012      0.000       0.204       0.250
+    EVENT           0.057       0.008      0.000       0.043       0.073</code></pre>
+<p>On average, 23% of within-person variability in Somber can be accounted for by the lagged relationships; for Event this is 6%. These numbers may however differ from person to person.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Consider the covariances and correlations between the random effects. For which of these correlations is there evidence that they deviate from zero?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are a few significant correlations:</p>
+<pre><code>SOMBER   WITH
+    B1                -0.346       0.132      0.007      -0.585      -0.071      *
+    B3                 0.342       0.151      0.017       0.027       0.623      *
+
+B3       WITH
+    B4                 0.571       0.198      0.011       0.102       0.865      *
+
+ SOMBER   WITH
+    EVENT             -0.523       0.083      0.000      -0.663      -0.346      *</code></pre>
+<p>People with relatively high person-specific means for somber tend to have relatively low values for the effect of event on somber; and relatively high autoregressive effects for Event.</p>
+<p>People with relatively higher autoregressive effects for Event tend to have relatively high values for the cross-lagged effect of somber on event.</p>
+<p>People with relatively high person-specific means for somber tend to have relatively low person-specific means for event.</p>
+<p>To interpret these effects further, we’ll look at some plots in the following exercise.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>For each of these correlations, get a scatter plot and interpret the result (use the “Between-level scatterplots” option).</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Somber with b1: A higher mean level for Somber is related to lower b1 (effect of Event on Somber), which is negative on average; hence people with a lower level on somber, tend to have a b1 closer to zero, while individuals with a higher level on Somber tend to have a b1 that is more negative.</p>
+<p>Somber with b3: Individuals with relatively high person-specific means of Somber tend to have relatively high positive autoregressive effects in their Events.</p>
+<p>b3 with b4: People with relatively higher autoregressive effects for Event (b3) tend to have a relatively high b4 - Since the average b4 is negative, it means: higher autoregression for Event is a b4 closer to zero, while a lower autoregression for Event is associated with a stronger negative effect of Somber on Event.</p>
+<p>People with relatively high person-specific means for somber tend to have relatively low person-specific means for event.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dynamic-sem-adding-an-implicit-lag-2-effect-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-sem-adding-an-implicit-lag-2-effect-bonus">Dynamic SEM: Adding an implicit lag 2 effect (bonus)</h2>
+<p>As mentioned before, due to the time interval that the variable Event is referring to, you can think of this as a variable that is situated in time between two consecutive measurements of somber. Hence the lag 0 regression (b1) is in a way already a lagged relationship, and we have therefore not included the regression of Somber at occasion t on Event at occasion t-1, but only a “concurrent” relationship of Somber t on Event t (and hence no residual correlation between the residuals of somber t and event t). However, we could add the lagged effects to the model, which would than imply an implicit ‘lag 2’ effect. We then get the following model:</p>
+<p><img src="figures/Model5.png" class="img-fluid" width="400"></p>
+<section id="additional-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="additional-parameters">Additional parameters</h3>
+<p>How many additional parameters does this model have in comparison to the previous one?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The mean (fixed effect) of B5 and its variance (random effect) and the covariance between this random effect and the other 6 random effects; so 8 additional parameters.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-mplus-model-interpret-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-mplus-model-interpret-the-results">Run the Mplus Model &amp; Interpret the Results</h3>
+<p>Run this model, and interpret the results for the fixed effects of the lagged parameters.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Means</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    B1                -0.162       0.014      0.000      -0.190      -0.135      *</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    B2                 0.324       0.022      0.000       0.279       0.367      *</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    B3                 0.116       0.021      0.000       0.076       0.156      *</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    B4                -0.131       0.025      0.000      -0.182      -0.083      *</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    B5                -0.056       0.013      0.000      -0.080      -0.029      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>They all differ significantly from zero. The autoregressive parameters (b2 and b3) are positive. The cross-lagged relationships are all negative. The new lagged effect (b5: delayed effect of Event on somber) is also negative; however, it is less strong than the other effect of Event on Somber (b1).</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dynamic-sem-adding-a-between-level-factor-structure-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-sem-adding-a-between-level-factor-structure-bonus">Dynamic SEM: Adding a between level factor structure (bonus)</h2>
+<p>Instead of simply correlating the random effects at the between level, we may also consider modeling these variables more explicitly. For instance, we can specify a factor model to try to capture what these level 2 variables have in common. This can be represented like this:</p>
+<p><img src="figures/Model6.png" class="img-fluid" width="400"></p>
+<p>How many parameters does this model have at each level?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within: 2 residual variances</p>
+<p>Between:</p>
+<ul>
+<li>7 residual variances for the indicators</li>
+<li>6 factor loadings (one is fixed to 1 for scaling the latent variable)</li>
+<li>1 latent variance for eta (mean of zero)</li>
+<li>7 intercepts (means) for the indicators</li>
+</ul>
+</div>
+</div>
+</div>
+<section id="specify-the-mplus-model-4" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-4">Specify the Mplus Model</h3>
+<p>To specify the factor model at the between level, use:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>%BETWEEN%</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>eta BY somber@1 Event b1*1 b2 b3 b4 b5;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(The <code>b1*1</code> is required in the Mplus v8.1; it is probably not necessary any more in a future version.)</p>
+<ul>
+<li>While running the model, indicate how you would interpret the factor <span class="math inline">\(\eta\)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It is a latent variable which explains the shared variance among the random effects. Without further theory about what kind of latent variable would cause variation in all these random effects it is hard to give it a more meaningful label! Looking at the factor loadings may help interpret the factor here (akin to an EFA).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-interpret-the-results-2" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-interpret-the-results-2">Convergence &amp; Interpret the Results</h3>
+<p>If the model converged, check the parameter estimates. Which factor loadings are significant, and what do they mean?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> ETA      BY</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    SOMBER             1.000       0.000      0.000       1.000       1.000</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    EVENT             -0.529       0.257      0.000      -1.365      -0.271      *</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a> ETA      BY</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    B1                -0.062       0.038      0.014      -0.158      -0.006      *</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    B2                -0.016       0.055      0.353      -0.140       0.084</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    B3                 0.095       0.058      0.020       0.005       0.249      *</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    B4                 0.078       0.063      0.069      -0.025       0.240</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    B5                -0.032       0.034      0.159      -0.111       0.031</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>People with higher eta tend to have:</p>
+<ul>
+<li>Higher mean levels of somberness</li>
+<li>Lower mean levels of unpleasant-pleasant Event</li>
+<li>More negative effects of Event t on Somber t (b1) (more reactive to events)</li>
+<li>Higher carry-over in Event (b3) (more intertia in event)</li>
+</ul>
+<p>Perhaps the latent variable could be called something like ‘negative outlook’ or ‘neuroticism’. But it would be better to apply a model like this when one has a specific theory in mind!</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dynamic-sem-making-the-residual-variance-person-specific-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-sem-making-the-residual-variance-person-specific-bonus">Dynamic SEM: Making the residual variance person-specific (bonus)</h2>
+<p>In this model, we allow the residual variances to be random. This is often not an option in multilevel software, but within the Bayesian approach of DSEM this is fairly doable. We do still assume normal distributions for the random effects, which is not 100% appropriate for variances as they should not be able to become negative. To avoid issues with this, we model logtransformed random variances instead. The model is depicted below - note that we have also kept the factor structure at the between level from exercise 6:</p>
+<p><img src="figures/Model7.png" class="img-fluid" width="400"></p>
+<section id="specify-the-mplus-model-5" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-5">Specify the Mplus Model</h3>
+<p>Specify this model (or sneak a peak at our input file) and run it. While it is running, determine the number of parameters that are estimated in this model.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within level: 0 parameters</p>
+<p>Between level: - 9 fixed effects - 9 variances - 8 factor loadings - 1 factor variance</p>
+<p>27 parameters in total</p>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-2" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-2">Convergence</h3>
+<p>Check the trace plots for signs of nonconvergence. Are there signs that indicate convergence may be slow?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Some of the trace plots show there is a lot of autocorrelation in the Bayesian samples (iterations) over time. This means the chains ‘mix’ slowly - the two chains are not covering each other all the time, and only move slowly along the y-axis.</p>
+<p>However, the chains do vary around the same constant (which would be the posterior mean estimate).</p>
+<p>Essentially, there is no evidence that the procedure is not converging, but that it is going relatively slowly. As a result, we’ll need more iterations than if we have lower autocorrelations.</p>
+<p>One could decide to increase the number of iterations. This can be done by simply increasing the iteration number, or by use the thin option here. When using <code>THIN=10</code>; Mplus saves only every tenth sample of the MCMC chain, and it also means that 10 times as many iterations are used. Thinning reduces (visible) autocorrelation in the chains, and as a result you can more easily see if the chains are mixing well.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-the-results-2" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-the-results-2">Interpret the Results</h3>
+<ul>
+<li>Consider the factor loading estimates: What do you conclude?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a> ETA      BY</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    SOMBER             1.000       0.000      0.000       1.000       1.000</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    EVENT             -0.371       0.103      0.000      -0.595      -0.187      *</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a> ETA      BY</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    B1                -0.088       0.024      0.000      -0.143      -0.047      *</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    B2                 0.046       0.048      0.153      -0.039       0.147</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    B3                 0.060       0.040      0.051      -0.012       0.144</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    B4                -0.002       0.056      0.489      -0.115       0.105</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    B5                -0.028       0.013      0.014      -0.055      -0.004      *</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    LOGVS              1.412       0.403      0.000       0.856       2.448      *</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    LOGVE              0.057       0.107      0.282      -0.132       0.289</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>B3 no longer loads significantly on <span class="math inline">\(\eta\)</span>.</p>
+<p>People with relatively high scores on <span class="math inline">\(\eta\)</span>, tend to have:</p>
+<ul>
+<li>relatively high person-specific means for somberness</li>
+<li>relatively low person-specific means for event</li>
+<li>more negative effects of <span class="math inline">\(Event_{t}\)</span> on <span class="math inline">\(Somber_{t}\)</span> (b1)</li>
+<li>more negative delayed effects of <span class="math inline">\(Event_{t-1}\)</span> on <span class="math inline">\(Somber_{t}\)</span> (b5)</li>
+<li>Have a larger (log) residual variance for somberness</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Consider the R-square in the standardized results: What do you conclude?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within: On average across persons, 24% of the within-person variance of momentary somberness and 5% of momentary Events is explained</p>
+<p>Between: the factor eta accounts for a substantial proportion of between-person variability in average somberness (54%), direct reactivity (b1; 43%), and residual within-person variance in somberness (RVS; 45%).</p>
+<p>It accounts for a smaller proportion of variance in the average pleasantness of Events (22%) and delayed reactivity (b5; 20%).</p>
+<p>The other R-squares are closer to zero.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dsem-adding-a-level-2-between-level-predictor-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="dsem-adding-a-level-2-between-level-predictor-bonus">DSEM: Adding a level 2 (between level) predictor (bonus)</h2>
+<p>Finally, we consider a between level observed predictor for the nine random effects. For instance, we may consider a personality trait like Neuroticism as a useful predictor of individual differences in person-specific average somberness, and person-specific average experienced unpleasantness-pleasantness of events. Furthermore, we can investigate whether it predicts individual differences in inertia (autoregression), reactivity (cross-lagged regressions), and residual variances.</p>
+<p><img src="figures/Model8.png" class="img-fluid" width="400"></p>
+<section id="specify-the-mplus-model-6" class="level3">
+<h3 class="anchored" data-anchor-id="specify-the-mplus-model-6">Specify the Mplus Model</h3>
+<ul>
+<li>Specify the model and run it. While it is running indicate how many parameters this model has.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Within level: 0 parameters</p>
+<p>Between level:</p>
+<ul>
+<li>9 fixed effects</li>
+<li>9 variances</li>
+<li>9 regression coefficients</li>
+<li>1 mean for the between level predictor N</li>
+<li>1 variance for the between level predictor N</li>
+</ul>
+<p>29 parameters in total (….but see the next exercise)</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Check the number of free parameters in the output (under model fit). Is this correct? If it is not correct, which parameter is added/deleted by default by Mplus?</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It is 30 rather than 29.</p>
+<p>The additional parameter that is estimates is the covariance between the residuals of the mean Somber and mean Events at the between level.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpret-the-results-3" class="level3">
+<h3 class="anchored" data-anchor-id="interpret-the-results-3">Interpret the results</h3>
+<p>Interpret the resulting parameter estimates - focus on the regression coefficients of the model that was estimated.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb20"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Between Level</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a> B1         ON</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    NEUROTIC          -0.004       0.002      0.004      -0.008      -0.001      *</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>LOGVS      ON</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    NEUROTIC           0.051       0.016      0.001       0.019       0.082      *</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a> SOMBER     ON</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    NEUROTIC           0.056       0.011      0.000       0.035       0.077      *</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a> EVENT      ON</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    NEUROTIC          -0.018       0.007      0.005      -0.032      -0.004      *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>People that score relatively high on Neuroticism tend to have relatively:</p>
+<ul>
+<li>high person-specific means for Somber</li>
+<li>low person-specific means for Event (on average less pleasant momentary events)</li>
+<li>stronger reactivity to Event (i.e., a more negative b1)</li>
+<li>larger residual variance for the variable Somber (more unexplained momentary fluctuations for Somberness)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,9 @@
+---
+title: "Introduction"
+subtitle: "Day 2: Latent growth curve modeling"
+editor: source
+---
+
+These exercises are for day 1 of S23. In this computer lab session you can practice with specifying latent growth models in Mplus and interpreting the output. All of the input files for the exercises are provided with the course materials on SURFdrive.
+
+
