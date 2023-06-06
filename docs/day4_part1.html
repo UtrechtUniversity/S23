@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Utrecht Summer School (S23) - Exercises</title>
+<title>Utrecht Summer School (S23) - Part 1: The quasi-simplex model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day3_introduction.html">Day 3</a></li><li class="breadcrumb-item"><a href="./day3_exercises.html">Exercises</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day4_part1.html">Day 4</a></li><li class="breadcrumb-item"><a href="./day4_part1.html">Part 1: The quasi-simplex model</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,13 +148,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Day 1</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day1_introduction.html" class="sidebar-item-text sidebar-link">
@@ -137,13 +171,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Day 2</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day2_introduction.html" class="sidebar-item-text sidebar-link">
@@ -169,50 +203,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day3_introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+  <a href="./day3_part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1: Latent transition analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day3_exercises.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exercises</span></a>
+  <a href="./day3_part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2: Latent growth (mixture) modeling</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Day 4</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+  <a href="./day4_part1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Part 1: The quasi-simplex model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
+  <a href="./day4_part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2: The CLPM and RI-CLPM</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Day 5</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day5_introduction.html" class="sidebar-item-text sidebar-link">
@@ -237,11 +271,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#latent-growth-mixture-modeling" id="toc-latent-growth-mixture-modeling" class="nav-link active" data-scroll-target="#latent-growth-mixture-modeling">Latent growth (mixture) modeling</a></li>
-  <li><a href="#latent-transition-analysis-lta" id="toc-latent-transition-analysis-lta" class="nav-link" data-scroll-target="#latent-transition-analysis-lta">Latent transition analysis (LTA)</a>
-  <ul class="collapse">
-  <li><a href="#exercise-2d" id="toc-exercise-2d" class="nav-link" data-scroll-target="#exercise-2d">Exercise 2D</a></li>
-  </ul></li>
+  <li><a href="#exercise-a" id="toc-exercise-a" class="nav-link active" data-scroll-target="#exercise-a">Exercise A</a></li>
+  <li><a href="#exercise-b" id="toc-exercise-b" class="nav-link" data-scroll-target="#exercise-b">Exercise B</a></li>
+  <li><a href="#exercise-c" id="toc-exercise-c" class="nav-link" data-scroll-target="#exercise-c">Exercise C</a></li>
+  <li><a href="#exercise-d" id="toc-exercise-d" class="nav-link" data-scroll-target="#exercise-d">Exercise D</a></li>
+  <li><a href="#exercise-e" id="toc-exercise-e" class="nav-link" data-scroll-target="#exercise-e">Exercise E</a></li>
+  <li><a href="#exercise-f" id="toc-exercise-f" class="nav-link" data-scroll-target="#exercise-f">Exercise F</a></li>
+  <li><a href="#exercise-g" id="toc-exercise-g" class="nav-link" data-scroll-target="#exercise-g">Exercise G</a></li>
+  <li><a href="#exercise-h" id="toc-exercise-h" class="nav-link" data-scroll-target="#exercise-h">Exercise H</a></li>
+  <li><a href="#exercise-i" id="toc-exercise-i" class="nav-link" data-scroll-target="#exercise-i">Exercise I</a></li>
+  <li><a href="#exercise-j" id="toc-exercise-j" class="nav-link" data-scroll-target="#exercise-j">Exercise J</a></li>
+  <li><a href="#exercise-k" id="toc-exercise-k" class="nav-link" data-scroll-target="#exercise-k">Exercise K</a></li>
+  <li><a href="#exercise-l" id="toc-exercise-l" class="nav-link" data-scroll-target="#exercise-l">Exercise L</a></li>
+  <li><a href="#exercise-m" id="toc-exercise-m" class="nav-link" data-scroll-target="#exercise-m">Exercise M</a></li>
   </ul>
 </nav>
     </div>
@@ -250,8 +292,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercises</h1>
-<p class="subtitle lead">Day 3: Longitudinal mixture modeling</p>
+<h1 class="title">Part 1: The quasi-simplex model</h1>
+<p class="subtitle lead">Day 4: Cross-lagged relations</p>
 </div>
 
 
@@ -266,12 +308,18 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="latent-growth-mixture-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="latent-growth-mixture-modeling">Latent growth (mixture) modeling</h2>
-<p>The goal of this exercise is to find subpopulations with different alcohol use trajectories. To this end, we start with an exploratory latent class growth analysis, and work towards a growth mixture model.</p>
-<section id="exercise-1a" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1a">Exercise 1A</h4>
-<p>First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option. Set up LCGA models models for 1, 2, 3, and 4 classes for the data in <code>DDS8_1.dat</code>. Specify the model using the <code>|</code> notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request <code>TECH11</code>, and <code>TECH14</code> to help evaluate model fit.</p>
+<p>In this first part of the computer lab session we will focus on the quasi-simplex model. We are going to study the concept of life satisfaction. The covariance matrix is in the file <code>Coenders.dat</code> and comes from 1724 children and adolescents that participated in the <em>National Survey of Child and Adolescent Well-Being</em> (NSCAW) in Russia. They indicated how satisfied they were with their lives as a whole on a 10-point scale (1 = not at all satisfied, 10 = very satisfied). There were three waves (1993, 1994 and 1995). At the third wave, the question was asked twice (with 40 minutes in between). Hence, in total there are four measurements obtained at three waves. The data and variables commands for these data should read:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DATA: </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  TYPE = COVARIANCE;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  FILE = Coenders.dat;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  NOBSERVATIONS = 1724;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>VARIABLE: </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  NAMES = Y1 Y2 Y3 Y4;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All of the input files for the exercises are provided with the course materials on SURFdrive.</p>
+<section id="exercise-a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-a">Exercise A</h3>
+<p>The researchers are interested in fitting a quasi-simplex model to these data, that is, a simplex model at the latent level, thus accounting for measurement error in the observations. This model is graphically represented in the slides. Provide the names of the variances (i.e., indicate in which model matrix, and which position in this matrix they have) in the quasi-simplex graph in the slides. What is the difference between the <span class="math inline">\(e\)</span>’s and the <span class="math inline">\(\zeta\)</span>’s?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -284,15 +332,14 @@ Answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in <code>exercise1A_1C.inp</code>, <code>exercise1A_2C.inp</code>, <code>exercise1A_3C.inp</code>, <code>exercise1A_4C.inp</code>, respectively.</p>
+<p><span class="math inline">\(e\)</span>’s are residuals at the measurement level and can be found in the <span class="math inline">\(\theta\)</span>-matrix. They only influence the observation at a single occasion in time. <span class="math inline">\(\zeta\)</span>’s are residuals of the simplex process and can be found in the <span class="math inline">\(\psi\)</span>-matrix. Their effect is carried forward to future observation through the autoregressive relationships. This difference allows Mplus to estimate both types of ``errors’’.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1b" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1b">Exercise 1B</h4>
-<p>These models use random starting values. Several independent random starts are made, to ensure that the model converges on the proper solution. The default is 20 random sets of starting values, of which 4 are run to completion. Inspect the output, and look carefully if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you.</p>
-<p>The <code>STARTS</code> option is used to specify the number of initial random starting values and final stage optimizations. Now, increase the number of starts to ensure proper convergence. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?</p>
+<section id="exercise-b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-b">Exercise B</h3>
+<p>How would you specify the model in Mplus?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -305,15 +352,14 @@ Answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can inspect the convergence of the model by checking that the best final state loglikelihood value has been replicated using different starting values. See the output section <code>RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES</code>. Increasing the number of random starts can be done by specifying <code>STARTS = 50 10;</code> in the <code>ANALYSIS</code> command, where the first number specifies the initial number of random starts, and the second number specifies the number of initial starts that will be converged to the final stage.</p>
-<p>Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.</p>
+<p>See the Mplus input file <code>Exercise B.inp</code>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1c" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1c">Exercise 1C</h4>
-<p>Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add <code>PROCESSORS = 4</code> to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (<code>TECH11</code>), and the bootstrapped LRT value (<code>TECH14</code>).</p>
+<section id="exercise-c" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-c">Exercise C</h3>
+<p>Determine the number of degrees of freedom for this model (indicate how you obtained this number). Is it possible to estimate this model?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -326,65 +372,23 @@ Answer
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Mplus model syntax for the GMM models for 1, 2, 3, and 4 classes are in <code>exercise1C_1C.inp</code>, <code>exercise1C_2C.inp</code>, <code>exercise1C_3C.inp</code>, <code>exercise1C_4C.inp</code>, respectively. The BLRT for the GMM with 3 classes warns that <code>OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.</code> You can increase the number of random starts for the BLRT using <code>LRTSTARTS = 0 0 40 10;</code> in the <code>ANALYSIS</code> command. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a “simple” LGCM, we focus on the GMM with 2 and 3 classes in the next exercises.</p>
+<p>There are <span class="math inline">\(\frac{4 \times 5}{2} = 10\)</span> unique elements in <span class="math inline">\(S\)</span>.</p>
+<p>Free parameters:</p>
+<ul>
+<li>4 residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>3 residual factor variances</li>
+<li>3 regression parameters</li>
+<li>11 parameters in total.</li>
+</ul>
+<p>Therefore, we have <span class="math inline">\(10 - 11 = -1\)</span> <em>df</em>. It is not possible to estimate this model because we are trying to estimate more parameters than we have information in the data.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1d" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1d">Exercise 1D</h4>
-<p>Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.</p>
-<p>::: {.callout-caution collapse=“true”} #### Answer Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:</p>
-<pre><code>PLOT:
-    TYPE = PLOT3;
-    SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);</code></pre>
-<p>when running the model. Then press the “plot” button and select “Estimated mean and observed individual values” and “Estimated means and estimated individual values”. Below you can find these plots for the GMM with 2 classes.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./figures/exercise1D-estimatedMeansIndividualValues.jpg" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Estimated means and individual values.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./figures/exercise1D-estimatedMeansAndValues.jpg" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Estimated means and estimated invidivual trajectories</figcaption>
-</figure>
-</div>
-<p>Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a seperate window as well. However, <code>MplusAutomation</code> has some useful plotting functions that I recommend you to explore, for example <code>plotGrowthMixtures()</code>, in which you can color the lines according to their class membership.</p>
-</section>
-<section id="exercise-1e" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1e">Exercise 1E</h4>
-<p>Covariates are often added to mixture models, to predict 1) class membership 2) to explain variation in the growth parameters within the classes, or 3) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:</p>
-<ol type="1">
-<li>Fit an unconditional LCA (without covariates).</li>
-<li>A “most likely class variable” is created using the posterior distribution of step 1.</li>
-<li>This most likely class variable is then regressed on (a) covariate.</li>
-</ol>
-<p>There are a few options for how to do 3-step analysis. They all rely on adding to the <code>VARIABLE</code> command. For more info, see https://www.statmodel.com/download/webnotes/webnote15.pdf.</p>
-</section>
-<section id="commands-for-conducting-a-3-step-model" class="level4">
-<h4 class="anchored" data-anchor-id="commands-for-conducting-a-3-step-model">Commands for conducting a 3-step model</h4>
-<p>You can add the following options to the <code>VARIABLE</code> command:</p>
-<ol type="1">
-<li><code>AUXILIARY = x(R)</code><br>
-This is actually a 1-step method for predicting latent class memberships using Pseudo-Class draws.</li>
-<li><code>AUXILIARY = x(R3step);</code><br>
-A 3-step procedure, where covariates predict the latent class.</li>
-<li><code>AUXILIARY = y(e)</code><br>
-A 1-step method, where the latent class predicts a continuous distal outcome.</li>
-<li><code>AUXILIARY = y(de3step);</code><br>
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and equal variances.</li>
-<li><code>AUXILIARY = y(du3step);</code><br>
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and variances.</li>
-<li><code>AUXILIARY = Y(dcon);</code><br>
-Procedure for continuous distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = Y(dcon);</code><br>
-Procedure for categorical distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = y(BCH);</code><br>
-Improved and currently best 3-step procedure with continuous covariates as distal outcomes.</li>
-</ol>
-<p>Pick your final model from 1c, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender?</p>
+<section id="exercise-d" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-d">Exercise D</h3>
+<p>To make sure a quasi-simplex model is identified, often the variances of the measurement errors are constrained to be equal over time. How can you do this in Mplus? How many <em>df</em> does this model have?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -397,19 +401,14 @@ Answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I’m providing an example using the 3-step procedure in <code>exercise1E.inp</code>. The results of adding these covariate to the model as predictors of the latent class can be found under the heading <code>TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE</code>. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.</p>
+<p>See the Mplus input file <code>Exercise E.inp</code> for how to constrain the measurement error variances over time. With constrained measurement error variances, we estimate 3 parameters less. So, we estimate <span class="math inline">\(11 - 3 = 8\)</span> and therefore have <span class="math inline">\(10 - 8 = 2\)</span> <em>df</em>.</p>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="latent-transition-analysis-lta" class="level2">
-<h2 class="anchored" data-anchor-id="latent-transition-analysis-lta">Latent transition analysis (LTA)</h2>
-<p>In this exercise we will explore the development of dating status over time using a latent transition analysis. Use the data in <code>DatingSex.dat</code>, which holds data on five dating indicators measured at two occasions (<code>u11</code>, …, <code>u15</code>, <code>u21</code>, …, <code>u25</code>), as well as the variable <code>gender</code>. The u-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).</p>
-<section id="exercise-2a" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2a">Exercise 2A</h4>
-<p>Set up a model with two latent class variables for the two time points. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class (2), in both model <code>c1</code> and model <code>c2</code>. To be sure Mplus does what you want, include equality constraints on the five thresholds of <code>%c1#1%</code> and <code>%c2#1%</code>, and similarly for <code>%c1#2%</code> and <code>%c2#2%</code>. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don’t test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.</p>
-<p>After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output).</p>
+<section id="exercise-e" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-e">Exercise E</h3>
+<p>Run the model and report on the model fit.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -422,14 +421,27 @@ Answer
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The Mplus syntax should is given in <code>exercise2A.inp</code>. The parameters in probability scale can be found in under the heading <code>RESULTS IN PROBABILITY SCALE</code> in the output file. For example, we find that the probability of falling into category 1 (i.e., answering yes/no) is 0.434 (<span class="math inline">\(SE = .024\)</span>) if you are in class 1 at the first time point, and 0.566 (<span class="math inline">\(SE = .024\)</span>) for falling into category 2 (i.e., answering yes/no). Because of the imposed constraints, the probabilities also apply to time point 2, see <code>Latent Class C2#1</code>.</p>
+<p>We find the below fit indices:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2}\)</span> = 13.29 with <em>df</em> = 2, <span class="math inline">\(p = .0013\)</span>,</li>
+<li>RMSEA = .057,</li>
+<li>CFI = .994, and</li>
+<li>TLI = .981.</li>
+</ul>
+<p>Except for <span class="math inline">\(\chi^{2}\)</span> test of model fit, the model seems to fit the data well. Note, however, that the sample size is very large and therefore the <span class="math inline">\(\chi^{2}\)</span> is likely to be significant, even for minor problems with model fit.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-2b" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2b">Exercise 2B</h4>
-<p>Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?</p>
+<section id="exercise-f" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-f">Exercise F</h3>
+<p>The quasi-simplex model you just ran, led to the following warning:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>WARNING: THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE DEFINITE. </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A LATENT VARIABLE, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO LATENT VARIABLES, OR A LINEAR </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>DEPENDENCY AMONG MORE THAN TWO LATENT VARIABLES. CHECK THE TECH4 OUTPUT FOR MORE </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>INFORMATION. PROBLEM INVOLVING VARIABLE ETA4.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What is the problem?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -442,15 +454,20 @@ Answer
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can find proportions of participants in each class under the heading <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES</code>. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.</p>
-<p>You can find the latent transition probabilities based on the estimated model under the heading <code>TECHNICAL 15 OUTPUT</code>. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).</p>
+<p>In your output, look at the reported (estimated) residual variances. We find that the residual variance of <code>ETA4</code> is estimated to be negative. This is a Heywood case and it is causing the warning to appear. Note however, that it is significant, so ``just” fixing it to 0 as a solution is probably not warranted here.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-2c" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2c">Exercise 2C</h4>
-<p>If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.</p>
+<section id="exercise-g" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-g">Exercise G</h3>
+<p>As indicated in the description of the data, the third and fourth measurement were obtained at the same measurement wave (with only 40 minutes in between). Hence, the researchers proposed the following model instead of the regular quasi-simplex model. Explain why this model makes more sense for these data than the regular quasi-simplex model. Tip: check the description of the study at the beginning of this exercise.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Simplex-adjusted.png" class="img-fluid figure-img" width="400"></p>
+<figcaption class="figure-caption">Adjusted quasi-simplex model.</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -463,24 +480,14 @@ Answer
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You could include gender as a control variable on the observed variables, by adding it to the <code>USEVARIABLES</code>, and including the following lines:</p>
-<p><code>u11-u15 ON gender;</code> <code>u21-u25 ON gender;</code></p>
-<p>See <code>exercise2C.inp</code>. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you’re NOT using probability parametrization. So, you would have to remove this line:</p>
-<p><code>PARAMETERIZATION = PROBABILITY;</code></p>
-<p>And add this line:</p>
-<p><code>c1 c2 ON gender;</code></p>
+<p>At each occasion there is a latent variable which represents Life Satisfaction. At the first two occasions there was only a single indicator of this latent variable, but at the third occasion there were two indicators.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-2d" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2d">Exercise 2D</h3>
-<p>We are going to extend the LTA to a Mover-Stayer LTA. This model assumes that there is a subpopulation of “stayers” that stay in the same class, and a subpopulation of “movers” that is free to transition to a different class over time. Answer the below questions:</p>
-<ul>
-<li>Continuing with the 2 classes at both time points. Then, for movers, there is no restriction on the 2 by 2 transition matrix. However, what does the transition matrix for the stayers look like <em>in terms of probabilities</em>? Furthermore, what does the transition matrix for stayers look like <em>in terms of thresholds</em>?</li>
-<li>Add a Movers-Stayers class (i.e., an additional latent categorical factor with 2 classes, namely a movers class and a stayers class) to the LTA specified in the previous exercise. Make sure that for the movers class the transition matrix has no restrictions, and that the stayers class has the restrictions as discussed above.</li>
-<li>Run the Movers-Stayers class and look in the output. Which proportion of people is categorized as movers/stayers?</li>
-</ul>
+<section id="exercise-h" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-h">Exercise H</h3>
+<p>How many <em>df</em> does this model have? Note that we keep the constraint on the variances of the measurement errors.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -493,36 +500,137 @@ Answer
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By definition, for stayers who are in category 1 at time point 1, there is a probability of 1 for being in category 1 at time point 2 as well, and a probability of 0 for transitioning to category 2. For stayers who are in category 2 at time point 1, there is a probability of 0 for being in category 1 at time point 2, but a probability of 1 for being in category 2. Translating this to thresholds, a large negative threshold represents a very high probability of being into that category, whereas a large positive threshold represents a low probability. So stayers who are in category 1 at time point 1 should have a large negative threshold for category 1 at time point 2, and a large positive threshold for category 2, etc.</p>
-<p>Mplus model syntax for the mover-stayer model can be found in <code>exercise2D.inp</code>. Looking at <code>TECHNICAL 15 OUTPUT</code>, we can clearly see that we have specified a movers and a stayers class:</p>
-<pre><code>P(C2=1|CM=1,C1=1)=0.271
-P(C2=2|CM=1,C1=1)=0.729
-
-P(C2=1|CM=1,C1=2)=0.542
-P(C2=2|CM=1,C1=2)=0.458
-
-P(C2=1|CM=2,C1=1)=1.000
-P(C2=2|CM=2,C1=1)=0.000
-
-P(C2=1|CM=2,C1=2)=0.000
-P(C2=2|CM=2,C1=2)=1.000</code></pre>
-<p>Looking at the information under <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN</code>, we see that 66.8% is classified as a mover, and 33.2% as a stayer.</p>
-</div>
-</div>
-</div>
-<section id="exercise-2e" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2e">Exercise 2E</h4>
-<p>We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each time point you would choose.</p>
-<p>Think about:</p>
+<p>There are <span class="math inline">\(\frac{4*5}{2} = 10\)</span> unique elements in S. We freely estimate:</p>
 <ul>
-<li>Whether you think there should be an equal number of classes at both time points (this is mostly a theoretical decision).</li>
-<li>How to build the model. Should you start by comparing unconstrained or constrained models?</li>
-<li>How to decide what solution you prefer.</li>
+<li>1 constrained residual variances at measurement level</li>
+<li>1 factor variance</li>
+<li>2 residual factor variances</li>
+<li>2 regression parameters</li>
+<li>1 factor loading</li>
+<li>7 parameters in total.</li>
 </ul>
+<p>Therefore, we have <span class="math inline">\(10 - 7 = 3\)</span> <em>df</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-i" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-i">Exercise I</h3>
+<p>Are these two models nested? If so, how? If not, why not, and how could we compare them?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Yes, they are nested: this model is a special case of the previous model, as it is based on having <code>ETA3</code> and <code>ETA4</code> from the previous model now being a single latent variable. That is, we can constrain the residual variance of <code>ETA4</code> to zero to get the alternative model. This gives us 1 <em>df</em> for the difference.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-j" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-j">Exercise J</h3>
+<p>Specify this model in Mplus and run it. Report on the model fit.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>See the Mplus input file <code>Excercise J.inp</code> for the model specification in Mplus. Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model fit, the model fits well:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (3) = 27.37\)</span>, with <span class="math inline">\(p &lt; .001\)</span>,</li>
+<li>RMSEA = 0.069,</li>
+<li>CFI = 0.987,</li>
+<li>TLI = 0.973, and</li>
+<li>SRMR = 0.039.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-k" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-k">Exercise K</h3>
+<p>Compare the two models to each other. What can you conclude?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Comparing both models using the <span class="math inline">\(\Delta \chi^{2}\)</span>-test gives us <span class="math inline">\(27.37 – 13.29 = 14.0\)</span> with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>. This implies that imposing the restriction is not tenable. You can calculate the <em>p</em>-value of the <span class="math inline">\(\Delta \chi^{2}\)</span> using the <code>pchisq()</code>-function in R (with the <code>lower.tail</code> argument set to <code>FALSE</code>), or <a href="http://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html">an online tool</a></p>
+<p>Comparing the models using information criteria gives us AIC = 29593 and BIC = 29637 for the first model, and AIC = 29605 and BIC = 29643 for the second. In conclusion, all measures indicate the first model is better. However, the current model makes more theoretical sense, and the negative variance estimate in the first model is a problem. For these 2 reasons, we should prefer the current model.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-l" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-l">Exercise L</h3>
+<p>Can you improve the second model in any way? Indicate which parameter you would add to your model, and what this parameter represents in substantive terms.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested BY statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the ON statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The WITH statement suggests adding a covariance between the residuals of <code>y3</code> and <code>y4</code>. If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-m" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-m">Exercise M</h3>
+<p>Run a model in which you include the <code>Y3 WITH Y4</code> parameter. Where will this relationship end up in the model? Does it lead to a significant improvement? How would you interpret this additional parameter?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (2) = 7.077\)</span>, <span class="math inline">\(p = .0291\)</span>,</li>
+<li>RMSEA = 0.038,</li>
+<li>CFI = 0.997,</li>
+<li>TLI = 0.992, and</li>
+<li>SRMR = 0.011.</li>
+</ul>
+<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>. Note that in the standardized results, the WITH statement can be interpreted as a correlation, and it is quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

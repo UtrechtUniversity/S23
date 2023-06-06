@@ -8,26 +8,26 @@ website:
   sidebar:
     style: "floating"
     search: true
-    collapse-level: 1
+    collapse-level: 2
     contents:
       - href: index.qmd
         text: Home
       - section: "Day 1"
         contents:
-        - day1_introduction.qmd
-        - day1_exercises.qmd
+          - day1_introduction.qmd
+          - day1_exercises.qmd
       - section: "Day 2"
         contents:
-        - day2_introduction.qmd
-        - day2_exercises.qmd
+          - day2_introduction.qmd
+          - day2_exercises.qmd
       - section: "Day 3"
         contents:
-        - day3_introduction.qmd
-        - day3_exercises.qmd
+          - day3_part1.qmd
+          - day3_part2.qmd
       - section: "Day 4"
         contents:
-          - day4_introduction.qmd
-          - day4_exercises.qmd
+          - day4_part1.qmd
+          - day4_part2.qmd
       - section: "Day 5"
         contents:
           - day5_introduction.qmd
