@@ -597,7 +597,7 @@ Answer
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested BY statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the ON statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The WITH statement suggests adding a covariance between the residuals of <code>y3</code> and <code>y4</code>. If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
+<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested <code>BY</code> statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the <code>ON</code> statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The <code>WITH</code> statement suggests adding a covariance between … (see the next exercise).</p>
 </div>
 </div>
 </div>
@@ -617,7 +617,8 @@ Answer
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
+<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
+<p>Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
 <ul>
 <li><span class="math inline">\(\chi^{2} (2) = 7.077\)</span>, <span class="math inline">\(p = .0291\)</span>,</li>
 <li>RMSEA = 0.038,</li>
@@ -625,7 +626,7 @@ Answer
 <li>TLI = 0.992, and</li>
 <li>SRMR = 0.011.</li>
 </ul>
-<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>. Note that in the standardized results, the WITH statement can be interpreted as a correlation, and it is quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
+<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>.</p>
 </div>
 </div>
 </div>

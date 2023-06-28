@@ -331,7 +331,19 @@ Answer
 <section id="exercise-2d" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2d">Exercise 2D</h3>
 <p>Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.</p>
-<p>::: {.callout-caution collapse=“true”} ### Answer Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:</p>
 <pre><code>PLOT:
     TYPE = PLOT3;
     SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);</code></pre>
@@ -349,6 +361,9 @@ Answer
 </figure>
 </div>
 <p>Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a separate window as well. However, <code>MplusAutomation</code> has some useful plotting functions that I recommend you to explore, for example <code>plotGrowthMixtures()</code>, in which you can color the lines according to their class membership.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2e" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2e">Exercise 2E</h3>
@@ -383,7 +398,7 @@ Improved and currently best 3-step procedure with continuous covariates as dista
 </ol>
 <p>Pick your final model from 2C, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -392,7 +407,7 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>I’m providing an example using the 3-step procedure in <code>exercise2E.inp</code>. The results of adding these covariate to the model as predictors of the latent class can be found under the heading <code>TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE</code>. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.</p>
 </div>

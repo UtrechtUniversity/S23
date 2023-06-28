@@ -158,7 +158,7 @@ Can you improve the second model in any way? Indicate which parameter you would 
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-You can get the modification indices by adding `MOD` to the `OUTPUT` command. Here, the suggested BY statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the ON statement, only the suggested effect of `ETA3 ON ETA1` makes sense as we then predict forwards in time. The WITH statement suggests adding a covariance between the residuals of `y3` and `y4`. If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: $.522$ (SE = .044), $p < .001$. 
+You can get the modification indices by adding `MOD` to the `OUTPUT` command. Here, the suggested `BY` statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the `ON` statement, only the suggested effect of `ETA3 ON ETA1` makes sense as we then predict forwards in time. The `WITH` statement suggests adding a covariance between ... (see the next exercise).
 :::
 
 ### Exercise M
@@ -166,7 +166,9 @@ Run a model in which you include the `Y3 WITH Y4` parameter. Where will this rel
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-See `Exercise M.inp` for the Mplus specification of this model. The `Y3 WITH Y4` parameter is an additional covariance between the residuals of `y3` and `y4` (so not between `y3` and `y4` themselves). Model fit is quite good (except for the $\chi^{2}$-test of model fit): 
+See `Exercise M.inp` for the Mplus specification of this model. The `Y3 WITH Y4` parameter is an additional covariance between the residuals of `y3` and `y4` (so not between `y3` and `y4` themselves). If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: $.522$ (SE = .044), $p < .001$. 
+
+Model fit is quite good (except for the $\chi^{2}$-test of model fit): 
 
 - $\chi^{2} (2) = 7.077$, $p = .0291$,
 - RMSEA = 0.038,
@@ -174,5 +176,5 @@ See `Exercise M.inp` for the Mplus specification of this model. The `Y3 WITH Y4`
 - TLI = 0.992, and 
 - SRMR = 0.011. 
 
-To compare this model to the previous model, we can do a the $\Delta \chi^{2}$-test: $27.37 – 7.08 = 20.29$, with 1 *df* such that $p < .001$, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that `y3` and `y4` have more in common with each other than what would be expected based on their common dependence on `ETA3`. Note that in the standardized results, the WITH statement can be interpreted as a correlation, and it is quite high: $.522$ (SE = .044), $p < .001$. 
+To compare this model to the previous model, we can do a the $\Delta \chi^{2}$-test: $27.37 – 7.08 = 20.29$, with 1 *df* such that $p < .001$, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that `y3` and `y4` have more in common with each other than what would be expected based on their common dependence on `ETA3`.
 :::

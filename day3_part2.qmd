@@ -56,6 +56,7 @@ when running the model. Then press the "plot" button and select "Estimated mean 
 ![Estimated means and estimated invidivual trajectories](./figures/exercise1D-estimatedMeansAndValues.jpg){width="400px"}
 
 Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a separate window as well. However, `MplusAutomation` has some useful plotting functions that I recommend you to explore, for example `plotGrowthMixtures()`, in which you can color the lines according to their class membership.
+:::
 
 ### Exercise 2E
 Covariates are often added to mixture models, to predict 1) class membership 2) to explain variation in the growth parameters within the classes, or 3) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:

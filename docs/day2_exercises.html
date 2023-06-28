@@ -271,10 +271,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#burn-survivors" id="toc-burn-survivors" class="nav-link active" data-scroll-target="#burn-survivors">Burn survivors</a></li>
-  <li><a href="#alcohol-use" id="toc-alcohol-use" class="nav-link" data-scroll-target="#alcohol-use">Alcohol use</a></li>
+  <li><a href="#burn-survivors" id="toc-burn-survivors" class="nav-link active" data-scroll-target="#burn-survivors">Burn survivors</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1a" id="toc-exercise-1a" class="nav-link" data-scroll-target="#exercise-1a">Exercise 1A</a></li>
+  <li><a href="#exercise-1b" id="toc-exercise-1b" class="nav-link" data-scroll-target="#exercise-1b">Exercise 1B</a></li>
+  </ul></li>
+  <li><a href="#alcohol-use" id="toc-alcohol-use" class="nav-link" data-scroll-target="#alcohol-use">Alcohol use</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2a" id="toc-exercise-2a" class="nav-link" data-scroll-target="#exercise-2a">Exercise 2A</a></li>
+  <li><a href="#exercise-2b" id="toc-exercise-2b" class="nav-link" data-scroll-target="#exercise-2b">Exercise 2B</a></li>
+  <li><a href="#exercise-2c" id="toc-exercise-2c" class="nav-link" data-scroll-target="#exercise-2c">Exercise 2C</a></li>
+  </ul></li>
   <li><a href="#level-and-shape-parameterization" id="toc-level-and-shape-parameterization" class="nav-link" data-scroll-target="#level-and-shape-parameterization">Level and shape parameterization</a>
   <ul class="collapse">
+  <li><a href="#exercise-3a" id="toc-exercise-3a" class="nav-link" data-scroll-target="#exercise-3a">Exercise 3A</a></li>
+  <li><a href="#exercise-3b" id="toc-exercise-3b" class="nav-link" data-scroll-target="#exercise-3b">Exercise 3B</a></li>
+  <li><a href="#exercise-3c" id="toc-exercise-3c" class="nav-link" data-scroll-target="#exercise-3c">Exercise 3C</a></li>
   <li><a href="#exercise-3d" id="toc-exercise-3d" class="nav-link" data-scroll-target="#exercise-3d">Exercise 3D</a></li>
   </ul></li>
   <li><a href="#latent-growth-curve-model-on-gpa-data" id="toc-latent-growth-curve-model-on-gpa-data" class="nav-link" data-scroll-target="#latent-growth-curve-model-on-gpa-data">Latent growth curve model on GPA data</a>
@@ -322,8 +334,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>SVL at wave 8 (18 months after burn injury; <code>W8</code>), and</li>
 <li>BPAS at wave 9 (24 months after burn injury; <code>pain</code>).</li>
 </ul>
-<section id="exercise-1a" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1a">Exercise 1A</h4>
+<section id="exercise-1a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1a">Exercise 1A</h3>
 <p>Specify a latent growth curve model. Consider different specifications discussed in the lecture, and try to find the best specification. Use only the time measurements, not including additional predictor variables. Think about which metric of time to use and the shape of the function (linear or quadratic). Base your decision of the best model on plots (!), model fit indices, model comparison tools, and interpretation of the model parameters.</p>
 <p>If you have reason to believe that another type of LGCM fits the data better, feel free to specific and estimate that model.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -415,8 +427,8 @@ Answer
 </div>
 </div>
 </section>
-<section id="exercise-1b" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-1b">Exercise 1B</h4>
+<section id="exercise-1b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1b">Exercise 1B</h3>
 <p>Using the best fitting LGM model found above, regress the growth parameters on <code>TVLO</code> and regress <code>pain</code> on the growth components. Then investigate if there are gender differences in the regression of the growth parameters on <code>TVLO</code> and in the regression of <code>pain</code> on the growth parameters?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -451,8 +463,8 @@ Answer
 </figure>
 </div>
 <p>The data are in the file <code>DDS8_1.dat</code>, with variables <code>ALC1YR1</code> <code>ALC1YR2</code> <code>ALC1YR3</code> <code>ALCPROB5</code> <code>AGE1</code> and <code>GENDER1</code> (in that order). Missing values are coded as <code>-99</code>. The variable <code>ALCPROB5</code> is categorical, it indicates alcohol problems in year 5 of the study (0 = no, 1 = yes).</p>
-<section id="exercise-2a" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2a">Exercise 2A</h4>
+<section id="exercise-2a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2a">Exercise 2A</h3>
 <p>Set up the LGCM as depicted in the figure above in Mplus using the <code>|</code> notation (rather than specifying a CFA by using the <code>BY</code> statement). Inspect the output carefully with special attention for a) the pattern of missing values, b) the model fit, and c) the interpretation of the parameter estimates. How well does the model predict alcohol use of the years?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -471,8 +483,8 @@ Answer
 </div>
 </div>
 </section>
-<section id="exercise-2b" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2b">Exercise 2B</h4>
+<section id="exercise-2b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2b">Exercise 2B</h3>
 <p>We will now <em>explore</em> how different predictor variables affect the model fit. Include gender and age in the model as predictors of the intercept and slope. Interpret the fit of the model and the output. Feel free to estimate several models, including or excluding certain covariates. Make a model fit table by hand in a spreadsheet, reporting on the fit indices you deem to be appropriate. Which model do you consider to be best?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -505,8 +517,8 @@ Answer
 </div>
 </div>
 </section>
-<section id="exercise-2c" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-2c">Exercise 2C</h4>
+<section id="exercise-2c" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2c">Exercise 2C</h3>
 <p>Include alcohol problems in year 5 in the model. Let the intercept and slope factors predict alcohol problems in year 5. Declare the variable as categorical in the variable section (<code>CATEGORICAL = ALCPROB5</code>). Inspect if the effect of age and gender on alcohol problems year 5 is completely mediated by the growth factors, or if there are additional direct paths from age and gender on the alcohol problems.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -536,8 +548,8 @@ Answer
 <li>admitted to university of choice (missing if not applied for university, <code>student</code>).</li>
 </ul>
 <p>In this exercise you will use the GPA data to set up a level and shape model (i.e., a LGCM with estimated time scores).</p>
-<section id="exercise-3a" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-3a">Exercise 3A</h4>
+<section id="exercise-3a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3a">Exercise 3A</h3>
 <p>Use a parameterization with <code>GPA1@0</code> and <code>GPA6@1</code>. The loadings for the other time points should be freely estimated. This can be done with, for example, the syntax <code>GPA2*</code> as shown in the handout. Interpret the factor loadings and estimate for <code>S</code>.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -556,8 +568,8 @@ Answer
 </div>
 </div>
 </section>
-<section id="exercise-3b" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-3b">Exercise 3B</h4>
+<section id="exercise-3b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3b">Exercise 3B</h3>
 <p>Now use a parameterization with <code>GPA1@0</code> and <code>GPA2@1</code>. The other GPA’s should be freely estimated. Interpret the factor loadings and estimate for S.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -577,8 +589,8 @@ Answer
 </div>
 <p>Which parameterization do you like best?</p>
 </section>
-<section id="exercise-3c" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-3c">Exercise 3C</h4>
+<section id="exercise-3c" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3c">Exercise 3C</h3>
 <p>Draw the development of GPA over time, using the parametrization of your choice) based on your own calculations (by hand). Compare this to the estimated means plot that you can get with the plot command:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PLOT: </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  SERIES = GPA1-GPA6 (s); </span>
@@ -599,7 +611,7 @@ Answer
 <p>The estimated means plot for the parametrization (0 1 * * * *) is shown below, and can be generated by clicking the plots button, and selecting “Estimated means”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./figures/exercise3C-estimatedMeans.jpg" class="img-fluid figure-img" width="400"></p>
+<p><img src="./figures/exercise3C-estimatedMeans.jpg" class="img-fluid figure-img" width="500"></p>
 <figcaption class="figure-caption">Estimated means</figcaption>
 </figure>
 </div>

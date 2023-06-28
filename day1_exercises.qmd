@@ -5,7 +5,7 @@ editor: source
 bibliography: references.bib
 ---
 
-## Measurement invariance
+# Measurement invariance
 
 Measurement invariance is important if we want to compare individuals from different groups, or the means of different groups. Measurement invariance implies that two individuals from different groups who have the same latent score, have the same expected observed scores. It also means that if there are observed mean differences between two groups, these can only stem from latent mean differences.
 
@@ -17,7 +17,7 @@ Here we will show how to specify a sequence of models to test whether measuremen
 -   *weak factorial invariance*; this implies the factor loadings are constrained across the groups to be the same
 -   *strong factorial invariance*; this implies the factor loadings and the intercepts are constrained to be the same across the groups, while the latent means in the second (and subsequent) group(s) are allowed to be estimated freely. 
 
-We start with drawing the model as a path diagram. The data come from @sabatelli_family. They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these data using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the hubsand and other variables are measured in the wives).
+We start with drawing the model as a path diagram. The data come from @sabatelli_family. They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these data using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the husband and other variables are measured in the wives).
 
 The variables included are:
 
@@ -29,7 +29,7 @@ The variables included are:
 
 The idea is that the first two variables measure Marital Adjustment (MA) and the latter three variables measure the quality of relationships in the Family of Origin (FO). Furthermore, it is assumed that FO is a predictor of MA.
 
-#### Question 1 
+### Question 1 
 
 Draw the path diagram for this structural equation model.
 
@@ -42,7 +42,7 @@ Measurement part of the model: S and I are indicators of MA; F, M, and FM are in
 
 Before doing the actual model that includes the structural relation between the latent variables, we start with only the measurement model; this means that we specify a two-factor model in which the latent variables are allowed to covary (i.e., a two-headed arrow between MA and FO). We use this model to investigate whether strong factorial invariance holds by testing whether the assumptions of this model hold.
 
-#### Question 2
+### Question 2
 The data for this exercise are included in the file named Family.dat; note it only contains the summary statistics, that is, it contains the means, standard deviations, and correlation matrices for each group (men first, then women), that were printed in the original paper. Have a look at these.
 
 ::: {.callout-caution collapse="true"}
@@ -68,7 +68,7 @@ You can open the data either in Mplus, or with a program like notepad. This is w
 
 :::
 
-#### Question 3
+### Question 3
 Typically when you have data, you will have the raw data. In that case you will have the observed variables and a grouping variable in one file. See example 5.14 in the Mplus Users Guide for how to specify the `DATA` and `VARIABLE` commands in that case.
 
 Here we only have the summary data. To specify the `DATA` and `VARIABLE` commands in this case, use:
@@ -130,9 +130,9 @@ Hence, we see that for each of the three models we get information about model f
 
 While this automatic option is of course very convenient in practice, we will now focus in this exercise on how to specify and run these three models ourselves. The point of this is that we see how we can overrule defaults in Mplus, and we consider the models one by one (and check the `TECH1` output), and consider alternative ways of scaling these models.
 
-### Step 1: Configural invariance 
+## Step 1: Configural invariance 
 
-#### Question 4 
+### Question 4 
 
 If we specify the model for configural invariance:
 
@@ -141,7 +141,7 @@ If we specify the model for configural invariance:
 -   how many *df* are there?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 
 *Sample statistics*. We have 5 observed variables in each group. Hence, we have 5\*6/2 = 15 unique elements in the covariance matrix S for each group, plus 5 observed means, so 20 sample statistics per group. That makes 40 sample statistics in total.
 
@@ -158,12 +158,12 @@ That makes 16 parameters per group; hence, 32 free parameters in total.
 *Degrees of freedom*. The degrees of freedom are therefore: $df = 40 - 32 = 8$.
 :::
 
-#### Question 5 
+### Question 5 
 
 Specify the two-factor model for configural invariance.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 
 ```default
 MODEL:      MA BY S I;
@@ -202,12 +202,12 @@ OUTPUT: TECH1 MOD(4);
 ```
 :::
 
-#### Question 6 
+### Question 6 
 
 Run this model, and check whether the `TECH1` output matches your answer under Question 4 regarding where the free parameters are. Also check the warning(s); is there a reason for concern?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 We get this warning:
 
 ```default
@@ -239,12 +239,12 @@ One action we could take is setting this residual variance to zero (note the par
 But for now, we will just leave the variable in, and consider the model fit before moving on to testing weak factorial invariance.
 :::
 
-#### Question 7
+### Question 7
 
 For now, we ignore this warning. What is the model fit?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 
 ```default
 Chi-Square Test of Model Fit
@@ -283,14 +283,14 @@ SRMR (Standardized Root Mean Square Residual)
 ```
 :::
 
-### Step 2: Weak factorial invariance 
+## Step 2: Weak factorial invariance 
 
-#### Question 8 
+### Question 8 
 
 Next, specify the model for weak factorial invariance. How many df would this model have? Run this model and report on the model fit.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 In the model for weak factorial invariance, we set the factor loadings invariant across groups, while not constraining the mean structure. In practice, this implies we no longer have to overrule the defaults for the factor loadings, but we still need to overrule the defaults for the intercepts and latent means. Hence, the model specification becomes:
 
 ```default
@@ -316,12 +316,12 @@ Chi-Square Test of Model Fit
 We see indeed the number of df is 11.
 :::
 
-#### Question 9
+### Question 9
 
 Do a chi-square difference test to determine whether the assumption of weak factorial invariance (i.e., equal factor loadings across groups) holds.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 
 $\Delta \chi^2 = 8.735 - 6.025 = 2.710$
 
@@ -332,14 +332,14 @@ Hence, the chi-square difference is 2.710 with df=3. The p-value for this is 0.4
 This means that our H0 (i.e., weak factorial invariance) is not rejected. Put differently, the constraints for weak factorial invariance can be imposed.
 :::
 
-### Step 3: Strong factorial invariance 
+## Step 3: Strong factorial invariance 
 
-#### Question 10
+### Question 10
 
 Next, specify the model for strong factorial invariance. Again, indicate how many df this model will have, run the model, and report on the model fit.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 Strong factorial invariance is the default multiple group factor model that Mplus runs. Hence, it does not require us to overrule any of its defaults. Compared to the previous model, this means that it will constrain all five intercepts to be identical across the two groups, but at the same time, it will freely estimate the two latent means in the second group. Hence, the difference in df is 5-2=3; the new model with have 3 df more than the one we had before.
 
 The `MODEL` command for this model is very simple; we only need:
@@ -362,11 +362,11 @@ Chi-Square Test of Model Fit
 We see that indeed the df are 3 more than before ($11 + 3 = 14$).
 :::
 
-#### Exercise 11 
+### Question 11 
 Do a chi-square difference test to determine whether the assumption of strong factorial invariance (i.e., equal intercepts; only latent mean differences) holds.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 We compare the current model fit to that of the previous model (i.e., the one for weak factorial invariance), to determine whether the additional constraints are tenable.
 
 Hence we have:
@@ -378,11 +378,11 @@ $\Delta df = 14 - 11 = 3$
 A chi-square difference test of 6.912 with 3 df has a p-value of 0.0748. Hence, again, the H0 is not rejected, which now means we can assume that strong factorial invariance holds.
 :::
 
-#### Exercise 12 
+### Question 12 
 Check the `TECH1` output for the latter model. How do you see the constraints that were imposed?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 You can see the intercepts and factor loadings are constrained across the two groups, because the same numbers are used to show which ones are estimated freely:
 
 ```default
@@ -403,7 +403,7 @@ You can see the intercepts and factor loadings are constrained across the two gr
 ```
 :::
 
-### Alternative way of scaling
+## Alternative way of scaling
 
 Above, we have used the usual way of scaling:
 
@@ -416,12 +416,12 @@ However, it is less obvious that the model for strong factorial invariance is ne
 
 To ensure that these models are nested, we use an alternative way of specifying these models, based on a different way of scaling. The **key issue** here is that these alternative model specification are simply reparameterizations of the the same models; they are equivalent models, as we can see because they lead to the *exact same model fit*.
 
-#### Question 13
+### Question 13
 
 Instead of scaling with the latent means fixed to zero and the intercepts all estimated freely, scale the latent variable in the model for configural invariance through setting the intercept for the first indicator to zero, while allowing the latent mean to be estimated freely. Compare the model fit to the one obtained above for the configural invariance model.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 The `MODEL` command can be specified as:
 
 ```default
@@ -463,12 +463,12 @@ Because the chi-square is exactly the same (and the df), this implies these mode
 Hence, this shows that this alternative way of scaling the latent variables gives a model that is equivalent.
 :::
 
-#### Question 14 
+### Question 14 
 
 Next, use this alternative way of scaling and specify the model for weak factorial invariance.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 The `MODEL` command can be specified as:
 
 ```default
@@ -496,7 +496,7 @@ Chi-Square Test of Model Fit
 This means that the current model is statistically equivalent to the model we had before to impose weak factorial invariance.
 :::
 
-#### Question 15
+### Question 15
 
 And now, the Moment Suprême: We will specify the model for strong factorial invariance using this alternative way of scaling. The *key* issue to notice here is that in going from weak factorial invariance to strong factorial invariance, we will now only add constraints, which makes it very clear that the latter model must be nested under the former.
 
@@ -507,7 +507,7 @@ But with this alternative way of scaling, which leads to *statistically equivala
 Specify the model for strong factorial invariance using this alternative way of scaling.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 The `MODEL` command can be specified as:
 
 ```default
@@ -533,11 +533,11 @@ Chi-Square Test of Model Fit
 This means that the current model is statistically equivalent to the model we had before to impose strong factorial invariance. This also means that we can now be certain that the model for strong factorial invariance is nested under the model for weak factorial invariance; this means we can do a chi-square difference test to compare them (as we already did above).
 :::
 
-#### Question 16
+### Question 16
 While this alternative way of specifying the series of models is useful to seeing their nestedness, the first way of specifying the models also has advantages. One of these advantages is that it requires fewer defaults to be overruled. But more importantly, it allows us to easily determine in the strong factorial invariance model whether there are latent mean differences between the groups. Report and interpret these.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 In the first approach, the model for strong factorial invariance is based on constraining the factor loadings and intercepts across the groups, and freeing the latent means in the second group, while the means in the first group are fixed to zero.
 
 That is, for G1 we get:
@@ -559,14 +559,14 @@ Means
 This implies that the significance test of the latter can be used to determine whether there are latent mean differences between the second and the first group. Here we get a p-value of 0.894 for MA, and a p-value of 0.058 for FO; hence for both we do not find evidence that they differ from zero, which means that for both we do not find evidence that the two groups differ.
 :::
 
-### Full model 
+## Full model 
 As both the test for weak and for strong factorial invariance were non-significant, we can conclude that strong factorial invariance holds. This means we can compare individuals from these groups, and we can compare the means of these groups. It also means that the constructs "Marital Adjustment" and "Family of Origin" are measured in the same way in these two groups, and that we can specify a structural model for these latent variables in the two groups to investigate how they are related.
 
-#### Question 17 
+### Question 17 
 Specify the model as initially intended, with FO as a predictor of MA at the latent level, while assuming strong factorial invariance.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 The model is now specified as:
 
 ```default
@@ -577,21 +577,21 @@ MODEL:      MA BY S I;
 
 :::
 
-#### Question 18
+### Question 18
 
 Run this model, and compare the model fit to that of the model for strong factorial invariance that we had before. What do you conclude?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 These models have the exact same model fit (same chi-square and df). This means these models are statistically equivalent. Hence, it does not matter whether you estimate the covariance between the two latent variables, or a regression coefficient.
 :::
 
-#### Question 19
+### Question 19
 
 When comparing the `TECH1` output of these two models, what difference do you spot?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 In the two-factor model we have for G1:
 
 ```default
@@ -627,11 +627,11 @@ that is, no structural parameters, and a covariance is Psi; in contrast in the r
 showing there is a structural parameter in Beta (going to MA, coming from FO), and there is no covariance estimated in Psi. The same is true for G2.
 :::
 
-#### Question 20 
+### Question 20 
 As a final step, we want to investigate whether the regression coefficient is different in the two groups or not. How can you investigate this?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 In the model above, the regression parameter was not constrained across the groups. We can now specify a model in which we constrain the parameter to be invariant across the two groups; that model will be nested under the previous model, and we can thus do a chi-square difference test to see whether the constraint holds.
 
 To constrain the parameter across the groups, we only have to give it a label (i.e., a name). Here we will give it the label `c` (you could als give it a longer name, such as `coeff`). The model is now specified as:
@@ -705,7 +705,7 @@ showing it has 1 df more than the model we had before (because we estimate 1 par
 $\Delta \chi^2 = 16.315 - 15.647 = 0.688$ with $df-1$, which gives a p-value of 0.4137, which means the test is not significant. Hence, H0 does not have to be rejected, and we can therefore assume that the regression coefficient is identical across the two groups.
 :::
 
-### Conclusion
+## Conclusion
 
 To summarize what we did in this exercise:
 
@@ -719,7 +719,7 @@ To summarize what we did in this exercise:
 -   subsequently, we constrained the regression coefficient across the two groups to see whether the effect of family of origin (FO) has the same effect on marital adjustment (MA) in the two groups; again, by doing a chi-square difference test we could determine whether or not this constraint was tenable; since the test was not significant, we may assume that the two regression slopes are the same across the groups
 -   note that in the end, we still have the same warning as for the first model about a Heywood case (negative variance) in the first group; we should present such results in a paper; we could constrain this variance to zero (and we could do the same thing in the other group, because it is not significantly different from zero there either), which would make this indicator and the latent variable it measures identical; put differently, this implies that we can measure marital adjustment with this one variable, and we do not need the other one for it
 
-## Path analysis
+# Path analysis
 
 In this exercise, we consider a path model in which observed variables are regressed on each other. The data come from the paper @hale_does_2005. We collected the means, standard deviations, and correlation matrix from that paper for the group of older boys (n=275) in the file BoysDep.dat. We have the following four variables (in this order):
 
@@ -732,12 +732,12 @@ The model that the researchers proposed, is presented below: Their question is w
 
 ![The path model proposed by Hale et al. (2005)](figures/HaleModel.png){width="500px"}
 
-#### Question 1
+### Question 1
 
 Determine: a) how many sample statistics there are; b) how many free parameters there are: and c) how many degrees of freedom this model has.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 There are four observed variables, so $\frac{4 \times 5}{2} = 10$ unique elements in the covariance matrix S, and 4 observed means; that makes 14 sample statistics in total.
 
 The number of free parameters in this model are: 1 variance of the exogenous variable (PPR), 3 residual variance of the endogenous variables (AD, AA and AW), 5 structural parameters (i.e., regression coefficients), 1 mean for the exogenous variable (PPR), and 3 intercepts for the endogenous variables (AD, AA, and AW). That makes 13 free parameters in total.
@@ -745,7 +745,7 @@ The number of free parameters in this model are: 1 variance of the exogenous var
 The number of degrees of freedom should therefor equal $14 - 13 = 1$.
 :::
 
-#### Question 2
+### Question 2
 
 To specify the above model, make use of this code for the `DATA` command:
 
@@ -768,7 +768,7 @@ MODEL:      AD ON PPR;
 Finish the code and run the model. Consider the model fit results: Do they make sense to you?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 Below are the two most notable parts of the model fit output.
 
 ```default
@@ -788,12 +788,12 @@ Chi-Square Test of Model Fit
 It indicates that there are 12, rather than 13, free parameters, and that there are 0, rather than 1, degree of freedom. At first sight, this makes no sense: 12+0=12, but this should equal the number of sample statistics, which we determined is 14.
 :::
 
-#### Question 3
+### Question 3
 
 There are actually two things going on at once here. Check the `TECH1` output to see whether you can figure out what the two issues are.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 Considering the first three matrices in TECH1:
 
 ```default
@@ -869,12 +869,12 @@ Regarding the latter point, we may also look at the parameter estimate for this 
 This covariance is not significantly different from zero; hence, we can decide that it can be omitted from the model (which is the same as fixing it to zero).
 :::
 
-#### Question 4
+### Question 4
 
 Specify a model that overrules the defaults we ran into in the previous question. Discuss the model fit. Check the `TECH1` output and notice the differences with what you saw before.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 We use the following `MODEL` command:
 
 ```default
@@ -910,7 +910,7 @@ When checking the `TECH1` output, what we notice is:
 -   the covariance between the residuals of AA and AW is no longer estimated (not a free parameter)
 :::
 
-#### Question 5
+### Question 5
 
 We are actually interested not so much in overall model fit here (the model has only 1 df, so it is very unlikely that will not fit well), but rather in its parameter estimates, and even more so, in the mediated and direct effects.
 
@@ -925,7 +925,7 @@ To get information about the indirect (i.e., mediated) effects, we have to add t
 Run the model with this code added, and report on the indirect effects.
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 Note that the model itself has not changed (you can also tell by the fact that the model fit and parameter estimates are the same as before); we just have additional output.
 
 The nonstandardized additional output starts with:
@@ -983,12 +983,12 @@ Pretty much the same picture: The direct effect is non-significant and could thu
 We can also look at the standardized effects, but let's first fix the non-significant direct effects to zero.
 :::
 
-#### Question 6
+### Question 6
 
 Fix the non-significant direct effects to zero, and run the model again. Consider the standardized indirect effects in this model: What can you conclude with regard to the researchers' question: Does perceived rejection make adolescents sad or mad?
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 The standardized indirect effect of PPR on AA is:
 
 ```default
@@ -1010,11 +1010,11 @@ The standardized indirect effect of PPR on AW is:
 We see the effect of PPR on AA (aggression) is larger than that on AW (withdrawal). Hence, we could say that perceived parental rejection makes adolescents more mad than sad, although it also makes them sad. Note however that these effects are both quite small.
 :::
 
-#### Question 7
+### Question 7
 Consider the parameter estimates from the non-standardized solution and write down the regression equations for the three dependent variables in the model; fill in the actual parameter estimates for the intercepts and slopes (i.e., regression coefficients).
 
 ::: {.callout-caution collapse="true"}
-### Answer
+#### Answer
 
 For adolescent depression we have:
 
