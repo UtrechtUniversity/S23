@@ -26,8 +26,8 @@ website:
           - day3_part2.qmd
       - section: "Day 4"
         contents:
-          - day4_part1.qmd
-          - day4_part2.qmd
+          - day4_CLPMvRICLPM.qmd
+          - day4_monteCarlo.qmd
       - section: "Day 5"
         contents:
           - day5_introduction.qmd

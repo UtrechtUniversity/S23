@@ -1,0 +1,131 @@
+---
+title: "Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations"
+subtitle: "Day 4: Causal Inference in Cross-Lagged Panel Research"
+editor: source
+bibliography: references.bib
+---
+
+In the second part of the computer lab, we will be studying statistical properties of various cross-lagged panel models using the Monte Carlo functionality of Mplus. This is a somewhat different approach than the previous days of this course, but nevertheless very insightful. A useful source of information for performing simulation studies using Mplus is the Mplus User Guide, [Chapter 12](https://statmodel.com/download/usersguide/Chapter12.pdf). The answer input files can be found on SURFdrive.
+
+## Exercise 1: The traditional Cross-Lagged Panel Model
+First, lets get ourselves acquainted with performing simulations in Mplus. Suppose want to study the power for detecting a nonzero cross-lagged effect in the traditional cross-lagged panel model. Such questions concerning power can also be investigated using simulations. In these cases, the population model (the model from which the data is generated) is the same as the estimation model. We then generate data with a nonzero cross-lagged effect, and estimate the CLPM on the generated data. We hope, of course, that the fitted CLPM returns a significant cross-lagged effect; if not, this would be a Type II error (i.e., not finding a significant effect, whereas we know there is one).
+
+### Exercise 1A: What to expect? 
+Before running the simulation study, let us think about what results we expect. We are using the same model for data generation and estimation. Do we expect bias in the parameter estimates? If we are testing significance with a significance level of $\alpha = 0.05$, what should be the 95% coverage rate for the parameters? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+When the population model and the estimation model are the same, we do not expect a bias in the parameter estimates, nor in the standard errors of the parameter estimates. In Mplus, you get the average (average across all replications) estimate for each parameter. This average should be very close to the population values (i.e., the Truth). In this situation, the 95% coverage rate should be close to 95%. This means that in 95% of the replications, the confidence interval around the parameter estimates contains the population value. This is actually the definition of a confidence interval. 
+:::
+
+### Exercise 1B: Simulation results for cross-lagged effect `X` to `Y`
+Open the file MonteCarlo_template.inp, which is a template for Monte Carlo studies in Mplus. Complete the template to perform a power analysis for the traditional CLPM, for a sample size of 500, and a cross-lagged effect of `X` to `Y` of 0.2. For the `MONTECARLO:` command, name the variables to be created `x1-x4` and `y1-y4`. Set the number of replications to a thousand, and set a seed. 
+
+For the `MODEL POPULATION:` command, define a traditional CLPM. Set the autoregressive effects of `X` to 0.3, and thoses of `Y` to 0.5. Set the cross-lagged effects of `Y` to `X` to 0.05, and those from `X` to `Y` to 0.2 (i.e., the parameter that we want to compute the power for). Set the variances of `X` and `Y` at the first wave to 1, and its covariance to 0.3. Set the residual variances of `X` to 0.9015, and those of `Y` to 0.670; set the residual covariances to 0.083. The mean structure can be set to 0 for all variables. 
+
+For the `MODEL:` command, define the same model. However, don't use the `@` symbol to fix parameter to particular values (as done in `MODEL POPULATION:`), but use the asterisk `*` to indicate what the parameter values *should* be. This way the parameters are estimates, but in the output file, Mplus knows what value (i.e., what Truth) the parameter values should be compared to. 
+
+Run the simulations, and assess the bias, 95% coverage rate, and power for the cross-lagged effect of `X` to `Y`. 
+
+::: {.callout-caution collapse="true"}
+### Answer
+Bias, coverage rate, and power can be read off in the `MODEL RESULTS` part of the output. For bias, we need to compare the average estimate to the population value. Because simulation studies contain a random component, the results are likely to be slighlty different for everyone (unless you use the same seed). However, the average estimate of each parameter approximately the same as their population values. The 95% coverage rates should all be approximately 95%. Power is defined as the percentage of times that the nonzero parameter is actually estimated to be significantly different from 0. For a cross-lagged effect of 0.2 and a sample size of `n = 500`, the power should be approximately 1. 
+:::
+
+### Exercise 1C: Simulation results for cross-lagged effect `Y` to `X`
+Now look at the smaller cross-lagged effect, that of `Y` to `X`. What is the power for an effect of `0.05`, given this sample size? Suppose that we have some missing data, how will this affect the power of this parameter? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+The cross-lagged effect of `Y` to `X` is set to be a smaller effect size. Therefore, we can also see that the power is much smaller, approximately around 0.20 to 0.23. If we have missing data, this implies your sample size is smaller, and the power will therefore decrease. 
+:::
+
+## Exercise 2: The Random Intercept Cross-Lagged Panel Model
+Now, let us investigate what can go wrong if the data actually have some stable, between-person differences in them, but we do not account for this when analyzing the data. More specifically, what happens when we generate data with the RI-CLPM, but fit the traditional CLPM to the data? This is a case that was investigated at length by @hamaker_critique_2015. 
+
+### Exercise 2A: Simulation RI-CLPM vs. CLPM
+Adjust the Mplus input file that you created for Exercise 1. This time, in the `MODEL POPULATION:` command, define an RI-CLPM. Set the variances of the random intercept factors for `X` and `Y` to 1, and their covariance to 0.4. Create within-components, and set the autoregressions of the within-components for `X` to 0.15, and the autoregressions of the within-components of `Y` to 0.25. For the cross-lagged effects between the within-components, let those from `X` to `Y` be 0.2 again, and the other way around 0.05. Set the variances of the within-components of `X` and `Y` at the first wave to 1, and its covariance to 0.3. Set the residual variances of the within-components of `X` to 0.972, and those of `Y` to 0.8775; set the residual covariances to 0.148. The mean structure can be set to 0 for all variables. 
+
+For the `MODEL:` command, define the traditional CLPM. However, don't use the `@` symbol to fix parameter to particular values (as done in `MODEL POPULATION:`), but use the asterisk `*` to indicate what the parameter values *should* be. 
+
+Run the simulations, and assess the bias of (a) the autoregressive effects, and (b) the cross-lagged effects.
+
+::: {.callout-caution collapse="true"}
+### Answer
+This situation is a case of model misspecification (which can also happen of course in reality). We see that the autoregressive effects are estimated to be much higher on average (the average is approximately 0.50-0.60 for `X` and approximately 0.55-0.65 for `Y`) than they should be. In other words, the autoregressive effects in the CLPM are biased when the data are actually generated by the RI-CLPM. The reason why the CLPM autoregressive effects are much higher is that these parameters now need to account not only for moment-to-moment stability, but also stability across the study span (i.e., the stability due to the random intercept factor). When analyzing empirical data, this is a phenomenon we commonly see: The autoregressive effects are estimated to be much smaller when analyzing data with the RI-CLPM, compared to analysis using the traditional CLPM. 
+
+Similarly, there is bias for the cross-lagged effects, but there is not a clear pattern here. For the cross-lagged effects of `X`to `Y`, the bias is towards to 0, whereas for the cross-lagged effect of `Y` to `X` the bias is away from 0. 
+
+These finding are in line with @hamaker_critique_2015, who concludes that using the traditional CLPM when the data are actually generated by the RI-CLPM, you may:
+
+- find spurious effects;
+- fail to detect relationships;
+- identify the wrong variable as being causally dominant; or
+- obtain the wrong sign for an effect. 
+
+:::
+
+### Exercise 2B: Simulation RI-CLPM vs. CLPM
+Now, you might wonder what happens the other way around: What if we analyze data without stable, between-person differences, with the RI-CLPM? We will study this case now. Specify the population model from Exercise 1B, but analyse the generated data using the RI-CLPM. Assess the bias of the lagged effects. 
+
+
+::: {.callout-note}
+### Note
+Adjust the "starting value" of model under the `MODEL:` command accordingly. Otherwise, in the Mplus output, the parameter estimates are compared to the wrong population parameter values. For example, you would expect that the variances of the random intercept factors are 0 when the data were generated under the traditional CLPM. 
+:::
+
+::: {.callout-caution collapse="true"}
+### Answer
+There appears to be no bias in the lagged effects of the RI-CLPM, even when the data were generated by the traditional CLPM. This is to be expected as the traditional CLPM is nested under the RI-CLPM. 
+:::
+
+
+## Exercise 3: The Stable Trait Autoregressive Trait State model
+Measurement error in measurements in psychology (and related disciplines) is the rule, rather than the exception. Therefore, we would ideally like to control for measurement error (as well as stable, between-person differences). This can be done using the Stable Trait Autoregressive Trait State (STARTS) model. 
+
+### Exercise 3A: Fitting the STARTS model I 
+Adjust the Mplus input file of Exercise 2A. This time, in `MODEL POPULATION:`, rather than fixing the measurement error variances to 0, fix the measurement error to 0.6. Given the same population parameter values of the other parameters in the model, this would imply a reliability of 0.7 of the single indicator (i.e., 30% measurement error variance, 70% true score variance). For the estimation in the `MODEL:` command, specify the STARTS model as well. Compared to the RI-CLPM, this implies simply freeing up the measurement error variances. 
+
+Check the `MODEL RESULTS` in the output. What do you notice? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+As mentioned in the lecture, the STARTS model is notoriously hard to estimate. In fact, the model results will likely show only zeros. This is because in none of replications, the STARTS model actually converged. This can be seen in the `SUMMARY OF ANALYSIS` part in the output, see "Number of replications" and then "Completed". 
+:::
+
+### Exercise 3B: Ignoring measurement error
+Okay, that was annoying. But perhaps we can simply ignore measurement error? We can investigate if this has any effect on the estimates of interest, the lagged effects. Setup a simulation study to investigate potential bias in the estimates of the RI-CLPM, when the data actually contain measurement error. More specifically, generate data using the STARTS, but analyse the data using the RI-CLPM. What is the effect of unmodelled measurement error on the lagged effects of the RI-CLPM? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+To study this research question, you can specify the STARTS model in the `MODEL POPULATION:` command, and specify the RI-CLPM under `MODEL:`. When looking at the model results, we can see that ignoring measurement error it not a good idea: The lagged effects are biased. However, there does appear to be a consistent pattern here: The lagged effects are estimated to be smaller than they should be (i.e., there is bias towards 0). This implies that in this particular situation, it is possible that we miss nonzero effects that are actually in the data (but that we estimate to be close to zero because of the unmodelled measurement error). 
+:::
+
+### Exercise 3C: Fitting the STARTS model II
+Let's see what we can do to actually make the STARTS model, from Exercise 3A, converge. Try out several options, and see if you can get simulation results. For example, try increasing the sample size, imposing constraints on the measurement error variances of time, using a Bayesian estimator, or a combination of these. 
+
+- *Imposing constraints*. By imposing constraints on parameters, you make the estimation model simpler, and therefore Mplus can use the same amount of information to estimate fewer parameters. Think about what are sensible constraints to impose on the model. For example, would you constrain all measurement error variances to be the same in the model, or is it more sensible to constrain the measurement error variances of `X` and `Y` separately? 
+- *Increase sample size*. Increasing the sample size might help, although you could ask if in practice increases in sample size are worth the effort? Perhaps it is more useful to collect additional waves of data, rather than collecting additional persons?
+- *Bayesian*. Bayesian estimation is a different statistical framework, that for estimation not only relies on the likelihood of the data, but also on prior information. @ludtke_bayesian_2023 and @ludtke_more_2018 have demonstrated how the STARTS model can be estimated in a Bayesian framework. Of specific interest here is the specification of the priors. For now, you can check out the simulation results by relying on the default prior in Mplus. 
+
+::: {.callout-warning}
+Bayesian estimation relies on sampling from the posterior distribution, and can be incredibly slow, especially for difficult to fit models like the STARTS model. Try out what happens when you go Bayesian. You can always stop the Mplus operations by pressing Control-C in the MS-DOS window, or pressing the X. 
+:::
+
+::: {.callout-caution collapse="true"}
+### Answer
+The SURFdrive folder contains Mplus output files for each of these scenarios. 
+
+- *Imposing constraints*. One option would be to constrain the measurement error variances over time for the `X` and `Y` variables separately. This might be more plausible than constraining all measurement error variances to be equal to each other, considering that `X` and `Y` are different measures. Imposing this constraint, as well as increasing the sample size to 1000, does aid convergence. The completed number of replications has now increased to 300-400, although this is still far from satisfactory. The convergence issues also in the model results, which still shows biased results. If all STARTS models had converged, then we should have no bias. Clearly, imposing constraints itself is not enough to help convergence in this particular situation. 
+- *Increase sample size*. Increasing sample size even to 10000 does not help the situation: There are still no completed replications. An alternative might be to increase both the sample size, and the number of repeated measures. 
+- *Bayesian*. We can invoke Bayesian estimation in the `ANALYSIS:` command by including `ESTIMATOR = BAYES;`. On its own, this option is not enough. Convergence is incredibly slow, let alone running 1000 replications. Therefore you might try both combining imposing the constraints, and adjusting the prior specification as recommended by @ludtke_bayesian_2023. 
+:::
+
+## Conclusion
+Using simulations in Mplus, we have studied some characteristics of popular cross-lagged panel models. Such simulations are useful to develop some intuition of how these models compare, and what happens when there is model misspecification (when the `MODEL POPULATION:` does not match the `MODEL:`). In reality, however, we do not know which model was the true population model. Based on theory and literature, we can of course reason about the presence of, for example, measurement error and unobserved heterogeneity, but there will always remain some residual uncertainty. This is one of the major challenges that applied researchers face.
+
+These simulations have just been the tip of the iceberg. They can be extended to investigate all kinds of other scenario's, for example, the impact of nonlinear relationships on estimates from linear cross-lagged panel models, the bias of parameter estimates in the presence of unmeasured confounding, etc. However, these scenario's can become quite complex, and careful planning is needed to setup a simulation study,and to draw valid conclusions from it. 
+
+
+
+

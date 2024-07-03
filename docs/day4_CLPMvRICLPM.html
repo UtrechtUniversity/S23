@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Utrecht Summer School (S23) - Part 2: Latent growth (mixture) modeling</title>
+<title>Utrecht Summer School (S23) - Part 1: The CLPM and RI-CLPM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -59,6 +112,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -72,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day3_part1.html">Day 3</a></li><li class="breadcrumb-item"><a href="./day3_part2.html">Part 2: Latent growth (mixture) modeling</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day4_CLPMvRICLPM.html">Day 4</a></li><li class="breadcrumb-item"><a href="./day4_CLPMvRICLPM.html">Part 1: The CLPM and RI-CLPM</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -173,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day3_part2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./day3_part2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Part 2: Latent growth (mixture) modeling</span></a>
   </div>
 </li>
@@ -190,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_CLPMvRICLPM.html" class="sidebar-item-text sidebar-link">
+  <a href="./day4_CLPMvRICLPM.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Part 1: The CLPM and RI-CLPM</span></a>
   </div>
 </li>
@@ -235,18 +290,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-3-latent-class-growth-analysis" id="toc-exercise-3-latent-class-growth-analysis" class="nav-link active" data-scroll-target="#exercise-3-latent-class-growth-analysis">Exercise 3: Latent Class Growth Analysis</a>
-  <ul class="collapse">
-  <li><a href="#exercise-3a-lcga" id="toc-exercise-3a-lcga" class="nav-link" data-scroll-target="#exercise-3a-lcga">Exercise 3A: LCGA</a></li>
-  <li><a href="#exercise-3b-model-convergence" id="toc-exercise-3b-model-convergence" class="nav-link" data-scroll-target="#exercise-3b-model-convergence">Exercise 3B: Model convergence</a></li>
-  </ul></li>
-  <li><a href="#exercise-4-growth-mixture-model" id="toc-exercise-4-growth-mixture-model" class="nav-link" data-scroll-target="#exercise-4-growth-mixture-model">Exercise 4: Growth Mixture Model</a>
-  <ul class="collapse">
-  <li><a href="#exercise-4a" id="toc-exercise-4a" class="nav-link" data-scroll-target="#exercise-4a">Exercise 4A:</a></li>
-  <li><a href="#exercise-4b" id="toc-exercise-4b" class="nav-link" data-scroll-target="#exercise-4b">Exercise 4B</a></li>
-  <li><a href="#exercise-4c" id="toc-exercise-4c" class="nav-link" data-scroll-target="#exercise-4c">Exercise 4C</a></li>
-  <li><a href="#commands-for-conducting-a-3-step-model" id="toc-commands-for-conducting-a-3-step-model" class="nav-link" data-scroll-target="#commands-for-conducting-a-3-step-model">Commands for conducting a 3-step model</a></li>
-  </ul></li>
+  <li><a href="#exercise-a" id="toc-exercise-a" class="nav-link active" data-scroll-target="#exercise-a">Exercise A</a></li>
+  <li><a href="#exercise-b" id="toc-exercise-b" class="nav-link" data-scroll-target="#exercise-b">Exercise B</a></li>
+  <li><a href="#exercise-c" id="toc-exercise-c" class="nav-link" data-scroll-target="#exercise-c">Exercise C</a></li>
+  <li><a href="#exercise-d" id="toc-exercise-d" class="nav-link" data-scroll-target="#exercise-d">Exercise D</a></li>
+  <li><a href="#exercise-e" id="toc-exercise-e" class="nav-link" data-scroll-target="#exercise-e">Exercise E</a></li>
+  <li><a href="#exercise-f" id="toc-exercise-f" class="nav-link" data-scroll-target="#exercise-f">Exercise F</a></li>
+  <li><a href="#exercise-g" id="toc-exercise-g" class="nav-link" data-scroll-target="#exercise-g">Exercise G</a></li>
+  <li><a href="#exercise-h" id="toc-exercise-h" class="nav-link" data-scroll-target="#exercise-h">Exercise H</a></li>
   </ul>
 </nav>
     </div>
@@ -255,8 +306,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Part 2: Latent growth (mixture) modeling</h1>
-<p class="subtitle lead">Day 3: Longitudinal mixture modeling</p>
+<h1 class="title">Part 1: The CLPM and RI-CLPM</h1>
+<p class="subtitle lead">Day 4: Causal Inference in Cross-Lagged Panel Research</p>
 </div>
 
 
@@ -271,13 +322,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The goal of this exercise is to find subpopulations with different alcohol use trajectories. To this end, we start with an exploratory latent class growth analysis, and work towards a growth mixture model.</p>
-<section id="exercise-3-latent-class-growth-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-latent-class-growth-analysis">Exercise 3: Latent Class Growth Analysis</h2>
-<p>First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option.</p>
-<section id="exercise-3a-lcga" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3a-lcga">Exercise 3A: LCGA</h3>
-<p>Set up LCGA models models for 1, 2, 3, and 4 classes for the data in <code>DDS8_1.dat</code>. Specify the model using the <code>|</code> notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request <code>TECH11</code>, and <code>TECH14</code> to help evaluate model fit.</p>
+<p>In the first part of the computer lab, we focus predominantly on Phase III of the causal research process, specifically the fitting of the traditional cross-lagged panel model (CLPM) and the random intercept cross-lagged panel model (RI-CLPM) to data. This is to get you acquainted with popular longitudinal SEM models in the literature. We want to emphasize that for your own research, Phases I and II are equally important as the estimation of statistical models. See <span class="citation" data-cites="mulder_causal_2024">Mulder et al. (<a href="#ref-mulder_causal_2024" role="doc-biblioref">2024</a>)</span> and <span class="citation" data-cites="mulder_joint_2024">Mulder, Usami, and Hamaker (<a href="#ref-mulder_joint_2024" role="doc-biblioref">2024</a>)</span> for examples of how cross-lagged panel models fit within the (causal) potential outcomes framework.</p>
+<p>We are going to analyze data that were reported in <span class="citation" data-cites="davies_transactional_2016">Davies et al. (<a href="#ref-davies_transactional_2016" role="doc-biblioref">2016</a>)</span>. The summary data (means, standard deviations and correlation matrix) are included in <code>Davies.dat</code>, and contains the means, standard deviations, and the correlation matrix. The number of observations is 232. There are 5 waves of data, taken when the child was 7, 8, 13, 14, and 15 years old. The order of the variables is:</p>
+<ul>
+<li>Child gender</li>
+<li>Parental education</li>
+<li>Interparental hostility (waves 1-5): composite score based on observational data and questionnaires, reflecting the degree of hostility between the parents</li>
+<li>Interparental dysphoria (waves 1-5): based on composite score based on observational data and questionnaires, reflecting the degree of dysphoria</li>
+<li>Child/adolescent insecurity in the relationship with the parents (waves 1-5)</li>
+<li>Psychological problems (waves 1-5): based on the subscales anxious/depressed, withdrawal, aggressive behaviors, and delinquency scales of the Child Behavior Checklist (CBCL), filled out by both parents.</li>
+</ul>
+<p>Here we will focus on <em>Interparental dysphoria</em> and <em>Psychological problems</em> of the child. The <code>DATA</code> and <code>VARIABLE</code> commands should be:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DATA: </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  TYPE = MEANS STDEVIATIONS CORRELATION;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  FILE = Davies.dat;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  NOBSERVATIONS = 232;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>VARIABLE: </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  NAMES = ChildGen ParentEd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  Hos1 Hos2 Hos3 Hos4 Hos5 Dys1 Dys2 Dys3 Dys4 Dys5</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  Ins1 Ins2 Ins3 Ins4 Ins5 PsPr1 PsPr2 PsPr3 PsPr4 PsPr5;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  USEVARIABLES = Dys1-Dys5 PsPr1-PsPr5;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-a" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-a">Exercise A</h3>
+<p>How many sample statistics are there for this data set (focusing on the 5 measures of dysphoria and the 5 measures of psychological problems)?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -290,15 +358,14 @@ Answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in <code>exercise2A_1C.inp</code>, <code>exercise2A_2C.inp</code>, <code>exercise2A_3C.inp</code>, <code>exercise2A_4C.inp</code>, respectively.</p>
+<p>There are 10 observed variables such that there are <span class="math inline">\(\frac{10*11}{2} = 55\)</span> unique elements in the observed covariance matrix S, and 10 observed means in M. Therefore, there are 65 sample statistics in total.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-3b-model-convergence" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3b-model-convergence">Exercise 3B: Model convergence</h3>
-<p>These models use random starting values. Several independent random starts are made, to ensure that the model converges on the proper solution. The default is 20 random sets of starting values, of which 4 are run to completion. Inspect the output, and look carefully if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you.</p>
-<p>The <code>STARTS</code> option is used to specify the number of initial random starting values and final stage optimizations. Now, increase the number of starts to ensure proper convergence. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?</p>
+<section id="exercise-b" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-b">Exercise B</h3>
+<p>We begin with an RI-CLPM. For now, do not impose any constraints on the parameters across time. Draw the model, and indicate which parameters will be estimated freely. How many parameters will be estimated in total? So how many <em>df</em> are there?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -311,19 +378,25 @@ Answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can inspect the convergence of the model by checking that the best final state loglikelihood value has been replicated using different starting values. See the output section <code>RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES</code>. Increasing the number of random starts can be done by specifying <code>STARTS = 50 10;</code> in the <code>ANALYSIS</code> command, where the first number specifies the initial number of random starts, and the second number specifies the number of initial starts that will be converged to the final stage.</p>
-<p>Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.</p>
+<p>In the RI-CLPM we estimate:</p>
+<ul>
+<li>2 variances for the random intercepts,</li>
+<li>1 covariance between the random intercepts,</li>
+<li>2 variances for the within-person centered variables at wave 1,</li>
+<li>1 covariance between the within-person centered variables at wave 1,</li>
+<li>8 residual variances (for the dynamic errors of both variables at wave 2-5),</li>
+<li>4 covariances between the residuals (for the dynamics errors at waves 2-5),</li>
+<li>16 lagged parameters (4 for each interval), and</li>
+<li>10 means.</li>
+</ul>
+<p>In total, we estimate 44 parameters such that we have <span class="math inline">\(65 - 44 = 21\)</span> <em>df</em>.</p>
 </div>
 </div>
 </div>
 </section>
-</section>
-<section id="exercise-4-growth-mixture-model" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-growth-mixture-model">Exercise 4: Growth Mixture Model</h2>
-<p>To allow for individual difference in the growth components within each class, we are going to extend the LCGA model to an GMM.</p>
-<section id="exercise-4a" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4a">Exercise 4A:</h3>
-<p>Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add <code>PROCESSORS = 4</code> to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (<code>TECH11</code>), and the bootstrapped LRT value (<code>TECH14</code>).</p>
+<section id="exercise-c" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-c">Exercise C</h3>
+<p>Run the model. Check whether the number of <em>df</em> is correct. Also look at the <code>TECH1</code> output, to see if you understand where the free parameters are. What is the model fit?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -336,14 +409,32 @@ Answer
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Mplus model syntax for the GMM models for 1, 2, 3, and 4 classes are in <code>exercise4A_1C.inp</code>, <code>exercise4A_2C.inp</code>, <code>exercise4A_3C.inp</code>, <code>exercise4A_4C.inp</code>, respectively. The BLRT for the GMM with 3 classes warns that <code>OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.</code> You can increase the number of random starts for the BLRT using <code>LRTSTARTS = 0 0 40 10;</code> in the <code>ANALYSIS</code> command. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a “simple” LGCM, we focus on the GMM with 2 and 3 classes in the next exercises.</p>
+<p>The input for this model is in <code>RICLPM.inp</code>. The model means are estimated in the <span class="math inline">\(\nu\)</span>-matrix, no parameters are estimated in the <span class="math inline">\(\theta\)</span>-matrix (measurement error variances), <span class="math inline">\(\lambda\)</span>-matrix (factor loadings), or <span class="math inline">\(\alpha\)</span>-matrix (means/intercepts of the latent variables). The variances and covariance of the random intercepts, the within-person centered variables at wave 1, and the dynamic errors at subsequent waves are all estimated in the <span class="math inline">\(\psi\)</span>-matrix. The lagged regression coefficients are estimated in <span class="math inline">\(\beta\)</span>.</p>
+<p>Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model, all fit indices indicate at least acceptable fit.</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (21) = 41.451\)</span>, <span class="math inline">\(p = .005\)</span>,</li>
+<li>RMSEA = 0.065,</li>
+<li>CFI = 0.979,</li>
+<li>TLI = 0.956, and</li>
+<li>SRMR = 0.029.</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-4b" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4b">Exercise 4B</h3>
-<p>Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.</p>
+<section id="exercise-d" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-d">Exercise D</h3>
+<p>Include the significant standardized parameter estimates for the covariances (i.e., the <code>WITH</code> statements) and the lagged regression parameters (i.e., the <code>ON</code> statements) in the figure below. Indicate which part of the model is considered the between-person part (i.e., only person-specific, not changing over time), and which part is the within-person part (i.e., both person- and time-specific).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/RICLPM-5waves.png" class="img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">The bivariate random-intercept cross-lagged panel model with 5 repeated measures (waves).</figcaption>
+</figure>
+</div>
+</section>
+<section id="exercise-e" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-e">Exercise E</h3>
+<p>Omit the random intercepts. How many parameters and <em>df</em> does this model have? What is the model fit?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -356,60 +447,22 @@ Answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:</p>
-<pre><code>PLOT:
-    TYPE = PLOT3;
-    SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);</code></pre>
-<p>when running the model. Then press the “plot” button and select “Estimated mean and observed individual values” and “Estimated means and estimated individual values”. Below you can find these plots for the GMM with 2 classes.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./figures/exercise1D-estimatedMeansIndividualValues.jpg" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Estimated means and individual values.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./figures/exercise1D-estimatedMeansAndValues.jpg" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Estimated means and estimated invidivual trajectories</figcaption>
-</figure>
-</div>
-<p>Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a separate window as well. However, <code>MplusAutomation</code> has some useful plotting functions that I recommend you to explore, for example <code>plotGrowthMixtures()</code>, in which you can color the lines according to their class membership.</p>
+<p>The input for this model is <code>CLPMasRICLPM.inp</code>. The model has three parameters less (and thus 3 <em>df</em> more) than the previous model: 2 variances and the covariance for the random intercepts.</p>
+<p>The model fit indices show that this model does not fit well:</p>
+<ul>
+<li><span class="math inline">\(\chi^{2} (24) = 73.374\)</span>, <span class="math inline">\(p &lt; .001\)</span>,</li>
+<li>RMSEA = 0.094,</li>
+<li>CFI = 0.950,</li>
+<li>TLI = 0.907, and</li>
+<li>SRMR = 0.061.</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-4c" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4c">Exercise 4C</h3>
-<p>Covariates are often added to mixture models, to (a) predict class membership, (b) explain variation in the growth parameters within the classes, or (c) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:</p>
-<ol type="1">
-<li>Fit an unconditional LCA (without covariates).</li>
-<li>A “most likely class variable” is created using the posterior distribution of step 1.</li>
-<li>This most likely class variable is then regressed on (a) covariate.</li>
-</ol>
-<p>There are a few options for how to do 3-step analysis. They all rely on adding to the <code>VARIABLE</code> command. For more info, see https://www.statmodel.com/download/webnotes/webnote15.pdf.</p>
-</section>
-<section id="commands-for-conducting-a-3-step-model" class="level3">
-<h3 class="anchored" data-anchor-id="commands-for-conducting-a-3-step-model">Commands for conducting a 3-step model</h3>
-<p>You can add the following options to the <code>VARIABLE</code> command:</p>
-<ol type="1">
-<li><code>AUXILIARY = x(R)</code><br>
-This is actually a 1-step method for predicting latent class memberships using Pseudo-Class draws.</li>
-<li><code>AUXILIARY = x(R3step);</code><br>
-A 3-step procedure, where covariates predict the latent class.</li>
-<li><code>AUXILIARY = y(e)</code><br>
-A 1-step method, where the latent class predicts a continuous distal outcome.</li>
-<li><code>AUXILIARY = y(de3step);</code><br>
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and equal variances.</li>
-<li><code>AUXILIARY = y(du3step);</code><br>
-A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and variances.</li>
-<li><code>AUXILIARY = Y(dcon);</code><br>
-Procedure for continuous distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = Y(dcon);</code><br>
-Procedure for categorical distal outcomes as suggested by Lanza et al (2013).</li>
-<li><code>AUXILIARY = y(BCH);</code><br>
-Improved and currently best 3-step procedure with continuous covariates as distal outcomes.</li>
-</ol>
-<p>Pick your final model from the previous exercise, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender?</p>
+<section id="exercise-f" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-f">Exercise F</h3>
+<p>Specify the CLPM and run this model. Compare it to the previous two models. How are these models related?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -422,16 +475,62 @@ Answer
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I’m providing an example using the 3-step procedure in <code>exercise4C.inp</code>. The results of adding these covariate to the model as predictors of the latent class can be found under the heading <code>TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE</code>. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.</p>
+<p>The input for this model is in <code>CLPM.inp</code>. This model is statistically identical to the previous model; these are different parameterizations of the same model. The model fit is therefore also exactly the same. Hence, this model is a special case of the RI-CLPM.</p>
+<p>Comparing the two models using a chi-square difference test gives: <span class="math inline">\(\Delta \chi^{2} = 73.37 - 41.45 = 31.92\)</span> with <span class="math inline">\(24 – 21 = 3\)</span> <em>df</em>, <span class="math inline">\(p &lt; .001\)</span>. Hence, the random intercepts should not be omitted; put differently, there are stable, trait-like difference between families in the two variables (parental dysphoria and psychological problems).</p>
+<p>However, when constraints are placed on the bound of the parameter space (which is the case here, fixing a variance to 0 is its absolute minimum value), we should actually use the chi-bar-square test (<span class="math inline">\(\bar{\chi}^{2}\)</span>-test; Stoel et al.&nbsp;2006). The traditional <span class="math inline">\(\Delta \chi^{2}\)</span>-test does not take into account that variances can only be positive and is therefore conservative. This means that if it is significant, we are certain that the correct test (i.e., the <span class="math inline">\(\bar{\chi}^{2}\)</span> test) would also be significant. On the other hand, when the usual chi‐square test is not significant, we do not know anything about the result of the correct test (it can be significant or not significant).</p>
+<p>If you are working in R with the lavaan package, you can find more information about the <span class="math inline">\(\bar{\chi}^{2}\)</span>-test at <a href="https://jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar%7Bchi%7D%5E%7B2%7D)-test">jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test</a>. For Mplus users, there is a <a href="https://www.uu.nl/staff/RMKuiper/Websites%20%2F%20Shiny%20apps">Shiny app by Rebecca Kuiper</a> available as well.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="exercise-g" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-g">Exercise G</h3>
+<p>Include the significant standardized parameter estimates for the covariances and the lagged regression parameters in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/CLPM-5waves.png" class="img-fluid figure-img" width="500"></p>
+<figcaption class="figure-caption">The bivariate cross-lagged panel model with 5 repeated measures (waves).</figcaption>
+</figure>
+</div>
+</section>
+<section id="exercise-h" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-h">Exercise H</h3>
+<p>Discuss how the model results differ.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Cross-lagged relationships</strong> In the RI-CLPM none of the cross-lagged parameters are significant. In contrast, in the CLPM there is a positive relationship from <code>PsPr1</code> to <code>Dys2</code>. This implies that higher levels of children’s psychological problems at age 7 are followed by higher levels of interparental dysphoria at age 8. Moreover, from age 14 to 15 both cross-lagged parameters are significant and positive, indicating that psychological problems are followed by increases in interparental dysphoria, but also that increased interparental dysphoria is followed by an increase in psychological problems for the adolescent.</p>
+<p><strong>Autoregressive parameters</strong> The autoregressive parameters in the RI-CLPM are lower, and have larger SE’s, such that fewer reach significance. This is expected as within-person stability is now captures in the random intercepts, rather than in the autoregressive effects in the CLPM.</p>
+<p><strong>Correlations</strong> In the CLPM only the residual correlation at wave 2 is significant; it is negative, indicating that external effects tend to have an opposite effect on these two processes; increases in Dysphoria are accompanied by decreases in psychological problems and vice versa. In the RI-CLPM, the within-person correlation at wave 1 is not significantly different from zero; however, at waves 2, 3 and 4 the correlations between the residuals is significant and negative. At wave 5 the residual variance is not significant.</p>
+<p>In the RI-CLPM there is also the correlation between the random intercepts (i.e., the trait-like difference between families). This turns out to be a very substantial correlation of .63: Hence, in contrast to the results from the CLPM and the within-level results from the RI-CLPM, there is a strong positive relationship between trait-like levels of interparental dysphoria and trait-like levels of psychological problems.</p>
+</div>
+</div>
+</div>
+
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-davies_transactional_2016" class="csl-entry" role="listitem">
+Davies, Patrick T., Meredith J. Martin, Jesse L. Coe, and E. Mark Cummings. 2016. <span>“Transactional Cascades of Destructive Interparental Conflict, Children’s Emotional Insecurity, and Psychological Problems Across Childhood and Adolescence.”</span> <em>Development and Psychopathology</em> 28 (3): 653–71. <a href="https://doi.org/10.1017/S0954579416000237">https://doi.org/10.1017/S0954579416000237</a>.
+</div>
+<div id="ref-mulder_causal_2024" class="csl-entry" role="listitem">
+Mulder, Jeroen D., Kim Luijken, Bas B. L. Penning de Vries, and Ellen L. Hamaker. 2024. <span>“Causal Effects of Time-Varying Exposures: <span>A</span> Comparison of Structural Equation Modeling and Marginal Structural Models in Cross-Lagged Panel Research.”</span> <em>Structural Equation Modeling: A Multidisciplinary Journal</em>. <a href="https://doi.org/10.1080/10705511.2024.2316586">https://doi.org/10.1080/10705511.2024.2316586</a>.
+</div>
+<div id="ref-mulder_joint_2024" class="csl-entry" role="listitem">
+Mulder, Jeroen D., Satoshi Usami, and Ellen L. Hamaker. 2024. <span>“Joint Effects in Cross-Lagged Panel Research Using Structural Nested Mean Models.”</span> <em>Structural Equation Modeling: A Multidisciplinary Journal</em>. https://doi.org/<a href="https://doi.org/10.1080/10705511.2024.2355579">https://doi.org/10.1080/10705511.2024.2355579</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

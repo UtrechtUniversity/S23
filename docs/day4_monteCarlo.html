@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Utrecht Summer School (S23) - Part 1: The quasi-simplex model</title>
+<title>Utrecht Summer School (S23) - Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -108,9 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Utrecht Summer School (S23)
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day4_CLPMvRICLPM.html">Day 4</a></li><li class="breadcrumb-item"><a href="./day4_monteCarlo.html">Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_monteCarlo.html" class="sidebar-item-text sidebar-link">
+  <a href="./day4_monteCarlo.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</span></a>
   </div>
 </li>
@@ -273,19 +256,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-a" id="toc-exercise-a" class="nav-link active" data-scroll-target="#exercise-a">Exercise A</a></li>
-  <li><a href="#exercise-b" id="toc-exercise-b" class="nav-link" data-scroll-target="#exercise-b">Exercise B</a></li>
-  <li><a href="#exercise-c" id="toc-exercise-c" class="nav-link" data-scroll-target="#exercise-c">Exercise C</a></li>
-  <li><a href="#exercise-d" id="toc-exercise-d" class="nav-link" data-scroll-target="#exercise-d">Exercise D</a></li>
-  <li><a href="#exercise-e" id="toc-exercise-e" class="nav-link" data-scroll-target="#exercise-e">Exercise E</a></li>
-  <li><a href="#exercise-f" id="toc-exercise-f" class="nav-link" data-scroll-target="#exercise-f">Exercise F</a></li>
-  <li><a href="#exercise-g" id="toc-exercise-g" class="nav-link" data-scroll-target="#exercise-g">Exercise G</a></li>
-  <li><a href="#exercise-h" id="toc-exercise-h" class="nav-link" data-scroll-target="#exercise-h">Exercise H</a></li>
-  <li><a href="#exercise-i" id="toc-exercise-i" class="nav-link" data-scroll-target="#exercise-i">Exercise I</a></li>
-  <li><a href="#exercise-j" id="toc-exercise-j" class="nav-link" data-scroll-target="#exercise-j">Exercise J</a></li>
-  <li><a href="#exercise-k" id="toc-exercise-k" class="nav-link" data-scroll-target="#exercise-k">Exercise K</a></li>
-  <li><a href="#exercise-l" id="toc-exercise-l" class="nav-link" data-scroll-target="#exercise-l">Exercise L</a></li>
-  <li><a href="#exercise-m" id="toc-exercise-m" class="nav-link" data-scroll-target="#exercise-m">Exercise M</a></li>
+  <li><a href="#exercise-1-the-traditional-cross-lagged-panel-model" id="toc-exercise-1-the-traditional-cross-lagged-panel-model" class="nav-link active" data-scroll-target="#exercise-1-the-traditional-cross-lagged-panel-model">Exercise 1: The traditional Cross-Lagged Panel Model</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1a-what-to-expect" id="toc-exercise-1a-what-to-expect" class="nav-link" data-scroll-target="#exercise-1a-what-to-expect">Exercise 1A: What to expect?</a></li>
+  <li><a href="#exercise-1b-simulation-results-for-cross-lagged-effect-x-to-y" id="toc-exercise-1b-simulation-results-for-cross-lagged-effect-x-to-y" class="nav-link" data-scroll-target="#exercise-1b-simulation-results-for-cross-lagged-effect-x-to-y">Exercise 1B: Simulation results for cross-lagged effect <code>X</code> to <code>Y</code></a></li>
+  <li><a href="#exercise-1c-simulation-results-for-cross-lagged-effect-y-to-x" id="toc-exercise-1c-simulation-results-for-cross-lagged-effect-y-to-x" class="nav-link" data-scroll-target="#exercise-1c-simulation-results-for-cross-lagged-effect-y-to-x">Exercise 1C: Simulation results for cross-lagged effect <code>Y</code> to <code>X</code></a></li>
+  </ul></li>
+  <li><a href="#exercise-2-the-random-intercept-cross-lagged-panel-model" id="toc-exercise-2-the-random-intercept-cross-lagged-panel-model" class="nav-link" data-scroll-target="#exercise-2-the-random-intercept-cross-lagged-panel-model">Exercise 2: The Random Intercept Cross-Lagged Panel Model</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2a-simulation-ri-clpm-vs.-clpm" id="toc-exercise-2a-simulation-ri-clpm-vs.-clpm" class="nav-link" data-scroll-target="#exercise-2a-simulation-ri-clpm-vs.-clpm">Exercise 2A: Simulation RI-CLPM vs.&nbsp;CLPM</a></li>
+  <li><a href="#exercise-2b-simulation-ri-clpm-vs.-clpm" id="toc-exercise-2b-simulation-ri-clpm-vs.-clpm" class="nav-link" data-scroll-target="#exercise-2b-simulation-ri-clpm-vs.-clpm">Exercise 2B: Simulation RI-CLPM vs.&nbsp;CLPM</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-the-stable-trait-autoregressive-trait-state-model" id="toc-exercise-3-the-stable-trait-autoregressive-trait-state-model" class="nav-link" data-scroll-target="#exercise-3-the-stable-trait-autoregressive-trait-state-model">Exercise 3: The Stable Trait Autoregressive Trait State model</a>
+  <ul class="collapse">
+  <li><a href="#exercise-3a-fitting-the-starts-model-i" id="toc-exercise-3a-fitting-the-starts-model-i" class="nav-link" data-scroll-target="#exercise-3a-fitting-the-starts-model-i">Exercise 3A: Fitting the STARTS model I</a></li>
+  <li><a href="#exercise-3b-ignoring-measurement-error" id="toc-exercise-3b-ignoring-measurement-error" class="nav-link" data-scroll-target="#exercise-3b-ignoring-measurement-error">Exercise 3B: Ignoring measurement error</a></li>
+  <li><a href="#exercise-3c-fitting-the-starts-model-ii" id="toc-exercise-3c-fitting-the-starts-model-ii" class="nav-link" data-scroll-target="#exercise-3c-fitting-the-starts-model-ii">Exercise 3C: Fitting the STARTS model II</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -294,8 +282,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Part 1: The quasi-simplex model</h1>
-<p class="subtitle lead">Day 4: Cross-lagged relations</p>
+<h1 class="title">Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</h1>
+<p class="subtitle lead">Day 4: Causal Inference in Cross-Lagged Panel Research</p>
 </div>
 
 
@@ -310,18 +298,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>In this first part of the computer lab session we will focus on the quasi-simplex model. We are going to study the concept of life satisfaction. The covariance matrix is in the file <code>Coenders.dat</code> and comes from 1724 children and adolescents that participated in the <em>National Survey of Child and Adolescent Well-Being</em> (NSCAW) in Russia. They indicated how satisfied they were with their lives as a whole on a 10-point scale (1 = not at all satisfied, 10 = very satisfied). There were three waves (1993, 1994 and 1995). At the third wave, the question was asked twice (with 40 minutes in between). Hence, in total there are four measurements obtained at three waves. The data and variables commands for these data should read:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DATA: </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  TYPE = COVARIANCE;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  FILE = Coenders.dat;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  NOBSERVATIONS = 1724;</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>VARIABLE: </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  NAMES = Y1 Y2 Y3 Y4;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>All of the input files for the exercises are provided with the course materials on SURFdrive.</p>
-<section id="exercise-a" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-a">Exercise A</h3>
-<p>The researchers are interested in fitting a quasi-simplex model to these data, that is, a simplex model at the latent level, thus accounting for measurement error in the observations. This model is graphically represented in the slides. Provide the names of the variances (i.e., indicate in which model matrix, and which position in this matrix they have) in the quasi-simplex graph in the slides. What is the difference between the <span class="math inline">\(e\)</span>’s and the <span class="math inline">\(\zeta\)</span>’s?</p>
+<p>In the second part of the computer lab, we will be studying statistical properties of various cross-lagged panel models using the Monte Carlo functionality of Mplus. This is a somewhat different approach than the previous days of this course, but nevertheless very insightful. A useful source of information for performing simulation studies using Mplus is the Mplus User Guide, <a href="https://statmodel.com/download/usersguide/Chapter12.pdf">Chapter 12</a>. The answer input files can be found on SURFdrive.</p>
+<section id="exercise-1-the-traditional-cross-lagged-panel-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-the-traditional-cross-lagged-panel-model">Exercise 1: The traditional Cross-Lagged Panel Model</h2>
+<p>First, lets get ourselves acquainted with performing simulations in Mplus. Suppose want to study the power for detecting a nonzero cross-lagged effect in the traditional cross-lagged panel model. Such questions concerning power can also be investigated using simulations. In these cases, the population model (the model from which the data is generated) is the same as the estimation model. We then generate data with a nonzero cross-lagged effect, and estimate the CLPM on the generated data. We hope, of course, that the fitted CLPM returns a significant cross-lagged effect; if not, this would be a Type II error (i.e., not finding a significant effect, whereas we know there is one).</p>
+<section id="exercise-1a-what-to-expect" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1a-what-to-expect">Exercise 1A: What to expect?</h3>
+<p>Before running the simulation study, let us think about what results we expect. We are using the same model for data generation and estimation. Do we expect bias in the parameter estimates? If we are testing significance with a significance level of <span class="math inline">\(\alpha = 0.05\)</span>, what should be the 95% coverage rate for the parameters?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -334,14 +317,17 @@ Answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(e\)</span>’s are residuals at the measurement level and can be found in the <span class="math inline">\(\theta\)</span>-matrix. They only influence the observation at a single occasion in time. <span class="math inline">\(\zeta\)</span>’s are residuals of the simplex process and can be found in the <span class="math inline">\(\psi\)</span>-matrix. Their effect is carried forward to future observation through the autoregressive relationships. This difference allows Mplus to estimate both types of ``errors’’.</p>
+<p>When the population model and the estimation model are the same, we do not expect a bias in the parameter estimates, nor in the standard errors of the parameter estimates. In Mplus, you get the average (average across all replications) estimate for each parameter. This average should be very close to the population values (i.e., the Truth). In this situation, the 95% coverage rate should be close to 95%. This means that in 95% of the replications, the confidence interval around the parameter estimates contains the population value. This is actually the definition of a confidence interval.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-b" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-b">Exercise B</h3>
-<p>How would you specify the model in Mplus?</p>
+<section id="exercise-1b-simulation-results-for-cross-lagged-effect-x-to-y" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1b-simulation-results-for-cross-lagged-effect-x-to-y">Exercise 1B: Simulation results for cross-lagged effect <code>X</code> to <code>Y</code></h3>
+<p>Open the file MonteCarlo_template.inp, which is a template for Monte Carlo studies in Mplus. Complete the template to perform a power analysis for the traditional CLPM, for a sample size of 500, and a cross-lagged effect of <code>X</code> to <code>Y</code> of 0.2. For the <code>MONTECARLO:</code> command, name the variables to be created <code>x1-x4</code> and <code>y1-y4</code>. Set the number of replications to a thousand, and set a seed.</p>
+<p>For the <code>MODEL POPULATION:</code> command, define a traditional CLPM. Set the autoregressive effects of <code>X</code> to 0.3, and thoses of <code>Y</code> to 0.5. Set the cross-lagged effects of <code>Y</code> to <code>X</code> to 0.05, and those from <code>X</code> to <code>Y</code> to 0.2 (i.e., the parameter that we want to compute the power for). Set the variances of <code>X</code> and <code>Y</code> at the first wave to 1, and its covariance to 0.3. Set the residual variances of <code>X</code> to 0.9015, and those of <code>Y</code> to 0.670; set the residual covariances to 0.083. The mean structure can be set to 0 for all variables.</p>
+<p>For the <code>MODEL:</code> command, define the same model. However, don’t use the <code>@</code> symbol to fix parameter to particular values (as done in <code>MODEL POPULATION:</code>), but use the asterisk <code>*</code> to indicate what the parameter values <em>should</em> be. This way the parameters are estimates, but in the output file, Mplus knows what value (i.e., what Truth) the parameter values should be compared to.</p>
+<p>Run the simulations, and assess the bias, 95% coverage rate, and power for the cross-lagged effect of <code>X</code> to <code>Y</code>.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -354,14 +340,14 @@ Answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>See the Mplus input file <code>Exercise B.inp</code>.</p>
+<p>Bias, coverage rate, and power can be read off in the <code>MODEL RESULTS</code> part of the output. For bias, we need to compare the average estimate to the population value. Because simulation studies contain a random component, the results are likely to be slighlty different for everyone (unless you use the same seed). However, the average estimate of each parameter approximately the same as their population values. The 95% coverage rates should all be approximately 95%. Power is defined as the percentage of times that the nonzero parameter is actually estimated to be significantly different from 0. For a cross-lagged effect of 0.2 and a sample size of <code>n = 500</code>, the power should be approximately 1.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-c" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-c">Exercise C</h3>
-<p>Determine the number of degrees of freedom for this model (indicate how you obtained this number). Is it possible to estimate this model?</p>
+<section id="exercise-1c-simulation-results-for-cross-lagged-effect-y-to-x" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1c-simulation-results-for-cross-lagged-effect-y-to-x">Exercise 1C: Simulation results for cross-lagged effect <code>Y</code> to <code>X</code></h3>
+<p>Now look at the smaller cross-lagged effect, that of <code>Y</code> to <code>X</code>. What is the power for an effect of <code>0.05</code>, given this sample size? Suppose that we have some missing data, how will this affect the power of this parameter?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -374,23 +360,20 @@ Answer
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There are <span class="math inline">\(\frac{4 \times 5}{2} = 10\)</span> unique elements in <span class="math inline">\(S\)</span>.</p>
-<p>Free parameters:</p>
-<ul>
-<li>4 residual variances at measurement level</li>
-<li>1 factor variance</li>
-<li>3 residual factor variances</li>
-<li>3 regression parameters</li>
-<li>11 parameters in total.</li>
-</ul>
-<p>Therefore, we have <span class="math inline">\(10 - 11 = -1\)</span> <em>df</em>. It is not possible to estimate this model because we are trying to estimate more parameters than we have information in the data.</p>
+<p>The cross-lagged effect of <code>Y</code> to <code>X</code> is set to be a smaller effect size. Therefore, we can also see that the power is much smaller, approximately around 0.20 to 0.23. If we have missing data, this implies your sample size is smaller, and the power will therefore decrease.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-d" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-d">Exercise D</h3>
-<p>To make sure a quasi-simplex model is identified, often the variances of the measurement errors are constrained to be equal over time. How can you do this in Mplus? How many <em>df</em> does this model have?</p>
+</section>
+<section id="exercise-2-the-random-intercept-cross-lagged-panel-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-the-random-intercept-cross-lagged-panel-model">Exercise 2: The Random Intercept Cross-Lagged Panel Model</h2>
+<p>Now, let us investigate what can go wrong if the data actually have some stable, between-person differences in them, but we do not account for this when analyzing the data. More specifically, what happens when we generate data with the RI-CLPM, but fit the traditional CLPM to the data? This is a case that was investigated at length by <span class="citation" data-cites="hamaker_critique_2015">Hamaker, Kuiper, and Grasman (<a href="#ref-hamaker_critique_2015" role="doc-biblioref">2015</a>)</span>.</p>
+<section id="exercise-2a-simulation-ri-clpm-vs.-clpm" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2a-simulation-ri-clpm-vs.-clpm">Exercise 2A: Simulation RI-CLPM vs.&nbsp;CLPM</h3>
+<p>Adjust the Mplus input file that you created for Exercise 1. This time, in the <code>MODEL POPULATION:</code> command, define an RI-CLPM. Set the variances of the random intercept factors for <code>X</code> and <code>Y</code> to 1, and their covariance to 0.4. Create within-components, and set the autoregressions of the within-components for <code>X</code> to 0.15, and the autoregressions of the within-components of <code>Y</code> to 0.25. For the cross-lagged effects between the within-components, let those from <code>X</code> to <code>Y</code> be 0.2 again, and the other way around 0.05. Set the variances of the within-components of <code>X</code> and <code>Y</code> at the first wave to 1, and its covariance to 0.3. Set the residual variances of the within-components of <code>X</code> to 0.972, and those of <code>Y</code> to 0.8775; set the residual covariances to 0.148. The mean structure can be set to 0 for all variables.</p>
+<p>For the <code>MODEL:</code> command, define the traditional CLPM. However, don’t use the <code>@</code> symbol to fix parameter to particular values (as done in <code>MODEL POPULATION:</code>), but use the asterisk <code>*</code> to indicate what the parameter values <em>should</em> be.</p>
+<p>Run the simulations, and assess the bias of (a) the autoregressive effects, and (b) the cross-lagged effects.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -403,47 +386,35 @@ Answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>See the Mplus input file <code>Exercise E.inp</code> for how to constrain the measurement error variances over time. With constrained measurement error variances, we estimate 3 parameters less. So, we estimate <span class="math inline">\(11 - 3 = 8\)</span> and therefore have <span class="math inline">\(10 - 8 = 2\)</span> <em>df</em>.</p>
+<p>This situation is a case of model misspecification (which can also happen of course in reality). We see that the autoregressive effects are estimated to be much higher on average (the average is approximately 0.50-0.60 for <code>X</code> and approximately 0.55-0.65 for <code>Y</code>) than they should be. In other words, the autoregressive effects in the CLPM are biased when the data are actually generated by the RI-CLPM. The reason why the CLPM autoregressive effects are much higher is that these parameters now need to account not only for moment-to-moment stability, but also stability across the study span (i.e., the stability due to the random intercept factor). When analyzing empirical data, this is a phenomenon we commonly see: The autoregressive effects are estimated to be much smaller when analyzing data with the RI-CLPM, compared to analysis using the traditional CLPM.</p>
+<p>Similarly, there is bias for the cross-lagged effects, but there is not a clear pattern here. For the cross-lagged effects of <code>X</code>to <code>Y</code>, the bias is towards to 0, whereas for the cross-lagged effect of <code>Y</code> to <code>X</code> the bias is away from 0.</p>
+<p>These finding are in line with <span class="citation" data-cites="hamaker_critique_2015">Hamaker, Kuiper, and Grasman (<a href="#ref-hamaker_critique_2015" role="doc-biblioref">2015</a>)</span>, who concludes that using the traditional CLPM when the data are actually generated by the RI-CLPM, you may:</p>
+<ul>
+<li>find spurious effects;</li>
+<li>fail to detect relationships;</li>
+<li>identify the wrong variable as being causally dominant; or</li>
+<li>obtain the wrong sign for an effect.</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-e" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-e">Exercise E</h3>
-<p>Run the model and report on the model fit.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<section id="exercise-2b-simulation-ri-clpm-vs.-clpm" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2b-simulation-ri-clpm-vs.-clpm">Exercise 2B: Simulation RI-CLPM vs.&nbsp;CLPM</h3>
+<p>Now, you might wonder what happens the other way around: What if we analyze data without stable, between-person differences, with the RI-CLPM? We will study this case now. Specify the population model from Exercise 1B, but analyse the generated data using the RI-CLPM. Assess the bias of the lagged effects.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+Note
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We find the below fit indices:</p>
-<ul>
-<li><span class="math inline">\(\chi^{2}\)</span> = 13.29 with <em>df</em> = 2, <span class="math inline">\(p = .0013\)</span>,</li>
-<li>RMSEA = .057,</li>
-<li>CFI = .994, and</li>
-<li>TLI = .981.</li>
-</ul>
-<p>Except for <span class="math inline">\(\chi^{2}\)</span> test of model fit, the model seems to fit the data well. Note, however, that the sample size is very large and therefore the <span class="math inline">\(\chi^{2}\)</span> is likely to be significant, even for minor problems with model fit.</p>
+<p>Adjust the “starting value” of model under the <code>MODEL:</code> command accordingly. Otherwise, in the Mplus output, the parameter estimates are compared to the wrong population parameter values. For example, you would expect that the variances of the random intercept factors are 0 when the data were generated under the traditional CLPM.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="exercise-f" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-f">Exercise F</h3>
-<p>The quasi-simplex model you just ran, led to the following warning:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>WARNING: THE LATENT VARIABLE COVARIANCE MATRIX (PSI) IS NOT POSITIVE DEFINITE. </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>THIS COULD INDICATE A NEGATIVE VARIANCE/RESIDUAL VARIANCE FOR A LATENT VARIABLE, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A CORRELATION GREATER OR EQUAL TO ONE BETWEEN TWO LATENT VARIABLES, OR A LINEAR </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>DEPENDENCY AMONG MORE THAN TWO LATENT VARIABLES. CHECK THE TECH4 OUTPUT FOR MORE </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>INFORMATION. PROBLEM INVOLVING VARIABLE ETA4.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>What is the problem?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -456,20 +427,19 @@ Answer
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In your output, look at the reported (estimated) residual variances. We find that the residual variance of <code>ETA4</code> is estimated to be negative. This is a Heywood case and it is causing the warning to appear. Note however, that it is significant, so ``just” fixing it to 0 as a solution is probably not warranted here.</p>
+<p>There appears to be no bias in the lagged effects of the RI-CLPM, even when the data were generated by the traditional CLPM. This is to be expected as the traditional CLPM is nested under the RI-CLPM.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-g" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-g">Exercise G</h3>
-<p>As indicated in the description of the data, the third and fourth measurement were obtained at the same measurement wave (with only 40 minutes in between). Hence, the researchers proposed the following model instead of the regular quasi-simplex model. Explain why this model makes more sense for these data than the regular quasi-simplex model. Tip: check the description of the study at the beginning of this exercise.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Simplex-adjusted.png" class="img-fluid figure-img" width="400"></p>
-<figcaption class="figure-caption">Adjusted quasi-simplex model.</figcaption>
-</figure>
-</div>
+</section>
+<section id="exercise-3-the-stable-trait-autoregressive-trait-state-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-the-stable-trait-autoregressive-trait-state-model">Exercise 3: The Stable Trait Autoregressive Trait State model</h2>
+<p>Measurement error in measurements in psychology (and related disciplines) is the rule, rather than the exception. Therefore, we would ideally like to control for measurement error (as well as stable, between-person differences). This can be done using the Stable Trait Autoregressive Trait State (STARTS) model.</p>
+<section id="exercise-3a-fitting-the-starts-model-i" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3a-fitting-the-starts-model-i">Exercise 3A: Fitting the STARTS model I</h3>
+<p>Adjust the Mplus input file of Exercise 2A. This time, in <code>MODEL POPULATION:</code>, rather than fixing the measurement error variances to 0, fix the measurement error to 0.6. Given the same population parameter values of the other parameters in the model, this would imply a reliability of 0.7 of the single indicator (i.e., 30% measurement error variance, 70% true score variance). For the estimation in the <code>MODEL:</code> command, specify the STARTS model as well. Compared to the RI-CLPM, this implies simply freeing up the measurement error variances.</p>
+<p>Check the <code>MODEL RESULTS</code> in the output. What do you notice?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -482,14 +452,14 @@ Answer
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>At each occasion there is a latent variable which represents Life Satisfaction. At the first two occasions there was only a single indicator of this latent variable, but at the third occasion there were two indicators.</p>
+<p>As mentioned in the lecture, the STARTS model is notoriously hard to estimate. In fact, the model results will likely show only zeros. This is because in none of replications, the STARTS model actually converged. This can be seen in the <code>SUMMARY OF ANALYSIS</code> part in the output, see “Number of replications” and then “Completed”.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-h" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-h">Exercise H</h3>
-<p>How many <em>df</em> does this model have? Note that we keep the constraint on the variances of the measurement errors.</p>
+<section id="exercise-3b-ignoring-measurement-error" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3b-ignoring-measurement-error">Exercise 3B: Ignoring measurement error</h3>
+<p>Okay, that was annoying. But perhaps we can simply ignore measurement error? We can investigate if this has any effect on the estimates of interest, the lagged effects. Setup a simulation study to investigate potential bias in the estimates of the RI-CLPM, when the data actually contain measurement error. More specifically, generate data using the STARTS, but analyse the data using the RI-CLPM. What is the effect of unmodelled measurement error on the lagged effects of the RI-CLPM?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -502,43 +472,32 @@ Answer
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There are <span class="math inline">\(\frac{4*5}{2} = 10\)</span> unique elements in S. We freely estimate:</p>
-<ul>
-<li>1 constrained residual variances at measurement level</li>
-<li>1 factor variance</li>
-<li>2 residual factor variances</li>
-<li>2 regression parameters</li>
-<li>1 factor loading</li>
-<li>7 parameters in total.</li>
-</ul>
-<p>Therefore, we have <span class="math inline">\(10 - 7 = 3\)</span> <em>df</em>.</p>
+<p>To study this research question, you can specify the STARTS model in the <code>MODEL POPULATION:</code> command, and specify the RI-CLPM under <code>MODEL:</code>. When looking at the model results, we can see that ignoring measurement error it not a good idea: The lagged effects are biased. However, there does appear to be a consistent pattern here: The lagged effects are estimated to be smaller than they should be (i.e., there is bias towards 0). This implies that in this particular situation, it is possible that we miss nonzero effects that are actually in the data (but that we estimate to be close to zero because of the unmodelled measurement error).</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-i" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-i">Exercise I</h3>
-<p>Are these two models nested? If so, how? If not, why not, and how could we compare them?</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<section id="exercise-3c-fitting-the-starts-model-ii" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3c-fitting-the-starts-model-ii">Exercise 3C: Fitting the STARTS model II</h3>
+<p>Let’s see what we can do to actually make the STARTS model, from Exercise 3A, converge. Try out several options, and see if you can get simulation results. For example, try increasing the sample size, imposing constraints on the measurement error variances of time, using a Bayesian estimator, or a combination of these.</p>
+<ul>
+<li><em>Imposing constraints</em>. By imposing constraints on parameters, you make the estimation model simpler, and therefore Mplus can use the same amount of information to estimate fewer parameters. Think about what are sensible constraints to impose on the model. For example, would you constrain all measurement error variances to be the same in the model, or is it more sensible to constrain the measurement error variances of <code>X</code> and <code>Y</code> separately?</li>
+<li><em>Increase sample size</em>. Increasing the sample size might help, although you could ask if in practice increases in sample size are worth the effort? Perhaps it is more useful to collect additional waves of data, rather than collecting additional persons?</li>
+<li><em>Bayesian</em>. Bayesian estimation is a different statistical framework, that for estimation not only relies on the likelihood of the data, but also on prior information. <span class="citation" data-cites="ludtke_bayesian_2023">Lüdtke, Robitzsch, and Ulitzsch (<a href="#ref-ludtke_bayesian_2023" role="doc-biblioref">2023</a>)</span> and <span class="citation" data-cites="ludtke_more_2018">Lüdtke, Robitzsch, and Wagner (<a href="#ref-ludtke_more_2018" role="doc-biblioref">2018</a>)</span> have demonstrated how the STARTS model can be estimated in a Bayesian framework. Of specific interest here is the specification of the priors. For now, you can check out the simulation results by relying on the default prior in Mplus.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+Warning
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Yes, they are nested: this model is a special case of the previous model, as it is based on having <code>ETA3</code> and <code>ETA4</code> from the previous model now being a single latent variable. That is, we can constrain the residual variance of <code>ETA4</code> to zero to get the alternative model. This gives us 1 <em>df</em> for the difference.</p>
+<p>Bayesian estimation relies on sampling from the posterior distribution, and can be incredibly slow, especially for difficult to fit models like the STARTS model. Try out what happens when you go Bayesian. You can always stop the Mplus operations by pressing Control-C in the MS-DOS window, or pressing the X.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="exercise-j" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-j">Exercise J</h3>
-<p>Specify this model in Mplus and run it. Report on the model fit.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -551,92 +510,37 @@ Answer
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>See the Mplus input file <code>Excercise J.inp</code> for the model specification in Mplus. Apart from the <span class="math inline">\(\chi^{2}\)</span>-test of model fit, the model fits well:</p>
+<p>The SURFdrive folder contains Mplus output files for each of these scenarios.</p>
 <ul>
-<li><span class="math inline">\(\chi^{2} (3) = 27.37\)</span>, with <span class="math inline">\(p &lt; .001\)</span>,</li>
-<li>RMSEA = 0.069,</li>
-<li>CFI = 0.987,</li>
-<li>TLI = 0.973, and</li>
-<li>SRMR = 0.039.</li>
+<li><em>Imposing constraints</em>. One option would be to constrain the measurement error variances over time for the <code>X</code> and <code>Y</code> variables separately. This might be more plausible than constraining all measurement error variances to be equal to each other, considering that <code>X</code> and <code>Y</code> are different measures. Imposing this constraint, as well as increasing the sample size to 1000, does aid convergence. The completed number of replications has now increased to 300-400, although this is still far from satisfactory. The convergence issues also in the model results, which still shows biased results. If all STARTS models had converged, then we should have no bias. Clearly, imposing constraints itself is not enough to help convergence in this particular situation.</li>
+<li><em>Increase sample size</em>. Increasing sample size even to 10000 does not help the situation: There are still no completed replications. An alternative might be to increase both the sample size, and the number of repeated measures.</li>
+<li><em>Bayesian</em>. We can invoke Bayesian estimation in the <code>ANALYSIS:</code> command by including <code>ESTIMATOR = BAYES;</code>. On its own, this option is not enough. Convergence is incredibly slow, let alone running 1000 replications. Therefore you might try both combining imposing the constraints, and adjusting the prior specification as recommended by <span class="citation" data-cites="ludtke_bayesian_2023">Lüdtke, Robitzsch, and Ulitzsch (<a href="#ref-ludtke_bayesian_2023" role="doc-biblioref">2023</a>)</span>.</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-k" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-k">Exercise K</h3>
-<p>Compare the two models to each other. What can you conclude?</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Comparing both models using the <span class="math inline">\(\Delta \chi^{2}\)</span>-test gives us <span class="math inline">\(27.37 – 13.29 = 14.0\)</span> with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>. This implies that imposing the restriction is not tenable. You can calculate the <em>p</em>-value of the <span class="math inline">\(\Delta \chi^{2}\)</span> using the <code>pchisq()</code>-function in R (with the <code>lower.tail</code> argument set to <code>FALSE</code>), or <a href="http://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html">an online tool</a></p>
-<p>Comparing the models using information criteria gives us AIC = 29593 and BIC = 29637 for the first model, and AIC = 29605 and BIC = 29643 for the second. In conclusion, all measures indicate the first model is better. However, the current model makes more theoretical sense, and the negative variance estimate in the first model is a problem. For these 2 reasons, we should prefer the current model.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="exercise-l" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-l">Exercise L</h3>
-<p>Can you improve the second model in any way? Indicate which parameter you would add to your model, and what this parameter represents in substantive terms.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You can get the modification indices by adding <code>MOD</code> to the <code>OUTPUT</code> command. Here, the suggested <code>BY</code> statements make no sense (later life satisfaction as an indicator of previous life satisfaction). With regards to the <code>ON</code> statement, only the suggested effect of <code>ETA3 ON ETA1</code> makes sense as we then predict forwards in time. The <code>WITH</code> statement suggests adding a covariance between … (see the next exercise).</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-m" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-m">Exercise M</h3>
-<p>Run a model in which you include the <code>Y3 WITH Y4</code> parameter. Where will this relationship end up in the model? Does it lead to a significant improvement? How would you interpret this additional parameter?</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>See <code>Exercise M.inp</code> for the Mplus specification of this model. The <code>Y3 WITH Y4</code> parameter is an additional covariance between the residuals of <code>y3</code> and <code>y4</code> (so not between <code>y3</code> and <code>y4</code> themselves). If we add this covariance and look at the standardized results, we get a correlation. This correlation actually quite high: <span class="math inline">\(.522\)</span> (SE = .044), <span class="math inline">\(p &lt; .001\)</span>.</p>
-<p>Model fit is quite good (except for the <span class="math inline">\(\chi^{2}\)</span>-test of model fit):</p>
-<ul>
-<li><span class="math inline">\(\chi^{2} (2) = 7.077\)</span>, <span class="math inline">\(p = .0291\)</span>,</li>
-<li>RMSEA = 0.038,</li>
-<li>CFI = 0.997,</li>
-<li>TLI = 0.992, and</li>
-<li>SRMR = 0.011.</li>
-</ul>
-<p>To compare this model to the previous model, we can do a the <span class="math inline">\(\Delta \chi^{2}\)</span>-test: <span class="math inline">\(27.37 – 7.08 = 20.29\)</span>, with 1 <em>df</em> such that <span class="math inline">\(p &lt; .001\)</span>, which implies that adding the covariance between the residuals leads to a significant improvement in model fit. This additional parameter implies that <code>y3</code> and <code>y4</code> have more in common with each other than what would be expected based on their common dependence on <code>ETA3</code>.</p>
-</div>
-</div>
-</div>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Using simulations in Mplus, we have studied some characteristics of popular cross-lagged panel models. Such simulations are useful to develop some intuition of how these models compare, and what happens when there is model misspecification (when the <code>MODEL POPULATION:</code> does not match the <code>MODEL:</code>). In reality, however, we do not know which model was the true population model. Based on theory and literature, we can of course reason about the presence of, for example, measurement error and unobserved heterogeneity, but there will always remain some residual uncertainty. This is one of the major challenges that applied researchers face.</p>
+<p>These simulations have just been the tip of the iceberg. They can be extended to investigate all kinds of other scenario’s, for example, the impact of nonlinear relationships on estimates from linear cross-lagged panel models, the bias of parameter estimates in the presence of unmeasured confounding, etc. However, these scenario’s can become quite complex, and careful planning is needed to setup a simulation study,and to draw valid conclusions from it.</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-hamaker_critique_2015" class="csl-entry" role="listitem">
+Hamaker, Ellen L., Rebecca M. Kuiper, and Raoul P. P. P. Grasman. 2015. <span>“A Critique of the Cross-Lagged Panel Model.”</span> <em>Psychological Methods</em> 20 (1): 102–16. <a href="https://doi.org/10.1037/a0038889">https://doi.org/10.1037/a0038889</a>.
+</div>
+<div id="ref-ludtke_bayesian_2023" class="csl-entry" role="listitem">
+Lüdtke, Oliver, Alexander Robitzsch, and Esther Ulitzsch. 2023. <span>“A <span>Bayesian</span> Approach to Estimating Reciprocal Effects with the Bivariate <span>STARTS</span> Model.”</span> <em>Multivariate Behavioral Research</em> 58 (3): 560–79. <a href="https://doi.org/10.1080/00273171.2022.2039585">https://doi.org/10.1080/00273171.2022.2039585</a>.
+</div>
+<div id="ref-ludtke_more_2018" class="csl-entry" role="listitem">
+Lüdtke, Oliver, Alexander Robitzsch, and Jenny Wagner. 2018. <span>“More Stable Estimation of the <span>STARTS</span> Model: <span>A</span> <span>Bayesian</span> Approach Using <span>Markov</span> Chain <span>Monte</span> <span>Carlo</span> Techniques.”</span> <em>Psychological Methods</em> 23 (3): 570–93. <a href="https://doi.org/10.1037/met0000155">https://doi.org/10.1037/met0000155</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

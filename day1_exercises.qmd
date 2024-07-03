@@ -17,7 +17,7 @@ Here we will show how to specify a sequence of models to test whether measuremen
 -   *weak factorial invariance*; this implies the factor loadings are constrained across the groups to be the same
 -   *strong factorial invariance*; this implies the factor loadings and the intercepts are constrained to be the same across the groups, while the latent means in the second (and subsequent) group(s) are allowed to be estimated freely. 
 
-We start with drawing the model as a path diagram. The data come from @sabatelli_family. They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these data using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the husband and other variables are measured in the wives).
+We start with drawing the model as a path diagram. The data come from @sabatelli_family_2003. They obtained measures from 103 married couples regarding their marital adjustment and their family of origin. Here we analyze these data using a multiple group approach, although the individuals in the two groups are not independent of each other, and there are other approaches that would be more appropriate for this (such as described in the original paper, where the cases are couples, and the data of each couple consists of variables measured in the husband and other variables are measured in the wives).
 
 The variables included are:
 

@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day3_part1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 1: Latent transition analysis</span></a>
+ <span class="menu-text">Part 1: Latent Class Analysis and Latent Transition Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -195,14 +195,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_part1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 1: The quasi-simplex model</span></a>
+  <a href="./day4_CLPMvRICLPM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1: The CLPM and RI-CLPM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_part2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 2: The CLPM and RI-CLPM</span></a>
+  <a href="./day4_monteCarlo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</span></a>
   </div>
 </li>
       </ul>
@@ -236,7 +236,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#help-and-resources-it-related-issues" id="toc-help-and-resources-it-related-issues" class="nav-link active" data-scroll-target="#help-and-resources-it-related-issues">Help and Resources: IT-Related Issues</a></li>
+  <li><a href="#help-and-resources-sem-analyses" id="toc-help-and-resources-sem-analyses" class="nav-link" data-scroll-target="#help-and-resources-sem-analyses">Help and Resources: SEM Analyses</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -270,8 +277,80 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This course material is part of the <a href="https://utrechtsummerschool.nl/courses/social-sciences/advanced-course-on-using-mplus">Advanced course on using Mplus</a>, a five-day summer school course hosted by Utrecht University’s department of Methodology and Statistics. If you already know how to analyse your data in Mplus but want to learn more about what you are actually doing, and especially if you want to know more about advanced longitudinal analyses, this course is for you. The course consists of in-depth lectures on the fundamentals of SEM, Mplus, and advanced longitudinal models.</p>
 <p>Using the menu on the left, you can navigate to the exercises of each day.</p>
+<section id="help-and-resources-it-related-issues" class="level2">
+<h2 class="anchored" data-anchor-id="help-and-resources-it-related-issues">Help and Resources: IT-Related Issues</h2>
+<p>Below we have listed some useful resources in case you run into IT-related issues.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SolisWorkspace
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For using Mplus via the SolisWorkspace (SWS), you need to install both SolisWorkspace (including the Citrix Receiver App), and set up two-factor authentication (2FA). You can find the manuals for installing the SolisWorkspace on Windows, MacOS and Linux at <a href="https://manuals.uu.nl/en/a-z/?_categorie=applications&amp;_tags=Solisworkspace">https://manuals.uu.nl/en/a-z/?_categorie=applications&amp;_tags=Solisworkspace</a>. Solutions to common issues with SWS are desribed at <a href="https://manuals.uu.nl/en/manual/solisworkspace-faq/">https://manuals.uu.nl/en/manual/solisworkspace-faq/</a>. The manual for setting up 2FA can be found at <a href="https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/">https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/</a>. Solutions to common issues with 2FA are described at <a href="https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/">https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/(https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/</a>.</p>
+<p>After you have installed the software, you can log into SWS using the steps below:</p>
+<ol type="1">
+<li>Go to <a href="https://solisworkspace.uu.nl">https://solisworkspace.uu.nl</a>.</li>
+<li>Log in using <em>SolisID</em>@soliscom.uu.nl (and replace <em>‘SolisID’</em> with the login name you received from the Summerschool).</li>
+<li>Confirm login using 2FA.<br>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+WiFi
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are two or three options for you to connect to WiFi:</p>
+<ul>
+<li>Connect to the Utrecht University-network using your SolisID. As a user name, use <em>SolisID</em>@soliscom.uu.nl, and then fill in the passwort for the Solis account that you got.</li>
+<li>If you have Eduroam-access via your own research institute, you can use this also on the Utrecht Science Park.</li>
+<li>Use the Eduroam Visitor Access (EVA), the guest network of Eduroam. For this, you need a ‘day code’, which are depicted on screens in the hallway of UU-buildings. You should text this day code to the phone number also displayed on the screen. Then, you receive a login name and password. You then have WiFi for that entire day. Extra information can be found at <a href="https://manuals.uu.nl/a-z/?_tags=eduroam">https://manuals.uu.nl/a-z/?_tags=eduroam</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Printer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When logged in on a UU-computer with a SolisID, you can print by sending the material to the printer and log in with the SolisID on the printer.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="help-and-resources-sem-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="help-and-resources-sem-analyses">Help and Resources: SEM Analyses</h2>
+<p>Some resources about learning more about particular analysis in Mplus are:</p>
+<ul>
+<li>The <a href="https://statmodel.com/ugexcerpts.shtml">Mplus User Guide</a>.</li>
+<li>The Mplus Discussion Forum. Although it has been closed for new questions for some time now, you can still access the hundreds (if not thousands) of questions and answers. You can access the forum <a href="https://www.statmodel.com/cgi-bin/discus/discus.cgi">here</a>, or simply google your analysis of interest and add “mplus forum” in the search prompt.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

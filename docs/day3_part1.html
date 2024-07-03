@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Utrecht Summer School (S23) - Part 1: Latent transition analysis</title>
+<title>Utrecht Summer School (S23) - Part 1: Latent Class Analysis and Latent Transition Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day3_part1.html">Day 3</a></li><li class="breadcrumb-item"><a href="./day3_part1.html">Part 1: Latent transition analysis</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./day3_part1.html">Day 3</a></li><li class="breadcrumb-item"><a href="./day3_part1.html">Part 1: Latent Class Analysis and Latent Transition Analysis</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day3_part1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Part 1: Latent transition analysis</span></a>
+ <span class="menu-text">Part 1: Latent Class Analysis and Latent Transition Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -192,14 +192,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_part1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 1: The quasi-simplex model</span></a>
+  <a href="./day4_CLPMvRICLPM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1: The CLPM and RI-CLPM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day4_part2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 2: The CLPM and RI-CLPM</span></a>
+  <a href="./day4_monteCarlo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2: Studying Cross-Lagged Panel Models using Monte Carlo Simulations</span></a>
   </div>
 </li>
       </ul>
@@ -237,11 +237,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-1a" id="toc-exercise-1a" class="nav-link active" data-scroll-target="#exercise-1a">Exercise 1A</a></li>
-  <li><a href="#exercise-1b" id="toc-exercise-1b" class="nav-link" data-scroll-target="#exercise-1b">Exercise 1B</a></li>
-  <li><a href="#exercise-1c" id="toc-exercise-1c" class="nav-link" data-scroll-target="#exercise-1c">Exercise 1C</a></li>
-  <li><a href="#exercise-1d" id="toc-exercise-1d" class="nav-link" data-scroll-target="#exercise-1d">Exercise 1D</a></li>
-  <li><a href="#exercise-1e" id="toc-exercise-1e" class="nav-link" data-scroll-target="#exercise-1e">Exercise 1E</a></li>
+  <li><a href="#exercise-1-latent-class-analysis" id="toc-exercise-1-latent-class-analysis" class="nav-link active" data-scroll-target="#exercise-1-latent-class-analysis">Exercise 1: Latent Class Analysis</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1a-number-of-classes" id="toc-exercise-1a-number-of-classes" class="nav-link" data-scroll-target="#exercise-1a-number-of-classes">Exercise 1A: Number of classes</a></li>
+  <li><a href="#exercise-1b-model-convergence" id="toc-exercise-1b-model-convergence" class="nav-link" data-scroll-target="#exercise-1b-model-convergence">Exercise 1B: Model convergence</a></li>
+  <li><a href="#exercise-1c-model-fit" id="toc-exercise-1c-model-fit" class="nav-link" data-scroll-target="#exercise-1c-model-fit">Exercise 1C: Model fit</a></li>
+  <li><a href="#exercise-1d-lca-model-parameters" id="toc-exercise-1d-lca-model-parameters" class="nav-link" data-scroll-target="#exercise-1d-lca-model-parameters">Exercise 1D: LCA model parameters</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-latent-transition-analysis" id="toc-exercise-2-latent-transition-analysis" class="nav-link" data-scroll-target="#exercise-2-latent-transition-analysis">Exercise 2: Latent Transition Analysis</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2a-setting-up-the-lta" id="toc-exercise-2a-setting-up-the-lta" class="nav-link" data-scroll-target="#exercise-2a-setting-up-the-lta">Exercise 2A: Setting up the LTA</a></li>
+  <li><a href="#exercise-2b-estimated-transition-probabilities" id="toc-exercise-2b-estimated-transition-probabilities" class="nav-link" data-scroll-target="#exercise-2b-estimated-transition-probabilities">Exercise 2B: Estimated transition probabilities</a></li>
+  <li><a href="#exercise-2c-covariates" id="toc-exercise-2c-covariates" class="nav-link" data-scroll-target="#exercise-2c-covariates">Exercise 2C: Covariates</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Part 1: Latent transition analysis</h1>
+<h1 class="title">Part 1: Latent Class Analysis and Latent Transition Analysis</h1>
 <p class="subtitle lead">Day 3: Longitudinal mixture modeling</p>
 </div>
 
@@ -266,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In this exercise we will explore the development of dating status over time using a latent transition analysis. Use the data in <code>DatingSex.dat</code>, which holds data on five dating indicators measured at two occasions (<code>u11</code>, …, <code>u15</code>, <code>u21</code>, …, <code>u25</code>), as well as the variable <code>gender</code>. The u-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).</p>
+<p>In this exercise we will explore the development of dating status over time using a latent transition analysis (LTA). However, we will slowly build up the model, starting with a latent class analysis (LCA) first at a single time points, before going to LTA. Use the data in <code>DatingSex.dat</code>, which holds data on five dating indicators measured at two occasions (<code>u11</code>, …, <code>u15</code>, <code>u21</code>, …, <code>u25</code>), as well as the variable <code>gender</code>. The <span class="math inline">\(u\)</span>-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -277,10 +285,67 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<section id="exercise-1a" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1a">Exercise 1A</h3>
-<p>Set up a model with two latent class variables for the two time points, say <code>c1</code> and <code>c2</code>. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class, in both <code>MODEL c1</code> and <code>MODEL c2</code>. To be sure Mplus does what you want, include equality constraints on the five thresholds of <code>%c1#1%</code> and <code>%c2#1%</code>, and similarly for <code>%c1#2%</code> and <code>%c2#2%</code>. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don’t test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.</p>
-<p>After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output).</p>
+<section id="exercise-1-latent-class-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-latent-class-analysis">Exercise 1: Latent Class Analysis</h2>
+<p>Before we can perform an LTA, we first need to determine the number of classes at each time point using separate LCAs.</p>
+<section id="exercise-1a-number-of-classes" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1a-number-of-classes">Exercise 1A: Number of classes</h3>
+<p>Decide how many latent classes you think should be used. To determine this, first set up an LCA for <em>the first time point</em> (i.e., ignoring the variables at time point 2, as well as <code>gender</code>). Run an LCA for 2, 3, 4, and 5 classes, and collect information on the AIC, BIC, the LMR LRT (<code>TECH11</code>), the bootstrapped LRT (<code>TECH14</code>), and the size of the smallest class. Fill in the table below, and then decide how many classes you want to use for the next set of analyses. To help in your decision, you can also create the LCA item profiles using the <code>SERIES</code> function of the <code>OUTPUT:</code> command.</p>
+<table class="table">
+<caption>Information for selecting number of latent classes.</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Number of classes</th>
+<th style="text-align: center;">AIC</th>
+<th style="text-align: center;">BIC</th>
+<th style="text-align: center;">LMR LRT</th>
+<th style="text-align: center;">Bootstrapped LRT</th>
+<th style="text-align: center;">Size smallest class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -293,14 +358,70 @@ Answer
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The Mplus syntax should is given in <code>exercise1A.inp</code>. The parameters in probability scale can be found in under the heading <code>RESULTS IN PROBABILITY SCALE</code> in the output file. For example, we find that the probability of falling into category 1 of the item <code>U11</code> (i.e., answering yes) is 0.434 (<span class="math inline">\(SE = 0.024\)</span>) if you are in class 1 at the first time point, and 0.566 (<span class="math inline">\(SE = 0.024\)</span>) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see <code>Latent Class C2#1</code>.</p>
+<p>The information for selecting the number of latent classes at the first time point has been filled in into the table below.</p>
+<table class="table">
+<caption>Information for selecting number of latent classes.</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 23%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Number of classes</th>
+<th style="text-align: center;">AIC</th>
+<th style="text-align: center;">BIC</th>
+<th style="text-align: center;">LMR LRT</th>
+<th style="text-align: center;">Bootstrapped LRT</th>
+<th style="text-align: center;">Size smallest class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">6681</td>
+<td style="text-align: center;">6735</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">321</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6659</td>
+<td style="text-align: center;">6743</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">216</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">6668</td>
+<td style="text-align: center;">6781</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">160</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6675</td>
+<td style="text-align: center;">6818</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">136</td>
+</tr>
+</tbody>
+</table>
+<p>The AIC indicates three classes, whereas the BIC is the lowest for the 2-classes LCA. In deciding between the two-classes or three-classes solution, I would let substantive arguments play the deciding role (i.e., see if the different classes can be given an substantive interpretation). For now, these exercises will continue with the two-classes solution.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1b" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1b">Exercise 1B</h3>
-<p>Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?</p>
+<section id="exercise-1b-model-convergence" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1b-model-convergence">Exercise 1B: Model convergence</h3>
+<p>Evaluate if the two-classes LCA model converged to a global solution. In other words, do we have reason to believe that Mplus did <em>not</em> find the best solution for the parameter estimates (i.e., is there evidence for a local solution)?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -313,15 +434,14 @@ Answer
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can find proportions of participants in each class under the heading <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES</code>. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.</p>
-<p>You can find the latent transition probabilities based on the estimated model under the heading <code>TECHNICAL 15 OUTPUT</code>. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).</p>
+<p>For this, we need to check if our best loglikelihood value is replicated many times when the algorithm starts searching for solutions at different points in the parameter space. It would be problematic if we cannot replicate our best solution (i.e., the solution with the lowest loglikelihood) when we use different starting values: That would imply Mplus found local solutions, rather than ‘the best’ global solution. Setting the <code>STARTS</code> function in Mplus helps us check this. In the output, look for the <code>RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES</code> section. Here we see that the best loglikelihood value has been replicated approximately eight times out of ten (this number can change as the starting values are random), which is what we want.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1c" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1c">Exercise 1C</h3>
-<p>If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.</p>
+<section id="exercise-1c-model-fit" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1c-model-fit">Exercise 1C: Model fit</h3>
+<p>Continuing with the two-classes solution. Have a look at the output, specifically the model fit information and the response pattern frequencies of <code>TECH10</code>. Evaluate the model fit. Can we use the Chi-Square test of model fit for this? Are there particular patterns in the data that the 2-classes LCA cannot replicate well?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -334,25 +454,15 @@ Answer
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You could include gender as a control variable on the observed variables, by adding it to the <code>USEVARIABLES</code>, and including the following lines:</p>
-<p><code>u11-u15 ON gender;</code> <code>u21-u25 ON gender;</code></p>
-<p>See <code>exercise1C.inp</code>. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you’re NOT using probability parametrization. So, you would have to remove this line:</p>
-<p><code>PARAMETERIZATION = PROBABILITY;</code></p>
-<p>And add this line:</p>
-<p><code>c1 c2 ON gender;</code></p>
+<p>Looking at the Chi-Square Test of Model Fit, we can see that the Pearson Chi-Square and the Likelihood Ratio Chi-Square are very similar. This implies that we can actually used these tests to assess model fit. The p-value lower than 0.05 indicates the model does not fit well. Note, however, that the similarity of the Pearson Chi-Square and the Likelihood Ratio Chi-Square values is an exception rather than the rule. Especially when you have eight or more binary outcomes, it very likely that both values differ substantially, in which case you wouldn’t look at either of the tests.</p>
+<p>The Standardized Residual (z-score) of the response patterns (in <code>TECH10</code> of the output), can inform us about where the model misfit might come from. We are looking for absolute values greater than 1.96 to indicate significant differences between the observed frequencies and estimated frequencies. The most problematic response pattern is pattern 11, which is 00111, and also the most frequent pattern in the data. 94 individuals are observed to have such a pattern, but the model predicts only 67.85 individuals to have this. We can think of adjustments to the model to resolve this problem. For example, we might look at a three-classes solution after all, or we might inspect the <code>BIVARIATE MODEL FIT INFORMATION</code> to get further information about which two items are problematic for to model.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1d" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1d">Exercise 1D</h3>
-<p>We are going to extend the LTA to a Mover-Stayer LTA. This model assumes that there is a subpopulation of “stayers” that stay in the same class, and a subpopulation of “movers” that is free to transition to a different class over time. In other words, a Mover-Stayer LTA includes an additional categorical latent variable with a “movers-class” and a “stayers-class”.</p>
-<p>Answer the below questions:</p>
-<ul>
-<li>Continuing with the 2 classes at both time points. Then, for movers, there is no restriction on the 2 by 2 transition matrix. However, what should the transition matrix for the stayers look like <em>in terms of probabilities</em>? Furthermore, what should the transition matrix for stayers look like <em>in terms of thresholds</em>?</li>
-<li>Add a Movers-Stayers class (i.e., <em>an additional latent categorical factor with 2 classes, namely a movers class and a stayers class</em>) to the LTA specified in the previous exercise. Make sure that for the movers class the transition matrix has no restrictions, and that the stayers class has the restrictions as discussed above.</li>
-<li>Run the Movers-Stayers class and look in the output. Which proportion of people is categorized as movers/stayers?</li>
-</ul>
+<section id="exercise-1d-lca-model-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1d-lca-model-parameters">Exercise 1D: LCA model parameters</h3>
+<p>Now look at the model output, specifically <code>RESULTS IN PROBABILITY SCALE</code> and <code>LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS</code>. Which item (or items) is (are) the most predictive for which class you actually belong to?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -365,35 +475,84 @@ Answer
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By definition, for stayers who are in category 1 at time point 1, there is a probability of 1 for being in category 1 at time point 2 as well, and a probability of 0 for transitioning to category 2. For stayers who are in category 2 at time point 1, there is a probability of 0 for being in category 1 at time point 2, but a probability of 1 for being in category 2. Translating this to thresholds, a large negative threshold represents a very high probability of being into that category, whereas a large positive threshold represents a low probability. So stayers who are in category 1 at time point 1 should have a large negative threshold for category 1 at time point 2, and a large positive threshold for category 2, etc.</p>
-<p>Mplus model syntax for the mover-stayer model can be found in <code>exercise1D.inp</code>. Looking at <code>TECHNICAL 15 OUTPUT</code>, we can clearly see that we have specified a movers and a stayers class:</p>
-<pre><code>P(C2=1|CM=1,C1=1)=0.271
-P(C2=2|CM=1,C1=1)=0.729
-
-P(C2=1|CM=1,C1=2)=0.542
-P(C2=2|CM=1,C1=2)=0.458
-
-P(C2=1|CM=2,C1=1)=1.000
-P(C2=2|CM=2,C1=1)=0.000
-
-P(C2=1|CM=2,C1=2)=0.000
-P(C2=2|CM=2,C1=2)=1.000</code></pre>
-<p>Looking at the information under <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN</code>, we see that 66.8% is classified as a mover, and 33.2% as a stayer.</p>
+<p>The <code>RESULTS IN PROBABILITY SCALE</code> tells us for each class separately what the probability is of scoring a category 1 or category 2 for each item. These probabilities differ the most between the classes for items 3 and 5. This indicates that these two items are the most different across the classes, and therefore might also be the most useful for predicting which class you belong. This hunch is confirmed by results in the <code>LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS</code>. Here we see that the category you belong to for items 3 and 5 have the highest odds ratio for going to latent class 1 (compared to latent class 2). In other words, scoring higher than category 1 on item <code>U13</code> multiplies your odds of belonging to latent class 1 compared to latent class 2 by 8.067.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1e" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1e">Exercise 1E</h3>
-<p>We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each time point you would choose.</p>
-<p>Think about:</p>
-<ul>
-<li>Whether you think there should be an equal number of classes at both time points (this is mostly a theoretical decision).</li>
-<li>How to build the model. Should you start by comparing unconstrained or constrained models?</li>
-<li>How to decide what solution you prefer.</li>
-</ul>
+</section>
+<section id="exercise-2-latent-transition-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-latent-transition-analysis">Exercise 2: Latent Transition Analysis</h2>
+<p>For the LTA, we are going to extend the LCA of exercise 1 to two time points, and additionally include a structural relationship between the latent classes at time point 1 and time point 2.</p>
+<section id="exercise-2a-setting-up-the-lta" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2a-setting-up-the-lta">Exercise 2A: Setting up the LTA</h3>
+<p>Set up a model with two latent class variables for the two time points, say <code>c1</code> and <code>c2</code>. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class, in both <code>MODEL c1</code> and <code>MODEL c2</code>. To be sure Mplus does what you want, include equality constraints on the five thresholds of <code>%c1#1%</code> and <code>%c2#1%</code>, and similarly for <code>%c1#2%</code> and <code>%c2#2%</code>. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don’t test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.</p>
+<p>After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The parameters in probability scale can be found in under the heading <code>RESULTS IN PROBABILITY SCALE</code> in the output file. For example, we find that the probability of falling into category 1 of the item <code>U11</code> (i.e., answering yes) is 0.434 (<span class="math inline">\(SE = 0.024\)</span>) if you are in class 1 at the first time point, and 0.566 (<span class="math inline">\(SE = 0.024\)</span>) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see <code>Latent Class C2#1</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2b-estimated-transition-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2b-estimated-transition-probabilities">Exercise 2B: Estimated transition probabilities</h3>
+<p>Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can find proportions of participants in each class under the heading <code>FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES</code>. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. For example, there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.</p>
+<p>You can find the latent transition probabilities based on the estimated model under the heading <code>TECHNICAL 15 OUTPUT</code>. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2c-covariates" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2c-covariates">Exercise 2C: Covariates</h3>
+<p>If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You could include gender as a control variable on the observed variables, by adding it to the <code>USEVARIABLES</code>, and including the following lines:</p>
+<p><code>u11-u15 ON gender;</code> <code>u21-u25 ON gender;</code></p>
+<p>See <code>exercise1C.inp</code>. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you’re NOT using probability parametrization. So, you would have to remove this line:</p>
+<p><code>PARAMETERIZATION = PROBABILITY;</code></p>
+<p>And add this line:</p>
+<p><code>c1 c2 ON gender;</code></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

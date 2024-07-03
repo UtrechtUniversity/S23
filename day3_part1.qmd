@@ -1,37 +1,99 @@
 ---
-title: "Part 1: Latent transition analysis"
+title: "Part 1: Latent Class Analysis and Latent Transition Analysis"
 subtitle: "Day 3: Longitudinal mixture modeling"
 editor: source
 ---
 
-
-In this exercise we will explore the development of dating status over time using a latent transition analysis. Use the data in `DatingSex.dat`, which holds data on five dating indicators measured at two occasions (`u11`, ..., `u15`, `u21`, ..., `u25`), as well as the variable `gender`. The u-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).
+In this exercise we will explore the development of dating status over time using a latent transition analysis (LTA). However, we will slowly build up the model, starting with a latent class analysis (LCA) first at a single time points, before going to LTA.  Use the data in `DatingSex.dat`, which holds data on five dating indicators measured at two occasions (`u11`, ..., `u15`, `u21`, ..., `u25`), as well as the variable `gender`. The $u$-variables represent five yes/no items measured at two time points (first digit represents time point, second digit represents the item).
 
 ::: {.callout-note appearance="simple"}
 The exercises in this lab session are designed, in the first place, for use of Mplus exclusively. However, for those interested, we have the option to run the latent growth mixture models in batch, using the R-package `MplusAutomation`. This package allows you to automate part of your workflow (like making plots and tables), and provides functions for plots that are more aesthetically pleasing, as well as more insightful. The exercises using `MplusAutomation` can be found with the course materials on SURFdrive.
 :::
 
-### Exercise 1A 
+## Exercise 1: Latent Class Analysis
+Before we can perform an LTA, we first need to determine the number of classes at each time point using separate LCAs. 
+
+### Exercise 1A: Number of classes
+Decide how many latent classes you think should be used. To determine this, first set up an LCA for *the first time point* (i.e., ignoring the variables at time point 2, as well as `gender`). Run an LCA for 2, 3, 4, and 5 classes, and collect information on the AIC, BIC, the LMR LRT (`TECH11`), the bootstrapped LRT (`TECH14`), and the size of the smallest class. Fill in the table below, and then decide how many classes you want to use for the next set of analyses. To help in your decision, you can also create the LCA item profiles using the `SERIES` function of the `OUTPUT:` command. 
+
+
+| Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
+|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
+| 2                 |     |     |         |                  |                     |
+| 3                 |     |     |         |                  |                     |
+| 4                 |     |     |         |                  |                     |
+| 5                 |     |     |         |                  |                     |             
+
+: Information for selecting number of latent classes.
+
+::: {.callout-caution collapse="true"}
+### Answer
+The information for selecting the number of latent classes at the first time point has been filled in into the table below. 
+
+| Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
+|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
+| 2                 | 6681| 6735|         |                  | 321                 |
+| 3                 | 6659| 6743|         |                  | 216                 |
+| 4                 | 6668| 6781|         |                  |  160                |
+| 5                 | 6675| 6818|         |                  |  136                |
+
+: Information for selecting number of latent classes.
+
+The AIC indicates three classes, whereas the BIC is the lowest for the 2-classes LCA. In deciding between the two-classes or three-classes solution, I would let substantive arguments play the deciding role (i.e., see if the different classes can be given an substantive interpretation). For now, these exercises will continue with the two-classes solution. 
+
+:::
+
+### Exercise 1B: Model convergence
+Evaluate if the two-classes LCA model converged to a global solution. In other words, do we have reason to believe that Mplus did *not* find the best solution for the parameter estimates (i.e., is there evidence for a local solution)? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+For this, we need to check if our best loglikelihood value is replicated many times when the algorithm starts searching for solutions at different points in the parameter space. It would be problematic if we cannot replicate our best solution (i.e., the solution with the lowest loglikelihood) when we use different starting values: That would imply Mplus found local solutions, rather than 'the best' global solution. Setting the `STARTS` function in Mplus helps us check this. In the output, look for the `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES` section. Here we see that the best loglikelihood value has been replicated approximately eight times out of ten (this number can change as the starting values are random), which is what we want.
+:::
+
+### Exercise 1C: Model fit
+Continuing with the two-classes solution. Have a look at the output, specifically the model fit information and the response pattern frequencies of `TECH10`. Evaluate the model fit. Can we use the Chi-Square test of model fit for this? Are there particular patterns in the data that the 2-classes LCA cannot replicate well? 
+
+::: {.callout-caution collapse="true"}
+### Answer
+Looking at the Chi-Square Test of Model Fit, we can see that the Pearson Chi-Square and the Likelihood Ratio Chi-Square are very similar. This implies that we can actually used these tests to assess model fit. The p-value lower than 0.05 indicates the model does not fit well. Note, however, that the similarity of the Pearson Chi-Square and the Likelihood Ratio Chi-Square values is an exception rather than the rule. Especially when you have eight or more binary outcomes, it very likely that both values differ substantially, in which case you wouldn't look at either of the tests. 
+
+The Standardized Residual (z-score) of the response patterns (in `TECH10` of the output), can inform us about where the model misfit might come from. We are looking for absolute values greater than 1.96 to indicate significant differences between the observed frequencies and estimated frequencies. The most problematic response pattern is pattern 11, which is 00111, and also the most frequent pattern in the data. 94 individuals are observed to have such a pattern, but the model predicts only 67.85 individuals to have this. We can think of adjustments to the model to resolve this problem. For example, we might look at a three-classes solution after all, or we might inspect the `BIVARIATE MODEL FIT INFORMATION` to get further information about which two items are problematic for to model.
+:::
+
+### Exercise 1D: LCA model parameters
+Now look at the model output, specifically `RESULTS IN PROBABILITY SCALE` and `LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS`. Which item (or items) is (are) the most predictive for which class you actually belong to?  
+
+::: {.callout-caution collapse="true"}
+### Answer
+The `RESULTS IN PROBABILITY SCALE` tells us for each class separately what the probability is of scoring a category 1 or category 2 for each item. These probabilities differ the most between the classes for items 3 and 5. This indicates that these two items are the most different across the classes, and therefore might also be the most useful for predicting which class you belong. This hunch is confirmed by results in the `LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS`. Here we see that the category you belong to for items 3 and 5 have the highest odds ratio for going to latent class 1 (compared to latent class 2). In other words, scoring higher than category 1 on item `U13` multiplies your odds of belonging to latent class 1 compared to latent class 2 by 8.067.  
+:::
+
+
+## Exercise 2: Latent Transition Analysis
+For the LTA, we are going to extend the LCA of exercise 1 to two time points, and additionally include a structural relationship between the latent classes at time point 1 and time point 2. 
+
+### Exercise 2A: Setting up the LTA
 Set up a model with two latent class variables for the two time points, say `c1` and `c2`. Exclude the variable gender for now (i.e., explore the LTA without covariates first), and assume there are 2 latent classes. Restrict the thresholds (and hence response probabilities) across the two time points by first repeating the thresholds for each latent class, in both `MODEL c1` and `MODEL c2`. To be sure Mplus does what you want, include equality constraints on the five thresholds of `%c1#1%` and `%c2#1%`, and similarly for `%c1#2%` and `%c2#2%`. Note that these constraints can be interpreted as imposing measurement invariance over time. Although we don't test the assumption of measurement invariance in these exercises, it is definitely something you would want to check in practice.
 
 After running the analysis, inspect the proportions of yes/no answers for each of the indicators in the latent classes (look at probability scale in Mplus output). 
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-The Mplus syntax should is given in `exercise1A.inp`. The parameters in probability scale can be found in under the heading `RESULTS IN PROBABILITY SCALE` in the output file. For example, we find that the probability of falling into category 1 of the item `U11` (i.e., answering yes) is 0.434 ($SE = 0.024$) if you are in class 1 at the first time point, and 0.566 ($SE = 0.024$) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see `Latent Class C2#1`. 
+The parameters in probability scale can be found in under the heading `RESULTS IN PROBABILITY SCALE` in the output file. For example, we find that the probability of falling into category 1 of the item `U11` (i.e., answering yes) is 0.434 ($SE = 0.024$) if you are in class 1 at the first time point, and 0.566 ($SE = 0.024$) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see `Latent Class C2#1`. 
 :::
 
-### Exercise 1B
+### Exercise 2B: Estimated transition probabilities
 Examine the proportions of participants in each class, based on the estimated model. Note that for each latent variable, the total proportions add up to 1. Next, examine the latent transition probabilities based on the estimated model. What do these probabilities signify?
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-You can find proportions of participants in each class under the heading `FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES`. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. E.g., there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.
+You can find proportions of participants in each class under the heading `FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON ESTIMATED POSTERIOR PROBABILITIES`. These probabilities represent the proportion of the total sample that is assigned to each class. Note that an individual can have a non-zero probability of being assigned to both classes. For example, there might be a 70% probability that the person belongs to class 1, and a 30% probability that the person belongs to class 2. The proportions here are a sum across those probabilities for all participants. Thus, this person would contribute for 30% to the proportion of the sample in class 2.
 
 You can find the latent transition probabilities based on the estimated model under the heading `TECHNICAL 15 OUTPUT`. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).
 :::
 
-### Exercise 1C
+### Exercise 2C: Covariates
 If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.
 
 ::: {.callout-caution collapse="true"}
@@ -49,45 +111,3 @@ And add this line:
 
 `c1 c2 ON gender;`
 :::
-
-### Exercise 1D
-We are going to extend the LTA to a Mover-Stayer LTA. This model assumes that there is a subpopulation of "stayers" that stay in the same class, and a subpopulation of "movers" that is free to transition to a different class over time. In other words, a Mover-Stayer LTA includes an additional categorical latent variable with a "movers-class" and a "stayers-class". 
-
-Answer the below questions:
-
-- Continuing with the 2 classes at both time points. Then, for movers, there is no restriction on the 2 by 2 transition matrix. However, what should the transition matrix for the stayers look like *in terms of probabilities*? Furthermore, what should the transition matrix for stayers look like *in terms of thresholds*? 
-- Add a Movers-Stayers class (i.e., *an additional latent categorical factor with 2 classes, namely a movers class and a stayers class*) to the LTA specified in the previous exercise. Make sure that for the movers class the transition matrix has no restrictions, and that the stayers class has the restrictions as discussed above. 
-- Run the Movers-Stayers class and look in the output. Which proportion of people is categorized as movers/stayers?
-
-::: {.callout-caution collapse="true"}
-### Answer
-By definition, for stayers who are in category 1 at time point 1, there is a probability of 1 for being in category 1 at time point 2 as well, and a probability of 0 for transitioning to category 2. For stayers who are in category 2 at time point 1, there is a probability of 0 for being in category 1 at time point 2, but a probability of 1 for being in category 2. Translating this to thresholds, a large negative threshold represents a very high probability of being into that category, whereas a large positive threshold represents a low probability. So stayers who are in category 1 at time point 1 should have a large negative threshold for category 1 at time point 2, and a large positive threshold for category 2, etc. 
-
-Mplus model syntax for the mover-stayer model can be found in `exercise1D.inp`. Looking at `TECHNICAL 15 OUTPUT`, we can clearly see that we have specified a movers and a stayers class:
-
-```
-P(C2=1|CM=1,C1=1)=0.271
-P(C2=2|CM=1,C1=1)=0.729
-
-P(C2=1|CM=1,C1=2)=0.542
-P(C2=2|CM=1,C1=2)=0.458
-
-P(C2=1|CM=2,C1=1)=1.000
-P(C2=2|CM=2,C1=1)=0.000
-
-P(C2=1|CM=2,C1=2)=0.000
-P(C2=2|CM=2,C1=2)=1.000
-```
-
-Looking at the information under `FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN`, we see that 66.8% is classified as a mover, and 33.2% as a stayer. 
-:::
-
-### Exercise 1E
-
-We have not investigated whether 2 classes is the right number for this dataset. Investigate how many classes at each time point you would choose.
-
-Think about:
-
-* Whether you think there should be an equal number of classes at both time points (this is mostly a theoretical decision).
-* How to build the model. Should you start by comparing unconstrained or constrained models?
-* How to decide what solution you prefer.
