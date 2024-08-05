@@ -16,7 +16,6 @@ Before we can perform an LTA, we first need to determine the number of classes a
 ### Exercise 1A: Number of classes
 Decide how many latent classes you think should be used. To determine this, first set up an LCA for *the first time point* (i.e., ignoring the variables at time point 2, as well as `gender`). Run an LCA for 2, 3, 4, and 5 classes, and collect information on the AIC, BIC, the LMR LRT (`TECH11`), the bootstrapped LRT (`TECH14`), and the size of the smallest class. Fill in the table below, and then decide how many classes you want to use for the next set of analyses. To help in your decision, you can also create the LCA item profiles using the `SERIES` function of the `OUTPUT:` command. 
 
-
 | Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
 |:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
 | 2                 |     |     |         |                  |                     |
@@ -32,10 +31,10 @@ The information for selecting the number of latent classes at the first time poi
 
 | Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
 |:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
-| 2                 | 6681| 6735|         |                  | 321                 |
-| 3                 | 6659| 6743|         |                  | 216                 |
-| 4                 | 6668| 6781|         |                  |  160                |
-| 5                 | 6675| 6818|         |                  |  136                |
+| 2                 | 6681| 6735| $p < .001$ | $p < .001$   | 360                 |
+| 3                 | 6659| 6743| $p = .017$ | $p < .001$   | 213                 |
+| 4                 | 6668| 6781| $p = .146$ | $p = 1.000$  |  43                |
+| 5                 | 6675| 6818| $p = .473$ | $p = .500$   |  43                |
 
 : Information for selecting number of latent classes.
 
@@ -48,7 +47,7 @@ Evaluate if the two-classes LCA model converged to a global solution. In other w
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-For this, we need to check if our best loglikelihood value is replicated many times when the algorithm starts searching for solutions at different points in the parameter space. It would be problematic if we cannot replicate our best solution (i.e., the solution with the lowest loglikelihood) when we use different starting values: That would imply Mplus found local solutions, rather than 'the best' global solution. Setting the `STARTS` function in Mplus helps us check this. In the output, look for the `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES` section. Here we see that the best loglikelihood value has been replicated approximately eight times out of ten (this number can change as the starting values are random), which is what we want.
+For this, we need to check if our best loglikelihood value is replicated many times in a second run with increases random start perturbations. It would be problematic if we cannot replicate our best solution from the first run (i.e., the solution with the lowest loglikelihood) when we use different starting values: That would imply Mplus found local solutions, rather than 'the best' global solution. Setting the `STARTS` function in Mplus helps us check this. In the output of the first run, look for the `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES` section, and note that best loglikelihood. In the first run, we already see that the best loglikelihood value has been replicated approximately eight times out of ten (this number can change as the starting values are random). Now run a second analysis with increased number of random start perturbations. Again, look for the `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES` section, and check if the best loglikelihood from the first run has been replicated. 
 :::
 
 ### Exercise 1C: Model fit
@@ -66,7 +65,7 @@ Now look at the model output, specifically `RESULTS IN PROBABILITY SCALE` and `L
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-The `RESULTS IN PROBABILITY SCALE` tells us for each class separately what the probability is of scoring a category 1 or category 2 for each item. These probabilities differ the most between the classes for items 3 and 5. This indicates that these two items are the most different across the classes, and therefore might also be the most useful for predicting which class you belong. This hunch is confirmed by results in the `LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS`. Here we see that the category you belong to for items 3 and 5 have the highest odds ratio for going to latent class 1 (compared to latent class 2). In other words, scoring higher than category 1 on item `U13` multiplies your odds of belonging to latent class 1 compared to latent class 2 by 8.067.  
+The `RESULTS IN PROBABILITY SCALE` tells us for each class separately what the probability is of scoring a category 1 ('no') or category 2 ('yes') for each item. These probabilities differ the most between the classes for items 3 and 5. This indicates that these two items are the most different across the classes, and therefore might also be the most useful for predicting which class you belong. This hunch is confirmed by results in the `LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASS`. Here we see that the category you belong to for items 3 and 5 have the highest odds ratio for going to latent class 1 (compared to latent class 2). In other words, scoring higher than category 1 on item `U13` multiplies your odds of belonging to latent class 1 compared to latent class 2 by 8.067.  
 :::
 
 
@@ -93,21 +92,3 @@ You can find proportions of participants in each class under the heading `FINAL 
 You can find the latent transition probabilities based on the estimated model under the heading `TECHNICAL 15 OUTPUT`. These probabilities represent the probability that an individual assigned to one class at time one, will be assigned to another class at time 2. So for example, we see that people in class 1 at time 1 also tend to be in class 1 at time 2 (.76 probability).
 :::
 
-### Exercise 2C: Covariates
-If there is time, you can conduct additional analyses. Include gender as a control variable on the observed variables.
-
-::: {.callout-caution collapse="true"}
-### Answer
-You could include gender as a control variable on the observed variables, by adding it to the `USEVARIABLES`, and including the following lines:
-
-`u11-u15 ON gender;`
-`u21-u25 ON gender;`
-
-See `exercise1C.inp`. Alternatively, you could regress class membership on gender, to see whether men are more likely to be in a particular class than women, or vice versa. This is only allowed when you're NOT using probability parametrization. So, you would have to remove this line:
-
-`PARAMETERIZATION = PROBABILITY;`
-
-And add this line:
-
-`c1 c2 ON gender;`
-:::

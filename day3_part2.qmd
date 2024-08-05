@@ -11,21 +11,27 @@ The goal of this exercise is to find subpopulations with different alcohol use t
 First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option. 
 
 ### Exercise 3A: LCGA
-Set up LCGA models models for 1, 2, 3, and 4 classes for the data in `DDS8_1.dat`. Specify the model using the `|` notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request `TECH11`, and `TECH14` to help evaluate model fit. 
+Use the data in `DDS8_1.dat`, which contains the variables `ALC1YR1`, `ALC1YR2`, `ALC1YR3`, `ALCPROB5`, `AGE1`, and `GENDER1`, in that order. Set up LCGA models models for 1, 2, 3, and 4 classes. Specify the model using the `|` notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request `TECH11`, and `TECH14` to help evaluate model fit. 
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in `exercise2A_1C.inp`, `exercise2A_2C.inp`, `exercise2A_3C.inp`, `exercise2A_4C.inp`, respectively.
+Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in `S23_Day3_Exercise2A_1C.inp`, `S23_Day3_Exercise2A_2C.inp`, `S23_Day3_Exercise2A_3C.inp`, `S23_Day3_Exercise2A_4C.inp`, respectively.
 :::
 
 ### Exercise 3B: Model convergence
-These models use random starting values. Several independent random starts are made, to ensure that the model converges on the proper solution. The default is 20 random sets of starting values, of which 4 are run to completion. Inspect the output, and look carefully if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you.
-
-The `STARTS` option is used to specify the number of initial random starting values and final stage optimizations. Now, increase the number of starts to ensure proper convergence. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?
+Inspect the output, and check if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-You can inspect the convergence of the model by checking that the best final state loglikelihood value has been replicated using different starting values. See the output section `RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES`. Increasing the number of random starts can be done by specifying `STARTS = 50 10;` in the `ANALYSIS` command, where the first number specifies the initial number of random starts, and the second number specifies the number of initial starts that will be converged to the final stage. 
+The information for selecting the number of latent classes in the LCGA has been filled in into the table below. 
+
+| Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
+|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
+| 1                 | 5339.267 | 5359.988 | -     | -        | 466                 |
+| 2                 | 5110.817 | 5156.403 | $p < .001 $ | $p < .001$ | 106         |
+| 3                 | 4994.802 | 5040.388 | $p < .001 $ | $p < .001 $  | 65        |
+| 4                 | 4970.749 | 5028.767 | $p = .012$ | $p < .001$   | 39         |
+
 
 Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.
 :::
@@ -39,11 +45,20 @@ Set up the same models as analyzed in the previous exercise, but now allow the m
 ::: {.callout-caution collapse="true"}
 ### Answer
 
-Mplus model syntax for the GMM models for 1, 2, 3, and 4 classes are in `exercise4A_1C.inp`, `exercise4A_2C.inp`, `exercise4A_3C.inp`, `exercise4A_4C.inp`, respectively. The BLRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 40 10;` in the `ANALYSIS` command. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises. 
+The information for selecting the number of latent classes in the GMM has been filled in into the table below. 
+
+| Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
+|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
+| 1                 | 5175.993 | 5209.146 | -     | -        | 466                 |
+| 2                 | 5013.409 | 5067.284 | $p < .001 $ | $p < .001$ | 196         |
+| 3                 | 4942.484 | 5017.080 | $p =  .004$ | $p < .001$ |   69        |
+| 4                 | 4930.596 | 5025.912 | $p = .073$ | $p = .333$   | 61         |
+
+The Bootstrapped LRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 600 20;` in the `ANALYSIS` command, but this still doesn't get rid of the issue. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises. 
 :::
 
 ### Exercise 4B
-Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 1c, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.
+Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 4A, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.
 
 ::: {.callout-caution collapse="true"}
 ### Answer
@@ -62,42 +77,3 @@ when running the model. Then press the "plot" button and select "Estimated mean 
 
 Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a separate window as well. However, `MplusAutomation` has some useful plotting functions that I recommend you to explore, for example `plotGrowthMixtures()`, in which you can color the lines according to their class membership.
 :::
-
-### Exercise 4C
-Covariates are often added to mixture models, to (a) predict class membership, (b) explain variation in the growth parameters within the classes, or (c) as a distal outcome. Whenever covariates are however added to the model, they change the latent class solution. Sometimes, this is fine, as the covariates can help to improve the classification. In other cases, you would use a 3-step approach, which Mplus has automated:
-
-1. Fit an unconditional LCA (without covariates).
-2. A "most likely class variable" is created using the posterior distribution of step 1.
-3. This most likely class variable is then regressed on (a) covariate.
-
-There are a few options for how to do 3-step analysis. They all rely on adding to the `VARIABLE` command. For more info, see https://www.statmodel.com/download/webnotes/webnote15.pdf.
-
-### Commands for conducting a 3-step model
-
-You can add the following options to the `VARIABLE` command:
-
-1. `AUXILIARY = x(R)`  
-    This is actually a 1-step method for predicting latent class memberships using Pseudo-Class draws.
-2. `AUXILIARY = x(R3step);`  
-    A 3-step procedure, where covariates predict the latent class.
-3. `AUXILIARY = y(e)`  
-    A 1-step method, where the latent class predicts a continuous distal outcome.
-4. `AUXILIARY = y(de3step);`  
-    A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and equal variances.
-5. `AUXILIARY = y(du3step);`  
-    A 3-step procedure, where latent class predicts continuous covariates (distal outcome) with unequal means and variances.
-6. `AUXILIARY = Y(dcon);`  
-    Procedure for continuous distal outcomes as suggested by Lanza et al (2013).
-7. `AUXILIARY = Y(dcon);`  
-    Procedure for categorical distal outcomes as suggested by Lanza et al (2013).
-8. `AUXILIARY = y(BCH);`  
-    Improved and currently best 3-step procedure with continuous covariates as distal outcomes.
-
-Pick your final model from the previous exercise, and add both age and gender as auxiliary variables in the model. Try to think what 3-step model you want, and if you are not sure, run different models, so you can evaluate how the different procedures make a difference. What is the effect of both age and gender? 
-
-::: {.callout-caution collapse="true"}
-### Answer
-I'm providing an example using the 3-step procedure in `exercise4C.inp`. The results of adding these covariate to the model as predictors of the latent class can be found under the heading `TESTS OF CATEGORICAL LATENT VARIABLE MULTINOMIAL LOGISTIC REGRESSIONS USING THE 3-STEP PROCEDURE`. It can be seen, from the overall test and the pairwise comparisons, that the third group is significantly older, and has a significantly lower proportion of girls than the other two classes.
-:::
-
-

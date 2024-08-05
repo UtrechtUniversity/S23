@@ -1,5 +1,5 @@
 ---
-title: "Advanced course on using Mplus"
+title: "Advanced Course on Using Mplus"
 author: 
   - Jeroen D. Mulder
   - Beth Grandfield
@@ -13,36 +13,63 @@ This course material is part of the [Advanced course on using Mplus](https://utr
 Using the menu on the left, you can navigate to the exercises of each day.
 
 ## Help and Resources: IT-Related Issues
-Below we have listed some useful resources in case you run into IT-related issues. 
+
+[This video](https://video.uu.nl/permalink/v1268a8cfe5100ocsud7/iframe/) explains how you can start up Mplus using SolisWorkspace (SWS), and access files on your local computer. In case you run into IT-related issues, we have listed some useful resources below.
 
 ::: {.callout-note collapse="true"}
 ### SolisWorkspace
-For using Mplus via the SolisWorkspace (SWS), you need to install both SolisWorkspace (including the Citrix Receiver App), and set up two-factor authentication (2FA). You can find the manuals for installing the SolisWorkspace on Windows, MacOS and Linux at [https://manuals.uu.nl/en/a-z/?_categorie=applications&_tags=Solisworkspace](https://manuals.uu.nl/en/a-z/?_categorie=applications&_tags=Solisworkspace). Solutions to common issues with SWS are desribed at [https://manuals.uu.nl/en/manual/solisworkspace-faq/](https://manuals.uu.nl/en/manual/solisworkspace-faq/). The manual for setting up 2FA can be found at [https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/](https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/). Solutions to common issues with 2FA are described at [https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/(https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/](https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/). 
 
-After you have installed the software, you can log into SWS using the steps below: 
+If you do not have Mplus installed locally on your computer, you will be able to use Mplus for the duration of the summer school via SWS. For this, you need to install both SWS (including the Citrix Receiver app), and set up two-factor authentication (2FA):
 
-1. Go to [https://solisworkspace.uu.nl](https://solisworkspace.uu.nl).
-2. Log in using *SolisID*@soliscom.uu.nl (and replace *‘SolisID’* with the login name you received from the Summerschool).
-3. Confirm login using 2FA.  
+**SWS**
+
+-   You can find the manuals for installing SWS on Windows, MacOS and Linux at <https://manuals.uu.nl/en/a-z/?_categorie=applications&_tags=Solisworkspace>.
+-   Solutions to common issues with SWS are described at <https://manuals.uu.nl/en/manual/solisworkspace-faq/>.
+
+**2FA**
+
+-   The manual for setting up 2FA can be found at <https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/>.
+-   Solutions to common issues with 2FA are described at [https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/(https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/](https://manuals.uu.nl/en/manual/twee-factor-authenticatie-faq/).
+
+**Help**
+
+If you need help installing SWS or setting up 2FA, please contact the UU IT Service Desk. They are present on day one of the summer school. Alternatively, you can reach them via
+
+-   the IT service desk, to the right of the desk near the Educatorium,
+-   phone, by calling +31 30 253 4500,
+-   mail, at servicedesk\@uu.nl, or
+-   or WhatsApp, at +31 6 10 03 44 93.
+
+Please inform the IT service desk that this concerns an Utrecht Summer School course, and keep your SolisID ready.
+
+**Log-In**
+
+After you have installed the software, you can log into SWS using the steps below:
+
+1.  Go to <https://solisworkspace.uu.nl>.
+2.  Log in using *SolisID*\@soliscom.uu.nl (and replace *‘SolisID’* with the login name you received from the Summerschool).
+3.  Confirm login using 2FA.\
 :::
 
 ::: {.callout-note collapse="true"}
 ### WiFi
+
 There are two or three options for you to connect to WiFi:
 
--	Connect to the Utrecht University-network using your SolisID. As a user name, use *SolisID*@soliscom.uu.nl, and then fill in the passwort for the Solis account that you got.
--	If you have Eduroam-access via your own research institute, you can use this also on the Utrecht Science Park.
--	Use the Eduroam Visitor Access (EVA), the guest network of Eduroam. For this, you need a ‘day code’, which are depicted on screens in the hallway of UU-buildings. You should text this day code to the phone number also displayed on the screen. Then, you receive a login name and password. You then have WiFi for that entire day. Extra information can be found at [https://manuals.uu.nl/a-z/?_tags=eduroam](https://manuals.uu.nl/a-z/?_tags=eduroam). 
+-   Connect to the Utrecht University-network using your SolisID. As a user name, use *SolisID*\@soliscom.uu.nl, and then fill in the password for the Solis account that you got.
+-   If you have Eduroam-access via your own research institute, you can use this also on the Utrecht Science Park.
+-   Use the Eduroam Visitor Access (EVA), the guest network of Eduroam. For this, you need a ‘day code’, which are depicted on screens in the hallway of UU-buildings. You should text this day code to the phone number also displayed on the screen. Then, you receive a login name and password. You then have WiFi for that entire day. Extra information can be found at <https://manuals.uu.nl/a-z/?_tags=eduroam>.
 :::
 
 ::: {.callout-note collapse="true"}
 ### Printer
+
 When logged in on a UU-computer with a SolisID, you can print by sending the material to the printer and log in with the SolisID on the printer.
 :::
 
 ## Help and Resources: SEM Analyses
-Some resources about learning more about particular analysis in Mplus are: 
 
-- The [Mplus User Guide](https://statmodel.com/ugexcerpts.shtml).
-- The Mplus Discussion Forum. Although it has been closed for new questions for some time now, you can still access the hundreds (if not thousands) of questions and answers. You can access the forum [here](https://www.statmodel.com/cgi-bin/discus/discus.cgi), or simply google your analysis of interest and add "mplus forum" in the search prompt. 
+Some resources about learning more about particular analysis in Mplus are:
 
+-   The [Mplus User Guide](https://statmodel.com/ugexcerpts.shtml).
+-   The Mplus Discussion Forum. Although it has been closed for new questions for some time now, you can still access the hundreds (if not thousands) of questions and answers. You can access the forum [here](https://www.statmodel.com/cgi-bin/discus/discus.cgi), or simply google your analysis of interest and add "mplus forum" in the search prompt.
