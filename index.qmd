@@ -14,7 +14,7 @@ Using the menu on the left, you can navigate to the exercises of each day.
 
 ## Help and Resources: IT-Related Issues
 
-[This video](https://video.uu.nl/permalink/v1268a8cfe5100ocsud7/iframe/) explains how you can start up Mplus using SolisWorkspace (SWS), and access files on your local computer. In case you run into IT-related issues, we have listed some useful resources below.
+[This video](https://video.uu.nl/videos/mplus-tutorial-solisworkspace/) explains how you can start up Mplus using SolisWorkspace (SWS), and access files on your local computer. In case you run into IT-related issues, we have listed some useful resources below.
 
 ::: {.callout-note collapse="true"}
 ### SolisWorkspace
