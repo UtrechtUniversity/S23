@@ -244,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#exercise-4-growth-mixture-model" id="toc-exercise-4-growth-mixture-model" class="nav-link" data-scroll-target="#exercise-4-growth-mixture-model">Exercise 4: Growth Mixture Model</a>
   <ul class="collapse">
-  <li><a href="#exercise-4a" id="toc-exercise-4a" class="nav-link" data-scroll-target="#exercise-4a">Exercise 4A:</a></li>
-  <li><a href="#exercise-4b" id="toc-exercise-4b" class="nav-link" data-scroll-target="#exercise-4b">Exercise 4B</a></li>
+  <li><a href="#exercise-4a-number-of-classes" id="toc-exercise-4a-number-of-classes" class="nav-link" data-scroll-target="#exercise-4a-number-of-classes">Exercise 4A: Number of classes</a></li>
+  <li><a href="#exercise-4b-trajectories" id="toc-exercise-4b-trajectories" class="nav-link" data-scroll-target="#exercise-4b-trajectories">Exercise 4B: Trajectories</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -374,8 +374,8 @@ Answer
 <section id="exercise-4-growth-mixture-model" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-growth-mixture-model">Exercise 4: Growth Mixture Model</h2>
 <p>To allow for individual difference in the growth components within each class, we are going to extend the LCGA model to an GMM.</p>
-<section id="exercise-4a" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4a">Exercise 4A:</h3>
+<section id="exercise-4a-number-of-classes" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4a-number-of-classes">Exercise 4A: Number of classes</h3>
 <p>Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add <code>PROCESSORS = 4</code> to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (<code>TECH11</code>), and the bootstrapped LRT value (<code>TECH14</code>).</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -449,8 +449,8 @@ Answer
 </div>
 </div>
 </section>
-<section id="exercise-4b" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4b">Exercise 4B</h3>
+<section id="exercise-4b-trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4b-trajectories">Exercise 4B: Trajectories</h3>
 <p>Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 4A, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">

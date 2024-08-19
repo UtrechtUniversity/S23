@@ -32,7 +32,7 @@ The information for selecting the number of latent classes at the first time poi
 | Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
 |:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
 | 2                 | 6681| 6735| $p < .001$ | $p < .001$   | 360                 |
-| 3                 | 6659| 6743| $p = .017$ | $p < .001$   | 213                 |
+| 3                 | 6659| 6743| $p = .017$ | $p < .001$   | 216                 |
 | 4                 | 6668| 6781| $p = .146$ | $p = 1.000$  |  43                |
 | 5                 | 6675| 6818| $p = .473$ | $p = .500$   |  43                |
 
@@ -79,7 +79,7 @@ After running the analysis, inspect the proportions of yes/no answers for each o
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-The parameters in probability scale can be found in under the heading `RESULTS IN PROBABILITY SCALE` in the output file. For example, we find that the probability of falling into category 1 of the item `U11` (i.e., answering yes) is 0.434 ($SE = 0.024$) if you are in class 1 at the first time point, and 0.566 ($SE = 0.024$) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see `Latent Class C2#1`. 
+The parameters in probability scale can be found in under the heading `RESULTS IN PROBABILITY SCALE` in the output file. For example, we find that the probability of falling into category 1 of the item `U11` (i.e., answering no) is 0.434 ($SE = 0.024$) if you are in class 1 at the first time point, and 0.566 ($SE = 0.024$) for falling into category 2 (i.e., answering yes). Because of the imposed constraints, the probabilities also apply to time point 2, see `Latent Class C2#1`. 
 :::
 
 ### Exercise 2B: Estimated transition probabilities

@@ -39,7 +39,7 @@ Based on the fit indices of the fitted LCGA models, I would select a 3-class mod
 ## Exercise 4: Growth Mixture Model
 To allow for individual difference in the growth components within each class, we are going to extend the LCGA model to an GMM. 
 
-### Exercise 4A: 
+### Exercise 4A: Number of classes
 Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add `PROCESSORS = 4` to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (`TECH11`), and the bootstrapped LRT value (`TECH14`).
 
 ::: {.callout-caution collapse="true"}
@@ -57,7 +57,7 @@ The information for selecting the number of latent classes in the GMM has been f
 The Bootstrapped LRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 600 20;` in the `ANALYSIS` command, but this still doesn't get rid of the issue. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises. 
 :::
 
-### Exercise 4B
+### Exercise 4B: Trajectories
 Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 4A, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.
 
 ::: {.callout-caution collapse="true"}
