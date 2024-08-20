@@ -718,7 +718,7 @@ SOMBER     ON
  SOMBER     ON
     EVENT             -0.839       0.176      0.000      -1.188      -0.490      *</code></pre>
 <p>As before: People with a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness.</p>
-<p>In addition: People that have a relatively low mean for somber (compared to other people), tend to have a lower within-person slope b1.</p>
+<p>Furthermore, people with a high within-person slope b1 (copmared to the average within-person slope), have a low mean on somber (while keeping the score average event constant).</p>
 </div>
 </div>
 </div>
@@ -815,11 +815,12 @@ Answer
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>MODEL:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            %WITHIN%</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            s1 | Somber ON Event; ! random regression</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            s2 | Somber ON somber&amp;1; ! random autoregression </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            b1 | somber ON event; ! random regression</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            b2 | somber ON somber&amp;1; ! random autoregression </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            %BETWEEN%</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            Somber ON Event s1 s2;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            somber ON event b1 b2;</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            event b1 b2 WITH b1 b2;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The command <code>&amp;1</code> attached to a variable indicates this should be a lag 1 variable. The parameter label followed by <code>|</code> produces a random effect like before.</p>
 </div>
 </div>
@@ -952,7 +953,7 @@ Answer
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="figures/Betweenhist3.png" class="img-fluid" width="400"></p>
+<p><img src="figures/BetweenHist3.jpg" class="img-fluid" width="700"></p>
 <p>The lowest is about 0.08 (so close to zero), the largest is about 0.7, so strong and positive. Most effects are around .2 to .45.</p>
 </div>
 </div>
@@ -1336,7 +1337,7 @@ Answer
 </section>
 <section id="convergence-interpret-the-results-2" class="level3">
 <h3 class="anchored" data-anchor-id="convergence-interpret-the-results-2">Convergence &amp; Interpret the Results</h3>
-<p>If the model converged, check the parameter estimates. Which factor loadings are significant, and what do they mean?</p>
+<p>If you do not find signs of non-convergence, you can proceed with checking the parameter estimates. Which factor loadings are significant, and what do they mean?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

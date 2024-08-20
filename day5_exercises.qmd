@@ -266,7 +266,7 @@ SOMBER     ON
 
 As before: People with a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness.
 
-In addition: People that have a relatively low mean for somber (compared to other people), tend to have a lower within-person slope b1. 
+Furthermore, people with a high within-person slope b1 (copmared to the average within-person slope), have a low mean on somber (while keeping the score average event constant).
 :::
 
 * Interpreting the effect of b1 on Somber is challenging for most people. What may be helpful is to make a plot of the (bivariate) relationship between b_1i and the within-person mean on somber.  
@@ -331,11 +331,12 @@ Write out the model command for this model. Check with the input file `model3.in
 ```default
 MODEL:
             %WITHIN%
-            s1 | Somber ON Event; ! random regression
-            s2 | Somber ON somber&1; ! random autoregression 
+            b1 | somber ON event; ! random regression
+            b2 | somber ON somber&1; ! random autoregression 
             
             %BETWEEN%
-            Somber ON Event s1 s2;
+            somber ON event b1 b2;
+            event b1 b2 WITH b1 b2;
 ```
  The command `&1` attached to a variable indicates this should be a lag 1 variable. The parameter label followed by `|` produces a random effect like before.
 :::
@@ -416,7 +417,7 @@ Click "OK". This shows you the sample distribution of the autoregressive paramet
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-![](figures/Betweenhist3.png){width="400px"}
+![](figures/BetweenHist3.jpg){width="700px"}
 
 The lowest is about 0.08 (so close to zero), the largest is about 0.7, so strong and positive. Most effects are around .2 to .45.
 :::
@@ -672,7 +673,7 @@ It is a latent variable which explains the shared variance among the random effe
 :::
 
 ### Convergence & Interpret the Results
-If the model converged, check the parameter estimates. Which factor loadings are significant, and what do they mean?
+If you do not find signs of non-convergence, you can proceed with checking the parameter estimates. Which factor loadings are significant, and what do they mean?
 
 ::: {.callout-caution collapse="true"}
 #### Answer 
