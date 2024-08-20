@@ -106,7 +106,7 @@ Comparing the two models using a chi-square difference test gives: $\Delta \chi^
 
 However, when constraints are placed on the bound of the parameter space (which is the case here, fixing a variance to 0 is its absolute minimum value), we should actually use the chi-bar-square test ($\bar{\chi}^{2}$-test; Stoel et al. 2006). The traditional $\Delta \chi^{2}$-test does not take into account that variances can only be positive and is therefore conservative. This means that if it is significant, we are certain that the correct test (i.e., the $\bar{\chi}^{2}$ test) would also be significant. On the other hand, when the usual chi‐square test is not significant, we do not know anything about the result of the correct test (it can be significant or not significant).
 
-If you are working in R with the lavaan package, you can find more information about the $\bar{\chi}^{2}$-test at [jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test](https://jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test). For Mplus users, there is a [Shiny app by Rebecca Kuiper](https://www.uu.nl/staff/RMKuiper/Websites %2F Shiny apps) available as well. 
+If you are working in R with the lavaan package, you can find more information about the $\bar{\chi}^{2}$-test at [jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test](https://jeroendmulder.github.io/RI-CLPM/lavaan.html#(bar{chi}^{2})-test). For Mplus users, there is a [Shiny app by Rebecca Kuiper](https://utrecht-university.shinyapps.io/chi-bar-square_difference_test/) available as well. 
 :::
 
 ### Exercise G
