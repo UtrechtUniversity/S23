@@ -1055,7 +1055,9 @@ Some issues regarding *indirect effects* to keep in mind:
 -   A better approach to determine whether the indirect effect differs from zero or not, is through using bootstrapping and checking the 95% confidence interval for the indirect effect; this can be easily done in Mplus, but requires you to have the raw data (here we only have the summary data, which makes it impossible); in that case you may add to your code:
 
 ```default
-ANALYSIS: BOOTSTRAP IS 1000;
+ANALYSIS: 
+  BOOTSTRAP = 1000; ! Gives bootstrapped point estimates, standard errors and p-values
 
-OUTPUT:   CINTERVAL;
+OUTPUT:   
+  CINTERVAL(BOOTSTRAP); ! Gives confidence intervals based on bootstrap (i.e., it can be asymmetric)
 ```
