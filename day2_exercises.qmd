@@ -183,7 +183,7 @@ Use sex as a predictor of the intercept and slope and interpret the result (with
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-The Mplus model syntax for the LGCM with time scores (0 \* \* \* \* 1) and gender predicting the growth components can be found in `exercise3D.inp`. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level ($b = .079$, $SE = .037$), and a greater development over time ($b = .136$, $SE = .054$). Who run the world?
+The Mplus model syntax for the LGCM with time scores (0 \* \* \* \* 1) and gender predicting the growth components can be found in `exercise3D.inp`. Sex is a significant predictor of the intercept and a significant predictor of development, with girls having a higher initial level ($b = .079$, $SE = .037$), and a greater development over time ($b = .032$, $SE = .054$). Who run the world?
 :::
 
 ## Latent growth curve model on GPA data
