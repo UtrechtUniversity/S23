@@ -8,67 +8,76 @@ bibliography: references.bib
 The goal of this exercise is to find subpopulations with different alcohol use trajectories. To this end, we start with an exploratory latent class growth analysis, and work towards a growth mixture model.
 
 ## Exercise 3: Latent Class Growth Analysis
-First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option. 
+
+First, we perform an exploratory latent class growth analysis (LCGA) as initial exploratory option.
 
 ### Exercise 3A: LCGA
-Use the data in `DDS8_1.dat`, which contains the variables `ALC1YR1`, `ALC1YR2`, `ALC1YR3`, `ALCPROB5`, `AGE1`, and `GENDER1`, in that order. Set up LCGA models models for 1, 2, 3, and 4 classes. Specify the model using the `|` notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request `TECH11`, and `TECH14` to help evaluate model fit. 
+
+Use the data in `DDS8_1.dat`, which contains the variables `ALC1YR1`, `ALC1YR2`, `ALC1YR3`, `ALCPROB5`, `AGE1`, and `GENDER1`, in that order. Set up LCGA models models for 1, 2, 3, and 4 classes. Specify the model using the `|` notation, and constrain the variances of the intercept and slope factors to be equal to 0. Furthermore, request `TECH11`, and `TECH14` to help evaluate model fit.
 
 ::: {.callout-caution collapse="true"}
 ### Answer
+
 Mplus model syntax for the LCGA models for 1, 2, 3, and 4 classes are in `S23_Day3_Exercise2A_1C.inp`, `S23_Day3_Exercise2A_2C.inp`, `S23_Day3_Exercise2A_3C.inp`, `S23_Day3_Exercise2A_4C.inp`, respectively.
 :::
 
 ### Exercise 3B: Model convergence
+
 Inspect the output, and check if the model estimation has converged, especially for the larger number of classes. Look for warning and error messages, make sure you understand what they are telling you. Once you are confident that the model has converged to the proper solution, compare the different models using the available fit information (e.g., BIC, LMR-LRT, BLRT, entropy, min. N in classes, etc.). Which model do you prefer, and why?
 
 ::: {.callout-caution collapse="true"}
 ### Answer
-The information for selecting the number of latent classes in the LCGA has been filled in into the table below. 
+
+The information for selecting the number of latent classes in the LCGA has been filled in into the table below.
 
 | Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
-|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
-| 1                 | 5339.267 | 5359.988 | -     | -        | 466                 |
-| 2                 | 5110.817 | 5156.403 | $p < .001$ | $p < .001$ | 106         |
-| 3                 | 4994.802 | 5040.388 | $p < .001$ | $p < .001$  | 65        |
-| 4                 | 4970.749 | 5028.767 | $p = .012$ | $p < .001$   | 39         |
-
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| 1 | 5339.267 | 5359.988 | \- | \- | 466 |
+| 2 | 5110.817 | 5156.403 | $p < .001$ | $p < .001$ | 106 |
+| 3 | 4994.802 | 5040.388 | $p < .001$ | $p < .001$ | 65 |
+| 4 | 4970.749 | 5028.767 | $p = .012$ | $p < .001$ | 39 |
 
 Based on the fit indices of the fitted LCGA models, I would select a 3-class model. The fit indices and (LMR-LRT tests essentially indicate that you can keep adding classes and improve the model, which makes it difficult to decide. However, if we look at the counts in each class, we see that from 4 classes onward, the smallest class has less than 10% of cases assigned to it. The minimum posterior classification probability and entropy are best for the 3-class model, which means that this model can reasonably accurately assign individuals to classes.
 :::
 
 ## Exercise 4: Growth Mixture Model
-To allow for individual difference in the growth components within each class, we are going to extend the LCGA model to an GMM. 
+
+To allow for individual difference in the growth components within each class, we are going to extend the LCGA model to an GMM.
 
 ### Exercise 4A: Number of classes
+
 Set up the same models as analyzed in the previous exercise, but now allow the means and variances of the intercept and slope factors to be freely estimated in each class (i.e., a growth mixture model). You do this by mentioning the intercept and slope explicitly in the class-specific part of the syntax. This is a more complex model, and we might therefore expect that we will need fewer classes for a good description of the data. This analysis will also take more computing time, so add `PROCESSORS = 4` to the analysis section. Make a table of the fit indices, look at BIC, the LMR-LRT (`TECH11`), and the bootstrapped LRT value (`TECH14`).
 
 ::: {.callout-caution collapse="true"}
 ### Answer
 
-The information for selecting the number of latent classes in the GMM has been filled in into the table below. 
+The information for selecting the number of latent classes in the GMM has been filled in into the table below.
 
 | Number of classes | AIC | BIC | LMR LRT | Bootstrapped LRT | Size smallest class |
-|:-----------------:|:---:|:---:|:-------:|:----------------:|:-------------------:|
-| 1                 | 5175.993 | 5209.146 | -     | -        | 466                 |
-| 2                 | 5013.409 | 5067.284 | $p < .001$ | $p < .001$ | 196         |
-| 3                 | 4942.484 | 5017.080 | $p =  .004$ | $p < .001$ |   69        |
-| 4                 | 4930.596 | 5025.912 | $p = .073$ | $p = .333$   | 61         |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| 1 | 5175.993 | 5209.146 | \- | \- | 466 |
+| 2 | 5013.409 | 5067.284 | $p < .001$ | $p < .001$ | 196 |
+| 3 | 4942.484 | 5017.080 | $p =  .004$ | $p < .001$ | 69 |
+| 4 | 4930.596 | 5025.912 | $p = .073$ | $p = .333$ | 61 |
 
-The Bootstrapped LRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 600 20;` in the `ANALYSIS` command, but this still doesn't get rid of the issue. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises. 
+The Bootstrapped LRT for the GMM with 3 classes warns that `OF THE 10 BOOTSTRAP DRAWS, 7 DRAWS HAD BOTH A SMALLER LRT VALUE THAN THE OBSERVED LRT VALUE AND NOT A REPLICATED BEST LOGLIKELIHOOD VALUE FOR THE 3-CLASS MODEL.` You can increase the number of random starts for the BLRT using `LRTSTARTS = 0 0 600 20;` in the `ANALYSIS` command, but this still doesn't get rid of the issue. Also note the convergence problems for the GMM with 4 classes. This indicates that a model with 4 classes is likely to be too complex for the data. Furthermore, since the GMM with only a single class is equivalent to a "simple" LGCM, we focus on the GMM with 2 and 3 classes in the next exercises.
 :::
 
 ### Exercise 4B: Trajectories
+
 Plotting the model-predicted trajectories makes it easier to interpret the model. Moreover, visualizing the raw data provides yet another way to evaluate the fit of your mixture model to the data. With this in mind, plot the GMM models with 2 and 3 classes you created in exercise 4A, and interpret what you see. First, plot only the predicted trajectories. Then, plot raw data as well. Explain the benefit of plotting the raw data in your own words.
 
 ::: {.callout-caution collapse="true"}
 ### Answer
+
 Plotting the raw data helps us understand how representative the average trajectory for each class captures the individual trajectories of individuals in that class. It helps us see how separable the classes are visually, instead of just relying on statistics like entropy. To get plots, make sure you include:
 
-```
+```         
 PLOT:
     TYPE = PLOT3;
     SERIES = ALC1YR1(1) ALC1YR2(2) ALC1YR3(3);
 ```
+
 when running the model. Then press the "plot" button and select "Estimated mean and observed individual values" and "Estimated means and estimated individual values". Below you can find these plots for the GMM with 2 classes.
 
 ![Estimated means and individual values.](./figures/exercise1D-estimatedMeansIndividualValues.jpg){width="400px"}

@@ -6,17 +6,18 @@ bibliography: references.bib
 ---
 
 ## Random Intercept Model with Implicit Lagged Effects (not DSEM)
-In Model 1 we first decompose each variable at each time point (occasion) in two parts: 
 
-* a person-specific mean, which has the same value at each occasion but differs from person to person
-* a deviation from that mean for each person and occasion.
+In Model 1 we first decompose each variable at each time point (occasion) in two parts:
+
+-   a person-specific mean, which has the same value at each occasion but differs from person to person
+-   a deviation from that mean for each person and occasion.
 
 Hence, we decompose the variables into two latent variables: One with person-specific means, at the <i>between level</i>. One with deviations from these means unique to each occasion and person, at the <i>within level</i>. These deviations can be seen as simply the within-person centered scores for a person at each occasion.
 
 Next, we add two regression relationships:
 
-* Between level: the person means of Somber are regressed on the person means of Event 
-* Within level: the person-mean centered variable Somber is regressed on the person-mean centered variable Event.
+-   Between level: the person means of Somber are regressed on the person means of Event
+-   Within level: the person-mean centered variable Somber is regressed on the person-mean centered variable Event.
 
 Note that this is not a dynamic SEM model yet in terms of the Mplus specification, because there are <i>no explicit lagged relationships</i> in the model. But note that there is an <i>implicit lagged relationship</i>: Although the two variables are measured at the same occasion (as indicated by the subscript t), the variable Event refers to the interval between t-1 and t, while the variable Somber is referring to the specific time point t. Hence, the reported on events take place <i>before</i> the somber feelings.
 
@@ -28,26 +29,28 @@ This model can be represented as depicted below, with on the left this decomposi
 
 To run this model, use the input file `model1.inp`. In the ANALYSIS command you will find a number of commands that set up the Bayesian multilevel estimation procedure:
 
-```default
+``` default
 ANALYSIS:   TYPE = TWOLEVEL;
             ESTIMATOR = BAYES; 
             PROC = 2;
             BITER= (2000);
             BSEED = 9556;
 ```
+
 Make sure the following commands for OUTPUT and PLOT are included:
 
-```default
+``` default
 OUTPUT:     TECH1 STDYX;
 PLOT:       TYPE = PLOT3;
             FACTORS = ALL;
-```        
+```
 
 Check out the model specification (i.e., the MODEL command). What do the commands on the within person level and on the between person level do?
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
-Via ‘Somber ON Event’ at the within level, for each person in the model their somber within-person centered scores are regressed on their within-person centered event scores on the same measurement occasion. The regression coefficients and other model parameters – except for the means of somber and event -  are the same for all persons.
+#### Answer
+
+Via ‘Somber ON Event’ at the within level, for each person in the model their somber within-person centered scores are regressed on their within-person centered event scores on the same measurement occasion. The regression coefficients and other model parameters – except for the means of somber and event - are the same for all persons.
 
 Via ‘Event’ we tell Mplus to make Event endogenous like Somber, such that means and variances are estimated for this variable as well - and Event is decomposed in a between person level and within-person level as well. That is, for both Somber and Event we now estimate the mean score over time for each individual inside the model. On the within level the deviations from these means (within-person centered scores) at each time point are modeled. At the between level the relationships among these means, that vary from individual to individual, are modeled.
 
@@ -56,40 +59,40 @@ Via ‘Somber ON Event’ at the between level, it is specified that the person-
 
 ### Model Equations & Parameters
 
-While the model is running, write down the model in equations. 
+While the model is running, write down the model in equations.
 
-* Start with the decomposition, i.e., $E_{it}=$ ...
+-   Start with the decomposition, i.e., $E_{it}=$ ...
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-  $$S_{it} = \mu_{S i} + S_{it}^{(w)}$$
-  $$E_{it} = \mu_{E i} + E_{it}^{(w)}$$
+
+$$S_{it} = \mu_{S i} + S_{it}^{(w)}$$ $$E_{it} = \mu_{E i} + E_{it}^{(w)}$$
 :::
 
-* Write down the within-level model. Which parameters are estimated at this level?
+-   Write down the within-level model. Which parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
-  $$S_{it}^{(w)} = b \times E_{it}^{(w)} + \zeta_{S it}$$
-Parameters estimated at this level:
+#### Answer
 
-*	Fixed within-person slope b (same for each person)
-*	Residual within-person variance for S, the variance of $\zeta_Sit$
-*	Within-person variance of the (made endogenous) predictor $E^{(w)}_{it}$
+$$S_{it}^{(w)} = b \times E_{it}^{(w)} + \zeta_{S it}$$ Parameters estimated at this level:
+
+-   Fixed within-person slope b (same for each person)
+-   Residual within-person variance for S, the variance of $\zeta_Sit$
+-   Within-person variance of the (made endogenous) predictor $E^{(w)}_{it}$
 :::
 
-* Write down the between level model. Which parameters are estimated at this level?
+-   Write down the between level model. Which parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
-#### Answer  
-  $$\mu_{S i} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \zeta_{Si} $$
-Parameters estimated at this level:
+#### Answer
 
-*	Grand intercept $\gamma_{00}$
-*	Between-person slope $\gamma_{01}$
-*	Between-person residual variance of $\zeta_{Si}$
-*	Mean of the between-person predictor $\mu_{Ei}$
-*	Variance of the between-person predictor $\mu_{Ei}$
+$$\mu_{S i} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \zeta_{Si} $$ Parameters estimated at this level:
+
+-   Grand intercept $\gamma_{00}$
+-   Between-person slope $\gamma_{01}$
+-   Between-person residual variance of $\zeta_{Si}$
+-   Mean of the between-person predictor $\mu_{Ei}$
+-   Variance of the between-person predictor $\mu_{Ei}$
 :::
 
 ### Convergence
@@ -98,34 +101,37 @@ When the model is finished running, we first need to check the trace plots of th
 
 ![](figures/trace.png){width="400px"}
 
-By clicking “OK” in the next window, the trace plot of parameter 1 appears. You can use the icons with the histograms and the left and right headed arrows to move backward and forward through the parameters (their names are in the headings of the plots). 
+By clicking “OK” in the next window, the trace plot of parameter 1 appears. You can use the icons with the histograms and the left and right headed arrows to move backward and forward through the parameters (their names are in the headings of the plots).
 
 ![](figures/Traceplot1e.png){width="400px"}
 
-Write down how these parameters relate to the ones you identified above (in questions c. and d.), 
+Write down how these parameters relate to the ones you identified above (in questions c. and d.),
 
-Are there any problems with convergence based on these plots? Can you tell what parameter from question b each plot is about? 
+Are there any problems with convergence based on these plots? Can you tell what parameter from question b each plot is about?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-* Parameter 1, %WITHIN%: SOMBER ON EVENT &rarr; within-person regression coefficient b
-* Parameter 2, %WITHIN%: SOMBER &rarr; within-person residual variance for somber
-* Parameter 3, %WITHIN%: EVENT &rarr; within-person variance on Event
-* Parameter 4, %BETWEEN%: [SOMBER] &rarr; between-person intercept on Somber ($\gamma_{00}$)
-* Parameter 5, %BETWEEN%: [EVENT] &rarr; between-person mean on Event
-* Parameter 6, %BETWEEN%: SOMBER ON EVENT &rarr; between-person regression coefficient ($\gamma_{01}$)
-* Parameter 7, %BETWEEN%: SOMBER &rarr; between-person residual variance of somber
-* Parameter 8, %BETWEEN%: EVENT &rarr; between-person variance on Event 
+
+-   Parameter 1, %WITHIN%: SOMBER ON EVENT → within-person regression coefficient b
+-   Parameter 2, %WITHIN%: SOMBER → within-person residual variance for somber
+-   Parameter 3, %WITHIN%: EVENT → within-person variance on Event
+-   Parameter 4, %BETWEEN%: \[SOMBER\] → between-person intercept on Somber ($\gamma_{00}$)
+-   Parameter 5, %BETWEEN%: \[EVENT\] → between-person mean on Event
+-   Parameter 6, %BETWEEN%: SOMBER ON EVENT → between-person regression coefficient ($\gamma_{01}$)
+-   Parameter 7, %BETWEEN%: SOMBER → between-person residual variance of somber
+-   Parameter 8, %BETWEEN%: EVENT → between-person variance on Event
 
 Convergence looks fine for the parameters.
 :::
 
 ### Interpret the Results
-Go to the output, and consider the parameter estimates. Interpret the findings for the within-person and the between-person slopes (e.g., do they differ from zero, are they positive or negative, what about their size?). 
+
+Go to the output, and consider the parameter estimates. Interpret the findings for the within-person and the between-person slopes (e.g., do they differ from zero, are they positive or negative, what about their size?).
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Within Level
 
  SOMBER     ON
@@ -140,19 +146,20 @@ Between Level
 
 Both slopes are negative, implying that:
 
-* Within person:	People's increased (relative to their mean level) Event scoretends to be followed by a decreased (relative to their mean level) temporary somberness score. A 1 unit higher event score tends to be followed by a decrease of .20 units in their somber score.
-* Between person: People a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness. A 1 unit higher mean would imply about a .95 units lower mean for Somber.
+-   Within person: People's increased (relative to their mean level) Event scoretends to be followed by a decreased (relative to their mean level) temporary somberness score. A 1 unit higher event score tends to be followed by a decrease of .20 units in their somber score.
+-   Between person: People a relatively high (compared to other people) mean for event, tend to have a relatively low (compared to other people) mean for somberness. A 1 unit higher mean would imply about a .95 units lower mean for Somber.
 
 The between-person slope is more than 4 times steeper: Note however that the between-person variance in Event is about 10 times smaller than the within-person variance in Event (0.278 vs. 2.844). Hence, in the next step we look at the standardized results.
 :::
 
 ### Standardized Results
 
-Check the standardized results to compare the size of the slopes within and between. 
+Check the standardized results to compare the size of the slopes within and between.
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
-```
+#### Answer
+
+```         
 SOMBER     ON
     EVENT             -0.259       0.012      0.000      -0.284      -0.236      *
 
@@ -160,12 +167,12 @@ SOMBER     ON
     EVENT             -0.529       0.074      0.000      -0.656      -0.374      *
 ```
 
-The standardized between slope is more than twice as steep than the within slope. 
+The standardized between slope is more than twice as steep than the within slope.
 
 In terms of $R^{2}$:
 
-* 6.7% of the momentary within-person variability in Somber is explained by within-person variability in Events. 
-* 28.0% of the stable between-person variability in Somber is predicted by between-person differences in average Event. 
+-   6.7% of the momentary within-person variability in Somber is explained by within-person variability in Events.
+-   28.0% of the stable between-person variability in Somber is predicted by between-person differences in average Event.
 :::
 
 ## Random Intercept and Slopes Model with Implicit Lagged Effects (not DSEM)
@@ -182,48 +189,49 @@ Write down the model command for this model. When your are done, check whether y
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 MODEL:  %WITHIN%
               b1 | Somber ON Event;
               Event;  
               %BETWEEN%
               Somber ON Event b1;
-	            b1 WITH Event;
+                b1 WITH Event;
 ```
 :::
 
 ### Model Equations
-While the model is running, write down the model equations. The decomposition into within and between will be the same as for Model 1. 
 
-* Write down the within level model. What parameters are estimated at this level?
+While the model is running, write down the model equations. The decomposition into within and between will be the same as for Model 1.
+
+-   Write down the within level model. What parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-$$S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + \zeta_{S it}$$
-The difference is that now the regression coefficient has a subject index `i`, because it now differs from person to person. The mean and variance of b1i are estimated at the between person level.
 
-Parameters estimated at this level:
--	Residual within-person variance of $\zeta_{Sit}$
--	Within-person variance of the predictor $E^{(w)}_{it}$
+$$S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + \zeta_{S it}$$ The difference is that now the regression coefficient has a subject index `i`, because it now differs from person to person. The mean and variance of b1i are estimated at the between person level.
+
+Parameters estimated at this level: - Residual within-person variance of $\zeta_{Sit}$ - Within-person variance of the predictor $E^{(w)}_{it}$
 :::
 
-* Write down the between level model. Which parameters are estimated at this level?
+-   Write down the between level model. Which parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 $$\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1i} + \zeta_{Si}$$
 
 Parameters estimated at this level:
- 
--	Grand intercept $\gamma_{00}$
--	Between-person slope $\gamma_{01}$
--	Between-person slope $\gamma_{02}$
--	Between-person residual variance of $\zeta_{Si}$
--	Mean of the between-person predictor $\mu_{Ei}$
--	Variance of the between-person predictor $\mu_{Ei}$
--	Mean of the between-person predictor $b_{1i}$ (i.e., within-person slope)
--	Variance of the between-person predictor $b_{1i}$ 
--	Covariance of $b_{1i}$ and $\mu_{Ei}$ (with statement in mplus code)
+
+-   Grand intercept $\gamma_{00}$
+-   Between-person slope $\gamma_{01}$
+-   Between-person slope $\gamma_{02}$
+-   Between-person residual variance of $\zeta_{Si}$
+-   Mean of the between-person predictor $\mu_{Ei}$
+-   Variance of the between-person predictor $\mu_{Ei}$
+-   Mean of the between-person predictor $b_{1i}$ (i.e., within-person slope)
+-   Variance of the between-person predictor $b_{1i}$
+-   Covariance of $b_{1i}$ and $\mu_{Ei}$ (with statement in mplus code)
 :::
 
 ### Convergence
@@ -232,15 +240,18 @@ Check the trace plots of the posteriors for the parameters of the model. Can you
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-All looks good. 
+
+All looks good.
 :::
 
 ### Interpret the Results
-* Which parameter is the one we should focus on when interested in the average of the person-specific within-person slopes b1? 
+
+-   Which parameter is the one we should focus on when interested in the average of the person-specific within-person slopes b1?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Between Level
 
 Means
@@ -250,11 +261,12 @@ Means
 It is the mean B1 reported at the between level.
 :::
 
-* There are two ON statements at the between level now. Report the results for these regressions, and indicate how to interpret these results.
+-   There are two ON statements at the between level now. Report the results for these regressions, and indicate how to interpret these results.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```
+
+```         
 Between Level
 
 SOMBER     ON
@@ -269,11 +281,12 @@ As before: People with a relatively high (compared to other people) mean for eve
 Furthermore, people with a high within-person slope b1 (copmared to the average within-person slope), have a low mean on somber (while keeping the score average event constant).
 :::
 
-* Interpreting the effect of b1 on Somber is challenging for most people. What may be helpful is to make a plot of the (bivariate) relationship between b_1i and the within-person mean on somber.  
-  
+-   Interpreting the effect of b1 on Somber is challenging for most people. What may be helpful is to make a plot of the (bivariate) relationship between b_1i and the within-person mean on somber.
+
 ::: {.callout-caution collapse="true"}
 #### Answer
-Go to the plotting options and choose “Between-level scatterplots…” 
+
+Go to the plotting options and choose “Between-level scatterplots…”
 
 ![](figures/Betweenscp.png){width="400px"}
 
@@ -281,54 +294,57 @@ Click View. Then select “B1, mean” (the posterior means of each person’s B
 
 ![](figures/Betweenscp2.png){width="400px"}
 
-Click OK. This produces the scatter plot. 
+Click OK. This produces the scatter plot.
 :::
 
-* Interpret the relationship you see in the scatterplot.
+-   Interpret the relationship you see in the scatterplot.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 ![](figures/Betweenscp3.png){width="400px"}
 
-The correlation is negative (about -0.503), indicating that a higher b1 (within-person slope) tends to go together with a lower person-mean on somber. 
+The correlation is negative (about -0.503), indicating that a higher b1 (within-person slope) tends to go together with a lower person-mean on somber.
 
-Note that the individual differences in b1 run from -0.5 to about 0. Hence, the closer b_1i is to zero, the lower the person’s average score on somber. 
+Note that the individual differences in b1 run from -0.5 to about 0. Hence, the closer b_1i is to zero, the lower the person’s average score on somber.
 
-Put differently, people who tend to be less reactive to momentary changes in Events (b_1i closer to zero), are also characterized by a lower trait score on somber.  
+Put differently, people who tend to be less reactive to momentary changes in Events (b_1i closer to zero), are also characterized by a lower trait score on somber.
 
 Note that this plot is just presenting the bivariate relationship between the two random effects; in contrast, the regression coefficient in the output also is based on a regression model with multiple predictors (in this case, also the person mean on Event). Hence the scatter plot may be helpful, but is not a direct reflection of the regression coefficient (this is the same as in normal multiple linear regression analysis).
 :::
-  
-* Let us look at the person-specific slopes (the random effect b1) that were estimated. 
+
+-   Let us look at the person-specific slopes (the random effect b1) that were estimated.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 To this end, go to the plot menu again and choose the option “Two-level cluster-specific observed and estimated values plots”. Click “View”, and click “OK” in the next window: Now you have a scatter plot of the data of a single individual, with the variable Event on the x-axis and Somber on the between-axis. The slope of the red line is the individual’s b1 (the individual specific regression coefficient for regressing Somber on Event).
 
 To fix the axes (which makes it easier to compare the results across individuals, go to the plot menu at the top, choose “Axis properties” and then “Edit settings”:
 
 ![](figures/psp1.png){width="400px"}
 
-In the next window, choose the “Axes Range” tab, click the “Fixed scale” option (at the top), and set the scale range for X from -4 to 4 (because Event was measured on a scale running from -3 to 3), and set the scale of Y from 0 to 8 (because it was measured on a scale from 0 to 7). Then click “OK”. 
+In the next window, choose the “Axes Range” tab, click the “Fixed scale” option (at the top), and set the scale range for X from -4 to 4 (because Event was measured on a scale running from -3 to 3), and set the scale of Y from 0 to 8 (because it was measured on a scale from 0 to 7). Then click “OK”.
 
 ![](figures/psp2.png){width="400px"}
 
-Now, you can go through the plots of different individuals by clicking the person buttons on the top (with the left arrow to go back, and the right arrow to go forward). Because you fixed the axes, you can easily compare the slopes for different people. This illustrates that every person has his/her own slope. 
+Now, you can go through the plots of different individuals by clicking the person buttons on the top (with the left arrow to go back, and the right arrow to go forward). Because you fixed the axes, you can easily compare the slopes for different people. This illustrates that every person has his/her own slope.
 :::
 
-
 ## Dynamic SEM: Including random autoregressive effects.
-Next, we include a dynamic relationship in our model. First, create a lagged version of Somber, by using the `LAGGED = ` in the `VARIABLE` command). In the next step, we'll include the lagged variable as a predictor at the within level, allowing for a random slope - this produces a random autoregressive effect (each individual will get their own autoregressive effect). This model can be represented as:
+
+Next, we include a dynamic relationship in our model. First, create a lagged version of Somber, by using the `LAGGED =` in the `VARIABLE` command). In the next step, we'll include the lagged variable as a predictor at the within level, allowing for a random slope - this produces a random autoregressive effect (each individual will get their own autoregressive effect). This model can be represented as:
 
 ![](figures/Model3.png){width="400px"}
 
-### Specify the Mplus Model 
+### Specify the Mplus Model
 
 Write out the model command for this model. Check with the input file `model3.inp` if you specified it correctly.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 MODEL:
             %WITHIN%
             b1 | somber ON event; ! random regression
@@ -338,54 +354,58 @@ MODEL:
             somber ON event b1 b2;
             event b1 b2 WITH b1 b2;
 ```
- The command `&1` attached to a variable indicates this should be a lag 1 variable. The parameter label followed by `|` produces a random effect like before.
+
+The command `&1` attached to a variable indicates this should be a lag 1 variable. The parameter label followed by `|` produces a random effect like before.
 :::
 
 ### Model Equations
 
 While the model is running, write down the model equations.
 
-* Write down the within level model. What parameters are estimated at this level?
+-   Write down the within level model. What parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 $$S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}$$
 
 Parameters estimated at this level:
 
--	Residual within-person variance of $\zeta_{Sit}$
--	Within-person variance of the predictor $E^{(w)}_{it}$
+-   Residual within-person variance of $\zeta_{Sit}$
+-   Within-person variance of the predictor $E^{(w)}_{it}$
 :::
 
-* Write down the between level model. Which parameters are estimated at this level?
+-   Write down the between level model. Which parameters are estimated at this level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 $$\mu_{Si} = \gamma_{00} + \gamma_{01} \times \mu_{Ei} + \gamma_{02} \times b_{1i} + \gamma_{03} \times b_{2i} + \zeta_{Si}$$
 
 Parameters estimated at this level:
- 
--	Grand intercept $\gamma_{00}$
--	Between-person slope $\gamma_{01}$
--	Between-person slope $\gamma_{02}$
--	Between-person slope $\gamma_{03}$
--	Between-person residual variance of $\zeta_{Si}$
--	Mean of the between-person predictor $\mu_{Ei}$
--	Variance of the between-person predictor $\mu_{Ei}$
--	Mean of the between-person predictor $b_{1i}$ (i.e., within-person slope)
--	Variance of the between-person predictor $b_{1i}$ 
--	Mean of the between-person predictor $b_{2}$ (i.e., autoregressive slope)
--	Variance of the between-person predictor $b_{2i}$ 
--	Covariances between $b_{1i}$, $b_{2i}$, and $\mu_{Ei}$
+
+-   Grand intercept $\gamma_{00}$
+-   Between-person slope $\gamma_{01}$
+-   Between-person slope $\gamma_{02}$
+-   Between-person slope $\gamma_{03}$
+-   Between-person residual variance of $\zeta_{Si}$
+-   Mean of the between-person predictor $\mu_{Ei}$
+-   Variance of the between-person predictor $\mu_{Ei}$
+-   Mean of the between-person predictor $b_{1i}$ (i.e., within-person slope)
+-   Variance of the between-person predictor $b_{1i}$
+-   Mean of the between-person predictor $b_{2}$ (i.e., autoregressive slope)
+-   Variance of the between-person predictor $b_{2i}$
+-   Covariances between $b_{1i}$, $b_{2i}$, and $\mu_{Ei}$
 :::
 
 ### Convergence & Interpret the Results
 
-* Again, check the trace plots. If they look okay, consider the parameter estimates. What can you say about the autoregressive effects?
+-   Again, check the trace plots. If they look okay, consider the parameter estimates. What can you say about the autoregressive effects?
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
-```default
+#### Answer
+
+``` default
 Means
     B2                 0.340       0.022      0.000       0.300       0.383      *
 
@@ -398,35 +418,38 @@ The average autoregressive effect is 0.34, with SD=0.18 (=`sqrt(0.031)`). On ave
 Hence, on average across persons, about 12% (`0.34^2`=.12) of the within-person variability in somberness is predicted by the autoregressive effect. The exact numbers will however differ from person to person.
 :::
 
-* To obtain some idea of the individual differences in the autoregressive parameter, we will consider diverse plots. One plot that might be of interest is the histogram of the individual parameter values. 
-  
+-   To obtain some idea of the individual differences in the autoregressive parameter, we will consider diverse plots. One plot that might be of interest is the histogram of the individual parameter values.
+
 ::: {.callout-caution collapse="true"}
 #### Answer
-Again, go to the plotting options, and now select the option: Between-level histogram (etc.) 
-  
+
+Again, go to the plotting options, and now select the option: Between-level histogram (etc.)
+
 ![](figures/Betweenhist1.png){width="400px"}
-  
+
 Click View. In the next window, select the random autoregressive parameter (B2):
 
 ![](figures/Betweenhist2.png){width="400px"}
-  
-Click "OK". This shows you the sample distribution of the autoregressive parameter. Note that the individual scores are based on the mean of an individual's posterior distribution for this parameter. 
+
+Click "OK". This shows you the sample distribution of the autoregressive parameter. Note that the individual scores are based on the mean of an individual's posterior distribution for this parameter.
 :::
 
-* What is the highest and the lowest person-specific autoregressive effect?  
+-   What is the highest and the lowest person-specific autoregressive effect?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 ![](figures/BetweenHist3.jpg){width="700px"}
 
 The lowest is about 0.08 (so close to zero), the largest is about 0.7, so strong and positive. Most effects are around .2 to .45.
 :::
-  
-* Consider the level 2 effects where the within-person means of Somber are predicted by the within-person mean on Event, the random slope b1, and by the random slope b2. How would you interpret these results?  
+
+-   Consider the level 2 effects where the within-person means of Somber are predicted by the within-person mean on Event, the random slope b1, and by the random slope b2. How would you interpret these results?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Between Level
  SOMBER     ON
     B1                -2.342       1.403      0.037      -5.405       0.153
@@ -435,24 +458,27 @@ Between Level
     EVENT             -0.831       0.183      0.000      -1.194      -0.476      *
 ```
 
-Hence, only the person mean on Event is a significant predictor. The effect is negative, so people with relatively high person-specific means for 'pleasant Event' (report higher pleasant Event scores on average compared to others), tend to have relatively low person-specific means for Somber. 
+Hence, only the person mean on Event is a significant predictor. The effect is negative, so people with relatively high person-specific means for 'pleasant Event' (report higher pleasant Event scores on average compared to others), tend to have relatively low person-specific means for Somber.
 
-While the effect of b1 was significant in a previous model, it no longer is in this model. 
+While the effect of b1 was significant in a previous model, it no longer is in this model.
 :::
-  
+
 ## Dynamic SEM: Including random autoregressive and cross-lagged effects
+
 Until now, we have treated Event as a predictor only. However, it is also possible that the experience of negative and positive Events is affected by a person's momentary somberness. Moreover, there may be an autoregressive effect for Events. Hence, we are interested in the following model:
 
 ![](figures/Model4.png){width="400px"}
 
-Thus, we have added two random slopes to the model: `b3` and `b4`, the autoregressive and cross-lagged effect respectively. At the between level, we allow the now 6 random effects to be correlated, rather than that we predict one from the other as we did before. Note that while the figure does not include a relationship between S and E at t-1, these predictors are related in the model (as the model that is specified at time point t, equally applies to all other time points - so we could have added the same b1 arrow there); the current representation simply represents which model statements are needed.  
+Thus, we have added two random slopes to the model: `b3` and `b4`, the autoregressive and cross-lagged effect respectively. At the between level, we allow the now 6 random effects to be correlated, rather than that we predict one from the other as we did before. Note that while the figure does not include a relationship between S and E at t-1, these predictors are related in the model (as the model that is specified at time point t, equally applies to all other time points - so we could have added the same b1 arrow there); the current representation simply represents which model statements are needed.
 
-### Specify the Mplus Model 
+### Specify the Mplus Model
+
 How do you specify this model? Check your specification with the `model4.inp` input file.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 MODEL:
             %WITHIN%
             s1 | Somber ON Event; ! lagged random regression
@@ -467,48 +493,53 @@ MODEL:
 
 ### Model Equations
 
-* While running the model, write down the regression equation for the within level.
+-   While running the model, write down the regression equation for the within level.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 $$S^{(w)}_{it}=b_{1i}\times E^{(w)}_{it} + b_{2i}\times S^{(w)}_{it-1} + \zeta_{S it}$$
 
 $$E^{(w)}_{it}=b_{3i}\times E^{(w)}_{it-1} + b_{4i}\times S^{(w)}_{it-1} + \zeta_{S it}$$
 :::
 
-* In contrast to typical cross-lagged models that we covered in the lecture, we are not including a covariance between the residuals here. Why not?
+-   In contrast to typical cross-lagged models that we covered in the lecture, we are not including a covariance between the residuals here. Why not?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-The concurrent (lag 0) relationship is already accounted for by the (random) regression of $S_{it}$ on $E_{it}$. The residual of $S_{it}$ is the part that cannot be predicted from $E_{it}$ (and $S_{it-1}$); hence it would not make sense to correlate this residual with the residual of $E_{it}$. 
+
+The concurrent (lag 0) relationship is already accounted for by the (random) regression of $S_{it}$ on $E_{it}$. The residual of $S_{it}$ is the part that cannot be predicted from $E_{it}$ (and $S_{it-1}$); hence it would not make sense to correlate this residual with the residual of $E_{it}$.
 :::
 
-* How many parameters are estimated at each level?
+-   How many parameters are estimated at each level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 Within: 2 residual variances
 
-Note that because Event is now not only a predictor, but also an outcome, we no longer estimate its variance, but instead its <i>residual</i> variance; the variance of Event is now a function of the residual variance, the regression coefficients, and the variances of the predictors. 
+Note that because Event is now not only a predictor, but also an outcome, we no longer estimate its variance, but instead its <i>residual</i> variance; the variance of Event is now a function of the residual variance, the regression coefficients, and the variances of the predictors.
 
-Between: 
+Between:
 
--	4 fixed slopes (mean slopes)
--	2 fixed intercepts (grand means)
--	6 variances of the 4 slopes and 2 intercepts (random effects)
--	15 covariances between these random effects
+-   4 fixed slopes (mean slopes)
+-   2 fixed intercepts (grand means)
+-   6 variances of the 4 slopes and 2 intercepts (random effects)
+-   15 covariances between these random effects
 
 29 parameters in total.
 :::
 
 ### Convergence & Interpret the Results
-When the model is finished, check the trace plots for signs of non-convergence. 
 
-* Look at the estimated effects. What can you conclude about the autoregressive and cross-lagged coefficients?
+When the model is finished, check the trace plots for signs of non-convergence.
+
+-   Look at the estimated effects. What can you conclude about the autoregressive and cross-lagged coefficients?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```
+
+```         
 Means
     B1               -0.169       0.014      0.000      -0.195      -0.142      *
     B2                 0.342       0.022      0.000       0.298       0.382      *
@@ -520,14 +551,15 @@ All of the average coefficients differ from zero.
 
 The average autoregressive coefficients, b2 and b3, are positive. So for on average, there is carryover from one moment to the next both for feelings of somberness and the experienced pleasantness of events.
 
-The average Cross-lagged coefficients b1 and b4 are negative, implying: More positive Events tend to be followed by less somberness an occassion later, while increased somberness tends to by followed by less positively experienced events.  
+The average Cross-lagged coefficients b1 and b4 are negative, implying: More positive Events tend to be followed by less somberness an occassion later, while increased somberness tends to by followed by less positively experienced events.
 :::
 
-* To compare the strengths of the cross-lagged effects, we need to consider the standardized parameters. Check the standardized output, and interpret the regression coefficients there. 
+-   To compare the strengths of the cross-lagged effects, we need to consider the standardized parameters. Check the standardized output, and interpret the regression coefficients there.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```
+
+```         
 B1 | SOMBER ON
     EVENT             -0.211       0.013      0.000      -0.237      -0.187      *
 
@@ -541,18 +573,19 @@ B1 | SOMBER ON
     SOMBER&1          -0.105       0.015      0.000      -0.137      -0.077      *
 ```
 
-The standardized autoregressive parameters should be (approximately) the same as the unstandardized ones. The reason for this is that the variances for $y_{t}$ and $y_{t-1}$ in a stationary model are the same by definition. Slight differences in the point estimates might occur due to the calculation procedure of the standardized effects. 
+The standardized autoregressive parameters should be (approximately) the same as the unstandardized ones. The reason for this is that the variances for $y_{t}$ and $y_{t-1}$ in a stationary model are the same by definition. Slight differences in the point estimates might occur due to the calculation procedure of the standardized effects.
 
 Note however that the standard errors are smaller for the standardized fixed effects. This is because the standardized fixed effect is a <i>sample mean</i> of the person-specific effects, and disregards sampling variability. Significance of fixed effects should hence be based on the <i>unstandardized</i> fixed effects. This also applies to the fixed cross-lagged effects. This is not an issue for the person-specific standardized effects.
 
 The standardized average (fixed) effect from Event to Somber (-.211) is twice the size of the one from Somber to Event (-.105); so on average, the effect from Events on mood is stronger than the other way around. This however may be different from person to person.
 :::
 
-* Consider the R-square output as well. How can you interpret this?
+-   Consider the R-square output as well. How can you interpret this?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```
+
+```         
 Within-Level R-Square Averaged Across Clusters
                                 Posterior  One-Tailed         95% C.I.
     Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
@@ -563,13 +596,14 @@ Within-Level R-Square Averaged Across Clusters
 On average, 23% of within-person variability in Somber can be accounted for by the lagged relationships; for Event this is 6%. These numbers may however differ from person to person.
 :::
 
-* Consider the covariances and correlations between the random effects. For which of these correlations is there evidence that they deviate from zero?
+-   Consider the covariances and correlations between the random effects. For which of these correlations is there evidence that they deviate from zero?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 There are a few significant correlations:
 
-```
+```         
 SOMBER   WITH
     B1                -0.346       0.132      0.007      -0.585      -0.071      *
     B3                 0.342       0.151      0.017       0.027       0.623      *
@@ -580,7 +614,8 @@ B3       WITH
  SOMBER   WITH
     EVENT             -0.523       0.083      0.000      -0.663      -0.346      *
 ```
-People with relatively high person-specific means for somber tend to have  relatively low values for the effect of event on somber; and relatively high autoregressive effects for Event.
+
+People with relatively high person-specific means for somber tend to have relatively low values for the effect of event on somber; and relatively high autoregressive effects for Event.
 
 People with relatively higher autoregressive effects for Event tend to have relatively high values for the cross-lagged effect of somber on event.
 
@@ -589,23 +624,23 @@ People with relatively high person-specific means for somber tend to have relati
 To interpret these effects further, we'll look at some plots in the following exercise.
 :::
 
-* For each of these correlations, get a scatter plot and interpret the result (use the "Between-level scatterplots" option). 
+-   For each of these correlations, get a scatter plot and interpret the result (use the "Between-level scatterplots" option).
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 Somber with b1: A higher mean level for Somber is related to lower b1 (effect of Event on Somber), which is negative on average; hence people with a lower level on somber, tend to have a b1 closer to zero, while individuals with a higher level on Somber tend to have a b1 that is more negative.
 
 Somber with b3: Individuals with relatively high person-specific means of Somber tend to have relatively high positive autoregressive effects in their Events.
 
-b3 with b4: People with relatively higher autoregressive effects for Event (b3) tend to have a relatively high b4 - Since the average b4 is negative, it means: higher autoregression for Event is a b4 closer to zero, while a lower autoregression for Event is associated with a stronger negative effect of Somber on Event. 
+b3 with b4: People with relatively higher autoregressive effects for Event (b3) tend to have a relatively high b4 - Since the average b4 is negative, it means: higher autoregression for Event is a b4 closer to zero, while a lower autoregression for Event is associated with a stronger negative effect of Somber on Event.
 
 People with relatively high person-specific means for somber tend to have relatively low person-specific means for event.
 :::
 
-
 ## Dynamic SEM: Adding an implicit lag 2 effect (bonus)
-As mentioned before, due to the time interval that the variable Event is referring to, you can think of this as a variable that is situated in time between two consecutive measurements of somber. Hence the lag 0 regression (b1) is in a way already a lagged relationship, and we have therefore not included the regression of Somber at occasion t on Event at occasion t-1, but only a "concurrent" relationship of Somber t on Event t (and hence no residual correlation between the residuals of somber t and event t). However, we could add the lagged effects to the model, which would than imply an implicit 'lag 2' effect. We then get the following model:
 
+As mentioned before, due to the time interval that the variable Event is referring to, you can think of this as a variable that is situated in time between two consecutive measurements of somber. Hence the lag 0 regression (b1) is in a way already a lagged relationship, and we have therefore not included the regression of Somber at occasion t on Event at occasion t-1, but only a "concurrent" relationship of Somber t on Event t (and hence no residual correlation between the residuals of somber t and event t). However, we could add the lagged effects to the model, which would than imply an implicit 'lag 2' effect. We then get the following model:
 
 ![](figures/Model5.png){width="400px"}
 
@@ -615,15 +650,18 @@ How many additional parameters does this model have in comparison to the previou
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-The mean (fixed effect) of B5 and its variance (random effect) and the covariance between this random effect and the other 6 random effects; so 8 additional parameters.   
+
+The mean (fixed effect) of B5 and its variance (random effect) and the covariance between this random effect and the other 6 random effects; so 8 additional parameters.
 :::
 
 ### Run the Mplus Model & Interpret the Results
-Run this model, and interpret the results for the fixed effects of the lagged parameters. 
+
+Run this model, and interpret the results for the fixed effects of the lagged parameters.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Means
     B1                -0.162       0.014      0.000      -0.190      -0.135      *
     B2                 0.324       0.022      0.000       0.279       0.367      *
@@ -632,10 +670,11 @@ Means
     B5                -0.056       0.013      0.000      -0.080      -0.029      *
 ```
 
-They all differ significantly from zero. The autoregressive parameters (b2 and b3) are positive. The cross-lagged relationships are all negative. The new lagged effect (b5: delayed effect of Event on somber) is also negative; however, it is less strong than the other effect of Event on Somber (b1). 
+They all differ significantly from zero. The autoregressive parameters (b2 and b3) are positive. The cross-lagged relationships are all negative. The new lagged effect (b5: delayed effect of Event on somber) is also negative; however, it is less strong than the other effect of Event on Somber (b1).
 :::
 
 ## Dynamic SEM: Adding a between level factor structure (bonus)
+
 Instead of simply correlating the random effects at the between level, we may also consider modeling these variables more explicitly. For instance, we can specify a factor model to try to capture what these level 2 variables have in common. This can be represented like this:
 
 ![](figures/Model6.png){width="400px"}
@@ -644,40 +683,44 @@ How many parameters does this model have at each level?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 Within: 2 residual variances
 
-Between: 
+Between:
 
-- 7 residual variances for the indicators
-- 6 factor loadings (one is fixed to 1 for scaling the latent variable)
-- 1 latent variance for eta (mean of zero)
-- 7 intercepts (means) for the indicators
+-   7 residual variances for the indicators
+-   6 factor loadings (one is fixed to 1 for scaling the latent variable)
+-   1 latent variance for eta (mean of zero)
+-   7 intercepts (means) for the indicators
 :::
 
-### Specify the Mplus Model 
+### Specify the Mplus Model
 
 To specify the factor model at the between level, use:
 
-```default
+``` default
 %BETWEEN%
 eta BY somber@1 Event b1*1 b2 b3 b4 b5;
 ```
 
 (The `b1*1` is required in the Mplus v8.1; it is probably not necessary any more in a future version.)
 
-* While running the model, indicate how you would interpret the factor $\eta$.
+-   While running the model, indicate how you would interpret the factor $\eta$.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 It is a latent variable which explains the shared variance among the random effects. Without further theory about what kind of latent variable would cause variation in all these random effects it is hard to give it a more meaningful label! Looking at the factor loadings may help interpret the factor here (akin to an EFA).
 :::
 
 ### Convergence & Interpret the Results
+
 If you do not find signs of non-convergence, you can proceed with checking the parameter estimates. Which factor loadings are significant, and what do they mean?
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
-```default
+#### Answer
+
+``` default
 Between Level
 
  ETA      BY
@@ -694,59 +737,58 @@ Between Level
 
 People with higher eta tend to have:
 
--	Higher mean levels of somberness
--	Lower mean levels of unpleasant-pleasant Event
--	More negative effects of Event t on Somber t (b1) (more reactive to     events)
--	Higher carry-over in Event (b3) (more intertia in event)
+-   Higher mean levels of somberness
+-   Lower mean levels of unpleasant-pleasant Event
+-   More negative effects of Event t on Somber t (b1) (more reactive to events)
+-   Higher carry-over in Event (b3) (more intertia in event)
 
 Perhaps the latent variable could be called something like 'negative outlook' or 'neuroticism'. But it would be better to apply a model like this when one has a specific theory in mind!
 :::
 
-
 ## Dynamic SEM: Making the residual variance person-specific (bonus)
+
 In this model, we allow the residual variances to be random. This is often not an option in multilevel software, but within the Bayesian approach of DSEM this is fairly doable. We do still assume normal distributions for the random effects, which is not 100% appropriate for variances as they should not be able to become negative. To avoid issues with this, we model logtransformed random variances instead. The model is depicted below - note that we have also kept the factor structure at the between level from exercise 6:
 
 ![](figures/Model7.png){width="400px"}
 
-### Specify the Mplus Model 
+### Specify the Mplus Model
 
-Specify this model (or sneak a peak at our input file) and run it. While it is running, determine the number of parameters that are estimated in this model.  
+Specify this model (or sneak a peak at our input file) and run it. While it is running, determine the number of parameters that are estimated in this model.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 Within level: 0 parameters
 
-Between level: 
--	9 fixed effects
--	9 variances
--	8 factor loadings
--	1 factor variance
+Between level: - 9 fixed effects - 9 variances - 8 factor loadings - 1 factor variance
 
 27 parameters in total
 :::
 
 ### Convergence
 
-Check the trace plots for signs of nonconvergence. Are there signs that indicate convergence may be slow?  
+Check the trace plots for signs of nonconvergence. Are there signs that indicate convergence may be slow?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-Some of the trace plots show there is a lot of autocorrelation in the Bayesian samples (iterations) over time. This means the chains 'mix' slowly - the two chains are not covering each other all the time, and only move slowly along the y-axis. 
+
+Some of the trace plots show there is a lot of autocorrelation in the Bayesian samples (iterations) over time. This means the chains 'mix' slowly - the two chains are not covering each other all the time, and only move slowly along the y-axis.
 
 However, the chains do vary around the same constant (which would be the posterior mean estimate).
 
 Essentially, there is no evidence that the procedure is not converging, but that it is going relatively slowly. As a result, we'll need more iterations than if we have lower autocorrelations.
 
-One could decide to increase the number of iterations. This can be done by simply increasing the iteration number, or by use the thin option here. When using `THIN=10`; Mplus saves only every tenth sample of the MCMC chain, and it also means that 10 times as many iterations are used. Thinning reduces (visible) autocorrelation in the chains, and as a result you can more easily see if the chains are mixing well.   
+One could decide to increase the number of iterations. This can be done by simply increasing the iteration number, or by use the thin option here. When using `THIN=10`; Mplus saves only every tenth sample of the MCMC chain, and it also means that 10 times as many iterations are used. Thinning reduces (visible) autocorrelation in the chains, and as a result you can more easily see if the chains are mixing well.
 :::
 
 ### Interpret the Results
 
-* Consider the factor loading estimates: What do you conclude? 
+-   Consider the factor loading estimates: What do you conclude?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Between Level
 
  ETA      BY
@@ -763,70 +805,75 @@ Between Level
     LOGVE              0.057       0.107      0.282      -0.132       0.289
 ```
 
-B3 no longer loads significantly on $\eta$. 
+B3 no longer loads significantly on $\eta$.
 
 People with relatively high scores on $\eta$, tend to have:
 
--	relatively high person-specific means for somberness
-- relatively low person-specific means for event 
--	more negative effects of $Event_{t}$ on $Somber_{t}$ (b1)
--	more negative delayed effects of $Event_{t-1}$ on $Somber_{t}$ (b5)
--	Have a larger (log) residual variance for somberness
+-   relatively high person-specific means for somberness
+-   relatively low person-specific means for event
+-   more negative effects of $Event_{t}$ on $Somber_{t}$ (b1)
+-   more negative delayed effects of $Event_{t-1}$ on $Somber_{t}$ (b5)
+-   Have a larger (log) residual variance for somberness
 :::
 
-* Consider the R-square in the standardized results: What do you conclude?
+-   Consider the R-square in the standardized results: What do you conclude?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
+
 Within: On average across persons, 24% of the within-person variance of momentary somberness and 5% of momentary Events is explained
 
-Between: the factor eta accounts for a substantial proportion of between-person variability in average somberness (54%), direct reactivity (b1; 43%), and residual within-person variance in somberness (RVS; 45%). 
+Between: the factor eta accounts for a substantial proportion of between-person variability in average somberness (54%), direct reactivity (b1; 43%), and residual within-person variance in somberness (RVS; 45%).
 
 It accounts for a smaller proportion of variance in the average pleasantness of Events (22%) and delayed reactivity (b5; 20%).
 
-The other R-squares are closer to zero.   
+The other R-squares are closer to zero.
 :::
 
 ## DSEM: Adding a level 2 (between level) predictor (bonus)
-Finally, we consider a between level observed predictor for the nine random effects. For instance, we may consider a personality trait like Neuroticism as a useful predictor of individual differences in person-specific average somberness, and person-specific average experienced unpleasantness-pleasantness of events. Furthermore, we can investigate whether it predicts individual differences in inertia (autoregression), reactivity (cross-lagged regressions), and residual variances.    
+
+Finally, we consider a between level observed predictor for the nine random effects. For instance, we may consider a personality trait like Neuroticism as a useful predictor of individual differences in person-specific average somberness, and person-specific average experienced unpleasantness-pleasantness of events. Furthermore, we can investigate whether it predicts individual differences in inertia (autoregression), reactivity (cross-lagged regressions), and residual variances.
 
 ![](figures/Model8.png){width="400px"}
 
-### Specify the Mplus Model 
+### Specify the Mplus Model
 
-* Specify the model and run it. While it is running indicate how many parameters this model has.
+-   Specify the model and run it. While it is running indicate how many parameters this model has.
 
 ::: {.callout-caution collapse="true"}
-#### Answer 
+#### Answer
+
 Within level: 0 parameters
 
-Between level: 
+Between level:
 
--	9 fixed effects
--	9 variances
--	9 regression coefficients
--	1 mean for the between level predictor N
--	1 variance for the between level predictor N
+-   9 fixed effects
+-   9 variances
+-   9 regression coefficients
+-   1 mean for the between level predictor N
+-   1 variance for the between level predictor N
 
 29 parameters in total (....but see the next exercise)
 :::
 
-* Check the number of free parameters in the output (under model fit). Is this correct? If it is not correct, which parameter is added/deleted by default by Mplus?
+-   Check the number of free parameters in the output (under model fit). Is this correct? If it is not correct, which parameter is added/deleted by default by Mplus?
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-It is 30 rather than 29. 
 
-The additional parameter that is estimates is the covariance between the residuals of the mean Somber and mean Events at the between level. 
+It is 30 rather than 29.
+
+The additional parameter that is estimates is the covariance between the residuals of the mean Somber and mean Events at the between level.
 :::
 
-
 ### Interpret the results
+
 Interpret the resulting parameter estimates - focus on the regression coefficients of the model that was estimated.
 
 ::: {.callout-caution collapse="true"}
 #### Answer
-```default
+
+``` default
 Between Level
 
  B1         ON
@@ -841,10 +888,11 @@ LOGVS      ON
  EVENT      ON
     NEUROTIC          -0.018       0.007      0.005      -0.032      -0.004      *
 ```
-People that score relatively high on Neuroticism tend to have relatively: 
 
--	high person-specific means for Somber 
--	low person-specific means for Event (on average less pleasant momentary events)
--	stronger reactivity to Event (i.e., a more negative b1)
--	larger residual variance for the variable Somber (more unexplained momentary fluctuations for Somberness)
+People that score relatively high on Neuroticism tend to have relatively:
+
+-   high person-specific means for Somber
+-   low person-specific means for Event (on average less pleasant momentary events)
+-   stronger reactivity to Event (i.e., a more negative b1)
+-   larger residual variance for the variable Somber (more unexplained momentary fluctuations for Somberness)
 :::
