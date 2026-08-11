@@ -80,9 +80,9 @@ PLOT:
 
 when running the model. Then press the "plot" button and select "Estimated mean and observed individual values" and "Estimated means and estimated individual values". Below you can find these plots for the GMM with 2 classes.
 
-![Estimated means and individual values.](./figures/exercise1D-estimatedMeansIndividualValues.jpg){width="400px"}
+![Estimated means and individual values.](./figures/exercise1d-estimatedMeansIndividualValues.jpg){width="400px"}
 
-![Estimated means and estimated invidivual trajectories](./figures/exercise1D-estimatedMeansAndValues.jpg){width="400px"}
+![Estimated means and estimated invidivual trajectories](./figures/exercise1d-estimatedMeansAndValues.jpg){width="400px"}
 
 Admittedly, this plot looks chaotic. Primarily because the individual values are not colored according to the class to which they are assigned. Alternatively, you could get the estimated means and (individual) values per class in a separate window as well. However, `MplusAutomation` has some useful plotting functions that I recommend you to explore, for example `plotGrowthMixtures()`, in which you can color the lines according to their class membership.
 :::
